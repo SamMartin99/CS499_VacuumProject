@@ -15,5 +15,7 @@ public class HelloWorld {
     {
         String groupMember = "Guess";
         System.out.printf("Hello world, %s.", groupMember);
+        String groupMember1= "Marie Held";
+        System.out.printf("\nHello world, %s.", groupMember1);
     }
 }
