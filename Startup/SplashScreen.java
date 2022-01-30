@@ -4,7 +4,7 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 // Samuel Martin
 // Bryant Terry
 
-// Program function: Simply prints hello world to the console, followed by a team member's name.
+// Program function: Display the project logo, followed by a team member's name.
 // Program purpose: To test GitHub functionality
 
 // Imports for using java's swing GUI functionality
