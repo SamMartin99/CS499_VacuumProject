@@ -8,13 +8,18 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 // Program purpose: To test GitHub functionality
 
 // Imports for using java's swing GUI functionality
-import java.awt.*;
+
 import javax.swing.*;
-import javax.swing.ImageIcon;
-import java.awt.Image;
+import java.awt.*;
+import java.io.*;
+import java.util.Scanner;
+
+
+
 
 /* FrameDemo.java requires no other files. */
 public class SplashScreen {
+
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -49,13 +54,30 @@ public class SplashScreen {
         splashScreenFrame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
+
+        // Open House file for read and writing
+
+        Scanner houseFile;
+        String[] houseData = new String[100];
+        houseData[0] = " ";
+        int lineNumber = 0;
+
+        FileHandling houseFileObject = new FileHandling();
+        houseFile = houseFileObject.openHouseFile();
+        houseData = houseFileObject.readHouseFile(houseFile);
+        while (houseData[lineNumber] != "eof") {
+            System.out.println(houseData[lineNumber]);
+            lineNumber++;
+        }
+
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
             }
         });
     }
+
 }
