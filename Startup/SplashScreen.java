@@ -59,59 +59,59 @@ public class SplashScreen {
         //creating and showing this application's GUI.
 
         // create a new House Layout
-        int index1, index2;
-        String layoutName = "marie";
-        HouseLayout myHouse = new HouseLayout(layoutName);
+        // This is just test code need to remove at some point
+//        int index1, index2;
+ //       String layoutName = "marie";
+//        HouseLayout myHouse = new HouseLayout(layoutName);
 
 //        System.out.println(myHouse.getLayoutName());
 //        System.out.println(myHouse.getTileArray());
 //        System.out.println(myHouse.getFloorType());
 
-        myHouse.setLayoutName("Hello World");
-        System.out.println("The house layout name is: " + myHouse.getLayoutName());
-        int dim1 = 100;
-        int dim2 = 100;
+ //       myHouse.setLayoutName("Hello World");
+//        System.out.println("The house layout name is: " + myHouse.getLayoutName());
+//        int dim1 = 100;
+//        int dim2 = 100;
 
-        int[][] myTileArray = new int[dim1][dim2];
-        for (index1 =0; index1 < dim1; index1++) {
-            for (index2 = 1; index2 < dim2; index2++) {
-                myTileArray[index1][index2] = 1;
-            }
-        }
-         myHouse.setTileArray(myTileArray);
-         myTileArray=myHouse.getTileArray();
-         System.out.println("The tile array is: ");
-         for ( index1 =0; index1 < dim1; index1++) {
-             for (index2 = 1; index2 < dim2; index2++) {
-                 System.out.print(myTileArray[index1][index2] + " ");
-             }
-             System.out.println();
-         }
+//        int[][] myTileArray = new int[dim1][dim2];
+//        for (index1 =0; index1 < dim1; index1++) {
+//            for (index2 = 1; index2 < dim2; index2++) {
+//                myTileArray[index1][index2] = 1;
+//            }
+//        }
+//         myHouse.setTileArray(myTileArray);
+//         myTileArray=myHouse.getTileArray();
+//         System.out.println("The tile array is: ");
+//         for ( index1 =0; index1 < dim1; index1++) {
+//             for (index2 = 1; index2 < dim2; index2++) {
+//                 System.out.print(myTileArray[index1][index2] + " ");
+//             }
+ //            System.out.println();
+ //        }
 
-         myHouse.setFloorType(2);
-         System.out.println("The floor type is: " + myHouse.getFloorType());
+//         myHouse.setFloorType(2);
+//         System.out.println("The floor type is: " + myHouse.getFloorType());
 
 
-        // Open House file for read and writing
-/*
-        Scanner houseFile;
-        String[] houseData = new String[100];
-        houseData[0] = " ";
-        int lineNumber = 0;
 
-        FileHandling houseFileObject = new FileHandling();
-        houseFile = houseFileObject.openHouseFile();
-        houseData = houseFileObject.readHouseFile(houseFile);
-        while (houseData[lineNumber] != "eof") {
-            System.out.println(houseData[lineNumber]);
-            lineNumber++;
-        }
-*/
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
             }
         });
+
+        // Create the new houseLayout Object
+        HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();
+        // Open the HouseLayoutFile
+        Scanner HouseLayoutFile;
+        HouseLayoutFile = houseLayout.openHouseLayoutFile();
+
+        // Read the HouseLayoutFile
+        String houseLayoutData = "";
+        houseLayoutData= houseLayout.readHouseLayout(HouseLayoutFile);
+        System.out.println(houseLayoutData);
+
+
     }
 
 }
