@@ -99,18 +99,17 @@ public class SplashScreen {
                 createAndShowGUI();
             }
         });
-
+// Test code for house layout file handling at some p
         // Create the new houseLayout Object
-        HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();
+//        HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();
         // Open the HouseLayoutFile
-        Scanner HouseLayoutFile;
-        HouseLayoutFile = houseLayout.openHouseLayoutFile();
+ //       Scanner HouseLayoutFile;
+//        HouseLayoutFile = houseLayout.openHouseLayoutFile();
 
         // Read the HouseLayoutFile
-        String houseLayoutData = "";
-        houseLayoutData= houseLayout.readHouseLayout(HouseLayoutFile);
-        System.out.println(houseLayoutData);
-
+ //       String houseLayoutData = "";
+//        houseLayoutData= houseLayout.readHouseLayout(HouseLayoutFile);
+///
 
     }
 
