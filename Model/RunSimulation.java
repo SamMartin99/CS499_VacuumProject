@@ -1,12 +1,13 @@
 package Model;
 import java.util.Random;
 
-/* Authors:
+/* Authors: Bryant Terry
  * Purpose: Runs simulation, calling DrawGraph to update visuals as necessary.
  * Uses one of the algorithms while running to determine changes to the tile array.
  *
- * NOTE FROM BRYANT: May be best to have a separate class for each algorithm. This class
- * will probably get too "crowded" otherwise.
+ * NOTE FROM BRYANT: I'm putting each algorithm in its own separate Java class. Some algorithms seem
+ * to make use of each other, and there was too much code to put under one class. Also, it will (hopefully)
+ * make it easier to incorporate the speed of the simulation while it is being run (run_speed).
  */
 
 public class RunSimulation {
@@ -41,191 +42,43 @@ public class RunSimulation {
         this.TA = TA;
     }
 
-    /* Name: algorithm_random
+    /* Name: run_algorithm
      * Parameters: N/A
      * Return: N/A
-     * Purpose: Calculates vacuum path using a random algorithm. The vacuum continues to move in
-     * a direction until an obstacle is hit, at which point, a new random direction is generated.
+     * Purpose: Runs an algorithm to determine new position of vacuum and what tiles are cleaned in
+     * the process. Algorithm is run for every second for every minute of battery life.
+     * If vacuum does not move (if it is still calculating a new direction) do not count that as a
+     * second spent. Decrement the battery by 1 for every "minute" that passes.
      *
-     * NOTE FROM BRYANT: Currently I have this in the RunSimulation class, but it might be best to
-     * place our algorithms in separate classes. Also, this should go without saying, but this is
-     * fairly unoptimized, and missing some features that should be in the final build. If you see any
-     * changes that need to be made, don't hesitate to do so.
+     * NOTE FROM BRYANT: May have to alter this to account for the other algorithms.
      */
-    public void algorithm_random ()
-    {
+    public void run_algorithm () {
         // Start by generating a random number.
         Random rand = new Random();
         int direction = rand.nextInt(8);
-        double old_clean;
+        int old_direction;
+
+        AlgorithmRandom RA = new AlgorithmRandom();
 
         // For each minute of battery life, track the vacuum's actions for every second.
         for (int i = V.getBattery(); i > 0; i--)
         {
+            // If the direction has to be changed, do not count that as a second spent.
             for (int j = 60; j > 0; j--)
             {
-                // If the current direction has an obstacle ahead, generate a new direction,
-                // and don't count that as a second.
-                switch (direction)
+                old_direction = direction;
+                direction = RA.algorithm_random(direction, TA, V, floor_type);
+
+                // Ignore direction calculations as time spent.
+                if (old_direction != direction)
                 {
-                    // North
-                    case 0:
-                        if (TA.getTile(V.getX(), (V.getY() + 1)).getPass())
-                        {
-                            V.setX(V.getX());
-                            V.setY(V.getY() + 1);
-
-                            old_clean = TA.getTile(V.getX(), (V.getY() + 1)).getClean();
-                            TA.getTile(V.getX(), (V.getY() + 1)).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // Northeast
-                    case 1:
-                        if (TA.getTile((V.getX() + 1), (V.getY() + 1)).getPass())
-                        {
-                            V.setX(V.getX() + 1);
-                            V.setY(V.getY() + 1);
-
-                            old_clean = TA.getTile((V.getX() + 1), (V.getY() + 1)).getClean();
-                            TA.getTile((V.getX() + 1), (V.getY() + 1)).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // East
-                    case 2:
-                        if (TA.getTile((V.getX() + 1), V.getY()).getPass())
-                        {
-                            V.setX(V.getX() + 1);
-                            V.setY(V.getY());
-
-                            old_clean = TA.getTile((V.getX() + 1), V.getY()).getClean();
-                            TA.getTile((V.getX() + 1), V.getY()).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // Southeast
-                    case 3:
-                        if (TA.getTile((V.getX() + 1), (V.getY() - 1)).getPass())
-                        {
-                            V.setX(V.getX() + 1);
-                            V.setY(V.getY() - 1);
-
-                            old_clean = TA.getTile((V.getX() + 1), (V.getY() - 1)).getClean();
-                            TA.getTile((V.getX() + 1), (V.getY() - 1)).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // South
-                    case 4:
-                        if (TA.getTile(V.getX(), (V.getY() - 1)).getPass())
-                        {
-                            V.setX(V.getX());
-                            V.setY(V.getY() - 1);
-
-                            old_clean = TA.getTile(V.getX(), (V.getY() + 1)).getClean();
-                            TA.getTile(V.getX(), (V.getY() + 1)).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // Southwest
-                    case 5:
-                        if (TA.getTile((V.getX() - 1), (V.getY() - 1)).getPass())
-                        {
-                            V.setX(V.getX() - 1);
-                            V.setY(V.getY() - 1);
-
-                            old_clean = TA.getTile((V.getX() - 1), (V.getY() - 1)).getClean();
-                            TA.getTile((V.getX() - 1), (V.getY() - 1)).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // West
-                    case 6:
-                        if (TA.getTile((V.getX() - 1), V.getY()).getPass())
-                        {
-                            V.setX(V.getX() - 1);
-                            V.setY(V.getY());
-
-                            old_clean = TA.getTile((V.getX() - 1), V.getY()).getClean();
-                            TA.getTile((V.getX() - 1), V.getY()).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
-                    // Northwest
-                    case 7:
-                        if (TA.getTile((V.getX() - 1), (V.getY() + 1)).getPass())
-                        {
-                            V.setX(V.getX() - 1);
-                            V.setY(V.getY() + 1);
-
-                            old_clean = TA.getTile((V.getX() - 1), (V.getY() + 1)).getClean();
-                            TA.getTile((V.getX() - 1), (V.getY() + 1)).setClean(calculate_clean(old_clean));
-                        }
-                        else
-                        {
-                            direction = rand.nextInt(8);
-                            j++;
-                        }
+                    j++;
                 }
             }
 
+            // Decrement battery life.
             V.setBattery(V.getBattery() - 1);
         }
-    }
-
-    /* Name: calculate_clean
-     * Parameters: double clean_value
-     * Return: double new_clean
-     * Purpose: Calculates how much the tile gets cleaned. Returns the result.
-     */
-    double calculate_clean (double clean_value)
-    {
-        double new_clean;
-
-        // Hard
-        if (floor_type == 1)
-        {
-            new_clean = clean_value - (clean_value * 0.90);
-        }
-        // Loop Pile
-        else if (floor_type == 2)
-        {
-            new_clean = clean_value - (clean_value * 0.75);
-        }
-        // Cut Pile
-        else if (floor_type == 3)
-        {
-            new_clean = clean_value - (clean_value * 0.70);
-        }
-        // Frieze-Cut Pile
-        else
-        {
-            new_clean = clean_value - (clean_value * 0.65);
-        }
-
-        return new_clean;
     }
 
 }
