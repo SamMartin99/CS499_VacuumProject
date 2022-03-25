@@ -11,6 +11,8 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Scanner;
 
@@ -41,6 +43,18 @@ public class SplashScreen {
         namesLabel.setPreferredSize(new Dimension(500, 200));
         namesLabel.setIcon(logo); // Sets the JLabel's icon to our logo image
 
+        JButton startButton = new JButton("Press to start program");  // mh  Button to start the program
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                splashScreenFrame.setVisible(false);  //mh
+                splashScreenFrame.dispose();          //mh  Close out the splash screen and remove any associated memory
+                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI();  // mh create a house layout object
+                MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
+
+            }
+        });  //mh react to a button click
+
         // Alignment/layout stuff to center the logo and text
         namesLabel.setHorizontalAlignment(SwingConstants.CENTER);
         splashScreenFrame.getContentPane().add(namesLabel, BorderLayout.SOUTH);
@@ -48,13 +62,16 @@ public class SplashScreen {
         namesLabel.setVerticalTextPosition(JLabel.BOTTOM);
 
         splashScreenFrame.add(namesLabel); // Add our JLabel to the window
+        splashScreenFrame.add(startButton, BorderLayout.SOUTH); // mh add button to splash screen
 
         //Display the window.
         splashScreenFrame.setSize(960, 540);
         splashScreenFrame.setVisible(true);
+
     }
 
     public static void main(String[] args) throws IOException {
+
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
 
@@ -93,12 +110,19 @@ public class SplashScreen {
 //         System.out.println("The floor type is: " + myHouse.getFloorType());
 
 
-
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
             }
         });
+
+
+
+
+
+
+
+
 // Test code for house layout file handling at some p
         // Create the new houseLayout Object
 //        HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();

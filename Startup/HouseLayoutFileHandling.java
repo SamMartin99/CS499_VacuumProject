@@ -10,13 +10,14 @@ import java.io.FileWriter;
 // Reading the house layout
 // Saving the house layout
 
-public class HouseLayoutFileHandling extends JFrame { // implements ActionListener{
+public class HouseLayoutFileHandling {
+//public class HouseLayoutFileHandling extends JFrame { // implements ActionListener{
     // File Attributes
     private File fileHouseLayout;
     private Scanner fileHouseReader;
     private String houseFileName;
 
-    // a default constructor
+    // a default constructor {
     HouseLayoutFileHandling()
     {
         fileHouseLayout = null;
