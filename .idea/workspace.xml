@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/SplashScreen.java" afterDir="false" />
-    </list>
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -158,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648238661237</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Changes: bug fixes discovered when linking code to buttons">
+      <created>1648397088155</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1648397088155</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -183,6 +185,7 @@
     <MESSAGE value="Changes: commented out test code for the file handling routine" />
     <MESSAGE value="Changes:add button to call house layout" />
     <MESSAGE value="Changes:new file for the house layout gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes:new file for the house layout gui" />
+    <MESSAGE value="Changes: bug fixes discovered when linking code to buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: bug fixes discovered when linking code to buttons" />
   </component>
 </project>
