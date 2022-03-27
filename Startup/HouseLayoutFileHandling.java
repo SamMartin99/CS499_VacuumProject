@@ -1,7 +1,5 @@
 package Startup;
 import javax.swing.*;
-import javax.swing.filechooser.*;
-import java.awt.event.*;
 import java.io.*;
 import java.util.Scanner;
 import java.io.FileWriter;
@@ -26,8 +24,8 @@ public class HouseLayoutFileHandling {
     // Methods
 
     // Creates a Windows file manager dialog for user to choose a house layout
-    public Scanner openHouseLayoutFile() throws IOException {
-
+  //  public Scanner openHouseLayoutFile(Scanner houseLayoutFile) throws IOException {
+    public void open() throws IOException {
         // create an object of JFileChooser class
         // By default goes to the user's default directory
         JFileChooser jfcOpen = new JFileChooser();
@@ -45,26 +43,36 @@ public class HouseLayoutFileHandling {
         Scanner fileHouseLayout = new Scanner(new File(houseFileName));
 
      //   System.out.println("Exiting the File Handling class openHouseFile method.");
+        this.fileHouseReader = fileHouseLayout;
 
-       return fileHouseLayout;
+
+    }
+
+    public void close() throws IOException {
+
+      // Close the file
+
+     this.fileHouseReader.close();
+
+     //   System.out.println("Exiting the File Handling class openHouseFile method.");
+
 
     }
 
  //   public HouseLayout readHouseLayout(Scanner inpfilehouseLayout){  // in final product
-    public String readHouseLayout(Scanner inpfilehouseLayout){  // for intermediate codeing only
+    public String read(){  // for intermediate codeing only
         String tempLayoutname = "temp";
         String houseData = "";
-        HouseLayout outHouseLayout = new HouseLayout(tempLayoutname);
 
-        if (inpfilehouseLayout.hasNext()) // check to see if data is available
+        if (this.fileHouseReader.hasNext()) // check to see if data is available
         {
-            houseData = inpfilehouseLayout.nextLine();
+            houseData = this.fileHouseReader.nextLine();
         }
         return houseData;
  //       return outHouseLayout;
     }
 
-    public int writeHouseLayout(File inpFileHouseLayout, HouseLayout inpHouseLayout){  // in final product
+    public int write(HouseLayout inpHouseLayout){  // in final product
         int writeStatus = 1; // 0 indicates a success ; 1 is failure
         int dim1, dim2;
         dim1 = inpHouseLayout.getDim1();
@@ -75,7 +83,7 @@ public class HouseLayoutFileHandling {
         int intFloorType = 0;
         try {
           FileWriter fw; // opens file to append data
-          fw = new FileWriter(inpFileHouseLayout,true);
+          fw = new FileWriter(this.fileHouseLayout,true);
           fw.append(inpHouseLayout.getLayoutName());  // write the name of the House Layout
           // need to convert TileArray to a series of characters
           TileArray = inpHouseLayout.getTileArray();

@@ -8,6 +8,10 @@ package Startup;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
 
 
 /**
@@ -27,8 +31,8 @@ public class MainHouseLayoutGUI {
     JPanel houseActions = new JPanel();
     JPanel fileHandling = new JPanel();
     JPanel simulationActions = new JPanel();
-    JFrame MainHouseLayoutFrame = new JFrame("House Layout");
-    JTextArea tileText = new JTextArea("this is a tile");
+    JFrame MainHouseLayoutFrame = new JFrame("Clean Buddy -- General View");
+    JTextArea tileText = new JTextArea("Layout Name");
     JButton layoutbtn = new JButton();
 
     /**
@@ -37,20 +41,22 @@ public class MainHouseLayoutGUI {
      *
      */
     MainHouseLayoutGUI(){
-// set up boarders
-        Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder ;
+    // set up boarders definistion
+        Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder, menuBorder ;
         houseTileBorder = BorderFactory.createTitledBorder("House Tiles");
         houseLayoutBorder = BorderFactory.createTitledBorder("House Components");
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
         houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
+        menuBorder = BorderFactory.createTitledBorder("CleanBuddy");
+
+
 
 // Add components to houseTile Panel
             this.houseTile.add(tileText);
             this.houseTile.setBorder(houseTileBorder);
 
             // Add components to HouseLayout Panel
-
             this.houseLayout.setBorder(houseLayoutBorder);
             this.houseLayout.add(layoutbtn);
 
@@ -64,6 +70,61 @@ public class MainHouseLayoutGUI {
             this.simulationActions.setBorder(houseSimulationBorder);
             this.simulationActions.add(runSimulationButton);
             this.simulationActions.add(stopSimulationButton);
+
+        // set actions for when buttons are clicked
+        loadHouseLayoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Save button on House Layout was clicked");
+                HouseLayoutFileHandling houseLayoutFile = new HouseLayoutFileHandling();
+                String houseLayoutDetails;
+                try {
+                    houseLayoutFile.open();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                // Read the file and print the contents
+                houseLayoutDetails = houseLayoutFile.read();
+                System.out.println(houseLayoutDetails);
+
+                try {
+                    houseLayoutFile.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        });
+
+        saveHouseLayoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Load button on House Layout was clicked");
+
+
+            }
+        });
+
+        saveHouseLayoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Save button on House Layout was clicked");
+            }
+        });
+
+        runSimulationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Run Simulation button on House Layout was clicked");
+            }
+        });
+
+        stopSimulationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Stop Simulation button on House Layout was clicked");
+            }
+        });
 
 
             // Add panels to the Frame

@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/FileHandling.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/HouseLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +51,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220325_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220327_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -155,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647202977419</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Changes:new file for the house layout gui">
+      <created>1648238661236</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1648238661237</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,6 +181,8 @@
     <MESSAGE value="Changes: add code to test functionality of house Layout object" />
     <MESSAGE value="Changes: fix the write method so that it compiles and program builds" />
     <MESSAGE value="Changes: commented out test code for the file handling routine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: commented out test code for the file handling routine" />
+    <MESSAGE value="Changes:add button to call house layout" />
+    <MESSAGE value="Changes:new file for the house layout gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes:new file for the house layout gui" />
   </component>
 </project>
