@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: bug fixes discovered when linking code to buttons">
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +48,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220329_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220329_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -171,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648397111944</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changes: add components for the east side of screen (components / options)">
+      <created>1648572584931</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1648572584931</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,6 +202,7 @@
     <MESSAGE value="Changes:add button to call house layout" />
     <MESSAGE value="Changes:new file for the house layout gui" />
     <MESSAGE value="Changes: bug fixes discovered when linking code to buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: bug fixes discovered when linking code to buttons" />
+    <MESSAGE value="Changes: add components for the east side of screen (components / options)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: add components for the east side of screen (components / options)" />
   </component>
 </project>

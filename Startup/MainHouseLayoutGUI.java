@@ -44,10 +44,10 @@ public class MainHouseLayoutGUI {
     JButton Chairbtn = new JButton("Chair");
     JButton Tablebtn = new JButton("Table");
     JButton Chestbtn = new JButton("Chest");
-    JButton ShagFloor = new JButton("Shag");
-    JButton HardwoodFloor = new JButton("Hardwood");
-    JButton LoopPile = new JButton("LoopPile");
-    JButton CutPile = new JButton("CutPile");
+    JButton ShagFloorbtn = new JButton("Shag");
+    JButton HardwoodFloorbtn = new JButton("Hardwood");
+    JButton LoopPilebtn = new JButton("LoopPile");
+    JButton CutPilebtn = new JButton("CutPile");
     JButton randomPath = new JButton("Random");
     JButton spiralPath = new JButton("Spiral");
     JButton snakePath = new JButton("Snake");
@@ -106,10 +106,10 @@ public class MainHouseLayoutGUI {
 
         LayoutFloors.setBorder(LayoutFloorsBorder);
         LayoutFloors.setPreferredSize(new Dimension(300,50 ));
-        LayoutFloors.add(ShagFloor);
-        LayoutFloors.add(HardwoodFloor);
-        LayoutFloors.add(LoopPile);
-        LayoutFloors.add(CutPile);
+        LayoutFloors.add(ShagFloorbtn);
+        LayoutFloors.add(HardwoodFloorbtn);
+        LayoutFloors.add(LoopPilebtn);
+        LayoutFloors.add(CutPilebtn);
 
         LayoutPaths.setBorder(LayoutPathBorder);
         LayoutPaths.setPreferredSize(new Dimension(300,50));
@@ -172,6 +172,97 @@ public class MainHouseLayoutGUI {
             this.simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
+        Wallbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Wall button in Components Layout was clicked");
+            }
+        });
+
+        Doorwaybtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Doorway button in Components Layout was clicked");
+            }
+        });
+
+        Chairbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Chair button in Components Furniture was clicked");
+            }
+        });
+
+        Tablebtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Table button in Components Furniture was clicked");
+            }
+        });
+
+        Chestbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Chair button in Components Furniture was clicked");
+            }
+        });
+
+        ShagFloorbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Shag button in Components Floor was clicked");
+            }
+        });
+
+        HardwoodFloorbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("HardwoodFloor button in Components Floor was clicked");
+            }
+        });
+
+        LoopPilebtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Loop Pile button in Components Floor was clicked");
+            }
+        });
+
+        CutPilebtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Cut Pile button in Components Floor was clicked");
+            }
+        });
+
+        randomPath.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Random Path button in Vacuum Algorithms was clicked");
+            }
+        });
+
+        spiralPath.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Spiral Path button in Vacuum Algorithms was clicked");
+            }
+        });
+
+        snakePath.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Snake Path button in Vacuum Algorithms was clicked");
+            }
+        });
+
+        wallFollowPath.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Wall Follow Path button in Vacuum Algorithms was clicked");
+            }
+        });
+
         loadHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
