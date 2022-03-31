@@ -5,6 +5,8 @@ package Startup;
 // East side is components
 // South is file handling and toggle running the simulation
 
+import jdk.jfr.Event;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -12,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import static java.lang.System.*;
 
 
 /**
@@ -26,6 +29,8 @@ public class MainHouseLayoutGUI {
     JButton runSimulationButton = new JButton("Run");
     JButton stopSimulationButton = new JButton("Stop");
     JPanel houseTile = new JPanel();
+    JPanel houseTileHeader = new JPanel();
+    JPanel houseTileIndividualTiles = new JPanel();
     JPanel houseLayout = new JPanel();
     JPanel houseCenter = new JPanel();
     JPanel houseActions = new JPanel();
@@ -59,6 +64,10 @@ public class MainHouseLayoutGUI {
     GridBagLayout gblHouseLayout = new GridBagLayout();
     GridBagConstraints gblHouseLayoutConstraints = new GridBagConstraints();
 
+    // In House Tile {anel use the grid layout
+    GridBagLayout gblHouseTile = new GridBagLayout();
+    GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
+
 
     /**
      * Default constructor
@@ -86,8 +95,10 @@ public class MainHouseLayoutGUI {
 
 
         // Add components to houseTile Panel
-            this.houseTile.add(tileText);
-            this.houseTile.setBorder(houseTileBorder);
+        houseTile.add(houseTileHeader,BorderLayout.NORTH);
+        houseTile.add(houseTileIndividualTiles,BorderLayout.CENTER) ;
+        houseTileHeader.add(tileText);
+        houseTileHeader.setBorder(houseTileBorder);
 
         // Add components to HouseLayout Panel
         houseLayout.setBorder(houseLayoutBorder);
@@ -127,13 +138,12 @@ public class MainHouseLayoutGUI {
         simSpeedSlider.setMajorTickSpacing(10);
         simSpeedSlider.setMinorTickSpacing(1);
         LayoutSimualtion.add(simSpeedSlider);
-
+//     just in case we want to add run /stop simulation buttons to the simulation panel
   //      LayoutSimualtion.add(runSimulationButton);
  //       LayoutSimualtion.add(stopSimulationButton);
 
 
         houseLayout.setLayout(gblHouseLayout);
-
 
         gblHouseLayoutConstraints.weightx = 1;
         gblHouseLayoutConstraints.weighty = 1;
@@ -159,6 +169,32 @@ public class MainHouseLayoutGUI {
         gblHouseLayoutConstraints.gridy = 20;
         houseLayout.add(LayoutSimualtion ,gblHouseLayoutConstraints);
 
+        // House Tiles - East side
+        int tileRow = 0;
+        int tileColumn = 0;
+        int maxTitleRow = 5;
+        int maxTitleColumn = 5;
+        String tileName = "";
+        houseTileIndividualTiles.setLayout(gblHouseTile);
+        GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
+        Action tileClick = new tileClick("Tile Clicked");
+
+
+        for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
+            for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
+                tileName = "Tile" + Integer.toString(tileRow) + Integer.toString(tileColumn);
+                gblHouseTileConstraints.gridx = tileColumn;
+                gblHouseTileConstraints.gridy = tileRow;
+      //          System.out.println(tileName);
+      //          houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints,);
+      //         houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints);
+               houseTileIndividualTiles.add(new JButton((Action) tileClick),gblHouseTileConstraints);
+               //     System.out.println("tile clicked"));
+
+
+            }
+        }
+
 
             // Add components to Action Panel
             this.houseActions.setBorder(houseActionsBorder);
@@ -172,101 +208,102 @@ public class MainHouseLayoutGUI {
             this.simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
+
         Wallbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Wall button in Components Layout was clicked");
+                out.println("Wall button in Components Layout was clicked");
             }
         });
 
         Doorwaybtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Doorway button in Components Layout was clicked");
+                out.println("Doorway button in Components Layout was clicked");
             }
         });
 
         Chairbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Chair button in Components Furniture was clicked");
+                out.println("Chair button in Components Furniture was clicked");
             }
         });
 
         Tablebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Table button in Components Furniture was clicked");
+                out.println("Table button in Components Furniture was clicked");
             }
         });
 
         Chestbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Chair button in Components Furniture was clicked");
+                out.println("Chair button in Components Furniture was clicked");
             }
         });
 
         ShagFloorbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Shag button in Components Floor was clicked");
+                out.println("Shag button in Components Floor was clicked");
             }
         });
 
         HardwoodFloorbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("HardwoodFloor button in Components Floor was clicked");
+                out.println("HardwoodFloor button in Components Floor was clicked");
             }
         });
 
         LoopPilebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Loop Pile button in Components Floor was clicked");
+                out.println("Loop Pile button in Components Floor was clicked");
             }
         });
 
         CutPilebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Cut Pile button in Components Floor was clicked");
+                out.println("Cut Pile button in Components Floor was clicked");
             }
         });
 
         randomPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Random Path button in Vacuum Algorithms was clicked");
+                out.println("Random Path button in Vacuum Algorithms was clicked");
             }
         });
 
         spiralPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Spiral Path button in Vacuum Algorithms was clicked");
+                out.println("Spiral Path button in Vacuum Algorithms was clicked");
             }
         });
 
         snakePath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Snake Path button in Vacuum Algorithms was clicked");
+                out.println("Snake Path button in Vacuum Algorithms was clicked");
             }
         });
 
         wallFollowPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Wall Follow Path button in Vacuum Algorithms was clicked");
+                out.println("Wall Follow Path button in Vacuum Algorithms was clicked");
             }
         });
 
         loadHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Save button on House Layout was clicked");
+                out.println("Save button on House Layout was clicked");
                 HouseLayoutFileHandling houseLayoutFile = new HouseLayoutFileHandling();
                 String houseLayoutDetails;
                 try {
@@ -276,7 +313,7 @@ public class MainHouseLayoutGUI {
                 }
                 // Read the file and print the contents
                 houseLayoutDetails = houseLayoutFile.read();
-                System.out.println(houseLayoutDetails);
+                out.println(houseLayoutDetails);
 
                 try {
                     houseLayoutFile.close();
@@ -290,7 +327,7 @@ public class MainHouseLayoutGUI {
         saveHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Load button on House Layout was clicked");
+                out.println("Load button on House Layout was clicked");
 
 
             }
@@ -299,21 +336,21 @@ public class MainHouseLayoutGUI {
         saveHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Save button on House Layout was clicked");
+                out.println("Save button on House Layout was clicked");
             }
         });
 
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Run Simulation button on House Layout was clicked");
+                out.println("Run Simulation button on House Layout was clicked");
             }
         });
 
         stopSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Stop Simulation button on House Layout was clicked");
+                out.println("Stop Simulation button on House Layout was clicked");
             }
         });
 
@@ -357,6 +394,7 @@ public class MainHouseLayoutGUI {
         inpFrame.pack();
         inpFrame.setVisible(true);
     }
+
 
 
 }
