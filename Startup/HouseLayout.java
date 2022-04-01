@@ -30,6 +30,8 @@ public class HouseLayout {
     public String getLayoutName() {return this.LayoutName;}
     public int[][] getTileArray() {return this.TileArray;}
     public int getFloorType() {return this.floorType;}
+    public int getDim1() {return this.dim1;}
+    public int getDim2() {return this.dim2;}
 
    // Set the values
     public String setLayoutName(String inpLayoutName){
