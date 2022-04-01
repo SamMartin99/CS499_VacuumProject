@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="" />
+    <list default="true" id="4ec78f4b-370e-49e2-a656-4ee02f2d009a" name="Changes" comment="ADDED: Code for running random path algorithm.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +25,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,7 +79,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="" />
+      <changelist id="4ec78f4b-370e-49e2-a656-4ee02f2d009a" name="Changes" comment="ADDED: Code for running random path algorithm." />
       <created>1643481028424</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -103,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647102308529</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ADDED: Code for running random path algorithm.">
+      <created>1647578717099</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1647578717099</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,6 +138,7 @@
     <MESSAGE value="Changes: Just change the Program function comment. A test of pushing to github" />
     <MESSAGE value="Changes: Add coded in SplashScreen to call the file handling routine" />
     <MESSAGE value="Changes: Add coded to test the HouseLayout Getters and Setters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: Add coded to test the HouseLayout Getters and Setters" />
+    <MESSAGE value="ADDED: Code for running random path algorithm." />
+    <option name="LAST_COMMIT_MESSAGE" value="ADDED: Code for running random path algorithm." />
   </component>
 </project>
