@@ -75,7 +75,7 @@ public class MainHouseLayoutGUI {
      *
      */
     MainHouseLayoutGUI(){
-    // set up boarders definistion
+        // set up boarders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
         houseTileBorder = BorderFactory.createTitledBorder("House Tiles");
@@ -83,9 +83,9 @@ public class MainHouseLayoutGUI {
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
         houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
-   //     menuBorder = BorderFactory.createTitledBorder("CleanBuddy");
+        // menuBorder = BorderFactory.createTitledBorder("CleanBuddy");
         LayoutWallDoorwayBorder = BorderFactory.createTitledBorder("Layout");
-        //LayoutWallDoorwayBorder = BorderFactory.createLineBorder(Color.blue,1);
+        // LayoutWallDoorwayBorder = BorderFactory.createLineBorder(Color.blue,1);
         LayoutFurnitureBorder = BorderFactory.createTitledBorder("Furniture");
         LayoutFloorsBorder = BorderFactory.createTitledBorder("Floors");
         LayoutPathBorder = BorderFactory.createTitledBorder("Vacuum Cleaning Algorithms");
@@ -138,9 +138,9 @@ public class MainHouseLayoutGUI {
         simSpeedSlider.setMajorTickSpacing(10);
         simSpeedSlider.setMinorTickSpacing(1);
         LayoutSimualtion.add(simSpeedSlider);
-//     just in case we want to add run /stop simulation buttons to the simulation panel
-  //      LayoutSimualtion.add(runSimulationButton);
- //       LayoutSimualtion.add(stopSimulationButton);
+        // just in case we want to add run / stop simulation buttons to the simulation panel
+        // LayoutSimualtion.add(runSimulationButton);
+        // LayoutSimualtion.add(stopSimulationButton);
 
 
         houseLayout.setLayout(gblHouseLayout);
@@ -179,33 +179,35 @@ public class MainHouseLayoutGUI {
         GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
         Action tileClick = new tileClick("Tile Clicked");
 
-
         for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
             for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
                 tileName = "Tile" + Integer.toString(tileRow) + Integer.toString(tileColumn);
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
-      //          System.out.println(tileName);
-      //          houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints,);
-      //         houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints);
-               houseTileIndividualTiles.add(new JButton((Action) tileClick),gblHouseTileConstraints);
-               //     System.out.println("tile clicked"));
-
-
+                // System.out.println(tileName);
+                // houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints,);
+                // houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints);
+                // houseTileIndividualTiles.add(new JButton((Action) tileClick),gblHouseTileConstraints);
+                // System.out.println("tile clicked"));
+                JButton button = new JButton(" ");
+                button.setName("button" + tileRow + tileColumn);
+                int finalTileRow = tileRow;
+                int finalTileColumn = tileColumn;
+                button.addActionListener(e -> printTile(finalTileRow, finalTileColumn));
+                houseTileIndividualTiles.add(button, gblHouseTileConstraints);
             }
         }
 
-
-            // Add components to Action Panel
-            this.houseActions.setBorder(houseActionsBorder);
-            this.houseActions.add(fileHandling,BorderLayout.WEST);
-            this.fileHandling.setBorder(houseFileHandlingBorder);
-            this.fileHandling.add(saveHouseLayoutButton);
-            this.fileHandling.add(loadHouseLayoutButton);
-            this.houseActions.add(simulationActions,BorderLayout.EAST);
-            this.simulationActions.setBorder(houseSimulationBorder);
-            this.simulationActions.add(runSimulationButton);
-            this.simulationActions.add(stopSimulationButton);
+        // Add components to Action Panel
+        this.houseActions.setBorder(houseActionsBorder);
+        this.houseActions.add(fileHandling,BorderLayout.WEST);
+        this.fileHandling.setBorder(houseFileHandlingBorder);
+        this.fileHandling.add(saveHouseLayoutButton);
+        this.fileHandling.add(loadHouseLayoutButton);
+        this.houseActions.add(simulationActions,BorderLayout.EAST);
+        this.simulationActions.setBorder(houseSimulationBorder);
+        this.simulationActions.add(runSimulationButton);
+        this.simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
 
@@ -360,7 +362,7 @@ public class MainHouseLayoutGUI {
             this.MainHouseLayoutFrame.add(houseTile,BorderLayout.WEST);
             this.houseTile.setPreferredSize(new Dimension(380, 500));
             this.MainHouseLayoutFrame.add(houseCenter,BorderLayout.CENTER);
-         //   this.houseCenter.setPreferredSize(new Dimension(10, 500));
+            // this.houseCenter.setPreferredSize(new Dimension(10, 500));
             this.MainHouseLayoutFrame.setPreferredSize(new Dimension(330, 500));
             this.MainHouseLayoutFrame.add(houseLayout,BorderLayout.EAST);
             this.houseLayout.setPreferredSize(new Dimension(400, 500));
@@ -387,7 +389,6 @@ public class MainHouseLayoutGUI {
 
     }
 
-
     static void displayHouseLayout(JFrame inpFrame){
         inpFrame.setPreferredSize(new Dimension(800,600));
         inpFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -395,7 +396,10 @@ public class MainHouseLayoutGUI {
         inpFrame.setVisible(true);
     }
 
-
+    public void printTile (int x, int y)
+    {
+        System.out.println("tile " + x + ", " + y + " clicked");
+    }
 
 }
 

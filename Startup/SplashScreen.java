@@ -78,12 +78,12 @@ public class SplashScreen {
         String layoutName = "marie";
         HouseLayout myHouse = new HouseLayout(layoutName);
 
-//        System.out.println(myHouse.getLayoutName());
-//        System.out.println(myHouse.getTileArray());
-//        System.out.println(myHouse.getFloorType());
+        // System.out.println(myHouse.getLayoutName());
+        // System.out.println(myHouse.getTileArray());
+        // System.out.println(myHouse.getFloorType());
 
         myHouse.setLayoutName("Hello World");
-//        System.out.println("The house layout name is: " + myHouse.getLayoutName());
+        // System.out.println("The house layout name is: " + myHouse.getLayoutName());
         int dim1 = 100;
         int dim2 = 100;
 
@@ -95,16 +95,16 @@ public class SplashScreen {
         }
          myHouse.setTileArray(myTileArray);
          myTileArray=myHouse.getTileArray();
-//         System.out.println("The tile array is: ");
+         // System.out.println("The tile array is: ");
          for ( index1 =0; index1 < dim1; index1++) {
              for (index2 = 1; index2 < dim2; index2++) {
-//                 System.out.print(myTileArray[index1][index2] + " ");
+                 // System.out.print(myTileArray[index1][index2] + " ");
              }
- //            System.out.println();
+             // System.out.println();
          }
 
          myHouse.setFloorType(2);
-//         System.out.println("The floor type is: " + myHouse.getFloorType());
+         // System.out.println("The floor type is: " + myHouse.getFloorType());
 
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -113,24 +113,15 @@ public class SplashScreen {
             }
         });
 
-
-
-
-
-
-
-
-// Test code for house layout file handling at some p
+        // Test code for house layout file handling at some
         // Create the new houseLayout Object
-//        HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();
+        // HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();
         // Open the HouseLayoutFile
- //       Scanner HouseLayoutFile;
-//        HouseLayoutFile = houseLayout.openHouseLayoutFile();
-
+        // Scanner HouseLayoutFile;
+        // HouseLayoutFile = houseLayout.openHouseLayoutFile();
         // Read the HouseLayoutFile
- //       String houseLayoutData = "";
-//        houseLayoutData= houseLayout.readHouseLayout(HouseLayoutFile);
-///
+        // String houseLayoutData = "";
+        // houseLayoutData= houseLayout.readHouseLayout(HouseLayoutFile);
 
     }
 
