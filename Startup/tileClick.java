@@ -2,14 +2,16 @@ package Startup;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-public class tileClick extends AbstractAction{
+public class tileClick implements ActionListener {
 
  //   public tileClick(String inpText, ImageIcon inpIcon,
  //                    String inpDesc, Integer inpMnnemonic){
 
-    public tileClick(String inpText){
+    public tileClick(houseTile inphouseTile){
+        System.out.println(inphouseTile.getTileName());
 
     //    super(inpText, inpIcon);
     //    putValue(SHORT_DESCRIPTION, inpDesc);
@@ -17,7 +19,8 @@ public class tileClick extends AbstractAction{
     }
 
     public void actionPerformed(ActionEvent e) {
+
         System.out.println("a Tile was clicked");
-    }
+   }
 
 }

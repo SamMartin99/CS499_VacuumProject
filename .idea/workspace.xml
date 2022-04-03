@@ -7,7 +7,7 @@
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/tileClick.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/tileClick.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +50,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220331_0001" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220403_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -199,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648748925487</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Changes: added code for tiles processing">
+      <created>1648759897684</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1648759897684</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -229,6 +236,7 @@
     <MESSAGE value="Changes: added active listerens for all buttons in the component / options section.  Currently just prints that the button was press" />
     <MESSAGE value="Changes: new class for houselayout" />
     <MESSAGE value="Changes: not just any new changes commiting before pushing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: not just any new changes commiting before pushing" />
+    <MESSAGE value="Changes: added code for tiles processing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: added code for tiles processing" />
   </component>
 </project>

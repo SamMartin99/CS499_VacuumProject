@@ -5,8 +5,6 @@ package Startup;
 // East side is components
 // South is file handling and toggle running the simulation
 
-import jdk.jfr.Event;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
@@ -23,6 +21,10 @@ import static java.lang.System.*;
  *
  */
 public class MainHouseLayoutGUI {
+
+    Startup.houseTile[][] cells;
+
+
     // Attributes
     JButton saveHouseLayoutButton = new JButton("Save");
     JButton loadHouseLayoutButton = new JButton("Load");
@@ -59,10 +61,15 @@ public class MainHouseLayoutGUI {
     JButton wallFollowPath = new JButton("Wall Follow");
     JLabel simSpeed = new JLabel("Speed");
     JSlider simSpeedSlider = new JSlider(0,50);
+    JSeparator houseHeaderTilesSeperator = new JSeparator();
 
     // In House Layout Panel used the grid layout
     GridBagLayout gblHouseLayout = new GridBagLayout();
     GridBagConstraints gblHouseLayoutConstraints = new GridBagConstraints();
+
+    // Use Grid for House Tiles Panel
+    GridBagLayout gblHouseTilesLayout = new GridBagLayout();
+    GridBagConstraints gblHouseTilesLayoutConstraints = new GridBagConstraints();
 
     // In House Tile {anel use the grid layout
     GridBagLayout gblHouseTile = new GridBagLayout();
@@ -79,7 +86,8 @@ public class MainHouseLayoutGUI {
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
         houseTileBorder = BorderFactory.createTitledBorder("House Tiles");
-        houseLayoutBorder = BorderFactory.createTitledBorder("Components / Options");
+        String houseLayoutName = "Testing";
+        houseLayoutBorder = BorderFactory.createTitledBorder("Layout Name: "+ houseLayoutName);
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
         houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
@@ -95,10 +103,30 @@ public class MainHouseLayoutGUI {
 
 
         // Add components to houseTile Panel
-        houseTile.add(houseTileHeader,BorderLayout.NORTH);
-        houseTile.add(houseTileIndividualTiles,BorderLayout.CENTER) ;
-        houseTileHeader.add(tileText);
-        houseTileHeader.setBorder(houseTileBorder);
+        houseTile.setBorder(houseLayoutBorder);
+       houseTile.setLayout(gblHouseTilesLayout);
+    //    gblHouseTilesLayoutConstraints.fill = GridBagConstraints.VERTICAL;
+        gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gblHouseTilesLayoutConstraints.weightx = 0;
+       gblHouseTilesLayoutConstraints.weighty = 10;
+      //  gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+      //  houseTileHeader.setPreferredSize(new Dimension(300, 30));
+   //    houseTile.add(houseTileHeader,BorderLayout.NORTH);
+   //     houseTile.add(houseTileHeader,gblHouseTilesLayoutConstraints); //
+   //     gblHouseTilesLayoutConstraints.weightx = 0;
+   //     gblHouseTilesLayoutConstraints.weighty = 20;
+    //    houseHeaderTilesSeperator.setOrientation(SwingConstants.HORIZONTAL);
+   //     houseHeaderTilesSeperator.setPreferredSize(new Dimension(30, 30));
+     //   houseTile.add(houseHeaderTilesSeperator,gblHouseTilesLayoutConstraints);
+   //     gblHouseTilesLayoutConstraints.weightx = 0;
+    //    gblHouseTilesLayoutConstraints.weighty = 30;
+   //     houseTile.add(houseTileIndividualTiles, BorderLayout.CENTER);
+        houseTile.add(houseTileIndividualTiles,gblHouseTilesLayoutConstraints); // ,BorderLayout.CENTER) ;
+
+
+   //     houseTileHeader.add(tileText);
+   //     houseTileHeader.setBorder(houseTileBorder);
+
 
         // Add components to HouseLayout Panel
         houseLayout.setBorder(houseLayoutBorder);
@@ -172,24 +200,26 @@ public class MainHouseLayoutGUI {
         // House Tiles - East side
         int tileRow = 0;
         int tileColumn = 0;
-        int maxTitleRow = 5;
-        int maxTitleColumn = 5;
+        int maxTitleRow = 50;
+        int maxTitleColumn = 50;
         String tileName = "";
-        houseTileIndividualTiles.setLayout(gblHouseTile);
+     //   houseTileIndividualTiles.setLayout(gblHouseTile);
+        houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
         GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
-        Action tileClick = new tileClick("Tile Clicked");
-
+        houseTile tileButton;
 
         for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
             for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
                 tileName = "Tile" + Integer.toString(tileRow) + Integer.toString(tileColumn);
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
-      //          System.out.println(tileName);
-      //          houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints,);
-      //         houseTileIndividualTiles.add(new JButton(tileName),gblHouseTileConstraints);
-               houseTileIndividualTiles.add(new JButton((Action) tileClick),gblHouseTileConstraints);
-               //     System.out.println("tile clicked"));
+
+                tileButton = new houseTile(tileRow,tileColumn);
+                Startup.houseTile finalTileButton = tileButton;  // mh not sure why we need this; ide added in order to run
+                tileButton.addActionListener(e -> finalTileButton.printTile());
+
+                houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
+
 
 
             }
