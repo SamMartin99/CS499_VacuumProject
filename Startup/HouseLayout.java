@@ -48,6 +48,8 @@ public class HouseLayout {
     }
 
     public int setFloorType(int inpFloorType){
+       // 1 is
+        // 2 is
        this.floorType = inpFloorType;
        return this.floorType;
     }

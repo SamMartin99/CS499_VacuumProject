@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/houseTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/houseTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/HouseLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +49,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220404_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220404_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649070220256</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Changes: created a popup for user when they try to place a component in a tile that is occupied.">
+      <created>1649073088422</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1649073088422</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +259,7 @@
     <MESSAGE value="Changes: added code for tiles processing" />
     <MESSAGE value="Changes: this is the house Tile object attributes included the cleaning value, available to clean , ect" />
     <MESSAGE value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
+    <MESSAGE value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
   </component>
 </project>

@@ -16,7 +16,7 @@ import static java.lang.System.*;
 
 
 /**
- * Imports for using java's swing GUI functionality
+ * C
  * @parm
  *
  */
