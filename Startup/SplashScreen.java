@@ -15,9 +15,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+// Global variable to indicate the type of tile (wall, door, etc)
+
+
 /* FrameDemo.java requires no other files. */
+
 public class SplashScreen {
 
+    // Global variable to indicate the type of tile (wall, door, etc)
+    static String tileType = "";
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -40,12 +46,14 @@ public class SplashScreen {
         namesLabel.setIcon(logo); // Sets the JLabel's icon to our logo image
 
         JButton startButton = new JButton("Press to start program");  // mh  Button to start the program
+
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 splashScreenFrame.setVisible(false);  //mh
                 splashScreenFrame.dispose();          //mh  Close out the splash screen and remove any associated memory
-                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI();  // mh create a house layout object
+                HouseLayout myhouse = new HouseLayout("default");
+                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse);  // mh create a house layout object
                 MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
 
             }

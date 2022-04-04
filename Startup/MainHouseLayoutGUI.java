@@ -22,10 +22,11 @@ import static java.lang.System.*;
  */
 public class MainHouseLayoutGUI {
 
-    Startup.houseTile[][] cells;
+   // Startup.houseTile[][] cells;
 
 
     // Attributes
+    JButton newHouseLayoutButton = new JButton("New HouseLayout");
     JButton saveHouseLayoutButton = new JButton("Save");
     JButton loadHouseLayoutButton = new JButton("Load");
     JButton runSimulationButton = new JButton("Run");
@@ -71,6 +72,7 @@ public class MainHouseLayoutGUI {
     GridBagLayout gblHouseTilesLayout = new GridBagLayout();
     GridBagConstraints gblHouseTilesLayoutConstraints = new GridBagConstraints();
 
+
     // In House Tile {anel use the grid layout
     GridBagLayout gblHouseTile = new GridBagLayout();
     GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
@@ -80,8 +82,9 @@ public class MainHouseLayoutGUI {
      * Default constructor
      * @parm
      *
+     * @param
      */
-    MainHouseLayoutGUI(){
+    <tileType> MainHouseLayoutGUI(HouseLayout inpHouseLayout){
     // set up boarders definistion
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
@@ -104,9 +107,14 @@ public class MainHouseLayoutGUI {
 
         // Add components to houseTile Panel
         houseTile.setBorder(houseLayoutBorder);
-       houseTile.setLayout(gblHouseTilesLayout);
+        // trying to set the panel to a square
+        int sideLength = (int) (houseTile.getWidth() < houseTile.getHeight() ? houseTile.getHeight() : houseTile.getWidth());
+        houseTile.setSize(sideLength,sideLength);
+        houseTile.setLayout(gblHouseTilesLayout);
     //    gblHouseTilesLayoutConstraints.fill = GridBagConstraints.VERTICAL;
         gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        gblHouseTilesLayoutConstraints.gridwidth = sideLength;
+        gblHouseTilesLayoutConstraints.gridheight = sideLength;
         gblHouseTilesLayoutConstraints.weightx = 0;
        gblHouseTilesLayoutConstraints.weighty = 10;
       //  gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
@@ -200,12 +208,14 @@ public class MainHouseLayoutGUI {
         // House Tiles - East side
         int tileRow = 0;
         int tileColumn = 0;
-        int maxTitleRow = 50;
-        int maxTitleColumn = 50;
+        int maxTitleRow = 5;
+        int maxTitleColumn = 5;
         String tileName = "";
      //   houseTileIndividualTiles.setLayout(gblHouseTile);
         houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
         GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
+        gblHouseTileConstraints.weightx = 1;
+        gblHouseLayoutConstraints.weighty = 1;
         houseTile tileButton;
 
         for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
@@ -216,8 +226,10 @@ public class MainHouseLayoutGUI {
 
                 tileButton = new houseTile(tileRow,tileColumn);
                 Startup.houseTile finalTileButton = tileButton;  // mh not sure why we need this; ide added in order to run
-                tileButton.addActionListener(e -> finalTileButton.printTile());
+       //         tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
+                  tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout));
 
+         //       tileButton.addActionListener(e -> finalTileButton.clickTileAction());
                 houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
 
 
@@ -227,29 +239,40 @@ public class MainHouseLayoutGUI {
 
 
             // Add components to Action Panel
-            this.houseActions.setBorder(houseActionsBorder);
-            this.houseActions.add(fileHandling,BorderLayout.WEST);
-            this.fileHandling.setBorder(houseFileHandlingBorder);
-            this.fileHandling.add(saveHouseLayoutButton);
-            this.fileHandling.add(loadHouseLayoutButton);
-            this.houseActions.add(simulationActions,BorderLayout.EAST);
-            this.simulationActions.setBorder(houseSimulationBorder);
-            this.simulationActions.add(runSimulationButton);
-            this.simulationActions.add(stopSimulationButton);
+            houseActions.setBorder(houseActionsBorder);
+            houseActions.add(fileHandling,BorderLayout.WEST);
+            fileHandling.setBorder(houseFileHandlingBorder);
+            fileHandling.add(newHouseLayoutButton);
+            fileHandling.add(saveHouseLayoutButton);
+            fileHandling.add(loadHouseLayoutButton);
+            houseActions.add(simulationActions,BorderLayout.EAST);
+            simulationActions.setBorder(houseSimulationBorder);
+            simulationActions.add(runSimulationButton);
+            simulationActions.add(stopSimulationButton);
+
 
         // set actions for when buttons are clicked
 
+
+//        Wallbtn.addActionListener(e -> finalTileButton.printTile());
+//        tileButton = new houseTile(tileRow,tileColumn);
+//        Startup.houseTile finalTileButton = tileButton;  // mh not sure why we need this; ide added in order to run
+//        tileButton.addActionListener(e -> finalTileButton.printTile());
         Wallbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Wall button in Components Layout was clicked");
-            }
+             //   out.println("Wall button in Components Layout was clicked");
+                inpHouseLayout.wallClick();
+                inpHouseLayout.getlayoutType();
+              }
         });
 
         Doorwaybtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Doorway button in Components Layout was clicked");
+             //   out.println("Doorway button in Components Layout was clicked");
+                inpHouseLayout.doorClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -257,6 +280,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Chair button in Components Furniture was clicked");
+                inpHouseLayout.chairClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -264,6 +289,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Table button in Components Furniture was clicked");
+                inpHouseLayout.tableClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -271,6 +298,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Chair button in Components Furniture was clicked");
+                inpHouseLayout.chestClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -278,6 +307,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Shag button in Components Floor was clicked");
+                inpHouseLayout.shagClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -285,6 +316,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("HardwoodFloor button in Components Floor was clicked");
+                inpHouseLayout.hardwoodClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -292,6 +325,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Loop Pile button in Components Floor was clicked");
+                inpHouseLayout.loopPileClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -299,6 +334,8 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Cut Pile button in Components Floor was clicked");
+                inpHouseLayout.cutPileClick();
+                inpHouseLayout.getlayoutType();
             }
         });
 
@@ -327,6 +364,14 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Wall Follow Path button in Vacuum Algorithms was clicked");
+            }
+        });
+
+        newHouseLayoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String layoutName = "new";
+                HouseLayout myHouse = new HouseLayout(layoutName);
             }
         });
 
