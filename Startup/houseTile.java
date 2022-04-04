@@ -2,9 +2,13 @@ package Startup;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import static java.lang.System.out;
 
 
-public class houseTile extends JButton{
+public class houseTile extends JButton {
   // Attributes
 
     private int tileRow;
@@ -109,9 +113,9 @@ public class houseTile extends JButton{
 
     }
 
-    public void clickTileAction(HouseLayout inpHouseLayout){
-     //   this.setLayoutType(inpLayoutType);
-        if(this.gettileAvailable()) {
+    public void clickTileAction(HouseLayout inpHouseLayout) {
+        //   this.setLayoutType(inpLayoutType);
+        if (this.gettileAvailable()) {
             this.setLayoutType(inpHouseLayout);
             this.setTileAvailable(false);
             this.printTile(inpHouseLayout);
@@ -119,11 +123,46 @@ public class houseTile extends JButton{
             tileButton.setForeground(Color.BLUE);
             tileButton.updateUI();
             super.updateUI();
-        }
-        else {
+        } else {
+            tileUnavailablePopup(this);
             System.out.println("Tile is unavailable");
             this.printTile(inpHouseLayout);
         }
+    }
+
+       private void tileUnavailablePopup(houseTile inptileButton)  {
+        Popup p;
+
+        JFrame popupFrame = new JFrame("Tile Unavailable");
+
+        JLabel lTileUnavailable = new JLabel(inptileButton.getTileName() +" is unavailable");
+
+        popupFrame.setSize(400,400);
+
+        PopupFactory pf = new PopupFactory();
+
+        JPanel popupPanel = new JPanel() ;
+
+        popupPanel.add(lTileUnavailable);
+
+        p = pf.getPopup(popupFrame,popupPanel, 180,100);
+
+        JButton b = new JButton("Click to return");
+        popupPanel.add(b);
+
+        popupFrame.add(popupPanel);
+        popupFrame.setVisible(true);
+
+        p.show();
+
+        b.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+             System.out.println("In Tile Unavailable popup");
+             p.hide();
+             popupFrame.setVisible(false);
+            }
+        });
        }
     }
 
