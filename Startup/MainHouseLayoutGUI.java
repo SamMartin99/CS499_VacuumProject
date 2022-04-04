@@ -226,14 +226,10 @@ public class MainHouseLayoutGUI {
 
                 tileButton = new houseTile(tileRow,tileColumn);
                 Startup.houseTile finalTileButton = tileButton;  // mh not sure why we need this; ide added in order to run
-       //         tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
+        //        tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
                   tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout));
 
-         //       tileButton.addActionListener(e -> finalTileButton.clickTileAction());
                 houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
-
-
-
             }
         }
 
@@ -253,11 +249,6 @@ public class MainHouseLayoutGUI {
 
         // set actions for when buttons are clicked
 
-
-//        Wallbtn.addActionListener(e -> finalTileButton.printTile());
-//        tileButton = new houseTile(tileRow,tileColumn);
-//        Startup.houseTile finalTileButton = tileButton;  // mh not sure why we need this; ide added in order to run
-//        tileButton.addActionListener(e -> finalTileButton.printTile());
         Wallbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

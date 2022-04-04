@@ -28,7 +28,8 @@ public class houseTile extends JButton {
         this.tileColumn = inpTileColumn;
         this.tileCleanValue = 0;
         this.tileAvailable = true;
-        this.tileButton = new SquareButton("");
+       // this.tileButton = new SquareButton("");
+        this.tileButton = new JButton("");
         this.tileButton.setName("tile"+inpTileRow+inpTileColumn);
        // this.layoutType = "";
        // this.tileButton.is.setPreferredSize(new Dimension(2,2));
@@ -119,9 +120,9 @@ public class houseTile extends JButton {
             this.setLayoutType(inpHouseLayout);
             this.setTileAvailable(false);
             this.printTile(inpHouseLayout);
-            tileButton.setBackground(Color.BLUE);
-            tileButton.setForeground(Color.BLUE);
-            tileButton.updateUI();
+            this.setBackground(Color.BLUE);
+            this.setForeground(Color.BLUE);
+            this.updateUI();
             super.updateUI();
         } else {
             tileUnavailablePopup(this);
