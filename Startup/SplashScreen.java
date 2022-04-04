@@ -38,7 +38,6 @@ public class SplashScreen {
 
         // Sets up our logo
         ImageIcon logo = new ImageIcon("Senior Proj Logo.png");
-        Image icon = logo.getImage();
 
         // Make a JLabel to hold our text (group member names) and our logo image
         JLabel namesLabel = new JLabel("Guess Crow, Bryant Terry, Samuel Martin, Marie Held");

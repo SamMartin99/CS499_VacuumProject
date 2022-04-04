@@ -34,8 +34,9 @@ public class houseTile extends JButton {
         // Guess Crow
         // I dunno why this isn't applying the ImageIcon I added to this JButton, it should be, but idk
         try {
-            Icon icon = new ImageIcon("plainTile.png");
+            ImageIcon icon = new ImageIcon("plainTile.png");
             this.setIcon(icon);
+            this.setMargin(new Insets(0, 0, 0, 0));
         } catch (Exception ex) {
             System.out.println(ex);
         }
