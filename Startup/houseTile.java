@@ -11,12 +11,12 @@ import static java.lang.System.out;
 public class houseTile extends JButton {
   // Attributes
 
-    private int tileRow;
-    private int tileColumn;
+    private final int tileRow;
+    private final int tileColumn;
     private int tileCleanValue;  // everything robot crosses the tile increment by 1
     private boolean tileAvailable; // indicates if tile can be clean
     private String tileName;
-    private JButton tileButton;
+    private final JButton tileButton;
     private String layoutType;
 
     //Methods
@@ -31,6 +31,14 @@ public class houseTile extends JButton {
        // this.tileButton = new SquareButton("");
         this.tileButton = new JButton("");
         this.tileButton.setName("tile"+inpTileRow+inpTileColumn);
+        // Guess Crow
+        // I dunno why this isn't applying the ImageIcon I added to this JButton, it should be, but idk
+        try {
+            Icon icon = new ImageIcon("/resources/plainTile.png");
+            this.setIcon(icon);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
        // this.layoutType = "";
        // this.tileButton.is.setPreferredSize(new Dimension(2,2));
 
@@ -75,7 +83,7 @@ public class houseTile extends JButton {
         return this.tileButton.getName();
     }
 
-    public boolean gettileAvailable(){
+    public boolean getTileAvailable(){
         return this.tileAvailable;
     }
 
@@ -116,14 +124,18 @@ public class houseTile extends JButton {
 
     public void clickTileAction(HouseLayout inpHouseLayout) {
         //   this.setLayoutType(inpLayoutType);
-        if (this.gettileAvailable()) {
-            this.setLayoutType(inpHouseLayout);
-            this.setTileAvailable(false);
-            this.printTile(inpHouseLayout);
-            this.setBackground(Color.BLUE);
-            this.setForeground(Color.BLUE);
-            this.updateUI();
-            super.updateUI();
+        if (this.getTileAvailable()) {
+            if(inpHouseLayout.getlayoutType().compareTo("Wall") == 0) // If this tile is being set to a wall, do wall stuff
+            {
+                this.setLayoutType(inpHouseLayout);
+                this.setTileAvailable(false);
+                this.printTile(inpHouseLayout);
+                this.setBackground(Color.BLUE);
+                this.setForeground(Color.BLUE);
+                this.setText("W");
+                this.updateUI();
+                super.updateUI();
+            }
         } else {
             tileUnavailablePopup(this);
             System.out.println("Tile is unavailable");

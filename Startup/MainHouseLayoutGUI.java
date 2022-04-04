@@ -108,7 +108,7 @@ public class MainHouseLayoutGUI {
         // Add components to houseTile Panel
         houseTile.setBorder(houseLayoutBorder);
         // trying to set the panel to a square
-        int sideLength = (int) (houseTile.getWidth() < houseTile.getHeight() ? houseTile.getHeight() : houseTile.getWidth());
+        int sideLength = houseTile.getWidth() < houseTile.getHeight() ? houseTile.getHeight() : houseTile.getWidth();
         houseTile.setSize(sideLength,sideLength);
         houseTile.setLayout(gblHouseTilesLayout);
     //    gblHouseTilesLayoutConstraints.fill = GridBagConstraints.VERTICAL;
@@ -220,7 +220,7 @@ public class MainHouseLayoutGUI {
 
         for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
             for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
-                tileName = "Tile" + Integer.toString(tileRow) + Integer.toString(tileColumn);
+                tileName = "Tile" + tileRow + tileColumn;
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
 

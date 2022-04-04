@@ -3,8 +3,8 @@ package Startup;
 public class HouseLayout {
 
     // Attributes
-    private int dim1 = 50;
-    private int dim2 = 50;
+    private final int dim1 = 50;
+    private final int dim2 = 50;
     private String LayoutName = ""; // Name of the house layout will be unique
     private int [][] TileArray = new int[dim1][dim2];
     //private houseTile actualTiles[] = new houseTile();       // The actual layout of the house; 0 -- can be cleaned ; 1 -- can't be cleaned
@@ -42,7 +42,7 @@ public class HouseLayout {
        return this.LayoutName;
     }
 
-    public int[][] setTileArray(int inpTileArray[][]){
+    public int[][] setTileArray(int[][] inpTileArray){
         this.TileArray = inpTileArray;
         return this.TileArray;
     }

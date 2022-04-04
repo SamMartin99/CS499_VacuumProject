@@ -11,7 +11,7 @@ import java.io.FileWriter;
 public class HouseLayoutFileHandling {
 //public class HouseLayoutFileHandling extends JFrame { // implements ActionListener{
     // File Attributes
-    private File fileHouseLayout;
+    private final File fileHouseLayout;
     private Scanner fileHouseReader;
     private String houseFileName;
 
@@ -91,11 +91,11 @@ public class HouseLayoutFileHandling {
               for (int column = 0; column < dim2; column++) {
                   tileValue = (char) TileArray[row][column];
                   fw.append(tileValue);
-              } ;
-          fw.append(" "); // new line to seperate the rows of the Tile Array
-          };
+              }
+              fw.append(" "); // new line to seperate the rows of the Tile Array
+          }
 
-          intFloorType = inpHouseLayout.getFloorType();
+            intFloorType = inpHouseLayout.getFloorType();
           charFloorType = (char)intFloorType;
 
           fw.append(charFloorType);
