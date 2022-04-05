@@ -25,7 +25,6 @@ import static java.lang.System.*;
  *
  */
 public class MainHouseLayoutGUI {
-    // Startup.houseTile[][] cells;
 
     // The algorithm being chosen by the user.
     // 1 = Random
@@ -41,10 +40,9 @@ public class MainHouseLayoutGUI {
      * prepared for the RunSimulation class. Otherwise there's no actual way to
      * work with the user input.
      */
-//    TileArray TA = new TileArray(10, 10);
-    TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
 
     // Attributes
+    TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
     JButton newHouseLayoutButton = new JButton("New HouseLayout");
     JButton saveHouseLayoutButton = new JButton("Save");
     JButton loadHouseLayoutButton = new JButton("Load");
@@ -82,7 +80,6 @@ public class MainHouseLayoutGUI {
     JLabel simSpeed = new JLabel("Speed");
     JSlider simSpeedSlider = new JSlider(0,50);
     JSeparator houseHeaderTilesSeparator = new JSeparator();
-
     // In House Layout Panel used the grid layout
     GridBagLayout gblHouseLayout = new GridBagLayout();
     GridBagConstraints gblHouseLayoutConstraints = new GridBagConstraints();
@@ -237,7 +234,8 @@ public class MainHouseLayoutGUI {
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
 
-                tileButton = new houseTile(tileRow,tileColumn);
+                Location l = new Location(tileRow, tileColumn);
+                tileButton = new houseTile(l);
                 // mh not sure why we need this; ide added in order to run
                 Startup.houseTile finalTileButton = tileButton;
                 // tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
@@ -479,6 +477,8 @@ public class MainHouseLayoutGUI {
         });
 
     }
+    // Set the values
+
 
     static void displayHouseLayout(JFrame inpFrame){
         inpFrame.setPreferredSize(new Dimension(800,600));

@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile.class" afterDir="false" />
-    </list>
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: add code to create and display tile array buttons in RunSimulation class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220405_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220405_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -251,7 +244,21 @@
       <option name="project" value="LOCAL" />
       <updated>1649157682212</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Changes: add code to create and display tile array buttons in RunSimulation class">
+      <created>1649171014137</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1649171014137</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Changes: delete obsolute code and setting up the tile array ; now being done in the houseTile class">
+      <created>1649171714219</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1649171714219</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,7 +294,9 @@
     <MESSAGE value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
     <MESSAGE value="Changes: Added additional tiles. Tried to get RunSimulation functioning." />
     <MESSAGE value="Changes: update houseTile tileclick actionlister to setvalues in TileArray for this simulation; also commented out some debugging System.out.println () statements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: update houseTile tileclick actionlister to setvalues in TileArray for this simulation; also commented out some debugging System.out.println () statements" />
+    <MESSAGE value="Changes: add code to create and display tile array buttons in RunSimulation class" />
+    <MESSAGE value="Changes: delete obsolute code and setting up the tile array ; now being done in the houseTile class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: delete obsolute code and setting up the tile array ; now being done in the houseTile class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

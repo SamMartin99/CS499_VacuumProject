@@ -16,6 +16,10 @@ public class HouseLayout {
     // type of floor for the house 1 -- Hard (default), 2-- Loop Pile, 3-- Cut Pile, 4 -- Freieze-cut
     private int floorType;
     private String layoutType = "";
+    private int firstTileX = -1;
+    private int firstTileY = -1;
+    private int secondTileX = -1;
+    private int secondTileY = -1;
 
     // Methods
 
@@ -43,6 +47,7 @@ public class HouseLayout {
     public String getlayoutType() {return  this.layoutType; }
 
     // Set the values
+
     public String setLayoutName(String inpLayoutName){
        this.LayoutName = inpLayoutName;
        return this.LayoutName;

@@ -13,26 +13,24 @@ import static java.lang.System.out;
 public class houseTile extends JButton {
     // Attributes
 
-    private final int tileRow;
-    private final int tileColumn;
     private int tileCleanValue;  // everything robot crosses the tile increment by 1
     private boolean tileAvailable; // indicates if tile can be clean
     private String tileName;
     private final JButton tileButton;
     private String layoutType;
+    private Location loc;
 
     //Methods
 
     //default constructor
 
-    public houseTile(int inpTileRow, int inpTileColumn) {
-        this.tileRow = inpTileRow;
-        this.tileColumn = inpTileColumn;
+    public houseTile(Location locRef) {
+        this.loc = locRef;
         this.tileCleanValue = 0;
         this.tileAvailable = true;
         // this.tileButton = new SquareButton("");
         this.tileButton = new JButton("");
-        this.tileButton.setName("tile" + inpTileRow + inpTileColumn);
+        this.tileButton.setName("tile" + loc.x + loc.y);
         // Guess Crow
         // I dunno why this isn't applying the ImageIcon I added to this JButton, it should be, but idk
         try {
@@ -42,6 +40,8 @@ public class houseTile extends JButton {
         } catch (Exception ex) {
             System.out.println(ex);
         }
+        this.setBorderPainted(false);
+        this.setBorder(null);
         // this.layoutType = "";
         // this.tileButton.is.setPreferredSize(new Dimension(2,2));
 
@@ -63,14 +63,9 @@ public class houseTile extends JButton {
 
     }
 
-    public int getTileRow(){
-
-        return this.tileRow;
-    }
-
-    public int getTileColumn(){
-
-        return this.tileColumn;
+    public Location GetLocation()
+    {
+        return this.loc;
     }
 
     public float getTileCleanValue(){
@@ -116,13 +111,7 @@ public class houseTile extends JButton {
     }
 
     public void printTile(HouseLayout inpHouseLayout){
-        // this.setLayoutType(inpHouseLayout);
-        // this.setTileAvailable(false);
-        System.out.println("tile " + this.tileRow + ", " + this.tileColumn + " Layout Type is " + inpHouseLayout.getlayoutType() );
-        // tileButton.setBackground(Color.BLUE);
-        // tileButton.setForeground(Color.BLUE);
-        // tileButton.updateUI();
-
+        System.out.println("tile " + this.loc.x + ", " + this.loc.y + " Layout Type is " + inpHouseLayout.getlayoutType() );
     }
 
     /* Name: clickTileAction
@@ -133,20 +122,22 @@ public class houseTile extends JButton {
      * in a separate function.
      */
     public void clickTileAction(HouseLayout inpHouseLayout, TileArray inpTA) {
-        // this.setLayoutType(inpLayoutType);
         int tileType;
         if (inpHouseLayout.getlayoutType().compareTo("Door") == 0 )
-            {tileType = 2; inpTA.setTile (this.getTileRow(),
-                    this.tileColumn,
+            {tileType = 2; inpTA.setTile (this.loc.x,
+                    this.loc.y,
                     tileType); }
         if (inpHouseLayout.getlayoutType().compareTo("Wall") == 0 )
-            {tileType = 3;  inpTA.setTile (this.getTileRow(),this.tileColumn, tileType); }
+            {
+                tileType = 3;
+                inpTA.setTile (this.loc.x,this.loc.y, tileType);
+            }
         if (inpHouseLayout.getlayoutType().compareTo("Chest") == 0 )
-        {tileType = 4; inpTA.setTile (this.getTileRow(),this.tileColumn, tileType); }
+        {tileType = 4; inpTA.setTile (this.loc.x,this.loc.y, tileType); }
         if (inpHouseLayout.getlayoutType().compareTo("Chair") == 0 )
-        {tileType = 5;  inpTA.setTile (this.getTileRow(),this.tileColumn, tileType);}
+        {tileType = 5;  inpTA.setTile (this.loc.x,this.loc.y, tileType);}
         if (inpHouseLayout.getlayoutType().compareTo("Table") == 0 )
-        {tileType = 6;  inpTA.setTile (this.getTileRow(),this.tileColumn, tileType);}
+        {tileType = 6;  inpTA.setTile (this.loc.x,this.loc.y, tileType);}
 
  //       System.out.println();
 
