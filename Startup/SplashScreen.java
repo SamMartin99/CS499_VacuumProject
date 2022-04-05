@@ -17,9 +17,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-// Global variable to indicate the type of tile (wall, door, etc)
-
-
 /* FrameDemo.java requires no other files. */
 
 public class SplashScreen {
@@ -92,25 +89,6 @@ public class SplashScreen {
 //        System.out.println(myHouse.getFloorType());
 
         myHouse.setLayoutName("Hello World");
-//        System.out.println("The house layout name is: " + myHouse.getLayoutName());
-        int dim1 = 100;
-        int dim2 = 100;
-
-        int[][] myTileArray = new int[dim1][dim2];
-        for (index1 =0; index1 < dim1; index1++) {
-            for (index2 = 1; index2 < dim2; index2++) {
-                myTileArray[index1][index2] = 1;
-            }
-        }
-         myHouse.setTileArray(myTileArray);
-         myTileArray=myHouse.getTileArray();
-//         System.out.println("The tile array is: ");
-         for ( index1 =0; index1 < dim1; index1++) {
-             for (index2 = 1; index2 < dim2; index2++) {
-//                 System.out.print(myTileArray[index1][index2] + " ");
-             }
- //            System.out.println();
-         }
 
          myHouse.setFloorType(2);
 //         System.out.println("The floor type is: " + myHouse.getFloorType());
