@@ -1,5 +1,6 @@
 package Model;
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.Random;
 
@@ -235,13 +236,39 @@ public class RunSimulation {
     public void run ()
     {
         JFrame outputScreenFrame = new JFrame("Output");
-        outputScreenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        outputScreenFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  //mh change from EXIT_ON_CLOSE so that the program continues running
+
+        JPanel outputSimTiles = new JPanel();
+        JButton simTileButton = new JButton();
+
+        Border outputSimTilesBorder;
+        outputSimTilesBorder = BorderFactory.createLineBorder(Color.BLACK);
+        outputSimTiles.setBorder(outputSimTilesBorder);
+        outputScreenFrame.add(outputSimTiles,BorderLayout.CENTER);  // add the simulation tile panel to the output frame
+
+        // Use Grid for Simulation Tiles
+        GridBagLayout gblSimTiles = new GridBagLayout();
+        GridBagConstraints gblSimTilesLayoutConstraints = new GridBagConstraints();
+
+        outputSimTiles.setLayout(gblSimTiles);
+
+        // A square grid for the simulation panel
+        gblSimTilesLayoutConstraints.weightx = 1;
+        gblSimTilesLayoutConstraints.weighty = 1;
+
 
         for (int i = 0; i < 10; i++)
         {
             for (int j = 0; j < 10; j++)
             {
-                // Output the house tiles here.
+                gblSimTilesLayoutConstraints.gridx = i;
+                gblSimTilesLayoutConstraints.gridy = j;
+
+                simTileButton = new JButton();
+
+                outputSimTiles.add(simTileButton,gblSimTilesLayoutConstraints);
+
+
             }
         }
 
