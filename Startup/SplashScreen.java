@@ -9,6 +9,8 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 
 // Imports for using java's swing GUI functionality
 
+import Model.TileArray;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

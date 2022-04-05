@@ -236,7 +236,7 @@ public class MainHouseLayoutGUI {
                 // mh not sure why we need this; ide added in order to run
                 Startup.houseTile finalTileButton = tileButton;
                 // tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
-                tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout));
+                tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout,TA));
 
                 houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
             }
@@ -277,7 +277,7 @@ public class MainHouseLayoutGUI {
         Chairbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Chair button in Components Furniture was clicked");
+      //          out.println("Chair button in Components Furniture was clicked");
                 inpHouseLayout.chairClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -286,7 +286,7 @@ public class MainHouseLayoutGUI {
         Tablebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Table button in Components Furniture was clicked");
+     //           out.println("Table button in Components Furniture was clicked");
                 inpHouseLayout.tableClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -295,7 +295,7 @@ public class MainHouseLayoutGUI {
         Chestbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Chair button in Components Furniture was clicked");
+      //          out.println("Chair button in Components Furniture was clicked");
                 inpHouseLayout.chestClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -304,7 +304,7 @@ public class MainHouseLayoutGUI {
         ShagFloorbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Shag button in Components Floor was clicked");
+   //             out.println("Shag button in Components Floor was clicked");
                 inpHouseLayout.shagClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -313,7 +313,7 @@ public class MainHouseLayoutGUI {
         HardwoodFloorbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("HardwoodFloor button in Components Floor was clicked");
+     //           out.println("HardwoodFloor button in Components Floor was clicked");
                 inpHouseLayout.hardwoodClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -322,7 +322,7 @@ public class MainHouseLayoutGUI {
         LoopPilebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Loop Pile button in Components Floor was clicked");
+     //           out.println("Loop Pile button in Components Floor was clicked");
                 inpHouseLayout.loopPileClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -331,7 +331,7 @@ public class MainHouseLayoutGUI {
         CutPilebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Cut Pile button in Components Floor was clicked");
+  //              out.println("Cut Pile button in Components Floor was clicked");
                 inpHouseLayout.cutPileClick();
                 inpHouseLayout.getlayoutType();
             }

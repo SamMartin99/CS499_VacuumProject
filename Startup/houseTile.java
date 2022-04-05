@@ -1,5 +1,7 @@
 package Startup;
 
+import Model.TileArray;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -130,8 +132,26 @@ public class houseTile extends JButton {
      * Color of floor tiles should be calculated automatically (based off of the chosen floor)
      * in a separate function.
      */
-    public void clickTileAction(HouseLayout inpHouseLayout) {
+    public void clickTileAction(HouseLayout inpHouseLayout, TileArray inpTA) {
         // this.setLayoutType(inpLayoutType);
+        int tileType;
+        if (inpHouseLayout.getlayoutType().compareTo("Door") == 0 )
+            {tileType = 2; inpTA.setTile (this.getTileRow(),
+                    this.tileColumn,
+                    tileType); }
+        if (inpHouseLayout.getlayoutType().compareTo("Wall") == 0 )
+            {tileType = 3;  inpTA.setTile (this.getTileRow(),this.tileColumn, tileType); }
+        if (inpHouseLayout.getlayoutType().compareTo("Chest") == 0 )
+        {tileType = 4; inpTA.setTile (this.getTileRow(),this.tileColumn, tileType); }
+        if (inpHouseLayout.getlayoutType().compareTo("Chair") == 0 )
+        {tileType = 5;  inpTA.setTile (this.getTileRow(),this.tileColumn, tileType);}
+        if (inpHouseLayout.getlayoutType().compareTo("Table") == 0 )
+        {tileType = 6;  inpTA.setTile (this.getTileRow(),this.tileColumn, tileType);}
+
+ //       System.out.println();
+
+    //    inpTA.setTile (this.getTileRow(),this.tileColumn, tileType);
+
         if (this.getTileAvailable()) {
             // Wall
             if(inpHouseLayout.getlayoutType().compareTo("Wall") == 0)
