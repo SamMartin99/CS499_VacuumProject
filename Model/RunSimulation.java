@@ -1,4 +1,6 @@
 package Model;
+import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 
 /* Authors:
@@ -223,6 +225,29 @@ public class RunSimulation {
         }
 
         return new_clean;
+    }
+
+    /* Name: run
+     * Parameters: none
+     * Return: none
+     * Purpose: Output algorithm activity to new window.
+     */
+    public void run ()
+    {
+        JFrame outputScreenFrame = new JFrame("Output");
+        outputScreenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 10; j++)
+            {
+                // Output the house tiles here.
+            }
+        }
+
+        //Display the window.
+        outputScreenFrame.setSize(960, 540);
+        outputScreenFrame.setVisible(true);
     }
 
 }

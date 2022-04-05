@@ -434,6 +434,7 @@ public class MainHouseLayoutGUI {
                 int ft = inpHouseLayout.getFloorType();
 
                 RunSimulation RS = new RunSimulation (t, rs, a, ft, b, vs, TA);
+                RS.run();
                 // out.println("Run Simulation button on House Layout was clicked");
             }
         });
