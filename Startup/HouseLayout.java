@@ -1,9 +1,14 @@
 package Startup;
 
+import static Startup.SplashScreen.maxTileArrayColumn;
+import static Startup.SplashScreen.maxTileArrayRow;
+
 public class HouseLayout {
     // Attributes
-    private final int dim1 = 50;
-    private final int dim2 = 50;
+  //  private final int dim1 = 50;
+  //  private final int dim2 = 50;
+    private final int dim1 = maxTileArrayRow;
+    private final int dim2 = maxTileArrayColumn;
     private String LayoutName = ""; // Name of the house layout will be unique
     private int [][] TileArray = new int[dim1][dim2];
     // private houseTile actualTiles[] = new houseTile();

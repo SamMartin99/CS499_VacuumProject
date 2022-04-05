@@ -15,6 +15,8 @@ import Model.RunSimulation;
 import Model.TileArray;
 import Model.Tile;
 
+import static Startup.SplashScreen.maxTileArrayRow;
+import static Startup.SplashScreen.maxTileArrayColumn;
 import static java.lang.System.*;
 
 /**
@@ -39,7 +41,8 @@ public class MainHouseLayoutGUI {
      * prepared for the RunSimulation class. Otherwise there's no actual way to
      * work with the user input.
      */
-    TileArray TA = new TileArray(10, 10);
+//    TileArray TA = new TileArray(10, 10);
+    TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
 
     // Attributes
     JButton newHouseLayoutButton = new JButton("New HouseLayout");
@@ -216,8 +219,8 @@ public class MainHouseLayoutGUI {
         // House Tiles - East side
         int tileRow = 0;
         int tileColumn = 0;
-        int maxTitleRow = 10;
-        int maxTitleColumn = 10;
+      //  int maxTitleRow = 10;
+    //    int maxTitleColumn = 10;
         String tileName = "";
         // houseTileIndividualTiles.setLayout(gblHouseTile);
         houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
@@ -226,8 +229,10 @@ public class MainHouseLayoutGUI {
         gblHouseLayoutConstraints.weighty = 1;
         houseTile tileButton;
 
-        for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
-            for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
+   //     for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
+        for (tileRow = 0; tileRow < maxTileArrayRow; tileRow ++){
+ //           for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
+            for (tileColumn = 0; tileColumn < maxTileArrayColumn; tileColumn ++){
                 tileName = "Tile" + tileRow + tileColumn;
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
