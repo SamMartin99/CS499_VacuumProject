@@ -11,9 +11,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import Model.RunSimulation;
+import Model.TileArray;
+import Model.Tile;
 
 import static java.lang.System.*;
-
 
 /**
  * C
@@ -21,9 +23,23 @@ import static java.lang.System.*;
  *
  */
 public class MainHouseLayoutGUI {
+    // Startup.houseTile[][] cells;
 
-   // Startup.houseTile[][] cells;
-
+    // The algorithm being chosen by the user.
+    // 1 = Random
+    // 2 = Spiral
+    // 3 = Snaking
+    // 4 = Wall Follow
+    private int a = 1;
+    /* The tile array. I'm defaulting to 10x10 for the size, for now.
+     *
+     * NOTE FROM BRYANT: No idea how we're supposed to actually get the type
+     * from the buttons. We can set the type of buttons individually, but there needs
+     * to be a way to get the type BACK from those buttons, so the tile array can be
+     * prepared for the RunSimulation class. Otherwise there's no actual way to
+     * work with the user input.
+     */
+    TileArray TA = new TileArray(10, 10);
 
     // Attributes
     JButton newHouseLayoutButton = new JButton("New HouseLayout");
@@ -62,7 +78,7 @@ public class MainHouseLayoutGUI {
     JButton wallFollowPath = new JButton("Wall Follow");
     JLabel simSpeed = new JLabel("Speed");
     JSlider simSpeedSlider = new JSlider(0,50);
-    JSeparator houseHeaderTilesSeperator = new JSeparator();
+    JSeparator houseHeaderTilesSeparator = new JSeparator();
 
     // In House Layout Panel used the grid layout
     GridBagLayout gblHouseLayout = new GridBagLayout();
@@ -72,11 +88,9 @@ public class MainHouseLayoutGUI {
     GridBagLayout gblHouseTilesLayout = new GridBagLayout();
     GridBagConstraints gblHouseTilesLayoutConstraints = new GridBagConstraints();
 
-
     // In House Tile {anel use the grid layout
     GridBagLayout gblHouseTile = new GridBagLayout();
     GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
-
 
     /**
      * Default constructor
@@ -85,7 +99,7 @@ public class MainHouseLayoutGUI {
      * @param
      */
     <tileType> MainHouseLayoutGUI(HouseLayout inpHouseLayout){
-    // set up boarders definistion
+        // set up borders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
         houseTileBorder = BorderFactory.createTitledBorder("House Tiles");
@@ -94,16 +108,13 @@ public class MainHouseLayoutGUI {
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
         houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
-   //     menuBorder = BorderFactory.createTitledBorder("CleanBuddy");
+        // menuBorder = BorderFactory.createTitledBorder("CleanBuddy");
         LayoutWallDoorwayBorder = BorderFactory.createTitledBorder("Layout");
-        //LayoutWallDoorwayBorder = BorderFactory.createLineBorder(Color.blue,1);
+        // LayoutWallDoorwayBorder = BorderFactory.createLineBorder(Color.blue,1);
         LayoutFurnitureBorder = BorderFactory.createTitledBorder("Furniture");
         LayoutFloorsBorder = BorderFactory.createTitledBorder("Floors");
         LayoutPathBorder = BorderFactory.createTitledBorder("Vacuum Cleaning Algorithms");
         LayoutSimulationBorder = BorderFactory.createTitledBorder("Simulation");
-
-
-
 
         // Add components to houseTile Panel
         houseTile.setBorder(houseLayoutBorder);
@@ -111,30 +122,28 @@ public class MainHouseLayoutGUI {
         int sideLength = houseTile.getWidth() < houseTile.getHeight() ? houseTile.getHeight() : houseTile.getWidth();
         houseTile.setSize(sideLength,sideLength);
         houseTile.setLayout(gblHouseTilesLayout);
-    //    gblHouseTilesLayoutConstraints.fill = GridBagConstraints.VERTICAL;
+        // gblHouseTilesLayoutConstraints.fill = GridBagConstraints.VERTICAL;
         gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
         gblHouseTilesLayoutConstraints.gridwidth = sideLength;
         gblHouseTilesLayoutConstraints.gridheight = sideLength;
         gblHouseTilesLayoutConstraints.weightx = 0;
-       gblHouseTilesLayoutConstraints.weighty = 10;
-      //  gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
-      //  houseTileHeader.setPreferredSize(new Dimension(300, 30));
-   //    houseTile.add(houseTileHeader,BorderLayout.NORTH);
-   //     houseTile.add(houseTileHeader,gblHouseTilesLayoutConstraints); //
-   //     gblHouseTilesLayoutConstraints.weightx = 0;
-   //     gblHouseTilesLayoutConstraints.weighty = 20;
-    //    houseHeaderTilesSeperator.setOrientation(SwingConstants.HORIZONTAL);
-   //     houseHeaderTilesSeperator.setPreferredSize(new Dimension(30, 30));
-     //   houseTile.add(houseHeaderTilesSeperator,gblHouseTilesLayoutConstraints);
-   //     gblHouseTilesLayoutConstraints.weightx = 0;
-    //    gblHouseTilesLayoutConstraints.weighty = 30;
-   //     houseTile.add(houseTileIndividualTiles, BorderLayout.CENTER);
+        gblHouseTilesLayoutConstraints.weighty = 10;
+        // gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
+        // houseTileHeader.setPreferredSize(new Dimension(300, 30));
+        // houseTile.add(houseTileHeader,BorderLayout.NORTH);
+        // houseTile.add(houseTileHeader,gblHouseTilesLayoutConstraints); //
+        // gblHouseTilesLayoutConstraints.weightx = 0;
+        // gblHouseTilesLayoutConstraints.weighty = 20;
+        // houseHeaderTilesSeperator.setOrientation(SwingConstants.HORIZONTAL);
+        // houseHeaderTilesSeperator.setPreferredSize(new Dimension(30, 30));
+        // houseTile.add(houseHeaderTilesSeperator,gblHouseTilesLayoutConstraints);
+        // gblHouseTilesLayoutConstraints.weightx = 0;
+        // gblHouseTilesLayoutConstraints.weighty = 30;
+        // houseTile.add(houseTileIndividualTiles, BorderLayout.CENTER);
         houseTile.add(houseTileIndividualTiles,gblHouseTilesLayoutConstraints); // ,BorderLayout.CENTER) ;
 
-
-   //     houseTileHeader.add(tileText);
-   //     houseTileHeader.setBorder(houseTileBorder);
-
+        // houseTileHeader.add(tileText);
+        // houseTileHeader.setBorder(houseTileBorder);
 
         // Add components to HouseLayout Panel
         houseLayout.setBorder(houseLayoutBorder);
@@ -174,10 +183,9 @@ public class MainHouseLayoutGUI {
         simSpeedSlider.setMajorTickSpacing(10);
         simSpeedSlider.setMinorTickSpacing(1);
         LayoutSimualtion.add(simSpeedSlider);
-//     just in case we want to add run /stop simulation buttons to the simulation panel
-  //      LayoutSimualtion.add(runSimulationButton);
- //       LayoutSimualtion.add(stopSimulationButton);
-
+        // Just in case we want to add run / stop simulation buttons to the simulation panel
+        // LayoutSimulation.add(runSimulationButton);
+        // LayoutSimulation.add(stopSimulationButton);
 
         houseLayout.setLayout(gblHouseLayout);
 
@@ -208,10 +216,10 @@ public class MainHouseLayoutGUI {
         // House Tiles - East side
         int tileRow = 0;
         int tileColumn = 0;
-        int maxTitleRow = 5;
-        int maxTitleColumn = 5;
+        int maxTitleRow = 10;
+        int maxTitleColumn = 10;
         String tileName = "";
-     //   houseTileIndividualTiles.setLayout(gblHouseTile);
+        // houseTileIndividualTiles.setLayout(gblHouseTile);
         houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
         GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
         gblHouseTileConstraints.weightx = 1;
@@ -225,27 +233,26 @@ public class MainHouseLayoutGUI {
                 gblHouseTileConstraints.gridy = tileRow;
 
                 tileButton = new houseTile(tileRow,tileColumn);
-                Startup.houseTile finalTileButton = tileButton;  // mh not sure why we need this; ide added in order to run
-        //        tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
-                  tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout));
+                // mh not sure why we need this; ide added in order to run
+                Startup.houseTile finalTileButton = tileButton;
+                // tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
+                tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout));
 
                 houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
             }
         }
 
-
-            // Add components to Action Panel
-            houseActions.setBorder(houseActionsBorder);
-            houseActions.add(fileHandling,BorderLayout.WEST);
-            fileHandling.setBorder(houseFileHandlingBorder);
-            fileHandling.add(newHouseLayoutButton);
-            fileHandling.add(saveHouseLayoutButton);
-            fileHandling.add(loadHouseLayoutButton);
-            houseActions.add(simulationActions,BorderLayout.EAST);
-            simulationActions.setBorder(houseSimulationBorder);
-            simulationActions.add(runSimulationButton);
-            simulationActions.add(stopSimulationButton);
-
+        // Add components to Action Panel
+        houseActions.setBorder(houseActionsBorder);
+        houseActions.add(fileHandling,BorderLayout.WEST);
+        fileHandling.setBorder(houseFileHandlingBorder);
+        fileHandling.add(newHouseLayoutButton);
+        fileHandling.add(saveHouseLayoutButton);
+        fileHandling.add(loadHouseLayoutButton);
+        houseActions.add(simulationActions,BorderLayout.EAST);
+        simulationActions.setBorder(houseSimulationBorder);
+        simulationActions.add(runSimulationButton);
+        simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
 
@@ -333,28 +340,32 @@ public class MainHouseLayoutGUI {
         randomPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Random Path button in Vacuum Algorithms was clicked");
+                a = 1;
+                // out.println("Random Path button in Vacuum Algorithms was clicked");
             }
         });
 
         spiralPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Spiral Path button in Vacuum Algorithms was clicked");
+                a = 2;
+                // out.println("Spiral Path button in Vacuum Algorithms was clicked");
             }
         });
 
         snakePath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Snake Path button in Vacuum Algorithms was clicked");
+                a = 3;
+                // out.println("Snake Path button in Vacuum Algorithms was clicked");
             }
         });
 
         wallFollowPath.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Wall Follow Path button in Vacuum Algorithms was clicked");
+                a = 4;
+                // out.println("Wall Follow Path button in Vacuum Algorithms was clicked");
             }
         });
 
@@ -394,8 +405,6 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Load button on House Layout was clicked");
-
-
             }
         });
 
@@ -406,10 +415,26 @@ public class MainHouseLayoutGUI {
             }
         });
 
+        /* Purpose: When the Run Simulation button is clicked, data is gathered in order
+         * to pass to RunSimulation class.
+         * t = time
+         * rs = run speed
+         * b = battery life
+         * vs = vacuum speed
+         * ft = floor type
+         * TA = the tile array the run simulation works with
+         */
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                out.println("Run Simulation button on House Layout was clicked");
+                int t = 1;
+                int rs = 1;
+                int b = 1;
+                int vs = 1;
+                int ft = inpHouseLayout.getFloorType();
+
+                RunSimulation RS = new RunSimulation (t, rs, a, ft, b, vs, TA);
+                // out.println("Run Simulation button on House Layout was clicked");
             }
         });
 
@@ -420,21 +445,17 @@ public class MainHouseLayoutGUI {
             }
         });
 
-
-            // Add panels to the Frame
-
-            this.MainHouseLayoutFrame.add(houseTile,BorderLayout.WEST);
-            this.houseTile.setPreferredSize(new Dimension(380, 500));
-            this.MainHouseLayoutFrame.add(houseCenter,BorderLayout.CENTER);
-         //   this.houseCenter.setPreferredSize(new Dimension(10, 500));
-            this.MainHouseLayoutFrame.setPreferredSize(new Dimension(330, 500));
-            this.MainHouseLayoutFrame.add(houseLayout,BorderLayout.EAST);
-            this.houseLayout.setPreferredSize(new Dimension(400, 500));
-            this.MainHouseLayoutFrame.add(houseActions,BorderLayout.SOUTH);
-
+        // Add panels to the Frame
+        this.MainHouseLayoutFrame.add(houseTile,BorderLayout.WEST);
+        this.houseTile.setPreferredSize(new Dimension(380, 500));
+        this.MainHouseLayoutFrame.add(houseCenter,BorderLayout.CENTER);
+        // this.houseCenter.setPreferredSize(new Dimension(10, 500));
+        this.MainHouseLayoutFrame.setPreferredSize(new Dimension(330, 500));
+        this.MainHouseLayoutFrame.add(houseLayout,BorderLayout.EAST);
+        this.houseLayout.setPreferredSize(new Dimension(400, 500));
+        this.MainHouseLayoutFrame.add(houseActions,BorderLayout.SOUTH);
 
     }
-
 
     /**
      * Display the Main House Layout Screen
@@ -453,15 +474,12 @@ public class MainHouseLayoutGUI {
 
     }
 
-
     static void displayHouseLayout(JFrame inpFrame){
         inpFrame.setPreferredSize(new Dimension(800,600));
         inpFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         inpFrame.pack();
         inpFrame.setVisible(true);
     }
-
-
 
 }
 

@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 
 public class tileClick implements ActionListener {
 
- //   public tileClick(String inpText, ImageIcon inpIcon,
- //                    String inpDesc, Integer inpMnnemonic){
+    //   public tileClick(String inpText, ImageIcon inpIcon,
+    //                    String inpDesc, Integer inpMnnemonic){
 
     public tileClick(houseTile inphouseTile){
         System.out.println(inphouseTile.getTileName());

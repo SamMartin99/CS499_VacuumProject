@@ -1,20 +1,21 @@
 package Startup;
 
 public class HouseLayout {
-
     // Attributes
     private final int dim1 = 50;
     private final int dim2 = 50;
     private String LayoutName = ""; // Name of the house layout will be unique
     private int [][] TileArray = new int[dim1][dim2];
-    //private houseTile actualTiles[] = new houseTile();       // The actual layout of the house; 0 -- can be cleaned ; 1 -- can't be cleaned
-    private int floorType;          // type of floor for the house 1 -- Hard (default), 2-- Loop Pile, 3-- Cut Pile, 4 -- Freieze-cut
+    // private houseTile actualTiles[] = new houseTile();
+    // The actual layout of the house; 0 -- can be cleaned ; 1 -- can't be cleaned
+    // type of floor for the house 1 -- Hard (default), 2-- Loop Pile, 3-- Cut Pile, 4 -- Freieze-cut
+    private int floorType;
     private String layoutType = "";
 
     // Methods
 
-    // default constuctor
-   public HouseLayout(String inpLayoutName){
+    // default constructor
+    public HouseLayout(String inpLayoutName){
        this.LayoutName = inpLayoutName;
 
        // set every tile to be cleanable i.e. value of 0
@@ -26,9 +27,9 @@ public class HouseLayout {
 
        // default floor type is 1
        this.floorType = 1;
-   }
+    }
 
-   // default getters
+    // default getters
     public String getLayoutName() {return this.LayoutName;}
     public int[][] getTileArray() {return this.TileArray;}
     public int getFloorType() {return this.floorType;}
@@ -36,7 +37,7 @@ public class HouseLayout {
     public int getDim2() {return this.dim2;}
     public String getlayoutType() {return  this.layoutType; }
 
-   // Set the values
+    // Set the values
     public String setLayoutName(String inpLayoutName){
        this.LayoutName = inpLayoutName;
        return this.LayoutName;
@@ -48,66 +49,64 @@ public class HouseLayout {
     }
 
     public int setFloorType(int inpFloorType){
-       // 1 is
+        // 1 is
         // 2 is
-       this.floorType = inpFloorType;
-       return this.floorType;
+        this.floorType = inpFloorType;
+        return this.floorType;
     }
 
     public String wallClick(){
-     //  System.out.println("The Wall button was clicked");
-       this.layoutType = "Wall";
-       return layoutType;
+        // System.out.println("The Wall button was clicked");
+        this.layoutType = "Wall";
+        return layoutType;
     }
 
     public String doorClick(){
-      //  System.out.println("The Door button was clicked");
+        // System.out.println("The Door button was clicked");
         this.layoutType = "Door";
         return layoutType;
     }
 
     public String chairClick(){
-     //   System.out.println("The Chair button was clicked");
+        // System.out.println("The Chair button was clicked");
         this.layoutType = "Chair";
         return layoutType;
     }
 
     public String tableClick(){
-      //  System.out.println("The Table button was clicked");
+        // System.out.println("The Table button was clicked");
         this.layoutType = "Table";
         return layoutType;
     }
 
     public String chestClick(){
-      //  System.out.println("The Chest button was clicked");
+        // System.out.println("The Chest button was clicked");
         this.layoutType = "Chest";
         return layoutType;
     }
 
     public String shagClick(){
-       // System.out.println("The Shag button was clicked");
+        // System.out.println("The Shag button was clicked");
         this.layoutType = "Shag";
         return layoutType;
     }
 
     public String hardwoodClick(){
-      //  System.out.println("The Hardwood button was clicked");
+        // System.out.println("The Hardwood button was clicked");
         this.layoutType = "Hardwood";
         return layoutType;
     }
 
     public String loopPileClick(){
-       // System.out.println("The LoopPile button was clicked");
+        // System.out.println("The LoopPile button was clicked");
         this.layoutType = "LoopPile";
         return layoutType;
     }
 
     public String cutPileClick(){
-       // System.out.println("The CutPile button was clicked");
+        // System.out.println("The CutPile button was clicked");
         this.layoutType = "CutPile";
         return layoutType;
     }
-
-
 
 }

@@ -12,13 +12,11 @@ public class Tile {
     /* A number that corresponds to the tile's type.
      * Each type of tile (every wall tile, door tile, etc.)
      * has a different number:
-     * Empty: 0
-     * Vertical Wall: 1
-     * Horizontal Wall: 2
-     * Vertical Doorway: 3
-     * Horizontal Doorway: 4
-     * Chest: 5
-     * Table: 6
+     * Empty: 1
+     * Wall: 2
+     * Chest: 3
+     * Chair: 4
+     * Table: 5
      */
     private int type;
 

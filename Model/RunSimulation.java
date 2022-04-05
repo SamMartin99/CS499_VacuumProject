@@ -10,8 +10,6 @@ import java.util.Random;
  */
 
 public class RunSimulation {
-    private final int length;
-    private final int width;
     private final int time;
     private final int run_speed;
     private int algorithm;
@@ -28,11 +26,10 @@ public class RunSimulation {
      * int ft: floor type
      * int b: battery life
      * int rs: vacuum speed
+     * TileArray TA: The array of tiles that construct the house layout.
      */
-    public RunSimulation(int l, int w, int t, int rs, int a, int ft, int b, int vs, TileArray TA)
+    public RunSimulation(int t, int rs, int a, int ft, int b, int vs, TileArray TA)
     {
-        length = l;
-        width = w;
         time = t;
         run_speed = rs;
         algorithm = a;

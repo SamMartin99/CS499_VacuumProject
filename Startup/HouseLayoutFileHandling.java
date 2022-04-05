@@ -24,7 +24,7 @@ public class HouseLayoutFileHandling {
     // Methods
 
     // Creates a Windows file manager dialog for user to choose a house layout
-  //  public Scanner openHouseLayoutFile(Scanner houseLayoutFile) throws IOException {
+    //  public Scanner openHouseLayoutFile(Scanner houseLayoutFile) throws IOException {
     public void open() throws IOException {
         // create an object of JFileChooser class
         // By default goes to the user's default directory
@@ -42,25 +42,20 @@ public class HouseLayoutFileHandling {
 
         Scanner fileHouseLayout = new Scanner(new File(houseFileName));
 
-     //   System.out.println("Exiting the File Handling class openHouseFile method.");
+        //   System.out.println("Exiting the File Handling class openHouseFile method.");
         this.fileHouseReader = fileHouseLayout;
 
 
     }
 
     public void close() throws IOException {
-
-      // Close the file
-
-     this.fileHouseReader.close();
-
-     //   System.out.println("Exiting the File Handling class openHouseFile method.");
-
-
+        // Close the file
+        this.fileHouseReader.close();
+        //   System.out.println("Exiting the File Handling class openHouseFile method.");
     }
 
- //   public HouseLayout readHouseLayout(Scanner inpfilehouseLayout){  // in final product
-    public String read(){  // for intermediate codeing only
+    // public HouseLayout readHouseLayout(Scanner inpfilehouseLayout){  // in final product
+    public String read(){  // for intermediate coding only
         String tempLayoutname = "temp";
         String houseData = "";
 
@@ -69,7 +64,7 @@ public class HouseLayoutFileHandling {
             houseData = this.fileHouseReader.nextLine();
         }
         return houseData;
- //       return outHouseLayout;
+        // return outHouseLayout;
     }
 
     public int write(HouseLayout inpHouseLayout){  // in final product
@@ -92,19 +87,19 @@ public class HouseLayoutFileHandling {
                   tileValue = (char) TileArray[row][column];
                   fw.append(tileValue);
               }
-              fw.append(" "); // new line to seperate the rows of the Tile Array
+              fw.append(" "); // new line to separate the rows of the Tile Array
           }
 
-            intFloorType = inpHouseLayout.getFloorType();
-          charFloorType = (char)intFloorType;
+           intFloorType = inpHouseLayout.getFloorType();
+           charFloorType = (char)intFloorType;
 
-          fw.append(charFloorType);
-          writeStatus = 0;  // indicate write was successful
-          fw.close(); // close the file for write access
+           fw.append(charFloorType);
+           writeStatus = 0;  // indicate write was successful
+           fw.close(); // close the file for write access
 
         } catch (IOException e) {
             e.printStackTrace();
-           writeStatus = 1; // indicates a failute
+            writeStatus = 1; // indicates a failute
         }
 
         return writeStatus;

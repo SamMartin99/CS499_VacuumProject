@@ -9,7 +9,7 @@ public class TileArray {
      * Sizes should either be replaced with maximum sizes given in project description,
      * or TA should be replaced with a dynamic array.
      */
-    private Tile[][] TA = new Tile[1000][1000];
+    private Tile[][] TA = new Tile[10][10];
     /*
      * length and width are used for determining how many Tiles need to be constructed.
      */
@@ -36,5 +36,10 @@ public class TileArray {
     public Tile getTile (int i, int j)
     {
         return TA[i][j];
+    }
+
+    public void setTile (int i, int j, int type)
+    {
+        TA[i][j].setType(type);
     }
 }
