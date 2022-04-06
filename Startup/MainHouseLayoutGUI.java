@@ -178,10 +178,14 @@ public class MainHouseLayoutGUI {
         LayoutSimualtion.setPreferredSize(new Dimension(400,50));
         LayoutSimualtion.add(simSpeed);
         simSpeedSlider.setPaintLabels(true);
-        simSpeedSlider.setPaintTicks(true);
-        simSpeedSlider.setPaintTrack(true);
-        simSpeedSlider.setMajorTickSpacing(10);
-        simSpeedSlider.setMinorTickSpacing(1);
+     //   simSpeedSlider.setPaintTicks(true);
+     //   simSpeedSlider.setPaintTrack(true);
+     //   simSpeedSlider.setMajorTickSpacing(10);
+     //   simSpeedSlider.setMinorTickSpacing(1);
+        simSpeedSlider.setValue(1);
+        simSpeedSlider.setMaximum(50);
+        simSpeedSlider.setMinimum(1);
+
         LayoutSimualtion.add(simSpeedSlider);
         // Just in case we want to add run / stop simulation buttons to the simulation panel
         // LayoutSimulation.add(runSimulationButton);
@@ -236,13 +240,61 @@ public class MainHouseLayoutGUI {
 
                 Location l = new Location(tileRow, tileColumn);
                 tileButton = new houseTile(l);
-                // mh not sure why we need this; ide added in order to run
+
+               // mh not sure why we need this; ide added in order to run
                 Startup.houseTile finalTileButton = tileButton;
                 // tileButton.addActionListener(e -> finalTileButton.printTile(inpHouseLayout));
                 tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout,TA));
 
                 houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
+                // first row is a north border wall so nothing can be placed on it
+                if (tileRow == 0) {
+                    tileButton.setTileAvailable(false);
+                    TA.setTile(tileRow,tileColumn,3);
+                    try {
+                        ImageIcon icon = new ImageIcon("wallTile.png");
+                        tileButton.setIcon(icon);
+                        tileButton.setMargin(new Insets(0, 0, 0, 0));
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+                }
+                // first column is a west border wall so nothing can be placed on it
+                if (tileColumn == 0) {
+                    tileButton.setTileAvailable(false);
+                    TA.setTile(tileRow,tileColumn,3);
+                    try {
+                        ImageIcon icon = new ImageIcon("wallTile.png");
+                        tileButton.setIcon(icon);
+                        tileButton.setMargin(new Insets(0, 0, 0, 0));
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+                }  // last row is a south border wall
+                if (tileRow == (maxTileArrayRow -1)) {
+                    tileButton.setTileAvailable(false);
+                    TA.setTile(tileRow,tileColumn,3);
+                    try {
+                        ImageIcon icon = new ImageIcon("wallTile.png");
+                        tileButton.setIcon(icon);
+                        tileButton.setMargin(new Insets(0, 0, 0, 0));
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+                } // first column is an east border wall
+                if (tileColumn == (maxTileArrayRow -1 )) {
+                    tileButton.setTileAvailable(false);
+                    TA.setTile(tileRow,tileColumn,3);
+                    try {
+                        ImageIcon icon = new ImageIcon("wallTile.png");
+                        tileButton.setIcon(icon);
+                        tileButton.setMargin(new Insets(0, 0, 0, 0));
+                    } catch (Exception ex) {
+                        System.out.println(ex);
+                    }
+                }
             }
+
         }
 
         // Add components to Action Panel

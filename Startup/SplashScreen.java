@@ -23,8 +23,8 @@ public class SplashScreen {
 
     // Global variable to indicate the type of tile (wall, door, etc)
     static String tileType = "";
-    static int maxTileArrayRow = 5;
-    static int maxTileArrayColumn = 5;
+    static int maxTileArrayRow = 10;
+    static int maxTileArrayColumn = 10;
 
     /**
      * Create the GUI and show it.  For thread safety,

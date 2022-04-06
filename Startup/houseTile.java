@@ -82,9 +82,11 @@ public class houseTile extends JButton {
         this.tileAvailable = inpTileAvailable;
     }
 
-    public void setLayoutType (HouseLayout inpHouseLayout){
-        this.layoutType = inpHouseLayout.getlayoutType();
-    }
+   // public void setLayoutType (HouseLayout inpHouseLayout){
+    //    this.layoutType = inpHouseLayout.getlayoutType();
+    // }
+
+    public void setLayoutType(String inpLayoutType){}
 
     public void printTile(HouseLayout inpHouseLayout){
         System.out.println("tile " + this.loc.x + ", " + this.loc.y + " Layout Type is " + inpHouseLayout.getlayoutType() );
@@ -105,6 +107,12 @@ public class houseTile extends JButton {
         // Also must update the tile's icon to match its type
         // Do this for each type you could be setting this tile to
 
+        // check to see if tile is available
+        if (this.tileAvailable == false) {
+            tileUnavailablePopup(this);
+           // System.out.println("tile is unavailable");
+            return;
+        }
         // DOOR
         if (inpHouseLayout.getlayoutType().compareTo("Door") == 0 )
             {
