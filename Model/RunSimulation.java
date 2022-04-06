@@ -41,6 +41,8 @@ public class RunSimulation {
         V = new Vacuum (b, vs);
         this.TA = TA;
 
+
+
         /*
          * Calculate how quickly the output is updated.
          * Started by dividing 24 by vs, where 24 represents 24 inches (2 feet for every tile)
@@ -118,4 +120,7 @@ public class RunSimulation {
         outputScreenFrame.setVisible(true);
     }
 
+    public void printSimValues() {
+        System.out.println("Run Speed is " + this.run_speed);
+    }
 }
