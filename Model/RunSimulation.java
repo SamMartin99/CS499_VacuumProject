@@ -12,7 +12,9 @@ import java.util.Random;
  * will probably get too "crowded" otherwise.
  */
 
+// Class Definition
 public class RunSimulation {
+    // Attributes
     private final int time;
     private final int run_speed;
     private int algorithm;
@@ -31,6 +33,8 @@ public class RunSimulation {
      * int rs: vacuum speed
      * TileArray TA: The array of tiles that construct the house layout.
      */
+
+    // Constructor
     public RunSimulation(int t, int rs, int a, int ft, int b, int vs, TileArray TA)
     {
         time = t;

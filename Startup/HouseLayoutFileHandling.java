@@ -25,7 +25,8 @@ public class HouseLayoutFileHandling {
 
     // Creates a Windows file manager dialog for user to choose a house layout
     //  public Scanner openHouseLayoutFile(Scanner houseLayoutFile) throws IOException {
-    public void open() throws IOException {
+    public void open() throws IOException
+    {
         // create an object of JFileChooser class
         // By default goes to the user's default directory
         JFileChooser jfcOpen = new JFileChooser();
@@ -39,19 +40,13 @@ public class HouseLayoutFileHandling {
         }
 
         // Open the file
-
         Scanner fileHouseLayout = new Scanner(new File(houseFileName));
-
-        //   System.out.println("Exiting the File Handling class openHouseFile method.");
         this.fileHouseReader = fileHouseLayout;
-
-
     }
 
     public void close() throws IOException {
         // Close the file
         this.fileHouseReader.close();
-        //   System.out.println("Exiting the File Handling class openHouseFile method.");
     }
 
     // public HouseLayout readHouseLayout(Scanner inpfilehouseLayout){  // in final product
@@ -99,9 +94,8 @@ public class HouseLayoutFileHandling {
 
         } catch (IOException e) {
             e.printStackTrace();
-            writeStatus = 1; // indicates a failute
+            writeStatus = 1; // indicates a failure
         }
-
-        return writeStatus;
+        return writeStatus; // Return failure or success
     }
 }

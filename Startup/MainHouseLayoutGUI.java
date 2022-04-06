@@ -1,5 +1,10 @@
 package Startup;
 
+// Authors: Guess Crow, Marie Held, Bryant Terry, Sam Martin
+// Class: CS 499 Senior Design
+// Project: Vacuum Robot Simulator
+// Purpose: This class creates all the basic GUI for the main project window, excluding the house editor view
+
 // Class to provide the scaffolding for the HouseLayout
 // West side is tile
 // East side is components
