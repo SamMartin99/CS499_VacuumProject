@@ -14,10 +14,11 @@ public class Tile {
      * Each type of tile (every wall tile, door tile, etc.)
      * has a different number:
      * Empty: 1
-     * Wall: 2
-     * Chest: 3
-     * Chair: 4
-     * Table: 5
+     * Door: 2
+     * Wall: 3
+     * Chest: 4
+     * Chair: 5
+     * Table: 6
      */
     private int type;
 

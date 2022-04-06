@@ -157,6 +157,7 @@ public class houseTile extends JButton {
                     System.out.println(ex);
                 }
             }
+        // TABLE
         else if (inpHouseLayout.getlayoutType().compareTo("Table") == 0 )
             {
                 tileType = 6;

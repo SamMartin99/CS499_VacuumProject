@@ -37,14 +37,6 @@ public class MainHouseLayoutGUI {
     // 3 = Snaking
     // 4 = Wall Follow
     private int a = 1;
-    /* The tile array. I'm defaulting to 10x10 for the size, for now.
-     *
-     * NOTE FROM BRYANT: No idea how we're supposed to actually get the type
-     * from the buttons. We can set the type of buttons individually, but there needs
-     * to be a way to get the type BACK from those buttons, so the tile array can be
-     * prepared for the RunSimulation class. Otherwise there's no actual way to
-     * work with the user input.
-     */
 
     // Attributes
     TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
@@ -221,8 +213,8 @@ public class MainHouseLayoutGUI {
         // House Tiles - East side
         int tileRow = 0;
         int tileColumn = 0;
-      //  int maxTitleRow = 10;
-    //    int maxTitleColumn = 10;
+        // int maxTitleRow = 10;
+        // int maxTitleColumn = 10;
         String tileName = "";
         // houseTileIndividualTiles.setLayout(gblHouseTile);
         houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
@@ -231,9 +223,9 @@ public class MainHouseLayoutGUI {
         gblHouseLayoutConstraints.weighty = 1;
         houseTile tileButton;
 
-   //     for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
+        // for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
         for (tileRow = 0; tileRow < maxTileArrayRow; tileRow ++){
- //           for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
+            // for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
             for (tileColumn = 0; tileColumn < maxTileArrayColumn; tileColumn ++){
                 tileName = "Tile" + tileRow + tileColumn;
                 gblHouseTileConstraints.gridx = tileColumn;
@@ -303,7 +295,7 @@ public class MainHouseLayoutGUI {
         Chestbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-      //          out.println("Chair button in Components Furniture was clicked");
+                // out.println("Chair button in Components Furniture was clicked");
                 inpHouseLayout.chestClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -312,7 +304,7 @@ public class MainHouseLayoutGUI {
         ShagFloorbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-   //             out.println("Shag button in Components Floor was clicked");
+                // out.println("Shag button in Components Floor was clicked");
                 inpHouseLayout.shagClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -321,7 +313,7 @@ public class MainHouseLayoutGUI {
         HardwoodFloorbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-     //           out.println("HardwoodFloor button in Components Floor was clicked");
+                // out.println("HardwoodFloor button in Components Floor was clicked");
                 inpHouseLayout.hardwoodClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -330,7 +322,7 @@ public class MainHouseLayoutGUI {
         LoopPilebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-     //           out.println("Loop Pile button in Components Floor was clicked");
+                // out.println("Loop Pile button in Components Floor was clicked");
                 inpHouseLayout.loopPileClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -339,7 +331,7 @@ public class MainHouseLayoutGUI {
         CutPilebtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-  //              out.println("Cut Pile button in Components Floor was clicked");
+                // out.println("Cut Pile button in Components Floor was clicked");
                 inpHouseLayout.cutPileClick();
                 inpHouseLayout.getlayoutType();
             }
@@ -425,7 +417,6 @@ public class MainHouseLayoutGUI {
 
         /* Purpose: When the Run Simulation button is clicked, data is gathered in order
          * to pass to RunSimulation class.
-         * t = time
          * rs = run speed
          * b = battery life
          * vs = vacuum speed
@@ -435,13 +426,12 @@ public class MainHouseLayoutGUI {
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int t = 1;
                 int rs = 1;
-                int b = 1;
-                int vs = 1;
+                int b = 150;
+                int vs = 3;
                 int ft = inpHouseLayout.getFloorType();
 
-                RunSimulation RS = new RunSimulation (t, rs, a, ft, b, vs, TA);
+                RunSimulation RS = new RunSimulation (rs, a, ft, b, vs, TA);
                 RS.run();
                 // out.println("Run Simulation button on House Layout was clicked");
             }

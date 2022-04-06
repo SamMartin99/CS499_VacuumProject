@@ -43,5 +43,10 @@ public class TileArray {
         TA[i][j].setType(type);
     }
 
+    public void setTileClean (int i, int j, double clean_value)
+    {
+        TA[i][j].setClean(clean_value);
     }
+
+}
 
