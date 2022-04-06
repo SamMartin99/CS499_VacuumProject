@@ -4,6 +4,7 @@ package Model;
  * Purpose: Represents a single tile on the house layout.
  */
 
+// Class definition
 public class Tile {
     /* A value between 0.0 and 1.0, which represents the
      * cleanliness of the floor.

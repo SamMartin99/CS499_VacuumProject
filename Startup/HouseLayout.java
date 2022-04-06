@@ -1,12 +1,19 @@
 package Startup;
 
+// Authors: Guess Crow, Marie Held, Bryant Terry, Sam Martin
+// Class: CS 499 Senior Design
+// Project: Vacuum Robot Simulator
+// Purpose: NEEDS FILLED
+
+import static Startup.SplashScreen.maxTileArrayColumn;
+import static Startup.SplashScreen.maxTileArrayRow;
+
 public class HouseLayout {
     // Attributes
-    private final int dim1 = 50;
-    private final int dim2 = 50;
+    private final int dim1 = maxTileArrayRow; // These define the maximum size of the array of tiles
+    private final int dim2 = maxTileArrayColumn;
     private String LayoutName = ""; // Name of the house layout will be unique
     private int [][] TileArray = new int[dim1][dim2];
-    // private houseTile actualTiles[] = new houseTile();
     // The actual layout of the house; 0 -- can be cleaned ; 1 -- can't be cleaned
     // type of floor for the house 1 -- Hard (default), 2-- Loop Pile, 3-- Cut Pile, 4 -- Freieze-cut
     private int floorType;
@@ -17,7 +24,6 @@ public class HouseLayout {
     // default constructor
     public HouseLayout(String inpLayoutName){
        this.LayoutName = inpLayoutName;
-
        // set every tile to be cleanable i.e. value of 0
        for (int index1 =0; index1 < dim1; index1++){
            for (int index2 = 0; index2 < dim2; index2++){
@@ -25,7 +31,7 @@ public class HouseLayout {
            }
        }
 
-       // default floor type is 1
+       // default floor type is 1 (hardwood)
        this.floorType = 1;
     }
 
@@ -56,55 +62,46 @@ public class HouseLayout {
     }
 
     public String wallClick(){
-        // System.out.println("The Wall button was clicked");
         this.layoutType = "Wall";
         return layoutType;
     }
 
     public String doorClick(){
-        // System.out.println("The Door button was clicked");
         this.layoutType = "Door";
         return layoutType;
     }
 
     public String chairClick(){
-        // System.out.println("The Chair button was clicked");
         this.layoutType = "Chair";
         return layoutType;
     }
 
     public String tableClick(){
-        // System.out.println("The Table button was clicked");
         this.layoutType = "Table";
         return layoutType;
     }
 
     public String chestClick(){
-        // System.out.println("The Chest button was clicked");
         this.layoutType = "Chest";
         return layoutType;
     }
 
     public String shagClick(){
-        // System.out.println("The Shag button was clicked");
         this.layoutType = "Shag";
         return layoutType;
     }
 
     public String hardwoodClick(){
-        // System.out.println("The Hardwood button was clicked");
         this.layoutType = "Hardwood";
         return layoutType;
     }
 
     public String loopPileClick(){
-        // System.out.println("The LoopPile button was clicked");
         this.layoutType = "LoopPile";
         return layoutType;
     }
 
     public String cutPileClick(){
-        // System.out.println("The CutPile button was clicked");
         this.layoutType = "CutPile";
         return layoutType;
     }

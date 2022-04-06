@@ -9,14 +9,13 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 
 // Imports for using java's swing GUI functionality
 
+import Model.TileArray;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-
-// Global variable to indicate the type of tile (wall, door, etc)
-
 
 /* FrameDemo.java requires no other files. */
 
@@ -24,6 +23,9 @@ public class SplashScreen {
 
     // Global variable to indicate the type of tile (wall, door, etc)
     static String tileType = "";
+    static int maxTileArrayRow = 5;
+    static int maxTileArrayColumn = 5;
+
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -56,7 +58,7 @@ public class SplashScreen {
                 MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
 
             }
-        });  //mh react to a button click
+        });  //mh react to the Start button click
 
         // Alignment/layout stuff to center the logo and text
         namesLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -78,67 +80,11 @@ public class SplashScreen {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
 
-        // create a new House Layout
-        // This is just test code need to remove at some point
-        // Set up the variables for a house layout
-        int index1, index2;
-        String layoutName = "marie";
-        HouseLayout myHouse = new HouseLayout(layoutName);
-
-//        System.out.println(myHouse.getLayoutName());
-//        System.out.println(myHouse.getTileArray());
-//        System.out.println(myHouse.getFloorType());
-
-        myHouse.setLayoutName("Hello World");
-//        System.out.println("The house layout name is: " + myHouse.getLayoutName());
-        int dim1 = 100;
-        int dim2 = 100;
-
-        int[][] myTileArray = new int[dim1][dim2];
-        for (index1 =0; index1 < dim1; index1++) {
-            for (index2 = 1; index2 < dim2; index2++) {
-                myTileArray[index1][index2] = 1;
-            }
-        }
-         myHouse.setTileArray(myTileArray);
-         myTileArray=myHouse.getTileArray();
-//         System.out.println("The tile array is: ");
-         for ( index1 =0; index1 < dim1; index1++) {
-             for (index2 = 1; index2 < dim2; index2++) {
-//                 System.out.print(myTileArray[index1][index2] + " ");
-             }
- //            System.out.println();
-         }
-
-         myHouse.setFloorType(2);
-//         System.out.println("The floor type is: " + myHouse.getFloorType());
-
-
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
             }
         });
-
-
-
-
-
-
-
-
-// Test code for house layout file handling at some p
-        // Create the new houseLayout Object
-//        HouseLayoutFileHandling houseLayout = new HouseLayoutFileHandling();
-        // Open the HouseLayoutFile
- //       Scanner HouseLayoutFile;
-//        HouseLayoutFile = houseLayout.openHouseLayoutFile();
-
-        // Read the HouseLayoutFile
- //       String houseLayoutData = "";
-//        houseLayoutData= houseLayout.readHouseLayout(HouseLayoutFile);
-///
-
     }
 
 }

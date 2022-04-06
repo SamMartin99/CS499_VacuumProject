@@ -42,4 +42,6 @@ public class TileArray {
     {
         TA[i][j].setType(type);
     }
-}
+
+    }
+
