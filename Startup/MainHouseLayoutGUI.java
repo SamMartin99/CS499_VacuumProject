@@ -12,6 +12,8 @@ package Startup;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,6 +39,7 @@ public class MainHouseLayoutGUI {
     // 3 = Snaking
     // 4 = Wall Follow
     private int a = 1;
+    private int rs = 25;  // Run speed
 
     // Attributes
     TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
@@ -369,6 +372,17 @@ public class MainHouseLayoutGUI {
             }
         });
 
+        /**
+         * Purpose: To retrieve the value for the simulation speed
+         */
+
+        simSpeedSlider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                rs = simSpeedSlider.getValue();
+                System.out.println(rs);
+            }
+        });
         newHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -426,12 +440,13 @@ public class MainHouseLayoutGUI {
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int rs = 1;
+              //  int rs = 1;
                 int b = 150;
                 int vs = 3;
                 int ft = inpHouseLayout.getFloorType();
 
                 RunSimulation RS = new RunSimulation (rs, a, ft, b, vs, TA);
+                RS.printSimValues();
                 RS.run();
                 // out.println("Run Simulation button on House Layout was clicked");
             }
