@@ -380,7 +380,7 @@ public class MainHouseLayoutGUI {
             @Override
             public void stateChanged(ChangeEvent e) {
                 rs = simSpeedSlider.getValue();
-                System.out.println(rs);
+         //       System.out.println(rs);
             }
         });
         newHouseLayoutButton.addActionListener(new ActionListener() {
