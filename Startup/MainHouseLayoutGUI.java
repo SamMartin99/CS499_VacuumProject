@@ -440,7 +440,7 @@ public class MainHouseLayoutGUI {
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              //  int rs = 1;
+                //  int rs = 1;
                 int b = 150;
                 int vs = 3;
                 int ft = inpHouseLayout.getFloorType();
