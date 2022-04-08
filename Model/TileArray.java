@@ -28,9 +28,10 @@ public class TileArray {
         {
             for (int j = 0; j < width; j++)
             {
-                TA[i][j]= new Tile();
+                TA[i][j]= new Tile();;
             }
         }
+        setTile(0,0,3);  // set to a wall
     }
 
     public Tile getTile (int i, int j)

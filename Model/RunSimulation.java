@@ -51,6 +51,68 @@ public class RunSimulation {
          */
         delay_time = ((24 / vs) * 1000) / rs;
     }
+    /**
+     * Purpose: To get the current values of the run speed
+     */
+    public int getRunSpeed() {
+        return this.run_speed;
+    }
+
+    /**
+     * Purpose: To get the current values of the Algorithm
+     */
+    public int getAlgorithm() {
+        return this.algorithm;
+    }
+
+    /**
+     * Purpose: To get the current values of the Algorithm Name
+     */
+    public String getAlgorithmName() {
+        String algorithmName = "";
+        if (getAlgorithm() == 1 ) {algorithmName = "Random" ;}
+        if (getAlgorithm() == 2 ) {algorithmName = "Spiral" ;}
+        if (getAlgorithm() == 3 ) {algorithmName = "Snaking" ;}
+        if (getAlgorithm() == 4 ) {algorithmName = "Wall Follow" ;}
+
+        return algorithmName;
+    }
+
+    /**
+     * Purpose: To get the current values of the Floor Type
+     */
+    public int getFloorType() {
+        return this.floor_type;
+    }
+
+    /**
+     * Purpose: To get the name of the Floor Type
+     */
+    public String getFloorTypeName() {
+        String floorTypemName = "";
+        if (getFloorType() == 1 ) {floorTypemName  = "Shag" ;}
+        if (getFloorType() == 2 ) {floorTypemName  = "Hardwood" ;}
+        if (getFloorType() == 3 ) {floorTypemName = "LoopPile" ;}
+        if (getFloorType() == 4 ) {floorTypemName = "CutPile" ;}
+        return floorTypemName;
+    }
+
+    /**
+     * Purpose: To get the current values of Tiles
+     */
+  //  public int getTileValues() {
+ //       return this.floor_type;
+  //  }
+
+    /**
+     * Purpose: To print all the current values of the RunSimuation object
+     */
+    public void printSimValues() {
+        System.out.println("Run Speed is " + this.getRunSpeed());
+        System.out.println("Algorithm is " + this.getAlgorithm() + " - " + getAlgorithmName());
+        System.out.println("Floor Type is " + this.getFloorType() + " - " + getFloorTypeName());
+    }
+
 
     /* Name: run
      * Parameters: none
@@ -118,7 +180,5 @@ public class RunSimulation {
         outputScreenFrame.setVisible(true);
     }
 
-    public void printSimValues() {
-        System.out.println("Run Speed is " + this.run_speed);
-    }
+
 }
