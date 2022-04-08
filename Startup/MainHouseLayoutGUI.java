@@ -239,7 +239,7 @@ public class MainHouseLayoutGUI {
                 gblHouseTileConstraints.gridy = tileRow;
 
                 Location l = new Location(tileRow, tileColumn);
-                tileButton = new houseTile(l);
+                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn));
 
                // mh not sure why we need this; ide added in order to run
                 Startup.houseTile finalTileButton = tileButton;
