@@ -31,7 +31,8 @@ public class Tile {
     public Tile ()
     {
         clean = 1.0;
-        type = 0;
+    //    type = 0;
+        type = 1; // set type to empty
         pass = true;
     }
 

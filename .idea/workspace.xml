@@ -4,41 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: created a packaged called View and move the MainHouseLayoutGUI to the View package">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Startup/HouseLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/houseTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/houseTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayoutFileHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayoutFileHandling.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$11.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$14.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$15.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$16.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$17.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$18.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$19.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$20.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$21.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649263377848</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Changes: change the simulation slider button to 3 radio buttons">
+      <created>1649519711394</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1649519711394</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -322,7 +305,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: Add coded in SplashScreen to call the file handling routine" />
     <MESSAGE value="Changes: Add coded to test the HouseLayout Getters and Setters" />
     <MESSAGE value="Changes: Created the HouseLayout class" />
     <MESSAGE value="Changes: new file name, streamline code, read working" />
@@ -347,6 +329,7 @@
     <MESSAGE value="Changes: add a printSimValues method" />
     <MESSAGE value="Changes: completed adding getters, printSimValues in RunSimulation class ;" />
     <MESSAGE value="Changes: created a packaged called View and move the MainHouseLayoutGUI to the View package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: created a packaged called View and move the MainHouseLayoutGUI to the View package" />
+    <MESSAGE value="Changes: change the simulation slider button to 3 radio buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: change the simulation slider button to 3 radio buttons" />
   </component>
 </project>

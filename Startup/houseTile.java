@@ -14,6 +14,7 @@ import static java.lang.System.out;
 // Class: CS 499 Senior Design
 // Project: Vacuum Robot Simulator
 // Purpose: A class for each GUI tile in our grid that represents the house
+// These are individual tiles
 
 
 // Class definition
@@ -84,10 +85,6 @@ public class houseTile extends JButton {
     public void setTileAvailable(boolean inpTileAvailable){
         this.tileAvailable = inpTileAvailable;
     }
-
-    // public void setLayoutType (HouseLayout inpHouseLayout){
-    //    this.layoutType = inpHouseLayout.getlayoutType();
-    // }
 
     public void setLayoutType(String inpLayoutType){}
 

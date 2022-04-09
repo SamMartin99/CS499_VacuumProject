@@ -19,35 +19,41 @@ public class TileArray {
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
      */
-    public TileArray(int length, int width)
-    {
+    public TileArray(int length, int width) {
         this.length = length;
         this.width = width;
 
-        for (int i = 0; i < length; i++)
-        {
-            for (int j = 0; j < width; j++)
-            {
-                TA[i][j]= new Tile();;
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < width; j++) {
+                TA[i][j] = new Tile();
+                ;
             }
         }
-        setTile(0,0,3);  // set to a wall
+        setTile(0, 0, 3);  // set to a wall
     }
 
-    public Tile getTile (int i, int j)
-    {
+    public Tile getTile(int i, int j) {
         return TA[i][j];
     }
 
-    public void setTile (int i, int j, int type)
-    {
+    public void setTile(int i, int j, int type) {
         TA[i][j].setType(type);
     }
 
-    public void setTileClean (int i, int j, double clean_value)
-    {
+    public void setTileClean(int i, int j, double clean_value) {
         TA[i][j].setClean(clean_value);
     }
 
-}
+    public void printTileArray() {
+        int numRows = this.length;
+        int numColumns = this.width;
 
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numColumns; j++) {
+                System.out.print(TA[i][j].getType() + " ");
+            }
+            System.out.println();
+
+        }
+    }
+}

@@ -6,6 +6,8 @@ package Startup;
 // Purpose: NEEDS FILLED
 
 
+import Model.TileArray;
+
 public class HouseLayout {
     // Attributes
 //    private final int dim1 = 10; // maxTileArrayRow; // These define the maximum size of the array of tiles
@@ -18,6 +20,7 @@ public class HouseLayout {
     // type of floor for the house 1 -- Hard (default), 2-- Loop Pile, 3-- Cut Pile, 4 -- Freieze-cut
     private int floorType;
     private String layoutType = "";
+    private Model.TileArray simTileArray;
 
     // Methods
 
@@ -27,9 +30,21 @@ public class HouseLayout {
        // set every tile to be cleanable i.e. value of 0
        for (int index1 =0; index1 < dim1; index1++){
            for (int index2 = 0; index2 < dim2; index2++){
-               this.TileArray[index1][index2] =0;
+          //    this.TileArray[index1][index2] =0;
+               this.TileArray[index1][index2] =1;
            }
        }
+
+       // Create a new Tile Array for the simulation
+        simTileArray = new TileArray(dim1,dim2);
+       // Set all tiles to empty -- Empty Type has a value of 1
+       for (int i = 0; i < dim1; i++){
+           for (int j = 0 ; j < dim2; j++){
+               simTileArray.setTile(i,j,1);
+           }
+       }
+    //   simTileArray.printTileArray();
+
 
        // default floor type is 1 (hardwood)
        this.floorType = 1;
@@ -42,6 +57,25 @@ public class HouseLayout {
     public int getDim1() {return this.dim1;}
     public int getDim2() {return this.dim2;}
     public String getlayoutType() {return  this.layoutType; }
+
+    // Get the name of the floor type
+    public String getFloorTypeName(){
+        String floorTypeName = "Unknown";
+
+        if (this.floorType == 1) {
+            floorTypeName = "Shag";
+            return floorTypeName;}
+        if (this.floorType == 2) {
+            floorTypeName = "Hardwood";
+            return floorTypeName;}
+        if (this.floorType == 3) {
+            floorTypeName = "LoopPile";
+            return floorTypeName;}
+        if (this.floorType == 4) {
+            floorTypeName = "CutPile";
+            return floorTypeName;}
+        return floorTypeName;
+    }
 
     // Set the values
     public String setLayoutName(String inpLayoutName){
@@ -104,6 +138,10 @@ public class HouseLayout {
     public String cutPileClick(){
         this.layoutType = "CutPile";
         return layoutType;
+    }
+
+    public void printTileArray(){
+
     }
 
 }

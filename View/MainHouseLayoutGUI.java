@@ -495,13 +495,22 @@ public class MainHouseLayoutGUI {
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              //  int rs = 1;
-                int b = 150;
+
+                int batteryLife = 150;
                 int vs = 3;
                 int ft = inpHouseLayout.getFloorType();
 
-                RunSimulation RS = new RunSimulation (rs, a, ft, b, vs, TA);
-                RS.printSimValues();
+                System.out.println("Simulation Speed is: " + rs);
+                if (a == 1) {System.out.println("The pathing algorithm is: Random");}
+                if (a == 2) {System.out.println("The pathing algorithm is: Spiral");}
+                if (a == 3) {System.out.println("The pathing algorithm is: Snake");}
+                if (a == 4) {System.out.println("The pathing algorithm is: Wall Follow");}
+                System.out.println("Floor type is: " + inpHouseLayout.getFloorTypeName());
+                System.out.println("Battery Life " + batteryLife);
+                System.out.println("The number of inches the vacuum covers in a second is " + vs);
+                TA.printTileArray();
+                RunSimulation RS = new RunSimulation (rs, a, ft, batteryLife, vs, TA);
+          //      RS.printSimValues();
                 RS.run();
                 // out.println("Run Simulation button on House Layout was clicked");
             }
