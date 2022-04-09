@@ -56,7 +56,7 @@ public class SimulationLayoutGUI{
     JButton st39 = new JButton();
 
     Border simTilesWallBorder;
-    Border simTilesDoorBorder;
+    Border simTilesChairBorder;
 
 
 
@@ -64,7 +64,7 @@ public class SimulationLayoutGUI{
     public SimulationLayoutGUI(TileArray inpTileArray) {
 
         simTilesWallBorder = BorderFactory.createLineBorder(Color.BLACK,10);
-        simTilesDoorBorder = BorderFactory.createLineBorder(Color.BLUE,10);
+        simTilesChairBorder = BorderFactory.createLineBorder(Color.BLUE,10);
 
 
         GridLayout simTilePanelLayout = new GridLayout(4,10);
@@ -78,8 +78,8 @@ public class SimulationLayoutGUI{
         }
 
         if (4 == inpTileArray.getTile(2,2).getType()) {
-            st00.setName("Chest");
-            st00.setBorder(simTilesDoorBorder);
+            st22.setName("Chest");
+            st22.setBorder(simTilesChairBorder);
         }
 
 
