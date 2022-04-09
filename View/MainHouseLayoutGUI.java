@@ -1,4 +1,4 @@
-package Startup;
+package View;
 
 // Authors: Guess Crow, Marie Held, Bryant Terry, Sam Martin
 // Class: CS 499 Senior Design
@@ -17,13 +17,16 @@ import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.IOException;
 import Model.RunSimulation;
 import Model.TileArray;
-import Model.Tile;
+import Startup.HouseLayout;
+import Startup.HouseLayoutFileHandling;
+import Startup.Location;
+import Startup.houseTile;
 
-import static Startup.SplashScreen.maxTileArrayRow;
-import static Startup.SplashScreen.maxTileArrayColumn;
 import static java.lang.System.*;
 
 /**
@@ -40,6 +43,9 @@ public class MainHouseLayoutGUI {
     // 4 = Wall Follow
     private int a = 1;
     private int rs = 25;  // Run speed
+
+    static int maxTileArrayRow = 10;
+    static int maxTileArrayColumn = 10;
 
     // Attributes
     TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
@@ -64,22 +70,30 @@ public class MainHouseLayoutGUI {
     JFrame MainHouseLayoutFrame = new JFrame("Clean Buddy -- General View");
     JTextArea tileText = new JTextArea("Layout Name");
     JButton layoutbtn = new JButton();
+
     JButton Wallbtn = new JButton("Wall");
     JButton Doorwaybtn = new JButton("Doorway");
+
     JButton Chairbtn = new JButton("Chair");
     JButton Tablebtn = new JButton("Table");
     JButton Chestbtn = new JButton("Chest");
+
     JButton ShagFloorbtn = new JButton("Shag");
     JButton HardwoodFloorbtn = new JButton("Hardwood");
     JButton LoopPilebtn = new JButton("LoopPile");
     JButton CutPilebtn = new JButton("CutPile");
+
     JButton randomPath = new JButton("Random");
     JButton spiralPath = new JButton("Spiral");
     JButton snakePath = new JButton("Snake");
     JButton wallFollowPath = new JButton("Wall Follow");
-    JLabel simSpeed = new JLabel("Speed");
-    JSlider simSpeedSlider = new JSlider(0,50);
-    JSeparator houseHeaderTilesSeparator = new JSeparator();
+
+ //   JLabel simSpeedLabel = new JLabel("Speed");
+    JRadioButton simSpeed1 = new JRadioButton("1");
+    JRadioButton simSpeed5 = new JRadioButton("5");
+    JRadioButton simSpeed50 = new JRadioButton("50");
+
+
     // In House Layout Panel used the grid layout
     GridBagLayout gblHouseLayout = new GridBagLayout();
     GridBagConstraints gblHouseLayoutConstraints = new GridBagConstraints();
@@ -98,7 +112,7 @@ public class MainHouseLayoutGUI {
      *
      * @param
      */
-    <tileType> MainHouseLayoutGUI(HouseLayout inpHouseLayout){
+    public MainHouseLayoutGUI(HouseLayout inpHouseLayout){
         // set up borders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
@@ -107,10 +121,8 @@ public class MainHouseLayoutGUI {
         houseLayoutBorder = BorderFactory.createTitledBorder("Layout Name: "+ houseLayoutName);
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
-        houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
-        // menuBorder = BorderFactory.createTitledBorder("CleanBuddy");
+        houseSimulationBorder = BorderFactory.createTitledBorder("Simulation Speed");
         LayoutWallDoorwayBorder = BorderFactory.createTitledBorder("Layout");
-        // LayoutWallDoorwayBorder = BorderFactory.createLineBorder(Color.blue,1);
         LayoutFurnitureBorder = BorderFactory.createTitledBorder("Furniture");
         LayoutFloorsBorder = BorderFactory.createTitledBorder("Floors");
         LayoutPathBorder = BorderFactory.createTitledBorder("Vacuum Cleaning Algorithms");
@@ -118,32 +130,12 @@ public class MainHouseLayoutGUI {
 
         // Add components to houseTile Panel
         houseTile.setBorder(houseLayoutBorder);
-        // trying to set the panel to a square
-        int sideLength = houseTile.getWidth() < houseTile.getHeight() ? houseTile.getHeight() : houseTile.getWidth();
-        houseTile.setSize(sideLength,sideLength);
         houseTile.setLayout(gblHouseTilesLayout);
-        // gblHouseTilesLayoutConstraints.fill = GridBagConstraints.VERTICAL;
+
         gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
-        gblHouseTilesLayoutConstraints.gridwidth = sideLength;
-        gblHouseTilesLayoutConstraints.gridheight = sideLength;
         gblHouseTilesLayoutConstraints.weightx = 0;
         gblHouseTilesLayoutConstraints.weighty = 10;
-        // gblHouseTilesLayoutConstraints.fill = GridBagConstraints.HORIZONTAL;
-        // houseTileHeader.setPreferredSize(new Dimension(300, 30));
-        // houseTile.add(houseTileHeader,BorderLayout.NORTH);
-        // houseTile.add(houseTileHeader,gblHouseTilesLayoutConstraints); //
-        // gblHouseTilesLayoutConstraints.weightx = 0;
-        // gblHouseTilesLayoutConstraints.weighty = 20;
-        // houseHeaderTilesSeperator.setOrientation(SwingConstants.HORIZONTAL);
-        // houseHeaderTilesSeperator.setPreferredSize(new Dimension(30, 30));
-        // houseTile.add(houseHeaderTilesSeperator,gblHouseTilesLayoutConstraints);
-        // gblHouseTilesLayoutConstraints.weightx = 0;
-        // gblHouseTilesLayoutConstraints.weighty = 30;
-        // houseTile.add(houseTileIndividualTiles, BorderLayout.CENTER);
         houseTile.add(houseTileIndividualTiles,gblHouseTilesLayoutConstraints); // ,BorderLayout.CENTER) ;
-
-        // houseTileHeader.add(tileText);
-        // houseTileHeader.setBorder(houseTileBorder);
 
         // Add components to HouseLayout Panel
         houseLayout.setBorder(houseLayoutBorder);
@@ -176,20 +168,10 @@ public class MainHouseLayoutGUI {
 
         LayoutSimualtion.setBorder(LayoutSimulationBorder);
         LayoutSimualtion.setPreferredSize(new Dimension(400,50));
-        LayoutSimualtion.add(simSpeed);
-        simSpeedSlider.setPaintLabels(true);
-     //   simSpeedSlider.setPaintTicks(true);
-     //   simSpeedSlider.setPaintTrack(true);
-     //   simSpeedSlider.setMajorTickSpacing(10);
-     //   simSpeedSlider.setMinorTickSpacing(1);
-        simSpeedSlider.setValue(1);
-        simSpeedSlider.setMaximum(50);
-        simSpeedSlider.setMinimum(1);
 
-        LayoutSimualtion.add(simSpeedSlider);
-        // Just in case we want to add run / stop simulation buttons to the simulation panel
-        // LayoutSimulation.add(runSimulationButton);
-        // LayoutSimulation.add(stopSimulationButton);
+        LayoutSimualtion.add(simSpeed1);
+        LayoutSimualtion.add(simSpeed5);
+        LayoutSimualtion.add(simSpeed50);
 
         houseLayout.setLayout(gblHouseLayout);
 
@@ -220,15 +202,13 @@ public class MainHouseLayoutGUI {
         // House Tiles - East side
         int tileRow = 0;
         int tileColumn = 0;
-        // int maxTitleRow = 10;
-        // int maxTitleColumn = 10;
         String tileName = "";
         // houseTileIndividualTiles.setLayout(gblHouseTile);
         houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
         GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
         gblHouseTileConstraints.weightx = 1;
         gblHouseLayoutConstraints.weighty = 1;
-        houseTile tileButton;
+        Startup.houseTile tileButton;
 
         // for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
         for (tileRow = 0; tileRow < maxTileArrayRow; tileRow ++){
@@ -428,13 +408,36 @@ public class MainHouseLayoutGUI {
          * Purpose: To retrieve the value for the simulation speed
          */
 
-        simSpeedSlider.addChangeListener(new ChangeListener() {
+        simSpeed1.addActionListener(new ActionListener() {
             @Override
-            public void stateChanged(ChangeEvent e) {
-                rs = simSpeedSlider.getValue();
-         //       System.out.println(rs);
+            public void actionPerformed(ActionEvent e) {
+                simSpeed5.setSelected(false);
+                simSpeed50.setSelected(false);
+                rs = 5;
+ //               System.out.println("The simulation speed is 1");
             }
         });
+
+        simSpeed5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                simSpeed1.setSelected(false);
+                simSpeed50.setSelected(false);
+                rs = 5;
+ //               System.out.println("The simulation speed is 5");
+            }
+        });
+
+        simSpeed50.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                simSpeed1.setSelected(false);
+                simSpeed5.setSelected(false);
+                rs = 50;
+  //              System.out.println("The simulation speed is 50");
+            }
+        });
+
         newHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

@@ -16,7 +16,7 @@ public class HouseLayoutFileHandling {
     private String houseFileName;
 
     // a default constructor {
-    HouseLayoutFileHandling()
+    public HouseLayoutFileHandling()
     {
         fileHouseLayout = null;
     }

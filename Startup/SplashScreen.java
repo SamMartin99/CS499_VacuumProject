@@ -9,13 +9,15 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 
 // Imports for using java's swing GUI functionality
 
-import Model.TileArray;
+import View.MainHouseLayoutGUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import View.MainHouseLayoutGUI;
+
 
 /* FrameDemo.java requires no other files. */
 
@@ -23,8 +25,7 @@ public class SplashScreen {
 
     // Global variable to indicate the type of tile (wall, door, etc)
     static String tileType = "";
-    static int maxTileArrayRow = 10;
-    static int maxTileArrayColumn = 10;
+
 
     /**
      * Create the GUI and show it.  For thread safety,
