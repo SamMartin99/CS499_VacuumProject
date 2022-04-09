@@ -1,8 +1,5 @@
 package Model;
-import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.util.Random;
+import View.SimulationLayoutGUI;
 
 /* Authors:
  * Purpose: Runs simulation, using the appropriate algorithm and updating visuals as
@@ -13,7 +10,7 @@ import java.util.Random;
  */
 
 // Class Definition
-public class RunSimulation {
+public class RunSimulation<simulationlayout> {
     // Attributes
     private final int run_speed;
     private int algorithm;
@@ -142,7 +139,13 @@ public class RunSimulation {
         }
         */
 
-        JFrame outputScreenFrame = new JFrame("Output");
+        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
+        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
+
+     //   SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a house layout object
+     //   SimulationLayoutGUI.displaySimulationLayout(simulationlayout);       // mh Display the MainHouseLayout
+/*
+        JFrame outputScreenFrame = new JFrame("Simulation Output");
         outputScreenFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  //mh change from EXIT_ON_CLOSE so that the program continues running
 
         JPanel outputSimTiles = new JPanel();
@@ -164,21 +167,21 @@ public class RunSimulation {
         gblSimTilesLayoutConstraints.weighty = 1;
 
         // for (int i = 0; i < 10; i++)
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                gblSimTilesLayoutConstraints.gridx = i;
-                gblSimTilesLayoutConstraints.gridy = j;
+        //for (int i = 0; i < 10; i++) {
+        //    for (int j = 0; j < 10; j++) {
+         //       gblSimTilesLayoutConstraints.gridx = i;
+         //       gblSimTilesLayoutConstraints.gridy = j;
 
-                simTileButton = new JButton();
+        //        simTileButton = new JButton();
 
-                outputSimTiles.add(simTileButton, gblSimTilesLayoutConstraints);
-            }
-        }
+       //         outputSimTiles.add(simTileButton, gblSimTilesLayoutConstraints);
+        //    }
+      //  }
 
         //Display the window.
-        outputScreenFrame.setSize(960, 540);
-        outputScreenFrame.setVisible(true);
+  //      outputScreenFrame.setSize(960, 540);
+   //     outputScreenFrame.setVisible(true);
+
+ */
     }
-
-
 }
