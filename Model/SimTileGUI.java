@@ -26,13 +26,7 @@ public class SimTileGUI extends JButton {
         this.simTileButton.setName("tile" +  loc.x + loc.y);
 
         // This block will apply a default tile icon to the JButton
-        try {
-            ImageIcon icon = new ImageIcon("plainTile.png");
-            this.setIcon(icon);
-            this.setMargin(new Insets(0, 0, 0, 0));
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+        this.setImageIcon();
 
         // Some attribute setting for making the button look nice
         this.setBorderPainted(false);
@@ -64,5 +58,31 @@ public class SimTileGUI extends JButton {
         this.tileCleanValue ++ ;
     }
 
+    private void setImageIcon()
+    {
+        int type = this.tile.getType(); // Get this tile's type
+        ImageIcon icon = null; // Make an icon and set it to null for now
+
+        try {
+            switch (type) { // Switch statment to detect which type of icon we'll need
+                case 1: icon = new ImageIcon("plainTile.png"); // If type is 1, then set it to a blank tile icon
+                    break;
+                case 2: icon = new ImageIcon("doorTile.png");// If type is 2, then set it to a door icon
+                    break;
+                case 3: icon = new ImageIcon("wallTile.png"); // If type is 3, then set it to a wall icon
+                    break;
+                case 4: icon = new ImageIcon("chestTile.png"); // If type is 4, then set it to a chest icon
+                    break;
+                case 5: icon = new ImageIcon("chairTile.png"); // If type is 5, then set it to a chair icon
+                    break;
+                case 6: icon = new ImageIcon("tableTile.png"); // If type is 6, then set it to a table icon
+                    break;
+            }
+        } catch (Exception ex){ System.out.println(ex); }
+        this.setIcon(icon);
+        this.setMargin(new Insets(0, 0, 0, 0));
+        this.setBorderPainted(false);
+        this.setBorder(null);
+    }
 
 }
