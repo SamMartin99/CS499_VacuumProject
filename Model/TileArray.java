@@ -44,6 +44,9 @@ public class TileArray {
         TA[i][j].setClean(clean_value);
     }
 
+    public int getLength() {return this.length;}
+    public int getWidth() {return  this.width;}
+
     public void printTileArray() {
         int numRows = this.length;
         int numColumns = this.width;
