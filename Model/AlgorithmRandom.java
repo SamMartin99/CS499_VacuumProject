@@ -205,4 +205,6 @@ public class AlgorithmRandom {
 
         return obstacle;
     }
+
+
 }

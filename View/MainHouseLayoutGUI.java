@@ -227,6 +227,7 @@ public class MainHouseLayoutGUI {
                 tileButton.addActionListener(e -> finalTileButton.clickTileAction(inpHouseLayout,TA));
 
                 houseTileIndividualTiles.add(tileButton,gblHouseTileConstraints);
+
                 // first row is a north border wall so nothing can be placed on it
                 if (tileRow == 0) {
                     tileButton.setTileAvailable(false);
@@ -501,10 +502,10 @@ public class MainHouseLayoutGUI {
                 int ft = inpHouseLayout.getFloorType();
 
                 System.out.println("Simulation Speed is: " + rs);
-                if (a == 1) {System.out.println("The pathing algorithm is: Random");}
-                if (a == 2) {System.out.println("The pathing algorithm is: Spiral");}
-                if (a == 3) {System.out.println("The pathing algorithm is: Snake");}
-                if (a == 4) {System.out.println("The pathing algorithm is: Wall Follow");}
+        //        if (a == 1) {System.out.println("The pathing algorithm is: Random");}
+        //        if (a == 2) {System.out.println("The pathing algorithm is: Spiral");}
+        //        if (a == 3) {System.out.println("The pathing algorithm is: Snake");}
+        //        if (a == 4) {System.out.println("The pathing algorithm is: Wall Follow");}
         //        System.out.println("Floor type is: " + inpHouseLayout.getFloorTypeName());
         //        System.out.println("Battery Life " + batteryLife);
         //        System.out.println("The number of inches the vacuum covers in a second is " + vs);
@@ -560,6 +561,7 @@ public class MainHouseLayoutGUI {
         inpFrame.pack();
         inpFrame.setVisible(true);
     }
+
 
 }
 

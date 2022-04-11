@@ -1,5 +1,9 @@
 package Model;
+
+import Startup.Location;
 import View.SimulationLayoutGUI;
+import java.awt.Component;
+
 
 /* Authors:
  * Purpose: Runs simulation, using the appropriate algorithm and updating visuals as
@@ -142,46 +146,21 @@ public class RunSimulation<simulationlayout> {
         SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
         simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
 
-     //   SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a house layout object
-     //   SimulationLayoutGUI.displaySimulationLayout(simulationlayout);       // mh Display the MainHouseLayout
-/*
-        JFrame outputScreenFrame = new JFrame("Simulation Output");
-        outputScreenFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  //mh change from EXIT_ON_CLOSE so that the program continues running
+        // Print out all the components of the simTiles JPanel
+       // simulationlayout.printSimTilesName();
+        int x = 5;
+        int y = 5;
+        Location loc = new Location(5,5);
+        String simTileName;
+        int simTileNumber;
+        SimTileGUI simTileButton;
+        Tile tileRef;
+        simTileName = simulationlayout.getSimTileName(x,y);
+       // System.out.println(simTileName);
+        simTileNumber = simulationlayout.getComponentNumber(simTileName);
+    //    System.out.println(simTileNumber);
+        simulationlayout.setVacuumTile(x,y,simTileNumber);
 
-        JPanel outputSimTiles = new JPanel();
-        JButton simTileButton = new JButton();
 
-        Border outputSimTilesBorder;
-        outputSimTilesBorder = BorderFactory.createLineBorder(Color.BLACK);
-        outputSimTiles.setBorder(outputSimTilesBorder);
-        outputScreenFrame.add(outputSimTiles, BorderLayout.CENTER);  // add the simulation tile panel to the output frame
-
-        // Use Grid for Simulation Tiles
-        GridBagLayout gblSimTiles = new GridBagLayout();
-        GridBagConstraints gblSimTilesLayoutConstraints = new GridBagConstraints();
-
-        outputSimTiles.setLayout(gblSimTiles);
-
-        // A square grid for the simulation panel
-        gblSimTilesLayoutConstraints.weightx = 1;
-        gblSimTilesLayoutConstraints.weighty = 1;
-
-        // for (int i = 0; i < 10; i++)
-        //for (int i = 0; i < 10; i++) {
-        //    for (int j = 0; j < 10; j++) {
-         //       gblSimTilesLayoutConstraints.gridx = i;
-         //       gblSimTilesLayoutConstraints.gridy = j;
-
-        //        simTileButton = new JButton();
-
-       //         outputSimTiles.add(simTileButton, gblSimTilesLayoutConstraints);
-        //    }
-      //  }
-
-        //Display the window.
-  //      outputScreenFrame.setSize(960, 540);
-   //     outputScreenFrame.setVisible(true);
-
- */
     }
 }

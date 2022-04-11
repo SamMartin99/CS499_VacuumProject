@@ -1,29 +1,37 @@
 package Model;
 
 import javax.swing.*;
+
 import Startup.Location;
 
 import java.awt.*;
 
+
 public class SimTileGUI extends JButton {
+ //   protected PropertyChangeSupport vacuumLocationChange;
     // Attributes
     private Tile tile;
     private float tileCleanValue;  // everything robot crosses the tile increment by 0.1
     private JButton simTileButton;
-    private String tileName;
     private Location loc;
+    private Location vacuumLocation;
+    private int simTileComponentNumber;
+
 
     // ---- Methods ----
 
     // Constructor, takes in a location (a data type encapsulating x and y coords)
     public SimTileGUI(Location locRef, Tile tileRef) {
 
+        Location oldLoc = new Location(0,0);
         this.loc = locRef;
         this.tile = tileRef;
         this.tileCleanValue = 0; // Set the cleanliness to 0 upon initialization
         this.simTileButton = new JButton(""); // Create the new JButton
         this.simTileButton.setName("tile" + loc.x + loc.y); // This creates the tile's name, which is its location values
         this.simTileButton.setName("tile" +  loc.x + loc.y);
+        this.vacuumLocation = new Location(0,0);
+
 
         // This block will apply a default tile icon to the JButton
         this.setImageIcon();
@@ -51,11 +59,23 @@ public class SimTileGUI extends JButton {
         return this.simTileButton.getName();
     }
 
+    public Location getVacuumLocation() {return this.vacuumLocation;}
+
+    public String getSimTileName() { return this.getName(); }
+
     // Setters
     public void setCleanTileValue(int inpTileCleanValue){ this.tileCleanValue = inpTileCleanValue; }
 
     public void incrementTileCleanValue(){
         this.tileCleanValue ++ ;
+    }
+
+    public void setVacuumLocation(Location newVacuumLoc){
+
+        ImageIcon icon;
+        icon = new ImageIcon("vacuumTile.png");
+        this.setIcon(icon);
+
     }
 
     private void setImageIcon()

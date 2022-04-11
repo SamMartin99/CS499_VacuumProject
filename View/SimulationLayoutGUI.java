@@ -4,16 +4,15 @@ import Model.SimTileGUI;
 import Model.Tile;
 import Model.TileArray;
 import Startup.Location;
-import Model.SimTileGUI;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
 
+import static javax.swing.text.StyleConstants.setIcon;
+
 //public class SimulationLayoutGUI (TileArray inpTileArray) {
-public class SimulationLayoutGUI{
+public class SimulationLayoutGUI {
 
     // Attributes
     JFrame outputMainSimFrame = new JFrame("Simulation Output");
@@ -37,28 +36,23 @@ public class SimulationLayoutGUI{
         simTilePanelLayout.setVgap(1);
         simTiles.setLayout(simTilePanelLayout);
 
+        int simComponents = 0;
+        String tileName;
         // Create the new simTiles based on values in the Tile Array
         for (int i = 0; i < simTileRow; i++) {
             for (int j =0; j < simTileColumn; j++){
                 Location loc = new Location(i,j);
                 tileRef = inpTileArray.getTile(i,j);
+                tileName = "SimTile" + i + j;
                 simTileButton = new SimTileGUI(loc, tileRef);
-                if (3 == inpTileArray.getTile(0,0).getType()) {
-                    simTileButton.setName("Wall");
-                    simTileButton.setBorder(simTilesWallBorder);
-                }
-                if (4 == inpTileArray.getTile(2,2).getType()) {
-                    simTileButton.setName("Chest");
-                    simTileButton.setBorder(simTilesChairBorder);
-                }
-                simTileButton.addChangeListener(new ChangeListener() {
-                    @Override
-                    public void stateChanged(ChangeEvent e) {
-                        System.out.println("Some tile property changed");
-                    }
+                simTileButton.setName(tileName);
 
-                });
+
                 simTiles.add(simTileButton);
+                System.out.println(simTileButton.getSimTileName());
+          //      String simComp;
+          //      simComp = simTiles.getComponent(simComponents);
+
 
             }
         }
@@ -94,6 +88,69 @@ public class SimulationLayoutGUI{
         inpFrame.pack();
         inpFrame.setVisible(true);
     }
+
+    public void printSimTilesName(){
+        System.out.println("In printSimTilesNames");
+        for (int i = 0; i < 100; i++)
+            System.out.println(simTiles.getComponent(i).getName());
+    }
+
+    public String getSimTileName(int x, int y) {
+        String componentName = "";
+        String compX;
+        String compY;
+        int icompX;
+        int icompY;
+
+        for (int i = 0; i < 100; i++) {
+            componentName = simTiles.getComponent(i).getName();
+          //  System.out.println("Component Name is " + componentName);
+            compX = componentName.substring(7,8);
+          //  System.out.println("compX = " + compX);
+            compY = componentName.substring(8, 9);
+          //  System.out.println("compY = " + compY);
+            icompX = Integer.parseInt(compX);
+            icompY = Integer.parseInt(compY);
+            if (x == icompX && y == icompY) {
+                return simTiles.getComponent(i).getName();
+            }
+        }
+        return ("X Y Sim Tile not found");
+    }
+
+    public int getComponentNumber (String inpComponentName ){
+
+        String compName;
+
+        for (int i = 0; i < 100; i++) {
+            compName = simTiles.getComponent(i).getName();
+            if (inpComponentName.compareTo(compName) ==0 ){
+                return i;
+            }
+
+        }
+        return -1;
+    }
+
+    public void setVacuumTile(int inpX, int inpY, int inpComponentNumber){
+        String tileName;
+        int tileNumber;
+        SimTileGUI vacuumTile = (SimTileGUI) simTiles.getComponent(inpComponentNumber);
+        Location tilelocation = new Location(inpX,inpY);
+        vacuumTile.setVacuumLocation(tilelocation);
+   //     tileName = this.getSimTileName(inpX,inpY);
+  //      tileNumber = this.getComponentNumber(tileName);
+  //      ImageIcon icon;
+  //      icon = new ImageIcon("vacuumTile.png");
+   //     setIcon(icon);
+
+
+        //    SimTileGUI simTile = (simTileGUI) tileName;
+    //    simTile.setVacuumLocation(tilelocation);
+
+ //       simTiles.getComponent(tileNumber).setVacuumLocation
+    }
+
 }
 
 
