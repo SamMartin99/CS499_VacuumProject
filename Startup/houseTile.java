@@ -1,5 +1,6 @@
 package Startup;
 
+import Model.Table;
 import Model.Tile;
 import Model.TileArray;
 
@@ -27,17 +28,19 @@ public class houseTile extends JButton {
     private final JButton tileButton;
     private String layoutType;
     private Location loc;
+    public houseTile[][] parentHouseTileArray; // This is the array of houseTiles to which this houseTile belongs, kinda inefficient and weird, but it was the only way I saw to get Tables working
 
     // ---- Methods ----
 
     // Constructor, takes in a location (a data type encapsulating x and y coords)
-    public houseTile(Location locRef, Tile tileRef) {
+    public houseTile(Location locRef, Tile tileRef, houseTile[][] temp) {
         this.loc = locRef;
         this.tile = tileRef;
         this.tileCleanValue = 0; // Set the cleanliness to 0 upon initialization
         this.tileAvailable = true; // All tiles are blank to start when initialized
         this.tileButton = new JButton(""); // Create the new JButton
         this.tileButton.setName("tile" + loc.x + loc.y); // This creates the tile's name, which is its location values
+        parentHouseTileArray = temp;
 
         // This block will apply a default tile icon to the JButton
         try {
@@ -55,6 +58,8 @@ public class houseTile extends JButton {
 
     // Getters
     public String getButtonName() { return this.getName(); }
+
+    public Tile getTile(){ return tile; }
 
     public Location GetLocation()
     {
@@ -141,6 +146,7 @@ public class houseTile extends JButton {
         // TABLE
         else if (inpHouseLayout.getlayoutType().compareTo("Table") == 0 )
         {
+            Table t = new Table(parentHouseTileArray, this.loc); // Make a new table, pass it the houseTile[][] arr that contains this houseTile, and this houseTile's location
             tileType = 6;
             inpTA.setTile (this.loc.x,this.loc.y, tileType);
         }
@@ -180,7 +186,7 @@ public class houseTile extends JButton {
 
     // Author: Guess Crow
     // This function does all the imageIcon handling/setting for whatever houseTile you're trying to use with it
-    private void setImageIcon()
+    public void setImageIcon()
     {
         int type = this.tile.getType(); // Get this tile's type
         ImageIcon icon = null; // Make an icon and set it to null for now

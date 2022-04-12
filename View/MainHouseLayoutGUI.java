@@ -210,6 +210,7 @@ public class MainHouseLayoutGUI {
         gblHouseLayoutConstraints.weighty = 1;
         Startup.houseTile tileButton;
 
+        houseTile[][] houseTileArr = new houseTile[maxTileArrayRow][maxTileArrayColumn]; // This is an array to hold our houseTiles for the Table to access, GUESS WROTE THIS
         // for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
         for (tileRow = 0; tileRow < maxTileArrayRow; tileRow ++){
             // for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
@@ -219,7 +220,8 @@ public class MainHouseLayoutGUI {
                 gblHouseTileConstraints.gridy = tileRow;
 
                 Location l = new Location(tileRow, tileColumn);
-                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn));
+                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn), houseTileArr);
+                houseTileArr[tileRow][tileColumn] = tileButton;
 
                // mh not sure why we need this; ide added in order to run
                 Startup.houseTile finalTileButton = tileButton;

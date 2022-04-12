@@ -5,16 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Model/Table.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/houseTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/houseTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649714712328</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Changes: fix a bug with the labels on the house layout GUI">
+      <created>1649764367517</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1649764367517</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,7 +348,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes:add button to call house layout" />
     <MESSAGE value="Changes:new file for the house layout gui" />
     <MESSAGE value="Changes: bug fixes discovered when linking code to buttons" />
     <MESSAGE value="Changes: add components for the east side of screen (components / options)" />
@@ -372,6 +372,7 @@
     <MESSAGE value="Changes: new class to display the simulation information" />
     <MESSAGE value="Changes: fixed a bug ; was setting the wrong button" />
     <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
+    <MESSAGE value="Changes: fix a bug with the labels on the house layout GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: fix a bug with the labels on the house layout GUI" />
   </component>
 </project>
