@@ -49,7 +49,7 @@ public class SimulationLayoutGUI {
 
 
                 simTiles.add(simTileButton);
-                System.out.println(simTileButton.getSimTileName());
+          //      System.out.println(simTileButton.getSimTileName());
           //      String simComp;
           //      simComp = simTiles.getComponent(simComponents);
 
@@ -61,7 +61,7 @@ public class SimulationLayoutGUI {
         outputMainSimFrame.add(simTiles);
         outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        inpTileArray.printTileArray();
+ //       inpTileArray.printTileArray();
 
 
     }

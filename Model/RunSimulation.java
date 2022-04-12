@@ -22,6 +22,8 @@ public class RunSimulation<simulationlayout> {
     private Vacuum V;
     private TileArray TA;
     private int delay_time;
+    private int direction;
+    private int ft;
 
     /* Constructs RunSimulation.
      * int t: time
@@ -34,13 +36,15 @@ public class RunSimulation<simulationlayout> {
      */
 
     // Constructor
-    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA)
-    {
+    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA) {
         run_speed = rs;
         algorithm = a;
         floor_type = ft;
-        V = new Vacuum (b, vs);
+        V = new Vacuum(b, vs);
         this.TA = TA;
+
+        int direction = 0; // North
+
 
         /*
          * Calculate how quickly the output is updated.
@@ -52,6 +56,7 @@ public class RunSimulation<simulationlayout> {
          */
         delay_time = ((24 / vs) * 1000) / rs;
     }
+
     /**
      * Purpose: To get the current values of the run speed
      */
@@ -71,10 +76,18 @@ public class RunSimulation<simulationlayout> {
      */
     public String getAlgorithmName() {
         String algorithmName = "";
-        if (getAlgorithm() == 1 ) {algorithmName = "Random" ;}
-        if (getAlgorithm() == 2 ) {algorithmName = "Spiral" ;}
-        if (getAlgorithm() == 3 ) {algorithmName = "Snaking" ;}
-        if (getAlgorithm() == 4 ) {algorithmName = "Wall Follow" ;}
+        if (getAlgorithm() == 1) {
+            algorithmName = "Random";
+        }
+        if (getAlgorithm() == 2) {
+            algorithmName = "Spiral";
+        }
+        if (getAlgorithm() == 3) {
+            algorithmName = "Snaking";
+        }
+        if (getAlgorithm() == 4) {
+            algorithmName = "Wall Follow";
+        }
 
         return algorithmName;
     }
@@ -91,19 +104,27 @@ public class RunSimulation<simulationlayout> {
      */
     public String getFloorTypeName() {
         String floorTypemName = "";
-        if (getFloorType() == 1 ) {floorTypemName  = "Shag" ;}
-        if (getFloorType() == 2 ) {floorTypemName  = "Hardwood" ;}
-        if (getFloorType() == 3 ) {floorTypemName = "LoopPile" ;}
-        if (getFloorType() == 4 ) {floorTypemName = "CutPile" ;}
+        if (getFloorType() == 1) {
+            floorTypemName = "Shag";
+        }
+        if (getFloorType() == 2) {
+            floorTypemName = "Hardwood";
+        }
+        if (getFloorType() == 3) {
+            floorTypemName = "LoopPile";
+        }
+        if (getFloorType() == 4) {
+            floorTypemName = "CutPile";
+        }
         return floorTypemName;
     }
 
     /**
      * Purpose: To get the current values of Tiles
      */
-  //  public int getTileValues() {
- //       return this.floor_type;
-  //  }
+    //  public int getTileValues() {
+    //       return this.floor_type;
+    //  }
 
     /**
      * Purpose: To print all the current values of the RunSimuation object
@@ -120,7 +141,7 @@ public class RunSimulation<simulationlayout> {
      * Return: none
      * Purpose: Output algorithm activity to new window.
      */
-    public void run () {
+    public void run() {
         // Should be some code here that uses delay_time to delay calculations by appropriate amount.
         // Maybe use Thread.sleep()?
 
@@ -146,21 +167,29 @@ public class RunSimulation<simulationlayout> {
         SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
         simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
 
-        // Print out all the components of the simTiles JPanel
-       // simulationlayout.printSimTilesName();
-        int x = 5;
-        int y = 5;
-        Location loc = new Location(5,5);
-        String simTileName;
-        int simTileNumber;
-        SimTileGUI simTileButton;
-        Tile tileRef;
-        simTileName = simulationlayout.getSimTileName(x,y);
-       // System.out.println(simTileName);
-        simTileNumber = simulationlayout.getComponentNumber(simTileName);
-    //    System.out.println(simTileNumber);
-        simulationlayout.setVacuumTile(x,y,simTileNumber);
+        int outDirection;
 
+        // Run the algoriths
+    //    if (this.algorithm == 1) {
+    //        AlgorithmRandom newAlgRandom;
+    //        newAlgRandom = new AlgorithmRandom();
+    //        outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
+    //    }
+
+        // Print out all the components of the simTiles JPanel
+        // simulationlayout.printSimTilesName();
+          int x = 7;
+           int y = 4;
+          Location loc = new Location(5,5);
+           String simTileName;
+           int simTileNumber;
+           SimTileGUI simTileButton;
+            Tile tileRef;
+           simTileName = simulationlayout.getSimTileName(x,y);
+        // System.out.println(simTileName);
+            simTileNumber = simulationlayout.getComponentNumber(simTileName);
+        //    System.out.println(simTileNumber);
+            simulationlayout.setVacuumTile(x,y,simTileNumber);
 
     }
 }

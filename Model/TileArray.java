@@ -4,6 +4,9 @@ package Model;
  * Purpose: Represents entire house layout via collection of tiles.
  */
 
+import Startup.Location;
+import View.SimulationLayoutGUI;
+
 public class TileArray {
     /* Sizes passed to TA are placeholders.
      * Sizes should either be replaced with maximum sizes given in project description,
@@ -33,6 +36,8 @@ public class TileArray {
     }
 
     public Tile getTile(int i, int j) {
+  //      System.out.println(i + " " + j);
+  //      if (j == -1) return TA[0][0]; // mh need to determine what is setting the -1 in y
         return TA[i][j];
     }
 
@@ -40,8 +45,20 @@ public class TileArray {
         TA[i][j].setType(type);
     }
 
-    public void setTileClean(int i, int j, double clean_value) {
+    public void setTileClean(int i, int j, double clean_value, SimulationLayoutGUI inpsimulationLayout) {
         TA[i][j].setClean(clean_value);
+        // update the GUI
+
+        Location loc = new Location(i,j);
+        String simTileName;
+        int simTileNumber;
+        SimTileGUI simTileButton;
+        Tile tileRef;
+        simTileName = inpsimulationLayout.getSimTileName(i,j);
+        // System.out.println(simTileName);
+        simTileNumber = inpsimulationLayout.getComponentNumber(simTileName);
+        //    System.out.println(simTileNumber);
+        inpsimulationLayout.setVacuumTile(i,j,simTileNumber);
     }
 
     public int getLength() {return this.length;}

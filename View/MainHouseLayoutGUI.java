@@ -501,7 +501,7 @@ public class MainHouseLayoutGUI {
                 int vs = 3;
                 int ft = inpHouseLayout.getFloorType();
 
-                System.out.println("Simulation Speed is: " + rs);
+        //       System.out.println("Simulation Speed is: " + rs);
         //        if (a == 1) {System.out.println("The pathing algorithm is: Random");}
         //        if (a == 2) {System.out.println("The pathing algorithm is: Spiral");}
         //        if (a == 3) {System.out.println("The pathing algorithm is: Snake");}

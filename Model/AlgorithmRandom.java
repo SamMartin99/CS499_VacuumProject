@@ -1,4 +1,6 @@
 package Model;
+import View.SimulationLayoutGUI;
+
 import java.util.Random;
 
 /* Authors: Bryant Terry
@@ -17,7 +19,7 @@ public class AlgorithmRandom {
      * Purpose: Calculates vacuum path using a random algorithm. The vacuum continues to move in
      * a direction until an obstacle is hit, at which point, a new random direction is generated.
      */
-    public int algorithm_random(int direction, TileArray TA, Vacuum V, int ft)
+    public int algorithm_random(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
         Random rand = new Random();
         double old_clean;
@@ -34,7 +36,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY() - 1);
 
                     old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft));
+                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {
@@ -48,7 +50,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY() - 1);
 
                     old_clean = TA.getTile((V.getX() + 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft));
+                    TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {
@@ -62,7 +64,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY());
 
                     old_clean = TA.getTile((V.getX() + 1), V.getY()).getClean();
-                    TA.setTileClean((V.getX() + 1), V.getY(), calculate_clean(old_clean, ft));
+                    TA.setTileClean((V.getX() + 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
                 }
                 else
                 {
@@ -76,7 +78,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY() + 1);
 
                     old_clean = TA.getTile((V.getX() + 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft));
+                    TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {
@@ -90,7 +92,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY() + 1);
 
                     old_clean = TA.getTile(V.getX(), (V.getY() + 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() + 1), calculate_clean(old_clean, ft));
+                    TA.setTileClean(V.getX(), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {
@@ -104,7 +106,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY() + 1);
 
                     old_clean = TA.getTile((V.getX() - 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft));
+                    TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {
@@ -118,7 +120,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY());
 
                     old_clean = TA.getTile((V.getX() - 1), V.getY()).getClean();
-                    TA.setTileClean((V.getX() - 1), V.getY(), calculate_clean(old_clean, ft));
+                    TA.setTileClean((V.getX() - 1), V.getY(), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {
@@ -132,7 +134,7 @@ public class AlgorithmRandom {
                     V.setY(V.getY() - 1);
 
                     old_clean = TA.getTile((V.getX() - 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft));
+                    TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
                 }
                 else
                 {

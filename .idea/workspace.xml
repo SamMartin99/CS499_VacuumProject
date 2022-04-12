@@ -5,47 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/SimTileGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/SimTileGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Vacuum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Vacuum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/Vacuum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/Vacuum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/Location.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/Location.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +56,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220411_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220412_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -356,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649542254799</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details.">
+      <created>1649714712328</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1649714712328</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: commented out test code for the file handling routine" />
     <MESSAGE value="Changes:add button to call house layout" />
     <MESSAGE value="Changes:new file for the house layout gui" />
     <MESSAGE value="Changes: bug fixes discovered when linking code to buttons" />
@@ -396,6 +371,7 @@
     <MESSAGE value="Changes: new class to display the simulation" />
     <MESSAGE value="Changes: new class to display the simulation information" />
     <MESSAGE value="Changes: fixed a bug ; was setting the wrong button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: fixed a bug ; was setting the wrong button" />
+    <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
   </component>
 </project>
