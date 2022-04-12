@@ -121,12 +121,12 @@ public class MainHouseLayoutGUI {
         houseLayoutBorder = BorderFactory.createTitledBorder("Layout Name: "+ houseLayoutName);
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
-        houseSimulationBorder = BorderFactory.createTitledBorder("Simulation Speed");
+        houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
         LayoutWallDoorwayBorder = BorderFactory.createTitledBorder("Layout");
         LayoutFurnitureBorder = BorderFactory.createTitledBorder("Furniture");
         LayoutFloorsBorder = BorderFactory.createTitledBorder("Floors");
         LayoutPathBorder = BorderFactory.createTitledBorder("Vacuum Cleaning Algorithms");
-        LayoutSimulationBorder = BorderFactory.createTitledBorder("Simulation");
+        LayoutSimulationBorder = BorderFactory.createTitledBorder("Simulation Speed");
 
         // Add components to houseTile Panel
         houseTile.setBorder(houseLayoutBorder);

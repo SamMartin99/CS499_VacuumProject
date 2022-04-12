@@ -11,6 +11,8 @@
       <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
     </list>
