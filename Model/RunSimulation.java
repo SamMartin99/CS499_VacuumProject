@@ -169,17 +169,34 @@ public class RunSimulation<simulationlayout> {
 
         int outDirection;
 
-        // Run the algoriths
-    //    if (this.algorithm == 1) {
-    //        AlgorithmRandom newAlgRandom;
-    //        newAlgRandom = new AlgorithmRandom();
-    //        outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
-    //    }
+        if (this.algorithm == 4) {
+            AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA);
+        }
 
-        // Print out all the components of the simTiles JPanel
-        // simulationlayout.printSimTilesName();
-          int x = 7;
-           int y = 4;
+            // Run the algoriths
+                if (this.algorithm == 1) {
+                    AlgorithmRandom newAlgRandom;
+                    newAlgRandom = new AlgorithmRandom();
+                    outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
+                }
+                else if (this.algorithm == 2) {
+                    System.out.println("Second Path Alogorithm Code");
+                }
+                else if (this.algorithm == 3) {
+                    System.out.println("Third Path Alogorithm Code");
+                }
+                else if (this.algorithm == 4) {
+                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA);
+                }
+                else {
+                    System.out.println("Unknown Alogorithm");
+                }
+/*
+            // Print out all the components of the simTiles JPanel
+            // simulationlayout.printSimTilesName();
+            int x = 5;
+
+           int y = 5;
           Location loc = new Location(5,5);
            String simTileName;
            int simTileNumber;
@@ -188,8 +205,13 @@ public class RunSimulation<simulationlayout> {
            simTileName = simulationlayout.getSimTileName(x,y);
         // System.out.println(simTileName);
             simTileNumber = simulationlayout.getComponentNumber(simTileName);
-        //    System.out.println(simTileNumber);
-            simulationlayout.setVacuumTile(x,y,simTileNumber);
+         //   System.out.println(simTileNumber);
+        //    simulationlayout.setVacuumTile(x,y,simTileNumber);
 
+        if (simTileNumber != -1) {
+            TA.setTileClean(x, y, 0, simulationlayout);  // test of the method
+        }
+
+ */
     }
 }

@@ -115,9 +115,15 @@ public class SimulationLayoutGUI {
                 return simTiles.getComponent(i).getName();
             }
         }
-        return ("X Y Sim Tile not found");
+        return (x + " " + y + "Sim Tile not found");
     }
 
+    /**
+     *
+     * @param inpComponentName The name of the simulation button component
+     * @return If success returns The component number of the simulation button
+     * @return if failure (simulation button does not exist) - 1
+     */
     public int getComponentNumber (String inpComponentName ){
 
         String compName;
@@ -129,7 +135,8 @@ public class SimulationLayoutGUI {
             }
 
         }
-        return -1;
+        return -1;  // The component number does not exit
+
     }
 
     public void setVacuumTile(int inpX, int inpY, int inpComponentNumber){
