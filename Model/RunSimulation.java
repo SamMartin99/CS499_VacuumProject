@@ -169,10 +169,6 @@ public class RunSimulation<simulationlayout> {
 
         int outDirection;
 
-        if (this.algorithm == 4) {
-            AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA);
-        }
-
             // Run the algoriths
                 if (this.algorithm == 1) {
                     AlgorithmRandom newAlgRandom;
@@ -186,7 +182,12 @@ public class RunSimulation<simulationlayout> {
                     System.out.println("Third Path Alogorithm Code");
                 }
                 else if (this.algorithm == 4) {
-                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA);
+                   // TA.printTileArray();
+
+                    V.setX(9);
+                    V.setY(9);
+                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA,V);
+                    wallFollow.findNearestWall();
                 }
                 else {
                     System.out.println("Unknown Alogorithm");

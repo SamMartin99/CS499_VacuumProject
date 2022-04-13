@@ -26,14 +26,18 @@ import Startup.HouseLayout;
 import Startup.HouseLayoutFileHandling;
 import Startup.Location;
 import Startup.houseTile;
+import Startup.staticVariable;
 
 import static java.lang.System.*;
 
+
 /**
- * C
+ * Purpose: To allow the user to customize the house layout
  * @parm
  *
  */
+
+
 public class MainHouseLayoutGUI {
 
     // The algorithm being chosen by the user.
@@ -44,11 +48,12 @@ public class MainHouseLayoutGUI {
     private int a = 1;
     private int rs = 25;  // Run speed
 
-    static int maxTileArrayRow = 10;
-    static int maxTileArrayColumn = 10;
 
     // Attributes
-    TileArray TA = new TileArray(maxTileArrayRow, maxTileArrayColumn);
+
+    staticVariable arrayBounds = new staticVariable();
+//    TileArray TA = new TileArray(maxRow, maxColumn);
+    TileArray TA = new TileArray(arrayBounds);
     JButton newHouseLayoutButton = new JButton("New HouseLayout");
     JButton saveHouseLayoutButton = new JButton("Save");
     JButton loadHouseLayoutButton = new JButton("Load");
@@ -112,7 +117,12 @@ public class MainHouseLayoutGUI {
      *
      * @param
      */
-    public MainHouseLayoutGUI(HouseLayout inpHouseLayout){
+    public MainHouseLayoutGUI(HouseLayout inpHouseLayout,staticVariable inparrayBounds){
+        int maxRow,maxColumn;
+        maxRow = arrayBounds.getMaxRow();
+        maxColumn = arrayBounds.getMaxColumn();
+        //TileArray TA = new TileArray(maxRow, maxColumn);
+        TileArray TA = new TileArray(inparrayBounds);
         // set up borders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
@@ -199,7 +209,7 @@ public class MainHouseLayoutGUI {
         gblHouseLayoutConstraints.gridy = 20;
         houseLayout.add(LayoutSimualtion ,gblHouseLayoutConstraints);
 
-        // House Tiles - East side
+        // House Tiles - West side
         int tileRow = 0;
         int tileColumn = 0;
         String tileName = "";
@@ -210,11 +220,11 @@ public class MainHouseLayoutGUI {
         gblHouseLayoutConstraints.weighty = 1;
         Startup.houseTile tileButton;
 
-        houseTile[][] houseTileArr = new houseTile[maxTileArrayRow][maxTileArrayColumn]; // This is an array to hold our houseTiles for the Table to access, GUESS WROTE THIS
+        houseTile[][] houseTileArr = new houseTile[maxRow][maxColumn]; // This is an array to hold our houseTiles for the Table to access, GUESS WROTE THIS
         // for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
-        for (tileRow = 0; tileRow < maxTileArrayRow; tileRow ++){
+        for (tileRow = 0; tileRow < maxRow; tileRow ++){
             // for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
-            for (tileColumn = 0; tileColumn < maxTileArrayColumn; tileColumn ++){
+            for (tileColumn = 0; tileColumn < maxColumn; tileColumn ++){
                 tileName = "Tile" + tileRow + tileColumn;
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
@@ -254,7 +264,7 @@ public class MainHouseLayoutGUI {
                         System.out.println(ex);
                     }
                 }  // last row is a south border wall
-                if (tileRow == (maxTileArrayRow -1)) {
+                if (tileRow == (maxRow -1)) {
                     tileButton.setTileAvailable(false);
                     TA.setTile(tileRow,tileColumn,3);
                     try {
@@ -265,7 +275,7 @@ public class MainHouseLayoutGUI {
                         System.out.println(ex);
                     }
                 } // first column is an east border wall
-                if (tileColumn == (maxTileArrayRow -1 )) {
+                if (tileColumn == (maxRow -1 )) {
                     tileButton.setTileAvailable(false);
                     TA.setTile(tileRow,tileColumn,3);
                     try {
@@ -445,7 +455,7 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String layoutName = "new";
-                HouseLayout myHouse = new HouseLayout(layoutName);
+                HouseLayout myHouse = new HouseLayout(layoutName, arrayBounds);
             }
         });
 

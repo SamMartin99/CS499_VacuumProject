@@ -25,8 +25,10 @@ public class HouseLayout {
     // Methods
 
     // default constructor
-    public HouseLayout(String inpLayoutName){
+    public HouseLayout(String inpLayoutName, staticVariable arrayBounds){
        this.LayoutName = inpLayoutName;
+       dim1 = arrayBounds.getMaxRow();
+       dim2 = arrayBounds.getMaxColumn();
        // set every tile to be cleanable i.e. value of 0
        for (int index1 =0; index1 < dim1; index1++){
            for (int index2 = 0; index2 < dim2; index2++){
@@ -36,7 +38,9 @@ public class HouseLayout {
        }
 
        // Create a new Tile Array for the simulation
-        simTileArray = new TileArray(dim1,dim2);
+      //  simTileArray = new TileArray(dim1,dim2);
+        simTileArray = new TileArray(arrayBounds);
+
        // Set all tiles to empty -- Empty Type has a value of 1
        for (int i = 0; i < dim1; i++){
            for (int j = 0 ; j < dim2; j++){

@@ -5,6 +5,7 @@ package Model;
  */
 
 import Startup.Location;
+import Startup.staticVariable;
 import View.SimulationLayoutGUI;
 
 public class TileArray {
@@ -12,19 +13,25 @@ public class TileArray {
      * Sizes should either be replaced with maximum sizes given in project description,
      * or TA should be replaced with a dynamic array.
      */
-    private Tile[][] TA = new Tile[10][10];
+    //private Tile[][] TA = new Tile[10][10];
+
     /*
      * length and width are used for determining how many Tiles need to be constructed.
      */
     private int length;
     private int width;
+    private Tile[][] TA = new Tile[length][width];
 
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
      */
-    public TileArray(int length, int width) {
-        this.length = length;
-        this.width = width;
+  //  public TileArray(int length, int width) {
+     public TileArray(staticVariable inpArrayBounds) {
+    //    this.length = length;
+    //    this.width = width;
+    this.length = inpArrayBounds.getMaxRow();
+    this.width = inpArrayBounds.getMaxColumn();
+    TA = new Tile[this.length][this.width];
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
