@@ -1,6 +1,7 @@
 package Model;
 
 import Startup.Location;
+import Startup.staticVariable;
 import View.SimulationLayoutGUI;
 
 import java.util.Locale;
@@ -60,46 +61,47 @@ public class AlgorithmWallFollow {
         //    if (vacX != 0 && vacX != wfMaxColumns && vacY != 0 && vacY != wfMaxRows){
         //
         //    }
-            if (vacX == 0){  // wall is on the top
+            if (vacX == 0) {  // wall is on the top
                 //vacX++;
-                if (vacY == 0){  // top right corner
+                if (vacY == 0) {  // top right corner
                     vacY++;
                     vacX++;
-                    currentTile = wfTileArray.getTile(vacX,vacY);
-                    wfTileArray.setTileClean(vacX,vacY,wfCleanValue,wfSimulationLayout);
+                    currentTile = wfTileArray.getTile(vacX, vacY);
+                    wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
                     return currentTile;
                 }
-                if (vacY == 9) { // top left corner
+                if (vacY == wfMaxColumns - 1) { // top left corner
                     vacY--;
                     vacX++;
-                    currentTile = wfTileArray.getTile(vacX,vacY);
-                    wfTileArray.setTileClean(vacX,vacY,wfCleanValue,wfSimulationLayout);
+                    currentTile = wfTileArray.getTile(vacX, vacY);
+                    wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
                     return currentTile;
                 }
-                if (vacX == 10) {  // wall is on the bottom
-                    //vacX++;
-                    if (vacY == 0) {  // bottom right corner
-                        vacY++;
-                        vacX--;
-                        currentTile = wfTileArray.getTile(vacX, vacY);
-                        wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
-                        return currentTile;
-                    }
-                    if (vacY == 9) { // top left corner
-                        vacY--;
-                        vacX--;
-                        currentTile = wfTileArray.getTile(vacX, vacY);
-                        wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
-                        return currentTile;
-                    }
-                }
+            }
+            if (vacX == wfMaxRows -1 ) {  // wall is on the bottom
+               if (vacY == 0) {  // bottom right corner
+                  vacY++;
+                  vacX--;
+                //   System.out.println("vac x is " + vacX + "vac y is " + vacY);
+                  currentTile = wfTileArray.getTile(vacX, vacY);
+                  wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
+                  return currentTile;
+               }
+               if (vacY == wfMaxColumns- 1) { // bottom left corner
+                  vacY--;
+                  vacX++;
+              //    System.out.println("vac x is " + vacX + "vac y is " + vacY);
+                  currentTile = wfTileArray.getTile(vacX, vacY);
+                  wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
+                   return currentTile;
+               }
+            }
 
       //              if (vacX == wfMaxColumns){
     //                if (vacX == 9){
     //                    vacX--;
     //                }
-                }
-   //             currentTile = wfTileArray.getTile(vacX,vacY);
+               //             currentTile = wfTileArray.getTile(vacX,vacY);
    //             wfTileArray.setTileClean(vacX,vacY,wfCleanValue,wfSimulationLayout);
     //            return currentTile;
             }

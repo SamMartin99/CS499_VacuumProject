@@ -185,7 +185,7 @@ public class RunSimulation<simulationlayout> {
                    // TA.printTileArray();
 
                     V.setX(9);
-                    V.setY(9);
+                    V.setY(0);
                     AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA,V);
                     wallFollow.findNearestWall();
                 }
