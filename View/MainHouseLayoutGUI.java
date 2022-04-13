@@ -118,9 +118,11 @@ public class MainHouseLayoutGUI {
      * @param
      */
     public MainHouseLayoutGUI(HouseLayout inpHouseLayout,staticVariable inparrayBounds){
-        int maxRow,maxColumn;
+        int maxRow,maxColumn,minRow,minColumn;
         maxRow = arrayBounds.getMaxRow();
         maxColumn = arrayBounds.getMaxColumn();
+        minRow = arrayBounds.getMinRow();
+        minColumn = arrayBounds.getMinColumn();
         //TileArray TA = new TileArray(maxRow, maxColumn);
         TileArray TA = new TileArray(inparrayBounds);
         // set up borders definition
@@ -222,9 +224,8 @@ public class MainHouseLayoutGUI {
 
         houseTile[][] houseTileArr = new houseTile[maxRow][maxColumn]; // This is an array to hold our houseTiles for the Table to access, GUESS WROTE THIS
         // for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
-        for (tileRow = 0; tileRow < maxRow; tileRow ++){
-            // for (tileColumn = 0; tileColumn < maxTitleColumn; tileColumn ++){
-            for (tileColumn = 0; tileColumn < maxColumn; tileColumn ++){
+        for (tileRow = minRow; tileRow < maxRow; tileRow ++){
+            for (tileColumn = minColumn; tileColumn < maxColumn; tileColumn ++){
                 tileName = "Tile" + tileRow + tileColumn;
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;

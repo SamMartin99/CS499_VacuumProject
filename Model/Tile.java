@@ -69,4 +69,12 @@ public class Tile {
             pass = true;
         }
     }
+
+    public boolean isCleanable(){
+
+        if (this.type == 1 || this.type == 2){ // tile is either empty or a door
+             return true;}
+        else {return false;}
+
+    }
 }

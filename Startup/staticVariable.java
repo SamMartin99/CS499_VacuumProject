@@ -4,6 +4,9 @@ public class staticVariable {
 
     private int maxRow = 10;
     private int maxColumn = 10;
+    private int minRow = 0;
+    private int minColumn = 0;
+
 
     // default constructor
     public staticVariable(){
@@ -19,4 +22,10 @@ public class staticVariable {
     public int getMaxColumn() {
         return maxColumn;
     }
+
+    public int getMinRow(){
+        return minRow;
+    }
+
+    public int getMinColumn(){ return minColumn;}
 }

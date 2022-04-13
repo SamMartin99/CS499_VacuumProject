@@ -18,6 +18,8 @@ public class AlgorithmWallFollow {
     private double wfCleanValue;
     private int wfMaxRows;
     private int wfMaxColumns;
+    private int wfMinRows;
+    private int wfMinColumns;
 
     // Default Constuctor
     public AlgorithmWallFollow(SimulationLayoutGUI inpsimulationlayout, TileArray inpTA, Vacuum inpVacuum) {
@@ -57,18 +59,17 @@ public class AlgorithmWallFollow {
         currentTile = wfTileArray.getTile(vacX,vacY);
         tileType = currentTile.getType();
         if (tileType == 3) {
-            // not a boarder wall
-        //    if (vacX != 0 && vacX != wfMaxColumns && vacY != 0 && vacY != wfMaxRows){
-        //
-        //    }
+            // Check for if the wall is a border wall
             if (vacX == 0) {  // wall is on the top
                 //vacX++;
                 if (vacY == 0) {  // top right corner
                     vacY++;
                     vacX++;
                     currentTile = wfTileArray.getTile(vacX, vacY);
-                    wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
-                    return currentTile;
+                    if(currentTile.isCleanable() ){
+                        wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
+                        return currentTile;
+                    }
                 }
                 if (vacY == wfMaxColumns - 1) { // top left corner
                     vacY--;
@@ -79,7 +80,7 @@ public class AlgorithmWallFollow {
                 }
             }
             if (vacX == wfMaxRows -1 ) {  // wall is on the bottom
-               if (vacY == 0) {  // bottom right corner
+               if (vacY == wfMinColumns) {  // bottom right corner
                   vacY++;
                   vacX--;
                 //   System.out.println("vac x is " + vacX + "vac y is " + vacY);
