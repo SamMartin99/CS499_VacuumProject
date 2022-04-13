@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import static java.lang.System.out;
 
@@ -29,7 +30,7 @@ public class houseTile extends JButton {
     private String layoutType;
     private Location loc;
     public houseTile[][] parentHouseTileArray; // This is the array of houseTiles to which this houseTile belongs, kinda inefficient and weird, but it was the only way I saw to get Tables working
-
+    public Table containingTable = null; // This is the table that contains this houseTile. Set to null to begin.
     // ---- Methods ----
 
     // Constructor, takes in a location (a data type encapsulating x and y coords)
@@ -119,36 +120,39 @@ public class houseTile extends JButton {
         }
 
         // These seemingly can't be switch statements because strings can't work with those
+        // All these blocks follow the same format, simply differing in what type you are setting them to
         // DOOR
         if (inpHouseLayout.getlayoutType().compareTo("Door") == 0 )
         {
-            tileType = 2;
-            inpTA.setTile (this.loc.x, this.loc.y, tileType);
+            if(containingTable != null) // Check if its within a table
+                containingTable.DeleteTable(); // If it is, delete that table
+            inpTA.setTile (this.loc.x, this.loc.y, 2); // set the tile type to 2 for door
         }
         // WALL
         else if (inpHouseLayout.getlayoutType().compareTo("Wall") == 0 )
         {
-            tileType = 3;
-            inpTA.setTile (this.loc.x,this.loc.y, tileType);
+            if(containingTable != null)
+                containingTable.DeleteTable();
+            inpTA.setTile (this.loc.x, this.loc.y, 3); // set the tile type to 3 for wall
         }
         // CHEST
         else if (inpHouseLayout.getlayoutType().compareTo("Chest") == 0 )
         {
-            tileType = 4;
-            inpTA.setTile (this.loc.x,this.loc.y, tileType);
+            if(containingTable != null)
+                containingTable.DeleteTable();
+            inpTA.setTile (this.loc.x, this.loc.y, 4); // set the tile type to 4 for chest
         }
         // CHAIR
         else if (inpHouseLayout.getlayoutType().compareTo("Chair") == 0 )
         {
-            tileType = 5;
-            inpTA.setTile (this.loc.x,this.loc.y, tileType);
+            if(containingTable != null)
+                containingTable.DeleteTable();
+            inpTA.setTile (this.loc.x, this.loc.y, 5); // set the tile type to 5 for chair
         }
         // TABLE
         else if (inpHouseLayout.getlayoutType().compareTo("Table") == 0 )
         {
-            Table t = new Table(parentHouseTileArray, this.loc); // Make a new table, pass it the houseTile[][] arr that contains this houseTile, and this houseTile's location
-            tileType = 6;
-            inpTA.setTile (this.loc.x,this.loc.y, tileType);
+            Table t = new Table(parentHouseTileArray, this.loc); // Make a new Table, passing it this tile's parent array and its location
         }
         else
         {

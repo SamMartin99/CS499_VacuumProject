@@ -6,16 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_4_2022_11_51_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/staticVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/staticVariable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$20.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +75,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220412_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220413_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -340,7 +358,28 @@
       <option name="project" value="LOCAL" />
       <updated>1649764367517</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Changes: add the class AAlgorithmWallFollow in the Model Package;">
+      <created>1649850127575</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1649850127575</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)">
+      <created>1649862805644</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1649862805644</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square">
+      <created>1649864649842</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1649864649842</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,9 +394,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes:new file for the house layout gui" />
-    <MESSAGE value="Changes: bug fixes discovered when linking code to buttons" />
-    <MESSAGE value="Changes: add components for the east side of screen (components / options)" />
     <MESSAGE value="Changes: added active listerens for all buttons in the component / options section.  Currently just prints that the button was press" />
     <MESSAGE value="Changes: new class for houselayout" />
     <MESSAGE value="Changes: not just any new changes commiting before pushing" />
@@ -380,17 +416,9 @@
     <MESSAGE value="Changes: fixed a bug ; was setting the wrong button" />
     <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
     <MESSAGE value="Changes: fix a bug with the labels on the house layout GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: fix a bug with the labels on the house layout GUI" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Model/RunSimulation.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changes: add the class AAlgorithmWallFollow in the Model Package;" />
+    <MESSAGE value="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)" />
+    <MESSAGE value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
   </component>
 </project>
