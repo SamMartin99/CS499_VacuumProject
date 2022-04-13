@@ -42,16 +42,26 @@ public class AlgorithmWallFollow {
         Tile retTile = new Tile();
         Tile currentTile = new Tile();
         Location vacLoc = new Location(0,0);
-        int vacX;
-        int vacY;
+        int vacX, initialVacX;
+        int vacY, initialVaxY;
         int tempTileX;
         int tempTileY;
         int tileType;
-        int northTilesCount, southTilesCount, eastTilesCount, westTilesCount = 0;
+        int northTilesCount = 0;
+        int southTilesCount = 0;
+        int eastTilesCount = 0;
+        int westTilesCount = 0;
+
+
 
         // find the location of the vacuum
         vacX = this.wfVacuum.getX();
         vacY = this.wfVacuum.getY();
+        initialVacX = vacX;
+        initialVaxY = vacY;
+
+        Location southTileLoc = new Location(initialVacX,initialVaxY);
+        Location eastTileLoc = new Location(initialVacX,initialVaxY);
 
      //   vacLoc = wfVacuum.getTileLocation();
         vacX = wfVacuum.getX();
@@ -61,14 +71,52 @@ public class AlgorithmWallFollow {
         if (tileType == 3) {
             // Check for if the wall is a border wall
             if (vacX == 0) {  // wall is on the top
-                //vacX++;
                 if (vacY == 0) {  // top right corner
                     vacY++;
                     vacX++;
                     currentTile = wfTileArray.getTile(vacX, vacY);
-                    if(currentTile.isCleanable() ){
+                    if(currentTile.isCleanable() ){  // diagonal corner is available
                         wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
                         return currentTile;
+                    }
+                    else{ // go down and over to get see if get a tile that is available and determine which has a closer wall
+                        tempTileX = vacX;
+                        for (int i = vacX+1 ; i < wfMaxRows;i++) {
+                              southTilesCount++;
+                              currentTile = wfTileArray.getTile(i, vacY);
+                              if (currentTile.isCleanable()) {
+                                southTileLoc.setLocation(i,vacY);
+                                break;
+                            }
+                        }
+                        vacX = tempTileX; // need to reset vacX back to value after the first tile check
+                        for (int i = vacY + 1; i< wfMaxColumns;i++) {
+                            eastTilesCount++;
+                            currentTile = wfTileArray.getTile(vacX, i);
+                            if (currentTile.isCleanable()) {
+                                eastTileLoc.setLocation(vacX, i);
+                                break;
+                            }
+                        }
+
+                        // move to tile with the shortest number of tiles to transverse
+                        //System.out.println("SouthTileCount is " + southTilesCount);
+                        //System.out.println("EastTileCount is " + eastTilesCount);
+                        if (southTilesCount <= eastTilesCount){
+                            vacX = southTileLoc.getLocX();
+                            vacY = southTileLoc.getLocY();
+                            currentTile = wfTileArray.getTile(vacX, vacY);
+                            wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
+                            return currentTile;
+                        }
+                        else{
+                            vacX = eastTileLoc.getLocX();
+                            vacY = eastTileLoc.getLocY();
+                            currentTile = wfTileArray.getTile(vacX, vacY);
+                            wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
+                            return currentTile;
+                        }
+
                     }
                 }
                 if (vacY == wfMaxColumns - 1) { // top left corner
