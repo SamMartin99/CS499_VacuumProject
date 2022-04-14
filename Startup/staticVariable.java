@@ -35,6 +35,23 @@ public class staticVariable {
 
     public int getVacuumDirection() {return this.vacuumDirection;}
 
+    public int getVaccumDirectionNumber(String inpDirection){
+        if (inpDirection.compareTo("North")==0) {return 0;}
+        if (inpDirection.compareTo("West")==0)  {return 1;}
+        if (inpDirection.compareTo("South")==0) {return 2;}
+        if (inpDirection.compareTo("East")==0) {return 3;}
+        return -1; // unknown direction
+    }
+
+    public String getVaccumDirectionName(int inpDirection){
+        if (inpDirection == 0) {return "North";}
+        if (inpDirection == 1) {return "West";}
+        if (inpDirection == 2) {return "South";}
+        if (inpDirection == 3) {return "East";}
+        return "Unknown";
+    }
+
+
     // setters
 
     // Note: there are no setters for minimum and maximum values for the rows and columns

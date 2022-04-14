@@ -182,14 +182,16 @@ public class RunSimulation<simulationlayout> {
                     System.out.println("Third Path Alogorithm Code");
                 }
                 else if (this.algorithm == 4) {
+                    Tile currentTile = new Tile();
                    // TA.printTileArray();
-                 //   V.setX(0);
+                    V.setX(6);
                  //   V.setY(global.getMaxColumn() - 1);
-                    V.setX(global.getMaxRow() -1 );
+                 //   V.setX(global.getMaxRow() -1 );
                ///    V.setY(global.getMaxColumn() - 1);
-                    V.setY(0);
+                    V.setY(3);
                     AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V , global);
-                    wallFollow.findNearestWall();
+                    currentTile = wallFollow.findNearestWall();
+               //     wallFollow.vacuum();
                 }
                 else {
                     System.out.println("Unknown Alogorithm");
