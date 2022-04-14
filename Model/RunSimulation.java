@@ -1,6 +1,7 @@
 package Model;
 
 import Startup.Location;
+import Startup.staticVariable;
 import View.SimulationLayoutGUI;
 import java.awt.Component;
 
@@ -24,6 +25,7 @@ public class RunSimulation<simulationlayout> {
     private int delay_time;
     private int direction;
     private int ft;
+    private staticVariable global;
 
     /* Constructs RunSimulation.
      * int t: time
@@ -36,12 +38,13 @@ public class RunSimulation<simulationlayout> {
      */
 
     // Constructor
-    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA) {
+    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA, staticVariable inpGlobal) {
         run_speed = rs;
         algorithm = a;
         floor_type = ft;
         V = new Vacuum(b, vs);
         this.TA = TA;
+        this.global = inpGlobal;
 
         int direction = 0; // North
 
@@ -186,7 +189,7 @@ public class RunSimulation<simulationlayout> {
 
                     V.setX(0);
                     V.setY(0);
-                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA,V);
+                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA,V, global);
                     wallFollow.findNearestWall();
                 }
                 else {

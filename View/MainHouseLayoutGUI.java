@@ -117,14 +117,14 @@ public class MainHouseLayoutGUI {
      *
      * @param
      */
-    public MainHouseLayoutGUI(HouseLayout inpHouseLayout,staticVariable inparrayBounds){
+    public MainHouseLayoutGUI(HouseLayout inpHouseLayout,staticVariable inpGlobal){
         int maxRow,maxColumn,minRow,minColumn;
-        maxRow = arrayBounds.getMaxRow();
-        maxColumn = arrayBounds.getMaxColumn();
-        minRow = arrayBounds.getMinRow();
-        minColumn = arrayBounds.getMinColumn();
+        maxRow = inpGlobal.getMaxRow();
+        maxColumn = inpGlobal.getMaxColumn();
+        minRow = inpGlobal.getMinRow();
+        minColumn = inpGlobal.getMinColumn();
         //TileArray TA = new TileArray(maxRow, maxColumn);
-        TileArray TA = new TileArray(inparrayBounds);
+        TileArray TA = new TileArray(inpGlobal);
         // set up borders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
@@ -523,7 +523,7 @@ public class MainHouseLayoutGUI {
         //        System.out.println("Battery Life " + batteryLife);
         //        System.out.println("The number of inches the vacuum covers in a second is " + vs);
         //        TA.printTileArray();
-                RunSimulation RS = new RunSimulation (rs, a, ft, batteryLife, vs, TA);
+                RunSimulation RS = new RunSimulation (rs, a, ft, batteryLife, vs, TA,inpGlobal);
           //      RS.printSimValues();
                 RS.run();
                 // out.println("Run Simulation button on House Layout was clicked");
