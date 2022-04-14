@@ -184,8 +184,9 @@ public class RunSimulation<simulationlayout> {
                 else if (this.algorithm == 4) {
                    // TA.printTileArray();
                  //   V.setX(0);
+                 //   V.setY(global.getMaxColumn() - 1);
                     V.setX(global.getMaxRow() -1 );
-               //     V.setY(global.getMaxColumn() - 1);
+               ///    V.setY(global.getMaxColumn() - 1);
                     V.setY(0);
                     AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V , global);
                     wallFollow.findNearestWall();

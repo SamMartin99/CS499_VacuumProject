@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -376,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649951723103</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Changes: added method bottomRightCorner in AlgorithmWallFollow">
+      <created>1649953634065</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1649953634065</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -391,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: added code for tiles processing" />
     <MESSAGE value="Changes: this is the house Tile object attributes included the cleaning value, available to clean , ect" />
     <MESSAGE value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
     <MESSAGE value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
@@ -416,6 +419,7 @@
     <MESSAGE value="Changes: added direction variables in staticVariable class so that we can standardize how vacuum direction is used; update code to ensure that all current modules run as before" />
     <MESSAGE value="Changes: added method topLeftCorner in AlgorithmWallFollow" />
     <MESSAGE value="Changes: added method topRightCorner in AlgorithmWallFollow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method topRightCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: added method bottomRightCorner in AlgorithmWallFollow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method bottomRightCorner in AlgorithmWallFollow" />
   </component>
 </project>
