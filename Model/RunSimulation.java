@@ -1,10 +1,7 @@
 package Model;
 
-import Startup.Location;
 import Startup.staticVariable;
 import View.SimulationLayoutGUI;
-import java.awt.Component;
-
 
 /* Authors:
  * Purpose: Runs simulation, using the appropriate algorithm and updating visuals as
@@ -186,36 +183,14 @@ public class RunSimulation<simulationlayout> {
                 }
                 else if (this.algorithm == 4) {
                    // TA.printTileArray();
-
                     V.setX(0);
                     V.setY(0);
-                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout,TA,V, global);
+                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V , global);
                     wallFollow.findNearestWall();
                 }
                 else {
                     System.out.println("Unknown Alogorithm");
                 }
-/*
-            // Print out all the components of the simTiles JPanel
-            // simulationlayout.printSimTilesName();
-            int x = 5;
 
-           int y = 5;
-          Location loc = new Location(5,5);
-           String simTileName;
-           int simTileNumber;
-           SimTileGUI simTileButton;
-            Tile tileRef;
-           simTileName = simulationlayout.getSimTileName(x,y);
-        // System.out.println(simTileName);
-            simTileNumber = simulationlayout.getComponentNumber(simTileName);
-         //   System.out.println(simTileNumber);
-        //    simulationlayout.setVacuumTile(x,y,simTileNumber);
-
-        if (simTileNumber != -1) {
-            TA.setTileClean(x, y, 0, simulationlayout);  // test of the method
-        }
-
- */
-    }
-}
+    } // end of method run
+}  // end of class RunSimulation
