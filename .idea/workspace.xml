@@ -369,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649947311775</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Changes: added method topRightCorner in AlgorithmWallFollow">
+      <created>1649951723103</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1649951723103</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,7 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: not just any new changes commiting before pushing" />
     <MESSAGE value="Changes: added code for tiles processing" />
     <MESSAGE value="Changes: this is the house Tile object attributes included the cleaning value, available to clean , ect" />
     <MESSAGE value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
@@ -409,6 +415,7 @@
     <MESSAGE value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
     <MESSAGE value="Changes: added direction variables in staticVariable class so that we can standardize how vacuum direction is used; update code to ensure that all current modules run as before" />
     <MESSAGE value="Changes: added method topLeftCorner in AlgorithmWallFollow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method topLeftCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: added method topRightCorner in AlgorithmWallFollow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method topRightCorner in AlgorithmWallFollow" />
   </component>
 </project>
