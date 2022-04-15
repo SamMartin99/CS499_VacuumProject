@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Ignore.">
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: add multiple methods in staticVariable to calculate new x, y values based on move direction (North, South, East, and West) each method will return -1 if new value would result in an out of bound error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/staticVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/staticVariable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$21.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220414_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220415_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -407,7 +404,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
     <MESSAGE value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
     <MESSAGE value="Changes: Added additional tiles. Tried to get RunSimulation functioning." />
     <MESSAGE value="Changes: update houseTile tileclick actionlister to setvalues in TileArray for this simulation; also commented out some debugging System.out.println () statements" />
@@ -432,6 +428,7 @@
     <MESSAGE value="Changes: added method topRightCorner in AlgorithmWallFollow" />
     <MESSAGE value="Changes: added method bottomRightCorner in AlgorithmWallFollow" />
     <MESSAGE value="Changes: added method bottomLeftCorner in AlgorithmWallFollow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method bottomLeftCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: add multiple methods in staticVariable to calculate new x, y values based on move direction (North, South, East, and West) each method will return -1 if new value would result in an out of bound error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: add multiple methods in staticVariable to calculate new x, y values based on move direction (North, South, East, and West) each method will return -1 if new value would result in an out of bound error" />
   </component>
 </project>

@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$21.class" beforeDir="false" />
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Ignore.">
+      <change beforePath="$PROJECT_DIR$/Startup/staticVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/staticVariable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +47,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220414_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220415_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
