@@ -7,6 +7,7 @@ public class staticVariable {
     private int minRow;
     private int minColumn;
     private int vacuumDirection;
+    private int numSimTilesComponent;
 
     // default constructor Note initial values have already been set
     public staticVariable(){
@@ -15,6 +16,7 @@ public class staticVariable {
         this.minRow = 0;
         this.minColumn = 0;
         this.vacuumDirection =0;
+        this.numSimTilesComponent = maxRow * maxColumn;
     }
 
     //getters
@@ -41,6 +43,8 @@ public class staticVariable {
         if (inpDirection.compareTo("East")==0) {return 3;}
         return -1; // unknown direction
     }
+
+    public int getNumSimTilesComponent () {return numSimTilesComponent;}
 
 /* *   Tile Array Layout
  *      MinRow, MinColumn, MaxRow, MaxColumn are set in the staticVariable class

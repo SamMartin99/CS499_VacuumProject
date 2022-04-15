@@ -562,7 +562,7 @@ public class AlgorithmWallFollow {
         else if((eastTilesCount <= northTilesCount) && (eastTilesCount <= southTilesCount) && (eastTilesCount <= westTilesCount)){
             System.out.println("East Wall is closer");
             vacX = eastTileLoc.getLocX();
-            vacY = eastTileLoc.getLocY();
+            vacY = eastTileLoc.getLocY() - 1; // come in one tile from east wall
             currentTile = wfTileArray.getTile(vacX, vacY);
             wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
             global.setVacuumDirection("East");
