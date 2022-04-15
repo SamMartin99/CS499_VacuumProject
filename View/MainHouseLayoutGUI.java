@@ -539,7 +539,7 @@ public class MainHouseLayoutGUI {
 
         // Add panels to the Frame
         this.MainHouseLayoutFrame.add(houseTile,BorderLayout.WEST);
-        this.houseTile.setPreferredSize(new Dimension(380, 500));
+        this.houseTile.setPreferredSize(new Dimension(460, 460));
         this.MainHouseLayoutFrame.add(houseCenter,BorderLayout.CENTER);
         // this.houseCenter.setPreferredSize(new Dimension(10, 500));
         this.MainHouseLayoutFrame.setPreferredSize(new Dimension(330, 500));
@@ -569,7 +569,7 @@ public class MainHouseLayoutGUI {
 
 
     static void displayHouseLayout(JFrame inpFrame){
-        inpFrame.setPreferredSize(new Dimension(800,600));
+        inpFrame.setPreferredSize(new Dimension(900,600));
         inpFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         inpFrame.pack();
         inpFrame.setVisible(true);

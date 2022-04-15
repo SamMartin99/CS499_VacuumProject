@@ -31,7 +31,7 @@ public class SimulationLayoutGUI {
         simTilesWallBorder = BorderFactory.createLineBorder(Color.BLACK,10);
         simTilesChairBorder = BorderFactory.createLineBorder(Color.BLUE,10);
 
-        GridLayout simTilePanelLayout = new GridLayout(10,10);
+        GridLayout simTilePanelLayout = new GridLayout(simTileRow,simTileColumn);
         simTilePanelLayout.setHgap(1);
         simTilePanelLayout.setVgap(1);
         simTiles.setLayout(simTilePanelLayout);
@@ -46,6 +46,9 @@ public class SimulationLayoutGUI {
                 tileName = "SimTile" + i + j;
                 simTileButton = new SimTileGUI(loc, tileRef);
                 simTileButton.setName(tileName);
+                simTileButton.setMargin(new Insets(0, 0, 0, 0));
+                simTileButton.setBorderPainted(false);
+                simTileButton.setBorder(null);
 
 
                 simTiles.add(simTileButton);
