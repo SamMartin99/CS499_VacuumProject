@@ -194,11 +194,11 @@ public class RunSimulation<simulationlayout> {
             } else if (this.algorithm == 4) {
                 Tile currentTile = new Tile();
                 // TA.printTileArray();
-                V.setX(6);
+                V.setX(8);
                 // V.setY(global.getMaxColumn() - 1);
                 // V.setX(global.getMaxRow() -1 );
                 // V.setY(global.getMaxColumn() - 1);
-                V.setY(3);
+                V.setY(2);
                 AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
                 currentTile = wallFollow.findNearestWall();
                 // wallFollow.vacuum();
