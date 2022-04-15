@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Ignore." />
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +48,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220406_0001" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220414_0000" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -272,7 +275,84 @@
       <option name="project" value="LOCAL" />
       <updated>1649263377848</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Changes: change the simulation slider button to 3 radio buttons">
+      <created>1649519711394</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1649519711394</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Changes: corrent tile array is being passed to run simulation">
+      <created>1649527400555</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1649527400555</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Changes: started on graphicly displaying the tile array; uncover problem that tile type is assoicated iwth the entire array rather than an individual tile">
+      <created>1649540773444</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1649540773444</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Changes: new class to display the simulation">
+      <created>1649540958049</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1649540958049</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Changes: new class to display the simulation information">
+      <created>1649541121479</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1649541121479</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Changes: fixed a bug ; was setting the wrong button">
+      <created>1649542254799</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1649542254799</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details.">
+      <created>1649714712328</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1649714712328</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Changes: fix a bug with the labels on the house layout GUI">
+      <created>1649764367517</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1649764367517</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Changes: add the class AAlgorithmWallFollow in the Model Package;">
+      <created>1649850127575</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1649850127575</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)">
+      <created>1649862805644</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1649862805644</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square">
+      <created>1649864649842</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1649864649842</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,18 +367,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: Just change the Program function comment. A test of pushing to github" />
-    <MESSAGE value="Changes: Add coded in SplashScreen to call the file handling routine" />
-    <MESSAGE value="Changes: Add coded to test the HouseLayout Getters and Setters" />
-    <MESSAGE value="Changes: Created the HouseLayout class" />
-    <MESSAGE value="Changes: new file name, streamline code, read working" />
-    <MESSAGE value="Changes: add code to test functionality of house Layout object" />
-    <MESSAGE value="Changes: fix the write method so that it compiles and program builds" />
-    <MESSAGE value="Changes: commented out test code for the file handling routine" />
-    <MESSAGE value="Changes:add button to call house layout" />
-    <MESSAGE value="Changes:new file for the house layout gui" />
-    <MESSAGE value="Changes: bug fixes discovered when linking code to buttons" />
-    <MESSAGE value="Changes: add components for the east side of screen (components / options)" />
     <MESSAGE value="Changes: added active listerens for all buttons in the component / options section.  Currently just prints that the button was press" />
     <MESSAGE value="Changes: new class for houselayout" />
     <MESSAGE value="Changes: not just any new changes commiting before pushing" />
@@ -312,6 +380,18 @@
     <MESSAGE value="Changes: delete obsolute code and setting up the tile array ; now being done in the houseTile class" />
     <MESSAGE value="Changes: add a printSimValues method" />
     <MESSAGE value="Changes: completed adding getters, printSimValues in RunSimulation class ;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: completed adding getters, printSimValues in RunSimulation class ;" />
+    <MESSAGE value="Changes: created a packaged called View and move the MainHouseLayoutGUI to the View package" />
+    <MESSAGE value="Changes: change the simulation slider button to 3 radio buttons" />
+    <MESSAGE value="Changes: corrent tile array is being passed to run simulation" />
+    <MESSAGE value="Changes: started on graphicly displaying the tile array; uncover problem that tile type is assoicated iwth the entire array rather than an individual tile" />
+    <MESSAGE value="Changes: new class to display the simulation" />
+    <MESSAGE value="Changes: new class to display the simulation information" />
+    <MESSAGE value="Changes: fixed a bug ; was setting the wrong button" />
+    <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
+    <MESSAGE value="Changes: fix a bug with the labels on the house layout GUI" />
+    <MESSAGE value="Changes: add the class AAlgorithmWallFollow in the Model Package;" />
+    <MESSAGE value="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)" />
+    <MESSAGE value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
   </component>
 </project>

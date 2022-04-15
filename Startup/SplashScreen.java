@@ -9,13 +9,16 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 
 // Imports for using java's swing GUI functionality
 
-import Model.TileArray;
+import View.MainHouseLayoutGUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import View.MainHouseLayoutGUI;
+
+
 
 /* FrameDemo.java requires no other files. */
 
@@ -23,8 +26,7 @@ public class SplashScreen {
 
     // Global variable to indicate the type of tile (wall, door, etc)
     static String tileType = "";
-    static int maxTileArrayRow = 10;
-    static int maxTileArrayColumn = 10;
+
 
     /**
      * Create the GUI and show it.  For thread safety,
@@ -34,6 +36,7 @@ public class SplashScreen {
 
     // Method to create and show the GUI of the splash screen
     private static void createAndShowGUI() {
+        staticVariable arrayValues = new staticVariable();
         //Create and set up the window.
         JFrame splashScreenFrame = new JFrame("Splash");
         splashScreenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,8 +56,9 @@ public class SplashScreen {
             public void actionPerformed(ActionEvent e) {
                 splashScreenFrame.setVisible(false);  //mh
                 splashScreenFrame.dispose();          //mh  Close out the splash screen and remove any associated memory
-                HouseLayout myhouse = new HouseLayout("default");
-                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse);  // mh create a house layout object
+                staticVariable arrayBounds = new staticVariable();
+                HouseLayout myhouse = new HouseLayout("default", arrayBounds);
+                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse,arrayValues);  // mh create a house layout object
                 MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
 
             }
@@ -75,10 +79,14 @@ public class SplashScreen {
 
     }
 
+
+
     public static void main(String[] args) throws IOException {
 
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
+
+
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {

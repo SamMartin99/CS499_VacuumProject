@@ -1,8 +1,7 @@
 package Model;
-import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.util.Random;
+
+import Startup.staticVariable;
+import View.SimulationLayoutGUI;
 
 /* Authors:
  * Purpose: Runs simulation, using the appropriate algorithm and updating visuals as
@@ -13,7 +12,7 @@ import java.util.Random;
  */
 
 // Class Definition
-public class RunSimulation {
+public class RunSimulation<simulationlayout> {
     // Attributes
     private final int run_speed;
     private int algorithm;
@@ -21,6 +20,9 @@ public class RunSimulation {
     private Vacuum V;
     private TileArray TA;
     private int delay_time;
+    private int direction;
+    private int ft;
+    private staticVariable global;
 
     /* Constructs RunSimulation.
      * int t: time
@@ -33,13 +35,16 @@ public class RunSimulation {
      */
 
     // Constructor
-    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA)
-    {
+    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA, staticVariable inpGlobal) {
         run_speed = rs;
         algorithm = a;
         floor_type = ft;
-        V = new Vacuum (b, vs);
+        V = new Vacuum(b, vs);
         this.TA = TA;
+        this.global = inpGlobal;
+
+        int direction = 0; // North
+
 
         /*
          * Calculate how quickly the output is updated.
@@ -51,6 +56,7 @@ public class RunSimulation {
          */
         delay_time = ((24 / vs) * 1000) / rs;
     }
+
     /**
      * Purpose: To get the current values of the run speed
      */
@@ -70,10 +76,18 @@ public class RunSimulation {
      */
     public String getAlgorithmName() {
         String algorithmName = "";
-        if (getAlgorithm() == 1 ) {algorithmName = "Random" ;}
-        if (getAlgorithm() == 2 ) {algorithmName = "Spiral" ;}
-        if (getAlgorithm() == 3 ) {algorithmName = "Snaking" ;}
-        if (getAlgorithm() == 4 ) {algorithmName = "Wall Follow" ;}
+        if (getAlgorithm() == 1) {
+            algorithmName = "Random";
+        }
+        if (getAlgorithm() == 2) {
+            algorithmName = "Spiral";
+        }
+        if (getAlgorithm() == 3) {
+            algorithmName = "Snaking";
+        }
+        if (getAlgorithm() == 4) {
+            algorithmName = "Wall Follow";
+        }
 
         return algorithmName;
     }
@@ -90,19 +104,27 @@ public class RunSimulation {
      */
     public String getFloorTypeName() {
         String floorTypemName = "";
-        if (getFloorType() == 1 ) {floorTypemName  = "Shag" ;}
-        if (getFloorType() == 2 ) {floorTypemName  = "Hardwood" ;}
-        if (getFloorType() == 3 ) {floorTypemName = "LoopPile" ;}
-        if (getFloorType() == 4 ) {floorTypemName = "CutPile" ;}
+        if (getFloorType() == 1) {
+            floorTypemName = "Shag";
+        }
+        if (getFloorType() == 2) {
+            floorTypemName = "Hardwood";
+        }
+        if (getFloorType() == 3) {
+            floorTypemName = "LoopPile";
+        }
+        if (getFloorType() == 4) {
+            floorTypemName = "CutPile";
+        }
         return floorTypemName;
     }
 
     /**
      * Purpose: To get the current values of Tiles
      */
-  //  public int getTileValues() {
- //       return this.floor_type;
-  //  }
+    //  public int getTileValues() {
+    //       return this.floor_type;
+    //  }
 
     /**
      * Purpose: To print all the current values of the RunSimuation object
@@ -119,7 +141,7 @@ public class RunSimulation {
      * Return: none
      * Purpose: Output algorithm activity to new window.
      */
-    public void run () {
+    public void run() {
         // Should be some code here that uses delay_time to delay calculations by appropriate amount.
         // Maybe use Thread.sleep()?
 
@@ -142,43 +164,38 @@ public class RunSimulation {
         }
         */
 
-        JFrame outputScreenFrame = new JFrame("Output");
-        outputScreenFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  //mh change from EXIT_ON_CLOSE so that the program continues running
+        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
+        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
 
-        JPanel outputSimTiles = new JPanel();
-        JButton simTileButton = new JButton();
+        int outDirection;
 
-        Border outputSimTilesBorder;
-        outputSimTilesBorder = BorderFactory.createLineBorder(Color.BLACK);
-        outputSimTiles.setBorder(outputSimTilesBorder);
-        outputScreenFrame.add(outputSimTiles, BorderLayout.CENTER);  // add the simulation tile panel to the output frame
+            // Run the algoriths
+                if (this.algorithm == 1) {
+                    AlgorithmRandom newAlgRandom;
+                    newAlgRandom = new AlgorithmRandom();
+                    outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
+                }
+                else if (this.algorithm == 2) {
+                    System.out.println("Second Path Alogorithm Code");
+                }
+                else if (this.algorithm == 3) {
+                    System.out.println("Third Path Alogorithm Code");
+                }
+                else if (this.algorithm == 4) {
+                    Tile currentTile = new Tile();
+                   // TA.printTileArray();
+                    V.setX(6);
+                 //   V.setY(global.getMaxColumn() - 1);
+                 //   V.setX(global.getMaxRow() -1 );
+               ///    V.setY(global.getMaxColumn() - 1);
+                    V.setY(3);
+                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V , global);
+                    currentTile = wallFollow.findNearestWall();
+               //     wallFollow.vacuum();
+                }
+                else {
+                    System.out.println("Unknown Alogorithm");
+                }
 
-        // Use Grid for Simulation Tiles
-        GridBagLayout gblSimTiles = new GridBagLayout();
-        GridBagConstraints gblSimTilesLayoutConstraints = new GridBagConstraints();
-
-        outputSimTiles.setLayout(gblSimTiles);
-
-        // A square grid for the simulation panel
-        gblSimTilesLayoutConstraints.weightx = 1;
-        gblSimTilesLayoutConstraints.weighty = 1;
-
-        // for (int i = 0; i < 10; i++)
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                gblSimTilesLayoutConstraints.gridx = i;
-                gblSimTilesLayoutConstraints.gridy = j;
-
-                simTileButton = new JButton();
-
-                outputSimTiles.add(simTileButton, gblSimTilesLayoutConstraints);
-            }
-        }
-
-        //Display the window.
-        outputScreenFrame.setSize(960, 540);
-        outputScreenFrame.setVisible(true);
-    }
-
-
-}
+    } // end of method run
+}  // end of class RunSimulation
