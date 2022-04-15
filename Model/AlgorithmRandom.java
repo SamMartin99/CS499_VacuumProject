@@ -5,10 +5,6 @@ import java.util.Random;
 
 /* Authors: Bryant Terry
  * Purpose: Handles code for the random path algorithm.
- *
- * NOTE FROM BRYANT: Still needs to be tested. I currently have no idea if this will work or not,
- * but hopefully you can see what I'm trying to do. If you see any changes that need to be made,
- * feel free to do so.
  */
 
 public class AlgorithmRandom {
@@ -32,114 +28,129 @@ public class AlgorithmRandom {
             case 0:
                 if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
-                    V.setX(V.getX());
-                    V.setY(V.getY() - 1);
-
                     old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
                     TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX());
+                    V.setY(V.getY() - 1);
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // Northeast
+                System.out.println("North hit");
+                break;
+            // Northeast
             case 1:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
                 {
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY() - 1);
-
                     old_clean = TA.getTile((V.getX() + 1), (V.getY() - 1)).getClean();
                     TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX() + 1);
+                    V.setY(V.getY() - 1);
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // East
+                System.out.println("Northeast hit");
+                break;
+            // East
             case 2:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY());
-
                     old_clean = TA.getTile((V.getX() + 1), V.getY()).getClean();
                     TA.setTileClean((V.getX() + 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
+
+                    V.setX(V.getX() + 1);
+                    V.setY(V.getY());
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // Southeast
+                System.out.println("East");
+                break;
+            // Southeast
             case 3:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
                 {
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY() + 1);
-
                     old_clean = TA.getTile((V.getX() + 1), (V.getY() + 1)).getClean();
                     TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX() + 1);
+                    V.setY(V.getY() + 1);
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // South
+                System.out.println("Southeast hit");
+                break;
+            // South
             case 4:
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
-                    V.setX(V.getX());
-                    V.setY(V.getY() + 1);
-
                     old_clean = TA.getTile(V.getX(), (V.getY() + 1)).getClean();
                     TA.setTileClean(V.getX(), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX());
+                    V.setY(V.getY() + 1);
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // Southwest
+                break;
+            // Southwest
             case 5:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
                 {
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY() + 1);
-
                     old_clean = TA.getTile((V.getX() - 1), (V.getY() + 1)).getClean();
                     TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX() - 1);
+                    V.setY(V.getY() + 1);
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // West
+                System.out.println("Southwest hit");
+                break;
+            // West
             case 6:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY());
-
                     old_clean = TA.getTile((V.getX() - 1), V.getY()).getClean();
                     TA.setTileClean((V.getX() - 1), V.getY(), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX() - 1);
+                    V.setY(V.getY());
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
-                // Northwest
+                System.out.print("West hit");
+                break;
+            // Northwest
             case 7:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
                 {
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY() - 1);
-
                     old_clean = TA.getTile((V.getX() - 1), (V.getY() - 1)).getClean();
                     TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+
+                    V.setX(V.getX() - 1);
+                    V.setY(V.getY() - 1);
                 }
                 else
                 {
                     direction = rand.nextInt(8);
                 }
+                System.out.println("Northwest hit");
+                break;
         }
 
         return direction;

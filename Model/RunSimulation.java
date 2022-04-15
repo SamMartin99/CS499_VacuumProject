@@ -142,60 +142,69 @@ public class RunSimulation<simulationlayout> {
      * Purpose: Output algorithm activity to new window.
      */
     public void run() {
-        // Should be some code here that uses delay_time to delay calculations by appropriate amount.
-        // Maybe use Thread.sleep()?
-
-        // Code here to actually run tile array through chosen algorithm.
-        // Algorithm, ideally, should be run once every iteration.
-
-        // Calculate loss in battery life.
-        // Should be used in conjunction with a while loop to run program until the vacuum
-        // runs out of battery.
-
-        /*
-        int minute = 0;
-
-        minute = minute + delay_time;
-        if (minute >= 60000)
-        {
-            V.setBattery(V.getBattery() - 1);
-            System.out.println("A minute has passed.");
-            minute = 0;
-        }
-        */
-
         SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
         simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
 
-        int outDirection;
+        System.out.println(V.getBattery());
 
-            // Run the algoriths
-                if (this.algorithm == 1) {
-                    AlgorithmRandom newAlgRandom;
-                    newAlgRandom = new AlgorithmRandom();
-                    outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
-                }
-                else if (this.algorithm == 2) {
-                    System.out.println("Second Path Alogorithm Code");
-                }
-                else if (this.algorithm == 3) {
-                    System.out.println("Third Path Alogorithm Code");
-                }
-                else if (this.algorithm == 4) {
-                    Tile currentTile = new Tile();
-                   // TA.printTileArray();
-                    V.setX(6);
-                 //   V.setY(global.getMaxColumn() - 1);
-                 //   V.setX(global.getMaxRow() -1 );
-               ///    V.setY(global.getMaxColumn() - 1);
-                    V.setY(3);
-                    AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V , global);
-                    currentTile = wallFollow.findNearestWall();
-               //     wallFollow.vacuum();
-                }
-                else {
-                    System.out.println("Unknown Alogorithm");
-                }
+        // while (V.getBattery() > 0) {
+            // Pause the thread.
+            /*
+            try
+            {
+                Thread.sleep(1000);
+            }
+            catch (InterruptedException e)
+            {
+                System.out.println("Interrupt occurred.");
+            }
+             */
 
+            // Calculate loss in battery life.
+            // Should be used in conjunction with a while loop to run program until the vacuum
+            // runs out of battery.
+            int minute = 0;
+
+            minute = minute + delay_time;
+            if (minute >= 60000) {
+                V.setBattery(V.getBattery() - 1);
+                System.out.println("A minute has passed.");
+                minute = minute - 60000;
+            }
+
+            // SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
+            simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
+
+            int outDirection;
+
+            // Run the algorithms
+            if (this.algorithm == 1) {
+                AlgorithmRandom newAlgRandom;
+                newAlgRandom = new AlgorithmRandom();
+                direction = (int)Math.floor(Math.random()*8);
+                System.out.println(direction);
+                // Hardcode vacuum location until we can incorporate it into GUI.
+                V.setX(3);
+                V.setY(3);
+                outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
+            } else if (this.algorithm == 2) {
+                System.out.println("Second Path Algorithm Code");
+            } else if (this.algorithm == 3) {
+                System.out.println("Third Path Algorithm Code");
+            } else if (this.algorithm == 4) {
+                Tile currentTile = new Tile();
+                // TA.printTileArray();
+                V.setX(6);
+                // V.setY(global.getMaxColumn() - 1);
+                // V.setX(global.getMaxRow() -1 );
+                // V.setY(global.getMaxColumn() - 1);
+                V.setY(3);
+                AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
+                currentTile = wallFollow.findNearestWall();
+                // wallFollow.vacuum();
+            } else {
+                System.out.println("Unknown Algorithm");
+            }
+       // } // end of while loop
     } // end of method run
 }  // end of class RunSimulation

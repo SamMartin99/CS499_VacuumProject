@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$21.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +356,42 @@
       <option name="project" value="LOCAL" />
       <updated>1649864649842</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Changes: added direction variables in staticVariable class so that we can standardize how vacuum direction is used; update code to ensure that all current modules run as before">
+      <created>1649937900243</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1649937900243</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Changes: added method topLeftCorner in AlgorithmWallFollow">
+      <created>1649947311775</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1649947311775</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Changes: added method topRightCorner in AlgorithmWallFollow">
+      <created>1649951723103</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1649951723103</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Changes: added method bottomRightCorner in AlgorithmWallFollow">
+      <created>1649953634065</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1649953634065</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Changes: added method bottomLeftCorner in AlgorithmWallFollow">
+      <created>1649955983018</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1649955983018</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -367,11 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: added active listerens for all buttons in the component / options section.  Currently just prints that the button was press" />
-    <MESSAGE value="Changes: new class for houselayout" />
-    <MESSAGE value="Changes: not just any new changes commiting before pushing" />
-    <MESSAGE value="Changes: added code for tiles processing" />
-    <MESSAGE value="Changes: this is the house Tile object attributes included the cleaning value, available to clean , ect" />
     <MESSAGE value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
     <MESSAGE value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
     <MESSAGE value="Changes: Added additional tiles. Tried to get RunSimulation functioning." />
@@ -392,6 +426,11 @@
     <MESSAGE value="Changes: add the class AAlgorithmWallFollow in the Model Package;" />
     <MESSAGE value="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)" />
     <MESSAGE value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
+    <MESSAGE value="Changes: added direction variables in staticVariable class so that we can standardize how vacuum direction is used; update code to ensure that all current modules run as before" />
+    <MESSAGE value="Changes: added method topLeftCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: added method topRightCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: added method bottomRightCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: added method bottomLeftCorner in AlgorithmWallFollow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method bottomLeftCorner in AlgorithmWallFollow" />
   </component>
 </project>
