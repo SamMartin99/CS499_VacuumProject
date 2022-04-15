@@ -10,8 +10,8 @@ public class staticVariable {
 
     // default constructor Note initial values have already been set
     public staticVariable(){
-        this.maxRow = 10;
-        this.maxColumn = 10;
+        this.maxRow = 44;
+        this.maxColumn = 44;
         this.minRow = 0;
         this.minColumn = 0;
         this.vacuumDirection =0;
