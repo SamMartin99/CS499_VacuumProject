@@ -142,7 +142,7 @@ public class RunSimulation<simulationlayout> {
      * Purpose: Output algorithm activity to new window.
      */
     public void run() {
-        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
+        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
         simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
 
         System.out.println(V.getBattery());
@@ -174,6 +174,7 @@ public class RunSimulation<simulationlayout> {
 
             // SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
             simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
+        //    simulationlayout.printSimTilesName();
 
             int outDirection;
 
@@ -194,11 +195,13 @@ public class RunSimulation<simulationlayout> {
             } else if (this.algorithm == 4) {
                 Tile currentTile = new Tile();
                 // TA.printTileArray();
-                V.setX(6);
+                //V.setX(0);
                 // V.setY(global.getMaxColumn() - 1);
-                // V.setX(global.getMaxRow() -1 );
+               //  V.setX(global.getMaxRow() -1 );
                 // V.setY(global.getMaxColumn() - 1);
-                V.setY(3);
+                //V.setY(0);
+                V.setX(23);
+                V.setY(33);
                 AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
                 currentTile = wallFollow.findNearestWall();
                 // wallFollow.vacuum();

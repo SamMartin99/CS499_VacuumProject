@@ -12,8 +12,8 @@ public class HouseLayout {
     // Attributes
 //    private final int dim1 = 10; // maxTileArrayRow; // These define the maximum size of the array of tiles
 //    private final int dim2 = 10; // maxTileArrayColumn;
-    private int dim1 = 10;
-    private int dim2 = 10;
+    private int dim1 = 44;
+    private int dim2 = 44;
     private String LayoutName = ""; // Name of the house layout will be unique
     private int [][] TileArray = new int[dim1][dim2];
     // The actual layout of the house; 0 -- can be cleaned ; 1 -- can't be cleaned

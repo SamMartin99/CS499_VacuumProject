@@ -85,10 +85,11 @@ public class AlgorithmWallFollow {
         currentTile = wfTileArray.getTile(vacX,vacY);
         tileType = currentTile.getType();
         if (tileType == 1){ // empty tile can now start the vacuum
+            wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
             currentTile = emptyTile(vacX, vacY, currentTile);
-            wfVacuum.setX(vacX);
-            wfVacuum.setY(vacY);
-            wfVacuum.setTileLocation();
+         //   wfVacuum.setX(vacX);
+         //   wfVacuum.setY(vacY);
+          //  wfVacuum.setTileLocation();
             return currentTile;
         }
         else if (tileType == 3) {
@@ -132,7 +133,7 @@ public class AlgorithmWallFollow {
             }
         else { // incoming tile is not a wall
 
-            System.out.println("in the else statement");
+            System.out.println("in the else statement of incoming tile is not a wall");
 
             }
         }
@@ -450,11 +451,15 @@ public class AlgorithmWallFollow {
                 northTilesCount++;
                 currentTile = wfTileArray.getTile(i,vacY);
                 if (currentTile.getType() == 3) {
+                    i++;        // need to move down a row because at the border
                     northTileLoc.setLocation(i,vacY);
+             //       System.out.print("North tile location is: ");
+              //      northTileLoc.printLocation();
+                //    System.out.println();
                     break;
                 }
                 i--;
-            } while (i != wfMinRows + 1);
+            } while (i != wfMinRows -1 ); // if equal ot minRows then the do loop exits prematurely
         }
         // find the south wall vacX = wfMaxRows - 1
         vacX = tempTileX;
@@ -468,11 +473,14 @@ public class AlgorithmWallFollow {
                 southTilesCount++;
                 currentTile = wfTileArray.getTile(i,vacY);
                 if (currentTile.getType() == 3) {
-                    southTileLoc.setLocation(i,vacY);
+                   southTileLoc.setLocation(i-1,vacY); // vaccum can't go on the wall set to tile one up i.e. off wall
+           //         System.out.print("South tile location is: ");
+           //         southTileLoc.printLocation();
+           //         System.out.println();
                     break;
                 }
                 i++;
-            } while (i != wfMaxRows - 1);
+            } while (i != wfMaxRows);
         }
 
         // find the east wall wfMaxColumns - 1
@@ -488,10 +496,14 @@ public class AlgorithmWallFollow {
                 currentTile = wfTileArray.getTile(vacX,i);
                 if (currentTile.getType() == 3) {
                     eastTileLoc.setLocation(vacX,i);
+         //           System.out.print("East tile location is: ");
+         //           eastTileLoc.printLocation();
+         //           System.out.println();
                     break;
                 }
                 i++;
-            } while (i != wfMaxColumns - 1);
+            } while (i != wfMaxColumns);
+         //   System.out.println("East Tile Count is: " +eastTilesCount);
         }
         // find the west wall vacY = wfMinColumns
         vacX = tempTileX;
@@ -506,14 +518,23 @@ public class AlgorithmWallFollow {
                 currentTile = wfTileArray.getTile(vacX,i);
                 if (currentTile.getType() == 3) {
                     westTileLoc.setLocation(vacX,i);
+       //             System.out.print("West tile location is: ");
+        //            westTileLoc.printLocation();
+         //           System.out.println();
                     break;
                 }
                 i++;
-            } while (i != wfMinColumns + 1);
+            } while (i != wfMinColumns);
         }
 
+     //System.out.println("North Tiles Count = " + northTilesCount);
+     //System.out.println("South Tiles Count = " + southTilesCount);
+     //System.out.println("East Tiles Count = " + eastTilesCount);
+     //System.out.println("West Tiles Count = " + westTilesCount);
+
         // find which wall (North, South, East, West is closest
-        if (northTilesCount < southTilesCount && northTilesCount < eastTilesCount && northTilesCount < westTilesCount){
+        if (northTilesCount <= southTilesCount && northTilesCount <= eastTilesCount && northTilesCount <= westTilesCount){
+            System.out.println("North Wall is closer");
             vacX = northTileLoc.getLocX();
             vacY = northTileLoc.getLocY();
             currentTile = wfTileArray.getTile(vacX, vacY);
@@ -525,7 +546,8 @@ public class AlgorithmWallFollow {
             wfVacuum.setTileLocation();
             return currentTile;
         }
-        else if(southTilesCount < northTilesCount && southTilesCount < eastTilesCount && southTilesCount < westTilesCount){
+        else if(southTilesCount <= northTilesCount && southTilesCount <= eastTilesCount && southTilesCount <= westTilesCount){
+            System.out.println("South Wall is closer");
             vacX = southTileLoc.getLocX();
             vacY = southTileLoc.getLocY();
             currentTile = wfTileArray.getTile(vacX, vacY);
@@ -537,9 +559,10 @@ public class AlgorithmWallFollow {
             wfVacuum.setTileLocation();
             return currentTile;
         }
-        else if((eastTilesCount < northTilesCount) && (eastTilesCount < southTilesCount) && (eastTilesCount < westTilesCount)){
+        else if((eastTilesCount <= northTilesCount) && (eastTilesCount <= southTilesCount) && (eastTilesCount <= westTilesCount)){
+            System.out.println("East Wall is closer");
             vacX = eastTileLoc.getLocX();
-            vacY = eastTileLoc.getLocY();
+            vacY = eastTileLoc.getLocY() - 1; // come in one tile from east wall
             currentTile = wfTileArray.getTile(vacX, vacY);
             wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
             global.setVacuumDirection("East");
@@ -549,7 +572,8 @@ public class AlgorithmWallFollow {
             wfVacuum.setTileLocation();
             return currentTile;
         }
-        else if(westTilesCount < northTilesCount && westTilesCount < southTilesCount && westTilesCount < eastTilesCount){
+        else if(westTilesCount <= northTilesCount && westTilesCount <= southTilesCount && westTilesCount <= eastTilesCount){
+            System.out.println("West Wall is closer");
             vacX = westTileLoc.getLocX();
             vacY = westTileLoc.getLocY();
             currentTile = wfTileArray.getTile(vacX, vacY);

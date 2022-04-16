@@ -75,7 +75,6 @@ public class SimTileGUI extends JButton {
         ImageIcon icon;
         icon = new ImageIcon("vacuumTile.png");
         this.setIcon(icon);
-
     }
 
     private void setImageIcon()

@@ -4,6 +4,7 @@ import Model.SimTileGUI;
 import Model.Tile;
 import Model.TileArray;
 import Startup.Location;
+import Startup.staticVariable;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -12,6 +13,11 @@ import java.awt.*;
 import static javax.swing.text.StyleConstants.setIcon;
 
 //public class SimulationLayoutGUI (TileArray inpTileArray) {
+
+/**
+ * @Author Marie Held
+ * Purpose To display the simulation gui
+ */
 public class SimulationLayoutGUI {
 
     // Attributes
@@ -21,31 +27,64 @@ public class SimulationLayoutGUI {
     Border simTilesWallBorder;
     Border simTilesChairBorder;
 
+    private staticVariable global;
+    private int simNumComponents;
+
+    /**
+     * @Author Marie Held
+     * @param inpTileArray
+     * @param inpGlobal
+     */
     // Default constructor
-    public SimulationLayoutGUI(TileArray inpTileArray) {
+    public SimulationLayoutGUI(TileArray inpTileArray, staticVariable inpGlobal) {
         int simTileRow = inpTileArray.getLength();
         int simTileColumn = inpTileArray.getWidth();
         SimTileGUI simTileButton;
         Tile tileRef;
 
+        this.global = inpGlobal;
+        simNumComponents = global.getNumSimTilesComponent();
+
         simTilesWallBorder = BorderFactory.createLineBorder(Color.BLACK,10);
         simTilesChairBorder = BorderFactory.createLineBorder(Color.BLUE,10);
 
-        GridLayout simTilePanelLayout = new GridLayout(10,10);
+        GridLayout simTilePanelLayout = new GridLayout(simTileRow,simTileColumn);
         simTilePanelLayout.setHgap(1);
         simTilePanelLayout.setVgap(1);
         simTiles.setLayout(simTilePanelLayout);
 
         int simComponents = 0;
         String tileName;
+        String si;
+        String sj;
         // Create the new simTiles based on values in the Tile Array
         for (int i = 0; i < simTileRow; i++) {
             for (int j =0; j < simTileColumn; j++){
                 Location loc = new Location(i,j);
                 tileRef = inpTileArray.getTile(i,j);
-                tileName = "SimTile" + i + j;
+                if (i <= 9) { // a single digit
+                    si = "0";
+                    si = si.concat(Integer.toString(i));
+                }
+                else{
+                    si = Integer.toString(i);
+                }
+                if (j <= 9) { // a single digit
+                    sj = "0";
+                    sj = sj.concat(Integer.toString(j));
+                }
+                else{
+                    sj = Integer.toString(j);
+                }
+             //   tileName = "SimTile" + i + j;
+                tileName = "SimTile";
+                tileName = tileName.concat(si);
+                tileName = tileName.concat(sj);
                 simTileButton = new SimTileGUI(loc, tileRef);
                 simTileButton.setName(tileName);
+                simTileButton.setMargin(new Insets(0, 0, 0, 0));
+                simTileButton.setBorderPainted(false);
+                simTileButton.setBorder(null);
 
 
                 simTiles.add(simTileButton);
@@ -91,10 +130,19 @@ public class SimulationLayoutGUI {
 
     public void printSimTilesName(){
         System.out.println("In printSimTilesNames");
-        for (int i = 0; i < 100; i++)
+        int numComponens = this.global.getNumSimTilesComponent();
+        for (int i = 0; i < numComponens; i++)
             System.out.println(simTiles.getComponent(i).getName());
     }
 
+    /**
+     * @Author Marie Held
+     * @Purpose To retrieve the simulation component name
+     * @param x
+     * @param y
+     * Simulation Names are in the format of SimTileXXYY where XX is the x value and YY is the Y value
+     * @return a String that contains the component name
+     */
     public String getSimTileName(int x, int y) {
         String componentName = "";
         String compX;
@@ -102,12 +150,12 @@ public class SimulationLayoutGUI {
         int icompX;
         int icompY;
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < simNumComponents; i++) {
             componentName = simTiles.getComponent(i).getName();
           //  System.out.println("Component Name is " + componentName);
-            compX = componentName.substring(7,8);
+            compX = componentName.substring(7,9);
           //  System.out.println("compX = " + compX);
-            compY = componentName.substring(8, 9);
+            compY = componentName.substring(9, 11);
           //  System.out.println("compY = " + compY);
             icompX = Integer.parseInt(compX);
             icompY = Integer.parseInt(compY);
@@ -120,6 +168,7 @@ public class SimulationLayoutGUI {
 
     /**
      *
+     * @Author Marie Held
      * @param inpComponentName The name of the simulation button component
      * @return If success returns The component number of the simulation button
      * @return if failure (simulation button does not exist) - 1
@@ -128,7 +177,7 @@ public class SimulationLayoutGUI {
 
         String compName;
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < simNumComponents; i++) {
             compName = simTiles.getComponent(i).getName();
             if (inpComponentName.compareTo(compName) ==0 ){
                 return i;
@@ -139,6 +188,12 @@ public class SimulationLayoutGUI {
 
     }
 
+    /**
+     * @Author Marie Held
+     * @param inpX
+     * @param inpY
+     * @param inpComponentNumber
+     */
     public void setVacuumTile(int inpX, int inpY, int inpComponentNumber){
         String tileName;
         int tileNumber;
