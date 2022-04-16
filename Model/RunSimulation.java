@@ -47,7 +47,6 @@ public class RunSimulation<simulationlayout> {
 
         int direction = 0; // North
 
-
         /*
          * Calculate how quickly the output is updated.
          * Started by dividing 24 by vs, where 24 represents 24 inches (2 feet for every tile)
@@ -194,15 +193,28 @@ public class RunSimulation<simulationlayout> {
     /* Name: process_output()
      * Parameters: none
      * Return: none
-     * Purpose: Use SwingWorker to output algorithm work intermediately so the user can see it
+     * Purpose: Use SwingWorker to output algorithm work intermediately so the user can see it.
      * on screen.
      */
     private void process_output()
     {
+        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
+        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
+
         // Calculate loss in battery life.
         // Should be used in conjunction with a while loop to run program until the vacuum
         // runs out of battery.
         final int[] minute = {0};
+
+        // Get a random starting direction.
+        final int[] direction = {(int) Math.floor(Math.random() * 8)};
+
+        int algorithm = this.algorithm;
+        int ft = this.ft;
+
+        // Temporary until user can choose vacuum location.
+        V.setX(3);
+        V.setY(3);
 
         SwingWorker sw = new SwingWorker()
         {
@@ -225,6 +237,36 @@ public class RunSimulation<simulationlayout> {
                         System.out.println("A minute has passed.");
                         minute[0] = minute[0] - 60000;
                     }
+
+                    int outDirection;
+
+                    // Run the algorithms
+                    if (algorithm == 1) {
+                        AlgorithmRandom newAlgRandom;
+                        newAlgRandom = new AlgorithmRandom();
+                        System.out.println(direction[0]);
+                        // Hardcode vacuum location until we can incorporate it into GUI.
+                        direction[0] = newAlgRandom.algorithm_random(direction[0], TA, V, ft, simulationlayout);
+                    } else if (algorithm == 2) {
+                        System.out.println("Second Path Algorithm Code");
+                    } else if (algorithm == 3) {
+                        System.out.println("Third Path Algorithm Code");
+                    } else if (algorithm == 4) {
+                        Tile currentTile = new Tile();
+                        // TA.printTileArray();
+                        // V.setX(0);
+                        // V.setY(global.getMaxColumn() - 1);
+                        // V.setX(global.getMaxRow() -1 );
+                        // V.setY(global.getMaxColumn() - 1);
+                        //V.setY(0);
+                        AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
+                        currentTile = wallFollow.findNearestWall();
+                        // wallFollow.vacuum();
+                    } else {
+                        System.out.println("Unknown Algorithm");
+                    }
+
+                    simulationlayout.displaySimulationLayout(simulationlayout);
 
                     // publish(minute[0]);
                 }
