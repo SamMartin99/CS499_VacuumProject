@@ -2,6 +2,8 @@ package Model;
 
 import Startup.staticVariable;
 import View.SimulationLayoutGUI;
+import javax.swing.SwingWorker;
+import java.util.List;
 
 /* Authors:
  * Purpose: Runs simulation, using the appropriate algorithm and updating visuals as
@@ -145,36 +147,15 @@ public class RunSimulation<simulationlayout> {
         SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
         simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
 
+        int direction = (int)Math.floor(Math.random()*8);
+        process_output();
+
         System.out.println(V.getBattery());
-
         // while (V.getBattery() > 0) {
-            // Pause the thread.
-            /*
-            try
-            {
-                Thread.sleep(1000);
-            }
-            catch (InterruptedException e)
-            {
-                System.out.println("Interrupt occurred.");
-            }
-             */
-
-            // Calculate loss in battery life.
-            // Should be used in conjunction with a while loop to run program until the vacuum
-            // runs out of battery.
-            int minute = 0;
-
-            minute = minute + delay_time;
-            if (minute >= 60000) {
-                V.setBattery(V.getBattery() - 1);
-                System.out.println("A minute has passed.");
-                minute = minute - 60000;
-            }
 
             // SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
-            simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
-        //    simulationlayout.printSimTilesName();
+            simulationlayout.displaySimulationLayout(simulationlayout);           // mh display the window
+            // simulationlayout.printSimTilesName();
 
             int outDirection;
 
@@ -182,12 +163,11 @@ public class RunSimulation<simulationlayout> {
             if (this.algorithm == 1) {
                 AlgorithmRandom newAlgRandom;
                 newAlgRandom = new AlgorithmRandom();
-                direction = (int)Math.floor(Math.random()*8);
                 System.out.println(direction);
                 // Hardcode vacuum location until we can incorporate it into GUI.
                 V.setX(3);
                 V.setY(3);
-                outDirection = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
+                direction = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
             } else if (this.algorithm == 2) {
                 System.out.println("Second Path Algorithm Code");
             } else if (this.algorithm == 3) {
@@ -195,9 +175,9 @@ public class RunSimulation<simulationlayout> {
             } else if (this.algorithm == 4) {
                 Tile currentTile = new Tile();
                 // TA.printTileArray();
-                //V.setX(0);
+                // V.setX(0);
                 // V.setY(global.getMaxColumn() - 1);
-               //  V.setX(global.getMaxRow() -1 );
+                // V.setX(global.getMaxRow() -1 );
                 // V.setY(global.getMaxColumn() - 1);
                 //V.setY(0);
                 V.setX(23);
@@ -209,5 +189,58 @@ public class RunSimulation<simulationlayout> {
                 System.out.println("Unknown Algorithm");
             }
        // } // end of while loop
-    } // end of method run
+    } // end of run()
+
+    /* Name: process_output()
+     * Parameters: none
+     * Return: none
+     * Purpose: Use SwingWorker to output algorithm work intermediately so the user can see it
+     * on screen.
+     */
+    private void process_output()
+    {
+        // Calculate loss in battery life.
+        // Should be used in conjunction with a while loop to run program until the vacuum
+        // runs out of battery.
+        final int[] minute = {0};
+
+        SwingWorker sw = new SwingWorker()
+        {
+            public Object doInBackground() throws Exception
+            {
+                while (V.getBattery() > 0)
+                {
+                    // Pause the thread.
+                    try {
+                        Thread.sleep(delay_time);
+                    } catch (InterruptedException e) {
+                        System.out.println("Interrupt occurred.");
+                    }
+
+                    // Calculate time.
+                    minute[0] = minute[0] + delay_time;
+                    if (minute[0] >= 60000)
+                    {
+                        V.setBattery(V.getBattery() - 1);
+                        System.out.println("A minute has passed.");
+                        minute[0] = minute[0] - 60000;
+                    }
+
+                    // publish(minute[0]);
+                }
+
+                return 0;
+            }
+
+            protected void process(List chunks)
+            {
+                int val = (int) chunks.get(chunks.size()-1);
+
+                System.out.println(val);
+            }
+        };
+
+        sw.execute();
+    } // end of process_output
+
 }  // end of class RunSimulation
