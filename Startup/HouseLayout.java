@@ -148,4 +148,8 @@ public class HouseLayout {
 
     }
 
+    public String vacuumClick() {
+        this.layoutType = "Vacuum";
+        return layoutType;
+    }
 }

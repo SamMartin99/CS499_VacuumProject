@@ -127,6 +127,8 @@ public class houseTile extends JButton {
             if(containingTable != null) // Check if its within a table
                 containingTable.DeleteTable(); // If it is, delete that table
             inpTA.setTile (this.loc.x, this.loc.y, 2); // set the tile type to 2 for door
+            this.setImageIcon(); // Sets the image icon for this tile to match its new type
+            return;
         }
         // WALL
         else if (inpHouseLayout.getlayoutType().compareTo("Wall") == 0 )
@@ -134,6 +136,8 @@ public class houseTile extends JButton {
             if(containingTable != null)
                 containingTable.DeleteTable();
             inpTA.setTile (this.loc.x, this.loc.y, 3); // set the tile type to 3 for wall
+            this.setImageIcon(); // Sets the image icon for this tile to match its new type
+            return;
         }
         // CHEST
         else if (inpHouseLayout.getlayoutType().compareTo("Chest") == 0 )
@@ -141,6 +145,8 @@ public class houseTile extends JButton {
             if(containingTable != null)
                 containingTable.DeleteTable();
             inpTA.setTile (this.loc.x, this.loc.y, 4); // set the tile type to 4 for chest
+            this.setImageIcon(); // Sets the image icon for this tile to match its new type
+            return;
         }
         // CHAIR
         else if (inpHouseLayout.getlayoutType().compareTo("Chair") == 0 )
@@ -148,7 +154,29 @@ public class houseTile extends JButton {
             if(containingTable != null)
                 containingTable.DeleteTable();
             inpTA.setTile (this.loc.x, this.loc.y, 5); // set the tile type to 5 for chair
+            this.setImageIcon(); // Sets the image icon for this tile to match its new type
+            return;
         }
+        // VACUUM (this one's a little complicated) (Guess wrote this)
+        else if (inpHouseLayout.getlayoutType().compareTo("Vacuum") == 0 )
+        {
+            if(containingTable != null) // Check if table, if placing on table, delete the table
+                containingTable.DeleteTable();
+
+            // This block won't let you place a vacuum on walls or chests, since those are inaccessible
+            if(inpTA.getTile(this.loc.x, this.loc.y).getType() == 3 || inpTA.getTile(this.loc.x, this.loc.y).getType() == 4)
+            {
+                tileUnavailablePopup(this);
+                return;
+            }
+
+            inpTA.setVacuum (this.loc); // set the vacuum's start location to this houseTile's location
+            ImageIcon icon = new ImageIcon("vacuumTile.png"); // set its imageIcon to vacuum (even though thats not its true type)
+            this.setIcon(icon);
+            parentHouseTileArray[inpTA.prevVacuumLoc.x][inpTA.prevVacuumLoc.y].setImageIcon(); // Reset the tile that was the previous vaccum back to its true icon
+            return; // We return early because we don't want our vacuum tile to be overwritten
+        }
+
         // TABLE
         else if (inpHouseLayout.getlayoutType().compareTo("Table") == 0 )
         {
@@ -160,7 +188,7 @@ public class houseTile extends JButton {
             System.out.println("Tile is unavailable");
             this.printTile(inpHouseLayout);
         }
-        this.setImageIcon(); // Sets the image icon for this tile to match its new type
+        // this.setImageIcon(); // Sets the image icon for this tile to match its new type
     }
 
     // This method is a bunch of JSwing code that creates a popup window that alerts the user the tile they clicked is unavailable
@@ -190,6 +218,7 @@ public class houseTile extends JButton {
 
     // Author: Guess Crow
     // This function does all the imageIcon handling/setting for whatever houseTile you're trying to use with it
+    // Sets the houseTile's icon to represent its type
     public void setImageIcon()
     {
         int type = this.tile.getType(); // Get this tile's type

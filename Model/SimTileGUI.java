@@ -71,7 +71,6 @@ public class SimTileGUI extends JButton {
     }
 
     public void setVacuumLocation(Location newVacuumLoc){
-
         ImageIcon icon;
         icon = new ImageIcon("vacuumTile.png");
         this.setIcon(icon);
