@@ -34,14 +34,14 @@ public class houseTile extends JButton {
     // ---- Methods ----
 
     // Constructor, takes in a location (a data type encapsulating x and y coords)
-    public houseTile(Location locRef, Tile tileRef, houseTile[][] temp) {
+    public houseTile(Location locRef, Tile tileRef, houseTile[][] houseTileArrRef) {
         this.loc = locRef;
         this.tile = tileRef;
         this.tileCleanValue = 0; // Set the cleanliness to 0 upon initialization
         this.tileAvailable = true; // All tiles are blank to start when initialized
         this.tileButton = new JButton(""); // Create the new JButton
         this.tileButton.setName("tile" + loc.x + loc.y); // This creates the tile's name, which is its location values
-        parentHouseTileArray = temp;
+        parentHouseTileArray = houseTileArrRef;
 
         // This block will apply a default tile icon to the JButton
         try {
@@ -157,7 +157,9 @@ public class houseTile extends JButton {
             this.setImageIcon(); // Sets the image icon for this tile to match its new type
             return;
         }
-        // VACUUM (this one's a little complicated) (Guess wrote this)
+        // Author: Guess Crow
+        // VACUUM
+        // Handles vacuum icon placement
         else if (inpHouseLayout.getlayoutType().compareTo("Vacuum") == 0 )
         {
             if(containingTable != null) // Check if table, if placing on table, delete the table
@@ -188,7 +190,6 @@ public class houseTile extends JButton {
             System.out.println("Tile is unavailable");
             this.printTile(inpHouseLayout);
         }
-        // this.setImageIcon(); // Sets the image icon for this tile to match its new type
     }
 
     // This method is a bunch of JSwing code that creates a popup window that alerts the user the tile they clicked is unavailable

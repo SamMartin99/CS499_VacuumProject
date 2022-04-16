@@ -21,8 +21,8 @@ public class TileArray {
     private int length;
     private int width;
     private Tile[][] TA = new Tile[length][width];
-    public Location prevVacuumLoc;
-    public Location vacuumStartLoc = new Location (0, 0);
+    public Location prevVacuumLoc; // This is just used for the GUI, to remove old vacuum icons
+    public Location vacuumStartLoc = new Location (0, 0); // This holds the vacuum's starting position, defaults to 0,0
 
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
@@ -50,7 +50,7 @@ public class TileArray {
     }
 
     public void setVacuum(Location loc) {
-         prevVacuumLoc = vacuumStartLoc;
+         prevVacuumLoc = vacuumStartLoc; // Sets the previous vacuum location, so its icon can be reverted to its true type
          vacuumStartLoc = loc; // Sets the vacuum loc for other classes to see (since tiles don't keep their own locations as fields)
     }
 
