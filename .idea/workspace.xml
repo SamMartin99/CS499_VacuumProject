@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Ignore.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/MainHouseLayoutGUI$21.class" beforeDir="false" />
-    </list>
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Improved AlgorithmRandom, tried to incorporate simulation speed into loop." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -392,7 +384,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649955983018</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Changes: Improved AlgorithmRandom, tried to incorporate simulation speed into loop.">
+      <created>1650009167917</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1650009167917</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +406,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: component clicks and tiles clicks are working together; added code to see if tile is available for a component" />
     <MESSAGE value="Changes: created a popup for user when they try to place a component in a tile that is occupied." />
     <MESSAGE value="Changes: Added additional tiles. Tried to get RunSimulation functioning." />
     <MESSAGE value="Changes: update houseTile tileclick actionlister to setvalues in TileArray for this simulation; also commented out some debugging System.out.println () statements" />
@@ -432,6 +430,7 @@
     <MESSAGE value="Changes: added method topRightCorner in AlgorithmWallFollow" />
     <MESSAGE value="Changes: added method bottomRightCorner in AlgorithmWallFollow" />
     <MESSAGE value="Changes: added method bottomLeftCorner in AlgorithmWallFollow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: added method bottomLeftCorner in AlgorithmWallFollow" />
+    <MESSAGE value="Changes: Improved AlgorithmRandom, tried to incorporate simulation speed into loop." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: Improved AlgorithmRandom, tried to incorporate simulation speed into loop." />
   </component>
 </project>
