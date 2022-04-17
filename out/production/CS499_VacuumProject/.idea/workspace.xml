@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Got algorithms to work with the SwingWorker code.">
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Improved output; now, only the current vacuum tile on the output is colored blue.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/SimTileGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/SimTileGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmRandom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -420,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650161563287</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Changes: Improved output; now, only the current vacuum tile on the output is colored blue.">
+      <created>1650166144745</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1650166144745</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -435,7 +450,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: update houseTile tileclick actionlister to setvalues in TileArray for this simulation; also commented out some debugging System.out.println () statements" />
     <MESSAGE value="Changes: add code to create and display tile array buttons in RunSimulation class" />
     <MESSAGE value="Changes: delete obsolute code and setting up the tile array ; now being done in the houseTile class" />
     <MESSAGE value="Changes: add a printSimValues method" />
@@ -460,6 +474,7 @@
     <MESSAGE value="Changes: add multiple methods in staticVariable to calculate new x, y values based on move direction (North, South, East, and West) each method will return -1 if new value would result in an out of bound error" />
     <MESSAGE value="Changes: Added a SwingWorker to RunSimulation in an attempt to incorporate the battery life and simulation speed into the output." />
     <MESSAGE value="Changes: Got algorithms to work with the SwingWorker code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: Got algorithms to work with the SwingWorker code." />
+    <MESSAGE value="Changes: Improved output; now, only the current vacuum tile on the output is colored blue." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: Improved output; now, only the current vacuum tile on the output is colored blue." />
   </component>
 </project>
