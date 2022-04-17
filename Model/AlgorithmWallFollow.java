@@ -611,6 +611,64 @@ public class AlgorithmWallFollow {
         } // North
 
     }
+    /**
+     * @Author: Marie Held
+     * @Purpose: To clean the incoming tile and determine what the next tile to be cleaned is
+     * @param inpTile The tile that will be cleaned
+     * @return nextTile The next tile that needs to be cleaned
+     */
 
+    public Tile nextTileToBeClean(Tile inpTile){
+        Tile nextTile;
+        nextTile = inpTile;
+        int x = wfVacuum.getX();
+        int y = wfVacuum.getY();
+        Location nextTileLoc;
+      //  System.out.print(" in the nextTileToBeClean class input tile location is " );
+       // wfVacuum.printVacumLocation();
+      //  System.out.println();
+      //System.out.println("The vacuum direction is: " + global.getVacuumDirection());
+        if (global.getVacuumDirection() == 2){  // Going South
+            x++; // move one tile north
+            nextTile = wfTileArray.getTile(x,y);
+            if (nextTile.getType() != 3) { // nextTile is a wall
+                wfTileArray.setTileClean(x++, y, wfCleanValue, wfSimulationLayout);
+                System.out.println("X is: "+ x + " Y is: " + y);
+            //    wfTileArray.printTileArray();
+                return nextTile;
+            }else {
+                global.setVacuumDirection("East");
+                x--; // reset x to it's prior value
+                nextTile = wfTileArray.getTile(x,y);
+                System.out.println("X is: "+ x + " Y is: " + y);
+               // change direction to east
+                wfTileArray.setTileClean(x, y++, wfCleanValue, wfSimulationLayout);
+              //  wfTileArray.printTileArray();
+                nextTile = wfTileArray.getTile(x,y);
+                return nextTile;
+                }
+            }
+            else if (global.getVacuumDirection() == 3) {  // Going East
+                 y++;
+                 wfVacuum.setY(y);
+                 nextTile = wfTileArray.getTile(x, y);
+                //System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
+                if (nextTile.getType() != 3) { // nextTile is a wall
+                    wfTileArray.setTileClean(x, y, wfCleanValue, wfSimulationLayout);
+                    System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
+                    nextTile = wfTileArray.getTile(x,y++);
+                    return nextTile;
+                } else {
+                    global.setVacuumDirection("North");
+                    x--; // reset x to it's prior value
+                    nextTile = wfTileArray.getTile(x, y);
+                    // change direction to east
+                    wfTileArray.setTileClean(x, y, wfCleanValue, wfSimulationLayout);
+                    System.out.println("X is: "+ x + " Y is: " + y);
+                    return nextTile;
+                }
+            }
 
+        return nextTile;
+    }
 } // end of class AlgorithmWallFollow

@@ -23,6 +23,7 @@ public class RunSimulation<simulationlayout> {
     private int direction;
     private int ft;
     private staticVariable global;
+    private Tile wfCurrentTile;
 
     /* Constructs RunSimulation.
      * int t: time
@@ -49,6 +50,8 @@ public class RunSimulation<simulationlayout> {
         this.global = inpGlobal;
 
         int direction = 0; // North
+
+        this.wfCurrentTile = new Tile(); // holds the tile being cleaned for the wall follow algorithm
 
         /*
          * Calculate how quickly the output is updated.
@@ -155,6 +158,12 @@ public class RunSimulation<simulationlayout> {
         AlgorithmRandom newAlgRandom;
         newAlgRandom = new AlgorithmRandom();
 
+
+        AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
+        if (algorithm == 4 ) {
+            this.wfCurrentTile = wallFollow.findNearestWall();
+         }
+
         // Calculate loss in battery life.
         // Should be used in conjunction with a while loop to run program until the vacuum
         // runs out of battery.
@@ -208,18 +217,9 @@ public class RunSimulation<simulationlayout> {
                     // Wall Follow
                     else if (algorithm == 4)
                     {
-                        Tile currentTile = new Tile();
-                        // TA.printTileArray();
-                        // V.setX(0);
-                        // V.setY(global.getMaxColumn() - 1);
-                        // V.setX(global.getMaxRow() -1 );
-                        // V.setY(global.getMaxColumn() - 1);
-                        // V.setY(0);
-                        // V.setX(23);
-                        // V.setY(33);
-                        AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
-                        currentTile = wallFollow.findNearestWall();
-                        // wallFollow.vacuum();
+                        wfCurrentTile = wallFollow.nextTileToBeClean(wfCurrentTile);
+
+                //        System.out.println("Follow Paht Path Algorithm Code in Run Simulation");
                     } else {
                         System.out.println("Unknown Algorithm");
                     }

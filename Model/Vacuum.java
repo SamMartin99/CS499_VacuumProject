@@ -73,4 +73,12 @@ public class Vacuum {
         int vacuumLocationY = this.getY();
         tile_location.setLocation(vacuumLocationX,vacuumLocationY);
     }
+
+    /**
+     * @Author Marie Held
+     * @Purpose To print the current location of the vacuum
+     */
+    public void printVacumLocation(){
+        tile_location.printLocation();
+    }
 }
