@@ -84,7 +84,7 @@ public class AlgorithmWallFollow {
         vacY=  wfVacuum.getY();
         currentTile = wfTileArray.getTile(vacX,vacY);
         tileType = currentTile.getType();
-        if (tileType == 1){ // empty tile can now start the vacuum
+        if (tileType == 1 || tileType == 7){ // empty tile can now start the vacuum
             wfTileArray.setTileClean(vacX, vacY, wfCleanValue, wfSimulationLayout);
             currentTile = emptyTile(vacX, vacY, currentTile);
          //   wfVacuum.setX(vacX);

@@ -78,10 +78,10 @@ public class MainHouseLayoutGUI {
 
     JButton Wallbtn = new JButton("Wall");
     JButton Doorwaybtn = new JButton("Doorway");
-
     JButton Chairbtn = new JButton("Chair");
     JButton Tablebtn = new JButton("Table");
     JButton Chestbtn = new JButton("Chest");
+    JButton Vacuumbtn = new JButton("Vacuum");
 
     JButton ShagFloorbtn = new JButton("Shag");
     JButton HardwoodFloorbtn = new JButton("Hardwood");
@@ -157,6 +157,7 @@ public class MainHouseLayoutGUI {
         LayoutWallDoorway.setPreferredSize(new Dimension(300,50));
         LayoutWallDoorway.add(Wallbtn);
         LayoutWallDoorway.add(Doorwaybtn);
+        LayoutWallDoorway.add(Vacuumbtn);
 
         LayoutFurniture.setBorder(LayoutFurnitureBorder);
         LayoutFurniture.setPreferredSize(new Dimension(300,50));
@@ -319,6 +320,15 @@ public class MainHouseLayoutGUI {
             public void actionPerformed(ActionEvent e) {
              //   out.println("Doorway button in Components Layout was clicked");
                 inpHouseLayout.doorClick();
+                inpHouseLayout.getlayoutType();
+            }
+        });
+
+        Vacuumbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //   out.println("Wall button in Components Layout was clicked");
+                inpHouseLayout.vacuumClick();
                 inpHouseLayout.getlayoutType();
             }
         });
@@ -523,7 +533,7 @@ public class MainHouseLayoutGUI {
         //        System.out.println("Battery Life " + batteryLife);
         //        System.out.println("The number of inches the vacuum covers in a second is " + vs);
         //        TA.printTileArray();
-                RunSimulation RS = new RunSimulation (rs, a, ft, batteryLife, vs, TA,inpGlobal);
+                RunSimulation RS = new RunSimulation (rs, a, ft, batteryLife, vs, TA, TA.vacuumStartLoc,inpGlobal);
           //      RS.printSimValues();
                 RS.run();
                 // out.println("Run Simulation button on House Layout was clicked");

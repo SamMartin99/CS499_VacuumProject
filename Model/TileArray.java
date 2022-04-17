@@ -21,6 +21,8 @@ public class TileArray {
     private int length;
     private int width;
     private Tile[][] TA = new Tile[length][width];
+    public Location prevVacuumLoc; // This is just used for the GUI, to remove old vacuum icons
+    public Location vacuumStartLoc = new Location (0, 0); // This holds the vacuum's starting position, defaults to 0,0
 
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
@@ -36,7 +38,6 @@ public class TileArray {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
                 TA[i][j] = new Tile();
-                ;
             }
         }
         setTile(0, 0, 3);  // set to a wall
@@ -46,6 +47,11 @@ public class TileArray {
   //      System.out.println(i + " " + j);
   //      if (j == -1) return TA[0][0]; // mh need to determine what is setting the -1 in y
         return TA[i][j];
+    }
+
+    public void setVacuum(Location loc) {
+         prevVacuumLoc = vacuumStartLoc; // Sets the previous vacuum location, so its icon can be reverted to its true type
+         vacuumStartLoc = loc; // Sets the vacuum loc for other classes to see (since tiles don't keep their own locations as fields)
     }
 
     public void setTile(int i, int j, int type) {

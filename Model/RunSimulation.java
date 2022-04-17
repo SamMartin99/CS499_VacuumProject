@@ -1,5 +1,6 @@
 package Model;
 
+import Startup.Location;
 import Startup.staticVariable;
 import View.SimulationLayoutGUI;
 import javax.swing.SwingWorker;
@@ -37,11 +38,14 @@ public class RunSimulation<simulationlayout> {
      */
 
     // Constructor
-    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA, staticVariable inpGlobal) {
+    public RunSimulation(int rs, int a, int ft, int b, int vs, TileArray TA, Location vacuumLoc, staticVariable inpGlobal) {
         run_speed = rs;
         algorithm = a;
         floor_type = ft;
-        V = new Vacuum(b, vs);
+        V = new Vacuum(b, vs); // Variable added to create the vacuum at a set location
+        vacuumLoc.setLocation(vacuumLoc.x, vacuumLoc.y);
+        V.setX(vacuumLoc.x);
+        V.setY(vacuumLoc.y);
         this.TA = TA;
         this.global = inpGlobal;
 
@@ -164,8 +168,8 @@ public class RunSimulation<simulationlayout> {
                 newAlgRandom = new AlgorithmRandom();
                 System.out.println(direction);
                 // Hardcode vacuum location until we can incorporate it into GUI.
-                V.setX(3);
-                V.setY(3);
+                // V.setX(3);
+                // V.setY(3);
                 direction = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
             } else if (this.algorithm == 2) {
                 System.out.println("Second Path Algorithm Code");
@@ -179,8 +183,8 @@ public class RunSimulation<simulationlayout> {
                 // V.setX(global.getMaxRow() -1 );
                 // V.setY(global.getMaxColumn() - 1);
                 //V.setY(0);
-                V.setX(23);
-                V.setY(33);
+                // V.setX(23);
+                // V.setY(33);
                 AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
                 currentTile = wallFollow.findNearestWall();
                 // wallFollow.vacuum();
@@ -255,6 +259,8 @@ public class RunSimulation<simulationlayout> {
                         Tile currentTile = new Tile();
                         // TA.printTileArray();
                         // V.setX(0);
+                        V.setX(TA.vacuumStartLoc.x);
+                        V.setY(TA.vacuumStartLoc.y);
                         // V.setY(global.getMaxColumn() - 1);
                         // V.setX(global.getMaxRow() -1 );
                         // V.setY(global.getMaxColumn() - 1);
