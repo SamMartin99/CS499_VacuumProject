@@ -184,10 +184,15 @@ public class SimulationLayoutGUI {
     }
 
     /**
-     * @Author Marie Held
+     * @Author Marie Held, Bryant Terry
      * @param inpX
      * @param inpY
      * @param inpComponentNumber
+     * @param inpOldComponentNumber
+     * @param prev
+     *
+     * @Purpose: Set the current vacuum tile and send necessary info to the output.
+     * Also, send the previously-occupied tile, so that its appearance can be reset.
      */
     public void setVacuumTile(int inpX, int inpY, int inpComponentNumber, int inpOldComponentNumber, Location prev){
         String tileName;

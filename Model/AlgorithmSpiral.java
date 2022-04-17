@@ -1,22 +1,23 @@
 package Model;
+
+/* Authors: Bryant Terry
+ * Purpose: Handles code for the spiral algorithm.
+ */
+
 import Startup.Location;
 import View.SimulationLayoutGUI;
 
 import java.util.Random;
 
-/* Authors: Bryant Terry
- * Purpose: Handles code for the random path algorithm.
- */
+public class AlgorithmSpiral {
 
-public class AlgorithmRandom {
-
-    /* Name: algorithm_random
+    /* Name: algorithm_spiral
      * Parameters: int direction, TileArray TA, Vacuum V, int ft (floor type)
      * Return: int direction
-     * Purpose: Calculates vacuum path using a random algorithm. The vacuum continues to move in
-     * a direction until an obstacle is hit, at which point, a new random direction is generated.
+     * Purpose: Calculates vacuum path using a spiral algorithm. The vacuum will perform a spiral
+     * if there is enough space to begin one, and will continue the spiral until it hits an obstacle.
      */
-    public int algorithm_random(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
+    public int algorithm_spiral(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
         Random rand = new Random();
         double old_clean;

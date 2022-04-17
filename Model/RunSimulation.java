@@ -6,12 +6,9 @@ import View.SimulationLayoutGUI;
 import javax.swing.SwingWorker;
 import java.util.List;
 
-/* Authors:
- * Purpose: Runs simulation, using the appropriate algorithm and updating visuals as
- * necessary.
- *
- * NOTE FROM BRYANT: May be best to have a separate class for each algorithm. This class
- * will probably get too "crowded" otherwise.
+/* Authors: Bryant Terry, Marie Held
+ * Purpose: Runs simulation, using the appropriate algorithm and updating the visuals
+ * of the output as the vacuum moves across the house layout.
  */
 
 // Class Definition
@@ -35,6 +32,8 @@ public class RunSimulation<simulationlayout> {
      * int b: battery life
      * int rs: vacuum speed
      * TileArray TA: The array of tiles that construct the house layout.
+     * Location vacuumLoc: The specific location of the vacuum in memory.
+     * staticVariable inpGlobal
      */
 
     // Constructor
@@ -140,67 +139,13 @@ public class RunSimulation<simulationlayout> {
         System.out.println("Floor Type is " + this.getFloorType() + " - " + getFloorTypeName());
     }
 
-
-    /* Name: run
+    /* Name: run()
      * Parameters: none
      * Return: none
-     * Purpose: Output algorithm activity to new window.
+     * Purpose: Runs the output. Uses SwingWorker to output the algorithm results intermediately,
+     * so the user can see it on screen.
      */
-    public void run() {
-        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
-        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
-
-        int direction = (int)Math.floor(Math.random()*8);
-        process_output();
-
-        System.out.println(V.getBattery());
-        // while (V.getBattery() > 0) {
-
-            // SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
-            simulationlayout.displaySimulationLayout(simulationlayout);           // mh display the window
-            // simulationlayout.printSimTilesName();
-
-            int outDirection;
-
-            // Run the algorithms
-            if (this.algorithm == 1) {
-                AlgorithmRandom newAlgRandom;
-                newAlgRandom = new AlgorithmRandom();
-                System.out.println(direction);
-                // Hardcode vacuum location until we can incorporate it into GUI.
-                // V.setX(3);
-                // V.setY(3);
-                direction = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
-            } else if (this.algorithm == 2) {
-                System.out.println("Second Path Algorithm Code");
-            } else if (this.algorithm == 3) {
-                System.out.println("Third Path Algorithm Code");
-            } else if (this.algorithm == 4) {
-                Tile currentTile = new Tile();
-                // TA.printTileArray();
-                // V.setX(0);
-                // V.setY(global.getMaxColumn() - 1);
-                // V.setX(global.getMaxRow() -1 );
-                // V.setY(global.getMaxColumn() - 1);
-                //V.setY(0);
-                // V.setX(23);
-                // V.setY(33);
-                AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
-                currentTile = wallFollow.findNearestWall();
-                // wallFollow.vacuum();
-            } else {
-                System.out.println("Unknown Algorithm");
-            }
-       // } // end of while loop
-    } // end of run()
-
-    /* Name: process_output()
-     * Parameters: none
-     * Return: none
-     * Purpose: Use SwingWorker to output algorithm work intermediately so the user can see it.
-     * on screen.
-     */
-    private void process_output()
+    public void run()
     {
         // Create output window.
         SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);
@@ -244,14 +189,25 @@ public class RunSimulation<simulationlayout> {
                     }
 
                     // Run the algorithms
-                    if (algorithm == 1) {
+                    // Random
+                    if (algorithm == 1)
+                    {
                         System.out.println(direction[0]);
                         direction[0] = newAlgRandom.algorithm_random(direction[0], TA, V, ft, simulationlayout);
-                    } else if (algorithm == 2) {
+                    }
+                    // Spiral
+                    else if (algorithm == 2)
+                    {
                         System.out.println("Second Path Algorithm Code");
-                    } else if (algorithm == 3) {
+                    }
+                    // Snake
+                    else if (algorithm == 3)
+                    {
                         System.out.println("Third Path Algorithm Code");
-                    } else if (algorithm == 4) {
+                    }
+                    // Wall Follow
+                    else if (algorithm == 4)
+                    {
                         Tile currentTile = new Tile();
                         // TA.printTileArray();
                         // V.setX(0);
@@ -275,16 +231,71 @@ public class RunSimulation<simulationlayout> {
 
                 return 0;
             }
-
+            // May not be necessary. Keep for now in case removing it breaks anything.
             protected void process(List chunks)
             {
                 int val = (int) chunks.get(chunks.size()-1);
 
                 // System.out.println(val);
             }
-        };
+        }; // end of SwingWorker
 
         sw.execute();
-    } // end of process_output
+    } // end of run ()
+
+    /* Name: run
+     * Parameters: none
+     * Return: none
+     * Purpose: Output algorithm activity to new window.
+     */
+    /*
+    public void old_run() {
+        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
+        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
+
+        int direction = (int)Math.floor(Math.random()*8);
+        process_output();
+
+        System.out.println(V.getBattery());
+        // while (V.getBattery() > 0) {
+
+            // SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
+            simulationlayout.displaySimulationLayout(simulationlayout);           // mh display the window
+            // simulationlayout.printSimTilesName();
+
+            int outDirection;
+
+            // Run the algorithms
+            if (this.algorithm == 1) {
+                AlgorithmRandom newAlgRandom;
+                newAlgRandom = new AlgorithmRandom();
+                System.out.println(direction);
+                // Hardcode vacuum location until we can incorporate it into GUI.
+                // V.setX(3);
+                // V.setY(3);
+                direction = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
+            } else if (this.algorithm == 2) {
+                System.out.println("Second Path Algorithm Code");
+            } else if (this.algorithm == 3) {
+                System.out.println("Third Path Algorithm Code");
+            } else if (this.algorithm == 4) {
+                Tile currentTile = new Tile();
+                // TA.printTileArray();
+                // V.setX(0);
+                // V.setY(global.getMaxColumn() - 1);
+                // V.setX(global.getMaxRow() -1 );
+                // V.setY(global.getMaxColumn() - 1);
+                // V.setY(0);
+                // V.setX(23);
+                // V.setY(33);
+                AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
+                currentTile = wallFollow.findNearestWall();
+                // wallFollow.vacuum();
+            } else {
+                System.out.println("Unknown Algorithm");
+            }
+       // } // end of while loop
+    } // end of run()
+    */
 
 }  // end of class RunSimulation

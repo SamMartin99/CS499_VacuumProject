@@ -1,22 +1,23 @@
 package Model;
+
+/* Authors: Bryant Terry
+ * Purpose: Handles code for the snake algorithm.
+ */
+
 import Startup.Location;
 import View.SimulationLayoutGUI;
 
 import java.util.Random;
 
-/* Authors: Bryant Terry
- * Purpose: Handles code for the random path algorithm.
- */
+public class AlgorithmSnake {
 
-public class AlgorithmRandom {
-
-    /* Name: algorithm_random
+    /* Name: algorithm_snake
      * Parameters: int direction, TileArray TA, Vacuum V, int ft (floor type)
      * Return: int direction
-     * Purpose: Calculates vacuum path using a random algorithm. The vacuum continues to move in
-     * a direction until an obstacle is hit, at which point, a new random direction is generated.
+     * Purpose: Calculates vacuum path using a snaking algorithm. The vacuum will head in a straight direction,
+     * until it hits a wall, at which point it will move to the side and begin to move in the opposite direction.
      */
-    public int algorithm_random(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
+    public int algorithm_snake(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
         Random rand = new Random();
         double old_clean;
