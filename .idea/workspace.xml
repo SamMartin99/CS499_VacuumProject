@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: Improved output; now, only the current vacuum tile on the output is colored blue.">
+    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Vacuum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Vacuum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/Vacuum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/Vacuum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -430,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650166144745</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Changes: break for lunch">
+      <created>1650217736187</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1650217736187</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -445,7 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: add code to create and display tile array buttons in RunSimulation class" />
     <MESSAGE value="Changes: delete obsolute code and setting up the tile array ; now being done in the houseTile class" />
     <MESSAGE value="Changes: add a printSimValues method" />
     <MESSAGE value="Changes: completed adding getters, printSimValues in RunSimulation class ;" />
@@ -470,6 +471,7 @@
     <MESSAGE value="Changes: Added a SwingWorker to RunSimulation in an attempt to incorporate the battery life and simulation speed into the output." />
     <MESSAGE value="Changes: Got algorithms to work with the SwingWorker code." />
     <MESSAGE value="Changes: Improved output; now, only the current vacuum tile on the output is colored blue." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: Improved output; now, only the current vacuum tile on the output is colored blue." />
+    <MESSAGE value="Changes: break for lunch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: break for lunch" />
   </component>
 </project>
