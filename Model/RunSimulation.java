@@ -162,7 +162,9 @@ public class RunSimulation<simulationlayout> {
         AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
         if (algorithm == 4 ) {
             this.wfCurrentTile = wallFollow.findNearestWall();
-         }
+        //    wallFollow.setStartY(V.getX());
+         //   wallFollow.setStartY(V.getY());
+        }
 
         // Calculate loss in battery life.
         // Should be used in conjunction with a while loop to run program until the vacuum
