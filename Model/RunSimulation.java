@@ -202,8 +202,13 @@ public class RunSimulation<simulationlayout> {
      */
     private void process_output()
     {
-        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
-        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
+        // Create output window.
+        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);
+        simulationlayout.displaySimulationLayout(simulationlayout);
+
+        // Create algorithm classes.
+        AlgorithmRandom newAlgRandom;
+        newAlgRandom = new AlgorithmRandom();
 
         // Calculate loss in battery life.
         // Should be used in conjunction with a while loop to run program until the vacuum
@@ -215,10 +220,6 @@ public class RunSimulation<simulationlayout> {
 
         int algorithm = this.algorithm;
         int ft = this.ft;
-
-        // Temporary until user can choose vacuum location.
-        V.setX(3);
-        V.setY(3);
 
         SwingWorker sw = new SwingWorker()
         {
@@ -242,14 +243,9 @@ public class RunSimulation<simulationlayout> {
                         minute[0] = minute[0] - 60000;
                     }
 
-                    int outDirection;
-
                     // Run the algorithms
                     if (algorithm == 1) {
-                        AlgorithmRandom newAlgRandom;
-                        newAlgRandom = new AlgorithmRandom();
                         System.out.println(direction[0]);
-                        // Hardcode vacuum location until we can incorporate it into GUI.
                         direction[0] = newAlgRandom.algorithm_random(direction[0], TA, V, ft, simulationlayout);
                     } else if (algorithm == 2) {
                         System.out.println("Second Path Algorithm Code");
@@ -259,12 +255,12 @@ public class RunSimulation<simulationlayout> {
                         Tile currentTile = new Tile();
                         // TA.printTileArray();
                         // V.setX(0);
-                        V.setX(TA.vacuumStartLoc.x);
-                        V.setY(TA.vacuumStartLoc.y);
                         // V.setY(global.getMaxColumn() - 1);
                         // V.setX(global.getMaxRow() -1 );
                         // V.setY(global.getMaxColumn() - 1);
-                        //V.setY(0);
+                        // V.setY(0);
+                        // V.setX(23);
+                        // V.setY(33);
                         AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
                         currentTile = wallFollow.findNearestWall();
                         // wallFollow.vacuum();
@@ -284,7 +280,7 @@ public class RunSimulation<simulationlayout> {
             {
                 int val = (int) chunks.get(chunks.size()-1);
 
-                System.out.println(val);
+                // System.out.println(val);
             }
         };
 

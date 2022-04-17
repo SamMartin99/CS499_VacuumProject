@@ -12,7 +12,7 @@ import java.awt.*;
 
 import static javax.swing.text.StyleConstants.setIcon;
 
-//public class SimulationLayoutGUI (TileArray inpTileArray) {
+// public class SimulationLayoutGUI (TileArray inpTileArray) {
 
 /**
  * @Author Marie Held
@@ -76,7 +76,7 @@ public class SimulationLayoutGUI {
                 else{
                     sj = Integer.toString(j);
                 }
-             //   tileName = "SimTile" + i + j;
+                // tileName = "SimTile" + i + j;
                 tileName = "SimTile";
                 tileName = tileName.concat(si);
                 tileName = tileName.concat(sj);
@@ -86,23 +86,18 @@ public class SimulationLayoutGUI {
                 simTileButton.setBorderPainted(false);
                 simTileButton.setBorder(null);
 
-
                 simTiles.add(simTileButton);
-          //      System.out.println(simTileButton.getSimTileName());
-          //      String simComp;
-          //      simComp = simTiles.getComponent(simComponents);
-
-
+                // System.out.println(simTileButton.getSimTileName());
+                // String simComp;
+                // simComp = simTiles.getComponent(simComponents);
             }
         }
 
-      //  outputMainSimFrame.add(simTiles,gblSimTiles);
+        // outputMainSimFrame.add(simTiles,gblSimTiles);
         outputMainSimFrame.add(simTiles);
         outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
- //       inpTileArray.printTileArray();
-
-
+        // inpTileArray.printTileArray();
     }
 
     /**
@@ -152,11 +147,11 @@ public class SimulationLayoutGUI {
 
         for (int i = 0; i < simNumComponents; i++) {
             componentName = simTiles.getComponent(i).getName();
-          //  System.out.println("Component Name is " + componentName);
+            // System.out.println("Component Name is " + componentName);
             compX = componentName.substring(7,9);
-          //  System.out.println("compX = " + compX);
+            // System.out.println("compX = " + compX);
             compY = componentName.substring(9, 11);
-          //  System.out.println("compY = " + compY);
+            // System.out.println("compY = " + compY);
             icompX = Integer.parseInt(compX);
             icompY = Integer.parseInt(compY);
             if (x == icompX && y == icompY) {
@@ -194,23 +189,28 @@ public class SimulationLayoutGUI {
      * @param inpY
      * @param inpComponentNumber
      */
-    public void setVacuumTile(int inpX, int inpY, int inpComponentNumber){
+    public void setVacuumTile(int inpX, int inpY, int inpComponentNumber, int inpOldComponentNumber, Location prev){
         String tileName;
         int tileNumber;
+
         SimTileGUI vacuumTile = (SimTileGUI) simTiles.getComponent(inpComponentNumber);
         Location tilelocation = new Location(inpX,inpY);
         vacuumTile.setVacuumLocation(tilelocation);
-   //     tileName = this.getSimTileName(inpX,inpY);
-  //      tileNumber = this.getComponentNumber(tileName);
-  //      ImageIcon icon;
-  //      icon = new ImageIcon("vacuumTile.png");
-   //     setIcon(icon);
 
+        SimTileGUI nonvacuumTile = (SimTileGUI) simTiles.getComponent(inpOldComponentNumber);
+        nonvacuumTile.setNonVacuumLocation(prev);
 
-        //    SimTileGUI simTile = (simTileGUI) tileName;
-    //    simTile.setVacuumLocation(tilelocation);
+        // vacuumTile.setNonVacuumLocation(prev);
+        // tileName = this.getSimTileName(inpX,inpY);
+        // tileNumber = this.getComponentNumber(tileName);
+        // ImageIcon icon;
+        // icon = new ImageIcon("vacuumTile.png");
+        // setIcon(icon);
 
- //       simTiles.getComponent(tileNumber).setVacuumLocation
+        // SimTileGUI simTile = (simTileGUI) tileName;
+        // simTile.setVacuumLocation(tilelocation);
+
+        // simTiles.getComponent(tileNumber).setVacuumLocation
     }
 
 }

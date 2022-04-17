@@ -8,7 +8,7 @@ import java.awt.*;
 
 
 public class SimTileGUI extends JButton {
- //   protected PropertyChangeSupport vacuumLocationChange;
+    // protected PropertyChangeSupport vacuumLocationChange;
     // Attributes
     private Tile tile;
     private float tileCleanValue;  // everything robot crosses the tile increment by 0.1
@@ -73,6 +73,12 @@ public class SimTileGUI extends JButton {
     public void setVacuumLocation(Location newVacuumLoc){
         ImageIcon icon;
         icon = new ImageIcon("vacuumTile.png");
+        this.setIcon(icon);
+    }
+
+    public void setNonVacuumLocation(Location newVacuumLoc){
+        ImageIcon icon;
+        icon = new ImageIcon("plainTile.png");
         this.setIcon(icon);
     }
 

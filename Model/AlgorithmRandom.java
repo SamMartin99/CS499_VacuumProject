@@ -1,4 +1,5 @@
 package Model;
+import Startup.Location;
 import View.SimulationLayoutGUI;
 
 import java.util.Random;
@@ -28,8 +29,11 @@ public class AlgorithmRandom {
             case 0:
                 if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
+                    Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX());
                     V.setY(V.getY() - 1);
@@ -44,8 +48,11 @@ public class AlgorithmRandom {
             case 1:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
                 {
+                    Location vacuumLocation = new Location((V.getX() + 1), (V.getY() - 1));
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile((V.getX() + 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX() + 1);
                     V.setY(V.getY() - 1);
@@ -60,6 +67,9 @@ public class AlgorithmRandom {
             case 2:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
+                    Location vacuumLocation = new Location((V.getX() + 1), V.getY());
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile((V.getX() + 1), V.getY()).getClean();
                     TA.setTileClean((V.getX() + 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
 
@@ -76,8 +86,11 @@ public class AlgorithmRandom {
             case 3:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
                 {
+                    Location vacuumLocation = new Location((V.getX() + 1), (V.getY() + 1));
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile((V.getX() + 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX() + 1);
                     V.setY(V.getY() + 1);
@@ -92,8 +105,11 @@ public class AlgorithmRandom {
             case 4:
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
+                    Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile(V.getX(), (V.getY() + 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean(V.getX(), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX());
                     V.setY(V.getY() + 1);
@@ -107,8 +123,11 @@ public class AlgorithmRandom {
             case 5:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
                 {
+                    Location vacuumLocation = new Location((V.getX() - 1), (V.getY() + 1));
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile((V.getX() - 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX() - 1);
                     V.setY(V.getY() + 1);
@@ -123,8 +142,11 @@ public class AlgorithmRandom {
             case 6:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
+                    Location vacuumLocation = new Location((V.getX() - 1), V.getY());
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile((V.getX() - 1), V.getY()).getClean();
-                    TA.setTileClean((V.getX() - 1), V.getY(), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean((V.getX() - 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX() - 1);
                     V.setY(V.getY());
@@ -139,8 +161,11 @@ public class AlgorithmRandom {
             case 7:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
                 {
+                    Location vacuumLocation = new Location((V.getX() - 1), (V.getY() - 1));
+                    TA.setVacuum(vacuumLocation);
+
                     old_clean = TA.getTile((V.getX() - 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft),inpsimulationLayout);
+                    TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
                     V.setX(V.getX() - 1);
                     V.setY(V.getY() - 1);
