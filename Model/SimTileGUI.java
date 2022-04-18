@@ -10,17 +10,17 @@ import java.awt.*;
 public class SimTileGUI extends JButton {
     // protected PropertyChangeSupport vacuumLocationChange;
     // Attributes
-    private Tile tile;
+    private final Tile tile;
     private float tileCleanValue;  // everything robot crosses the tile increment by 0.1
     private JButton simTileButton;
-    private Location loc;
-    private Location vacuumLocation;
+    private final Location loc;
+    private final Location vacuumLocation;
     private int simTileComponentNumber;
 
 
     // ---- Methods ----
 
-    // Constructor, takes in a location (a data type encapsulating x and y coords)
+    // Constructor, takes in a location (a data type encapsulating x and y coordinates)
     public SimTileGUI(Location locRef, Tile tileRef) {
 
         Location oldLoc = new Location(0,0);
@@ -94,7 +94,7 @@ public class SimTileGUI extends JButton {
         ImageIcon icon = null; // Make an icon and set it to null for now
 
         try {
-            switch (type) { // Switch statment to detect which type of icon we'll need
+            switch (type) { // Switch statement to detect which type of icon we'll need
                 case 1: icon = new ImageIcon("plainTile.png"); // If type is 1, then set it to a blank tile icon
                     break;
                 case 2: icon = new ImageIcon("doorTile.png");// If type is 2, then set it to a door icon

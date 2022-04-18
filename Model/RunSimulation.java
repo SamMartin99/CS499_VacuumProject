@@ -15,14 +15,13 @@ import java.util.List;
 public class RunSimulation<simulationlayout> {
     // Attributes
     private final int run_speed;
-    private int algorithm;
-    private int floor_type;
-    private Vacuum V;
-    private TileArray TA;
-    private int delay_time;
-    private int direction;
+    private final int algorithm;
+    private final int floor_type;
+    private final Vacuum V;
+    private final TileArray TA;
+    private final int delay_time;
     private int ft;
-    private staticVariable global;
+    private final staticVariable global;
     private Tile wfCurrentTile;
 
     /* Constructs RunSimulation.
@@ -48,8 +47,6 @@ public class RunSimulation<simulationlayout> {
         V.setY(vacuumLoc.y);
         this.TA = TA;
         this.global = inpGlobal;
-
-        int direction = 0; // North
 
         this.wfCurrentTile = new Tile(); // holds the tile being cleaned for the wall follow algorithm
 
@@ -126,9 +123,9 @@ public class RunSimulation<simulationlayout> {
         return floorTypemName;
     }
 
-    /**
-     * Purpose: To get the current values of Tiles
-     */
+    // /**
+    //  * Purpose: To get the current values of Tiles
+    //  */
     //  public int getTileValues() {
     //       return this.floor_type;
     //  }
@@ -158,12 +155,11 @@ public class RunSimulation<simulationlayout> {
         AlgorithmRandom newAlgRandom;
         newAlgRandom = new AlgorithmRandom();
 
-
         AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
         if (algorithm == 4 ) {
             this.wfCurrentTile = wallFollow.findNearestWall();
-        //    wallFollow.setStartY(V.getX());
-         //   wallFollow.setStartY(V.getY());
+            // wallFollow.setStartY(V.getX());
+            // wallFollow.setStartY(V.getY());
         }
 
         // Calculate loss in battery life.
@@ -203,7 +199,7 @@ public class RunSimulation<simulationlayout> {
                     // Random
                     if (algorithm == 1)
                     {
-                        System.out.println(direction[0]);
+                        // System.out.println(direction[0]);
                         direction[0] = newAlgRandom.algorithm_random(direction[0], TA, V, ft, simulationlayout);
                     }
                     // Spiral
@@ -221,7 +217,7 @@ public class RunSimulation<simulationlayout> {
                     {
                         wfCurrentTile = wallFollow.nextTileToBeClean(wfCurrentTile);
 
-                //        System.out.println("Follow Paht Path Algorithm Code in Run Simulation");
+                    // System.out.println("Follow Path Algorithm Code in Run Simulation");
                     } else {
                         System.out.println("Unknown Algorithm");
                     }

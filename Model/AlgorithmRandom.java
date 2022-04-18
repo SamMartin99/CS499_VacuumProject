@@ -25,7 +25,7 @@ public class AlgorithmRandom {
         // and don't count that as a second.
         switch (direction)
         {
-            // North
+            // East
             case 0:
                 if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
@@ -42,9 +42,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.println("North hit");
+                // System.out.println("East hit");
                 break;
-            // Northeast
+            // Southeast
             case 1:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
                 {
@@ -61,9 +61,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.println("Northeast hit");
+                // System.out.println("Southeast hit");
                 break;
-            // East
+            // South
             case 2:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
@@ -80,9 +80,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.println("East");
+                // System.out.println("South");
                 break;
-            // Southeast
+            // Southwest
             case 3:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
                 {
@@ -99,9 +99,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.println("Southeast hit");
+                // System.out.println("Southwest hit");
                 break;
-            // South
+            // West
             case 4:
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
@@ -118,8 +118,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
+                // System.out.println("West hit");
                 break;
-            // Southwest
+            // Northwest
             case 5:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
                 {
@@ -136,9 +137,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.println("Southwest hit");
+                // System.out.println("Northwest hit");
                 break;
-            // West
+            // North
             case 6:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
@@ -155,9 +156,9 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.print("West hit");
+                // System.out.println("North hit");
                 break;
-            // Northwest
+            // Northeast
             case 7:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
                 {
@@ -174,7 +175,7 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                System.out.println("Northwest hit");
+                // System.out.println("Northeast hit");
                 break;
         }
 

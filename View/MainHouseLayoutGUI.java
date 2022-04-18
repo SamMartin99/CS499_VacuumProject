@@ -27,16 +27,13 @@ import Startup.HouseLayoutFileHandling;
 import Startup.Location;
 import Startup.houseTile;
 import Startup.staticVariable;
-
 import static java.lang.System.*;
-
 
 /**
  * Purpose: To allow the user to customize the house layout
- * @parm
+ *
  *
  */
-
 
 public class MainHouseLayoutGUI {
 
@@ -52,7 +49,7 @@ public class MainHouseLayoutGUI {
     // Attributes
 
     staticVariable arrayBounds = new staticVariable();
-//    TileArray TA = new TileArray(maxRow, maxColumn);
+    // TileArray TA = new TileArray(maxRow, maxColumn);
     TileArray TA = new TileArray(arrayBounds);
     JButton newHouseLayoutButton = new JButton("New HouseLayout");
     JButton saveHouseLayoutButton = new JButton("Save");
@@ -93,7 +90,7 @@ public class MainHouseLayoutGUI {
     JButton snakePath = new JButton("Snake");
     JButton wallFollowPath = new JButton("Wall Follow");
 
- //   JLabel simSpeedLabel = new JLabel("Speed");
+    // JLabel simSpeedLabel = new JLabel("Speed");
     JRadioButton simSpeed1 = new JRadioButton("1");
     JRadioButton simSpeed5 = new JRadioButton("5");
     JRadioButton simSpeed50 = new JRadioButton("50");
@@ -113,7 +110,6 @@ public class MainHouseLayoutGUI {
 
     /**
      * Default constructor
-     * @parm
      *
      * @param
      */
@@ -431,7 +427,6 @@ public class MainHouseLayoutGUI {
         /**
          * Purpose: To retrieve the value for the simulation speed
          */
-
         simSpeed1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -562,7 +557,6 @@ public class MainHouseLayoutGUI {
     /**
      * Display the Main House Layout Screen
      * @parm
-     * @return
      *
      */
     public void DisplayHouseLayout(MainHouseLayoutGUI inpHouseLayoutGUI) {
