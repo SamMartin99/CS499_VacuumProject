@@ -12,60 +12,22 @@ import java.util.Random;
 public class AlgorithmSnake {
 
     /* Name: algorithm_snake
-     * Parameters: int direction, TileArray TA, Vacuum V, int ft (floor type)
+     * Parameters: int h_or_v, int f_or_b, int transition, TileArray TA, Vacuum V, int ft (floor type)
      * Return: int direction
      * Purpose: Calculates vacuum path using a snaking algorithm. The vacuum will head in a straight direction,
      * until it hits a wall, at which point it will move to the side and begin to move in the opposite direction.
      */
-    public int algorithm_snake(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
+    public int algorithm_snake(int h_or_v, int f_or_b, int transition, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
         Random rand = new Random();
         double old_clean;
 
-        // If the current direction has an obstacle ahead, generate a new direction,
-        // and don't count that as a second.
-        switch (direction)
+        // First perform transition if necessary, and determine if the direction needs to be changed.
+        if (transition == 1)
         {
-            // North
-            case 0:
-                if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
-                {
-                    Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX());
-                    V.setY(V.getY() - 1);
-                }
-                else
-                {
-                    direction = rand.nextInt(8);
-                }
-                System.out.println("North hit");
-                break;
-            // Northeast
-            case 1:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
-                {
-                    Location vacuumLocation = new Location((V.getX() + 1), (V.getY() - 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() + 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY() - 1);
-                }
-                else
-                {
-                    direction = rand.nextInt(8);
-                }
-                System.out.println("Northeast hit");
-                break;
-            // East
-            case 2:
+            System.out.println("Transition hit.");
+            if (h_or_v == 0)
+            {
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), V.getY());
@@ -79,31 +41,37 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    h_or_v = 1;
                 }
-                System.out.println("East");
-                break;
-            // Southeast
-            case 3:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
+            }
+            else
+            {
+                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
-                    Location vacuumLocation = new Location((V.getX() + 1), (V.getY() + 1));
+                    Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);
 
-                    old_clean = TA.getTile((V.getX() + 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
+                    old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
+                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY() + 1);
+                    V.setX(V.getX());
+                    V.setY(V.getY() - 1);
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    h_or_v = 0;
                 }
-                System.out.println("Southeast hit");
-                break;
-            // South
-            case 4:
+            }
+
+            return 0;
+        }
+
+        // Horizontal
+        if (h_or_v == 0)
+        {
+            // Right
+            if (f_or_b == 0)
+            {
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
@@ -117,30 +85,34 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    return 1;
                 }
-                break;
-            // Southwest
-            case 5:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
+            }
+            // Left
+            else
+            {
+                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
-                    Location vacuumLocation = new Location((V.getX() - 1), (V.getY() + 1));
+                    Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);
+                    old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
+                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
 
-                    old_clean = TA.getTile((V.getX() - 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY() + 1);
+                    V.setX(V.getX());
+                    V.setY(V.getY() - 1);
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    return 1;
                 }
-                System.out.println("Southwest hit");
-                break;
-            // West
-            case 6:
+            }
+        }
+        // Vertical
+        else
+        {
+            // Upwards
+            if (f_or_b == 0)
+            {
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), V.getY());
@@ -154,32 +126,31 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    return 1;
                 }
-                System.out.print("West hit");
-                break;
-            // Northwest
-            case 7:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
+            }
+            // Downwards
+            else
+            {
+                if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
-                    Location vacuumLocation = new Location((V.getX() - 1), (V.getY() - 1));
+                    Location vacuumLocation = new Location((V.getX() + 1), V.getY());
                     TA.setVacuum(vacuumLocation);
 
-                    old_clean = TA.getTile((V.getX() - 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
+                    old_clean = TA.getTile((V.getX() + 1), V.getY()).getClean();
+                    TA.setTileClean((V.getX() + 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
 
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY() - 1);
+                    V.setX(V.getX() + 1);
+                    V.setY(V.getY());
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    return 1;
                 }
-                System.out.println("Northwest hit");
-                break;
+            }
         }
 
-        return direction;
+        return 0;
     }
 
     /* Name: calculate_clean

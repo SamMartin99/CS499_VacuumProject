@@ -155,6 +155,12 @@ public class RunSimulation<simulationlayout> {
         AlgorithmRandom newAlgRandom;
         newAlgRandom = new AlgorithmRandom();
 
+        AlgorithmSpiral newAlgSpiral;
+        newAlgSpiral = new AlgorithmSpiral();
+
+        AlgorithmSnake newAlgSnake;
+        newAlgSnake = new AlgorithmSnake();
+
         AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
         if (algorithm == 4 ) {
             this.wfCurrentTile = wallFollow.findNearestWall();
@@ -167,8 +173,15 @@ public class RunSimulation<simulationlayout> {
         // runs out of battery.
         final int[] minute = {0};
 
-        // Get a random starting direction.
+        // Initialize variables.
+        // direction: Random direction for RandomAlgorithm.
+        // h_or_v: For determining if SnakeAlgorithm is travelling vertically or horizontally.
+        // f_or_b: For determining if SnakeAlgorithm is travelling forwards or backwards.
+        // transition: For determining if SnakeAlgorithm needs to perform a transition.
         final int[] direction = {(int) Math.floor(Math.random() * 8)};
+        final int[] h_or_v = {0};
+        final int[] f_or_b = {0};
+        final int[] transition = {0};
 
         int algorithm = this.algorithm;
         int ft = this.ft;
@@ -205,12 +218,12 @@ public class RunSimulation<simulationlayout> {
                     // Spiral
                     else if (algorithm == 2)
                     {
-                        System.out.println("Second Path Algorithm Code");
+                        direction[0] = newAlgSpiral.algorithm_spiral(direction[0], TA, V, ft, simulationlayout);
                     }
                     // Snake
                     else if (algorithm == 3)
                     {
-                        System.out.println("Third Path Algorithm Code");
+                        transition[0] = newAlgSnake.algorithm_snake(h_or_v[0], f_or_b[0], transition[0], TA, V, ft, simulationlayout);
                     }
                     // Wall Follow
                     else if (algorithm == 4)
