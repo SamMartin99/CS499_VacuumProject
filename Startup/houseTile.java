@@ -145,8 +145,48 @@ public class houseTile extends JButton {
         {
             if(containingTable != null)
                 containingTable.DeleteTable();
-            inpTA.setTile (this.loc.x, this.loc.y, 3); // set the tile type to 3 for wall
-            this.setImageIcon(); // Sets the image icon for this tile to match its new type
+            if (!inpTA.firstClick)
+            {
+                inpTA.clickTwoX = this.loc.x;
+                inpTA.clickTwoY = this.loc.y;
+                if (inpTA.clickOneX == inpTA.clickTwoX)
+                {
+                    while (inpTA.clickOneY <= inpTA.clickTwoY)
+                    {
+                        inpTA.setTile (inpTA.clickOneX, inpTA.clickOneY, 3);
+                        parentHouseTileArray[inpTA.clickOneX][inpTA.clickOneY].setImageIcon();
+                        inpTA.clickOneY++;
+                    }
+                    while (inpTA.clickTwoY <= inpTA.clickOneY)
+                    {
+                        inpTA.setTile (inpTA.clickOneX, inpTA.clickTwoY, 3);
+                        parentHouseTileArray[inpTA.clickOneX][inpTA.clickTwoY].setImageIcon();
+                        inpTA.clickTwoY++;
+                    }
+                }
+                else if (inpTA.clickOneY == inpTA.clickTwoY)
+                {
+                    while (inpTA.clickOneX <= inpTA.clickTwoX)
+                    {
+                        inpTA.setTile (inpTA.clickOneX, inpTA.clickOneY, 3);
+                        parentHouseTileArray[inpTA.clickOneX][inpTA.clickOneY].setImageIcon();
+                        inpTA.clickOneX++;
+                    }
+                    while (inpTA.clickTwoX <= inpTA.clickOneX)
+                    {
+                        inpTA.setTile (inpTA.clickTwoX, inpTA.clickOneY, 3);
+                        parentHouseTileArray[inpTA.clickTwoX][inpTA.clickOneY].setImageIcon();
+                        inpTA.clickTwoX++;
+                    }
+                }
+                inpTA.firstClick = true;
+            }
+            else if (inpTA.firstClick)
+            {
+                inpTA.clickOneX = this.loc.x;
+                inpTA.clickOneY = this.loc.y;
+                inpTA.firstClick = false;
+            }
             return;
         }
         // CHEST

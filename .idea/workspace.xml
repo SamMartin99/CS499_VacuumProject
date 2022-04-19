@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="have removed the stop simulation button from MainHouseLayoutGUI (just comment out line 312 where the button was being added to the simulationActions frame.  have added a stop simulation button to the SimulationLayoutGUI and implemented logic to cancel the swing worker.  The logic is still buggy as it appears that the cancel signal is not immediate rather waits for current running code to finish. In the case of wall follow flashes screen for task as they are finishing ; for other algorithms just flashes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/staticVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/staticVariable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/houseTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/houseTile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

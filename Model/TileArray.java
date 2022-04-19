@@ -17,7 +17,11 @@ public class TileArray {
     private Tile[][] TA;
     public Location prevVacuumLoc = new Location (0, 0); // This is just used for the GUI, to remove old vacuum icons
     public Location vacuumStartLoc = new Location (0, 0); // This holds the vacuum's starting position, defaults to 0,0
-
+    public boolean firstClick = true;
+    public int clickOneX = 0;
+    public int clickOneY = 0;
+    public int clickTwoX = 0;
+    public int clickTwoY = 0;
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
      */
