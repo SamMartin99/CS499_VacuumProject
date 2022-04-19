@@ -106,19 +106,29 @@ public class houseTile extends JButton {
      * in a separate function.
      */
 
+    /**
+     * Author Marie held
+     * Purpose is to response when a house tile is click
+     * @param inpHouseLayout
+     * @param inpTA
+     */
     public void clickTileAction(HouseLayout inpHouseLayout, TileArray inpTA) {
         int tileType; // var to hold the tileType for this method
 
         // Basically check for what layout type you're trying to apply, then apply that to this tile's attributes
         // Also must update the tile's icon to match its type
         // Do this for each type you could be setting this tile to
-
-        // check to see if tile is available
-        if (this.tileAvailable == false) {
-            tileUnavailablePopup(this);
-            return;
-        }
-
+/***********************************************************************************************
+ *      This block of code was intented to not allow user to change the tile type
+ *      Group decision was that the user should be able to change any tile on the
+ *      house layout
+ *
+ *       // check to see if tile is available
+ *       //if (this.tileAvailable == false) {
+ *       //    tileUnavailablePopup(this);
+ *      //     return;
+ *     //  }
+***********************************************************************************************/
         // These seemingly can't be switch statements because strings can't work with those
         // All these blocks follow the same format, simply differing in what type you are setting them to
         // DOOR
@@ -157,6 +167,18 @@ public class houseTile extends JButton {
             this.setImageIcon(); // Sets the image icon for this tile to match its new type
             return;
         }
+        // Clear
+        else if (inpHouseLayout.getlayoutType().compareTo("Clear") == 0 )
+        {
+            if(containingTable != null)
+                containingTable.DeleteTable();
+            inpTA.setTile (this.loc.x, this.loc.y, 1); // set the tile type to 1 for an empty tile
+            this.setImageIcon(); // Sets the image icon for this tile to match its new type
+            return;
+        }
+
+
+
         // Author: Guess Crow
         // VACUUM
         // Handles vacuum icon placement
@@ -184,38 +206,44 @@ public class houseTile extends JButton {
         {
             Table t = new Table(parentHouseTileArray, this.loc); // Make a new Table, passing it this tile's parent array and its location
         }
-        else
-        {
-            tileUnavailablePopup(this);
-            System.out.println("Tile is unavailable");
-            this.printTile(inpHouseLayout);
-        }
+        /***********************************************************************************************
+         *      This block of code was intented to not allow user to change the tile type
+         *      Group decision was that the user should be able to change any tile on the
+         *      house layout
+         *else
+         *{
+         *      tileUnavailablePopup(this);
+         *      System.out.println("Tile is unavailable");
+         *       this.printTile(inpHouseLayout);
+         *    }
+         *************************************************************************************************/
     }
 
     // This method is a bunch of JSwing code that creates a popup window that alerts the user the tile they clicked is unavailable
     private void tileUnavailablePopup(houseTile inptileButton)  {
         Popup p;
         JFrame popupFrame = new JFrame("Tile Unavailable");
-        JLabel lTileUnavailable = new JLabel(inptileButton.getTileName() +" is unavailable");
-        popupFrame.setSize(400,400);
-        PopupFactory pf = new PopupFactory();
-        JPanel popupPanel = new JPanel() ;
-        popupPanel.add(lTileUnavailable);
-        p = pf.getPopup(popupFrame,popupPanel, 180,100);
-        JButton b = new JButton("Click to return");
-        popupPanel.add(b);
-        popupFrame.add(popupPanel);
-        popupFrame.setVisible(true);
-        p.show();
-        b.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("In Tile Unavailable popup");
-                p.hide();
-                popupFrame.setVisible(false);
-            }
+          JLabel lTileUnavailable = new JLabel(inptileButton.getTileName() +" is unavailable");
+          popupFrame.setSize(400,400);
+         PopupFactory pf = new PopupFactory();
+         JPanel popupPanel = new JPanel() ;
+         popupPanel.add(lTileUnavailable);
+         p = pf.getPopup(popupFrame,popupPanel, 180,100);
+         JButton b = new JButton("Click to return");
+         popupPanel.add(b);
+         popupFrame.add(popupPanel);
+         popupFrame.setVisible(true);
+         p.show();
+         b.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+                 System.out.println("In Tile Unavailable popup");
+                 p.hide();
+                 popupFrame.setVisible(false);
+             }
         });
     }
+
 
     // Author: Guess Crow
     // This function does all the imageIcon handling/setting for whatever houseTile you're trying to use with it

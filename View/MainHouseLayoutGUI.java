@@ -31,7 +31,7 @@ import static java.lang.System.*;
 
 /**
  * Purpose: To allow the user to customize the house layout
- *
+ * Author: Guess Crow, Marie Held
  *
  */
 
@@ -76,6 +76,7 @@ public class MainHouseLayoutGUI {
 
     JButton Wallbtn = new JButton("Wall");
     JButton Doorwaybtn = new JButton("Doorway");
+    JButton Clearbtn = new JButton("Clear");
     JButton Chairbtn = new JButton("Chair");
     JButton Tablebtn = new JButton("Table");
     JButton Chestbtn = new JButton("Chest");
@@ -165,6 +166,7 @@ public class MainHouseLayoutGUI {
 
         LayoutFurniture.setBorder(LayoutFurnitureBorder);
         LayoutFurniture.setPreferredSize(new Dimension(300,50));
+        LayoutFurniture.add(Clearbtn);
         LayoutFurniture.add(Chairbtn) ;
         LayoutFurniture.add(Tablebtn);
         LayoutFurniture.add(Chestbtn);
@@ -338,6 +340,15 @@ public class MainHouseLayoutGUI {
             }
         });
 
+        Clearbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //          out.println("Chair button in Components Furniture was clicked");
+                inpHouseLayout.clearClick();
+                inpHouseLayout.getlayoutType();
+            }
+        });
+
         Chairbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -441,7 +452,7 @@ public class MainHouseLayoutGUI {
             public void actionPerformed(ActionEvent e) {
                 simSpeed5.setSelected(false);
                 simSpeed50.setSelected(false);
-                rs = 5;
+                rs = 1;
  //               System.out.println("The simulation speed is 1");
             }
         });
