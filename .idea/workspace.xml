@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Added functionality for default house layoutloading from file, will continue to work to get new houses able to be created/loaded from file">
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/House Layout Files/defaultHouseLayoutFile.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/defaultFile.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/House Layout Files/defaultHouseLayoutFile.txt" afterDir="false" />
