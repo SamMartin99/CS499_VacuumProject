@@ -9,6 +9,8 @@ import Startup.staticVariable;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static javax.swing.text.StyleConstants.setIcon;
 
@@ -18,11 +20,14 @@ import static javax.swing.text.StyleConstants.setIcon;
  * Author Marie Held
  * Purpose To display the simulation gui
  */
-public class SimulationLayoutGUI {
+public class SimulationLayoutGUI  {
 
     // Attributes
     JFrame outputMainSimFrame = new JFrame("Simulation Output");
     JPanel simTiles = new JPanel(); // Panel that holds the buttons for the array
+    JPanel simActions = new JPanel();
+
+    JButton stopSimulation = new JButton("Stop Simulation");
 
     Border simTilesWallBorder;
     Border simTilesChairBorder;
@@ -33,7 +38,8 @@ public class SimulationLayoutGUI {
     /**
      * Author Marie Held
      * @param inpTileArray the incoming tile array
-     * @param inpGlobal the set of local variables
+     * @param inpGlobal the set of global variables that define direction and array dimensions
+     *
      */
     // Default constructor
     public SimulationLayoutGUI(TileArray inpTileArray, staticVariable inpGlobal) {
@@ -41,6 +47,8 @@ public class SimulationLayoutGUI {
         int simTileColumn = inpTileArray.getWidth();
         SimTileGUI simTileButton;
         Tile tileRef;
+
+        inpGlobal.setSimStatus(0);
 
         this.global = inpGlobal;
         simNumComponents = global.getNumSimTilesComponent();
@@ -95,10 +103,32 @@ public class SimulationLayoutGUI {
 
         // outputMainSimFrame.add(simTiles,gblSimTiles);
         outputMainSimFrame.add(simTiles);
+        simActions.add(stopSimulation);
+        outputMainSimFrame.add(simActions,BorderLayout.SOUTH);
         outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        stopSimulation.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                inpGlobal.setSimStatus(1); // stop indicator
+            }
+        });
 
         // inpTileArray.printTileArray();
     }
+
+    public void closeSimulationLayoutGUI(){
+       try {
+           Thread.interrupted();
+           outputMainSimFrame.removeAll();
+           outputMainSimFrame.dispose();
+       }
+       catch (Exception e) {
+           System.out.println(" in catch phase of disposing simulation gui");
+       }
+    }
+
+
 
     /**
      * Display the Simulation Layout Screen

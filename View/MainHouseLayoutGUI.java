@@ -309,7 +309,7 @@ public class MainHouseLayoutGUI {
         houseActions.add(simulationActions,BorderLayout.EAST);
         simulationActions.setBorder(houseSimulationBorder);
         simulationActions.add(runSimulationButton);
-        simulationActions.add(stopSimulationButton);
+  //      simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
 

@@ -123,6 +123,8 @@ public class RunSimulation<simulationlayout> {
         return floorTypemName;
     }
 
+
+
     // /**
     //  * Purpose: To get the current values of Tiles
     //  */
@@ -147,6 +149,7 @@ public class RunSimulation<simulationlayout> {
      */
     public void run()
     {
+        global.setSimStatus(0);
         // Create output window.
         SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);
         simulationlayout.displaySimulationLayout(simulationlayout);
@@ -186,6 +189,8 @@ public class RunSimulation<simulationlayout> {
         int algorithm = this.algorithm;
         int ft = this.ft;
 
+        global.setSimStatus(0);
+
         SwingWorker sw = new SwingWorker()
         {
             public Object doInBackground() throws Exception
@@ -206,6 +211,13 @@ public class RunSimulation<simulationlayout> {
                         V.setBattery(V.getBattery() - 1);
                         System.out.println("A minute has passed.");
                         minute[0] = minute[0] - 60000;
+                    }
+
+                    // Check to see if the cancel signal was seng
+                    if(global.getSimStatus() == 1) {
+                        // System.out.println("Stop Simulation");
+                        this.cancel(true);
+                        simulationlayout.closeSimulationLayoutGUI();
                     }
 
                     // Run the algorithms

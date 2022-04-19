@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="">
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="have removed the stop simulation button from MainHouseLayoutGUI (just comment out line 312 where the button was being added to the simulationActions frame.  have added a stop simulation button to the SimulationLayoutGUI and implemented logic to cancel the swing worker.  The logic is still buggy as it appears that the cancel signal is not immediate rather waits for current running code to finish. In the case of wall follow flashes screen for task as they are finishing ; for other algorithms just flashes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/staticVariable.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/staticVariable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/houseTile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220419_0000" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220419_0001" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -89,13 +89,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643481028424</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Changes: Add coded to test the HouseLayout Getters and Setters">
-      <created>1647102308529</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1647102308529</updated>
     </task>
     <task id="LOCAL-00005" summary="Changes: Created the HouseLayout class">
       <created>1647102424940</created>
@@ -433,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650367994171</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="breakfast push">
+      <created>1650370114503</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1650370114503</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -448,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: corrent tile array is being passed to run simulation" />
     <MESSAGE value="Changes: started on graphicly displaying the tile array; uncover problem that tile type is assoicated iwth the entire array rather than an individual tile" />
     <MESSAGE value="Changes: new class to display the simulation" />
     <MESSAGE value="Changes: new class to display the simulation information" />
@@ -473,6 +472,7 @@
     <MESSAGE value="Changes: fixed some minor bugs (MainHouseLayoutGUI sim speed 1 was setting to 5; two load house action listeners (now one); major changes to AlgorithmWallFollow.class vacuum cleans correctly with no components ; will add component checking tomorrow" />
     <MESSAGE value="Added functionality for default house layoutloading from file, will continue to work to get new houses able to be created/loaded from file" />
     <MESSAGE value="Implemented AI-038 Write a code to remove / clearing house components ;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented AI-038 Write a code to remove / clearing house components ;" />
+    <MESSAGE value="breakfast push" />
+    <option name="LAST_COMMIT_MESSAGE" value="breakfast push" />
   </component>
 </project>
