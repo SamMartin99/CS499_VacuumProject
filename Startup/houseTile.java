@@ -151,7 +151,7 @@ public class houseTile extends JButton {
                 inpTA.clickTwoY = this.loc.y;
                 if (inpTA.clickOneX == inpTA.clickTwoX)
                 {
-                    while (inpTA.clickOneY <= inpTA.clickTwoY)
+                    while (inpTA.clickOneY < inpTA.clickTwoY)
                     {
                         inpTA.setTile (inpTA.clickOneX, inpTA.clickOneY, 3);
                         parentHouseTileArray[inpTA.clickOneX][inpTA.clickOneY].setImageIcon();
@@ -166,7 +166,7 @@ public class houseTile extends JButton {
                 }
                 else if (inpTA.clickOneY == inpTA.clickTwoY)
                 {
-                    while (inpTA.clickOneX <= inpTA.clickTwoX)
+                    while (inpTA.clickOneX < inpTA.clickTwoX)
                     {
                         inpTA.setTile (inpTA.clickOneX, inpTA.clickOneY, 3);
                         parentHouseTileArray[inpTA.clickOneX][inpTA.clickOneY].setImageIcon();
