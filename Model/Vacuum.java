@@ -75,8 +75,8 @@ public class Vacuum {
     }
 
     /**
-     * @Author Marie Held
-     * @Purpose To print the current location of the vacuum
+     * Author Marie Held
+     * Purpose To print the current location of the vacuum
      */
     public void printVacumLocation(){
         tile_location.printLocation();

@@ -15,7 +15,7 @@ import static javax.swing.text.StyleConstants.setIcon;
 // public class SimulationLayoutGUI (TileArray inpTileArray) {
 
 /**
- * @Author Marie Held
+ * Author Marie Held
  * Purpose To display the simulation gui
  */
 public class SimulationLayoutGUI {
@@ -31,9 +31,9 @@ public class SimulationLayoutGUI {
     private int simNumComponents;
 
     /**
-     * @Author Marie Held
-     * @param inpTileArray
-     * @param inpGlobal
+     * Author Marie Held
+     * @param inpTileArray the incoming tile array
+     * @param inpGlobal the set of local variables
      */
     // Default constructor
     public SimulationLayoutGUI(TileArray inpTileArray, staticVariable inpGlobal) {
@@ -104,7 +104,7 @@ public class SimulationLayoutGUI {
      * Display the Simulation Layout Screen
      *
      * @return
-     * @parm
+     *
      */
     public void displaySimulationLayout(SimulationLayoutGUI inpSimulationLayoutGUI) {
 
@@ -131,15 +131,15 @@ public class SimulationLayoutGUI {
     }
 
     /**
-     * @Author Marie Held
-     * @Purpose To retrieve the simulation component name
-     * @param x
-     * @param y
+     * Author Marie Held
+     * Purpose To retrieve the simulation component name
+     * @param x x value of the tile
+     * @param y y value of the tile
      * Simulation Names are in the format of SimTileXXYY where XX is the x value and YY is the Y value
      * @return a String that contains the component name
      */
     public String getSimTileName(int x, int y) {
-        String componentName = "";
+        String componentName;
         String compX;
         String compY;
         int icompX;
@@ -163,10 +163,10 @@ public class SimulationLayoutGUI {
 
     /**
      *
-     * @Author Marie Held
+     * Author Marie Held
      * @param inpComponentName The name of the simulation button component
-     * @return If success returns The component number of the simulation button
-     * @return if failure (simulation button does not exist) - 1
+     * @return If success returns The component number of the simulation button; if failure (simulation button does not exist) - 1
+     *
      */
     public int getComponentNumber (String inpComponentName ){
 
@@ -184,7 +184,7 @@ public class SimulationLayoutGUI {
     }
 
     /**
-     * @Author Marie Held, Bryant Terry
+     * Author Marie Held, Bryant Terry
      * @param inpX
      * @param inpY
      * @param inpComponentNumber

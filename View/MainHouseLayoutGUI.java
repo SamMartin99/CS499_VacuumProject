@@ -432,7 +432,7 @@ public class MainHouseLayoutGUI {
             public void actionPerformed(ActionEvent e) {
                 simSpeed5.setSelected(false);
                 simSpeed50.setSelected(false);
-                rs = 5;
+                rs = 1;
  //               System.out.println("The simulation speed is 1");
             }
         });
@@ -489,12 +489,6 @@ public class MainHouseLayoutGUI {
             }
         });
 
-        saveHouseLayoutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                out.println("Load button on House Layout was clicked");
-            }
-        });
 
         saveHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
