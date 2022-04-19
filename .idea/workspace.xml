@@ -4,14 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff55d3f6-8b5f-451f-9cb1-2524829f4905" name="Changes" comment="Changes: fixed some minor bugs (MainHouseLayoutGUI sim speed 1 was setting to 5; two load house action listeners (now one); major changes to AlgorithmWallFollow.class vacuum cleans correctly with no components ; will add component checking tomorrow">
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Added functionality for default house layoutloading from file, will continue to work to get new houses able to be created/loaded from file">
+      <change afterPath="$PROJECT_DIR$/House Layout Files/defaultHouseLayoutFile.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/defaultFile.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/House Layout Files/defaultHouseLayoutFile.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$24.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/defaultFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Vacuum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Vacuum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/HouseLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayoutFileHandling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/plainTile.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/TileArray.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayoutFileHandling.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/HouseLayoutFileHandling.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/SplashScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Startup/plainTile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/MainHouseLayoutGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -449,7 +485,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: created a packaged called View and move the MainHouseLayoutGUI to the View package" />
     <MESSAGE value="Changes: change the simulation slider button to 3 radio buttons" />
     <MESSAGE value="Changes: corrent tile array is being passed to run simulation" />
     <MESSAGE value="Changes: started on graphicly displaying the tile array; uncover problem that tile type is assoicated iwth the entire array rather than an individual tile" />
@@ -474,6 +509,7 @@
     <MESSAGE value="Changes: first loop of wall follow works" />
     <MESSAGE value="Changes: Fixed some of the warnings (variables made final)." />
     <MESSAGE value="Changes: fixed some minor bugs (MainHouseLayoutGUI sim speed 1 was setting to 5; two load house action listeners (now one); major changes to AlgorithmWallFollow.class vacuum cleans correctly with no components ; will add component checking tomorrow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: fixed some minor bugs (MainHouseLayoutGUI sim speed 1 was setting to 5; two load house action listeners (now one); major changes to AlgorithmWallFollow.class vacuum cleans correctly with no components ; will add component checking tomorrow" />
+    <MESSAGE value="Added functionality for default house layoutloading from file, will continue to work to get new houses able to be created/loaded from file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality for default house layoutloading from file, will continue to work to get new houses able to be created/loaded from file" />
   </component>
 </project>

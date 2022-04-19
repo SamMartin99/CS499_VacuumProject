@@ -38,8 +38,8 @@ public class HouseLayout {
        }
 
        // Create a new Tile Array for the simulation
-      //  simTileArray = new TileArray(dim1,dim2);
-        simTileArray = new TileArray(arrayBounds);
+        simTileArray = new TileArray(dim1,dim2); // makes tile array of set dimensions
+        // simTileArray = new TileArray(arrayBounds);
 
        // Set all tiles to empty -- Empty Type has a value of 1
        for (int i = 0; i < dim1; i++){
@@ -47,9 +47,6 @@ public class HouseLayout {
                simTileArray.setTile(i,j,1);
            }
        }
-    //   simTileArray.printTileArray();
-
-
        // default floor type is 1 (hardwood)
        this.floorType = 1;
     }

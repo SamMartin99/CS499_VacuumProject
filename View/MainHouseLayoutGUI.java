@@ -50,7 +50,8 @@ public class MainHouseLayoutGUI {
 
     staticVariable arrayBounds = new staticVariable();
     // TileArray TA = new TileArray(maxRow, maxColumn);
-    TileArray TA = new TileArray(arrayBounds);
+    TileArray TA;
+    // TileArray TA = new TileArray(arrayBounds);
     JButton newHouseLayoutButton = new JButton("New HouseLayout");
     JButton saveHouseLayoutButton = new JButton("Save");
     JButton loadHouseLayoutButton = new JButton("Load");
@@ -113,14 +114,21 @@ public class MainHouseLayoutGUI {
      *
      * @param
      */
-    public MainHouseLayoutGUI(HouseLayout inpHouseLayout,staticVariable inpGlobal){
+    public MainHouseLayoutGUI(HouseLayout inpHouseLayout, staticVariable inpGlobal, TileArray tileArray){
         int maxRow,maxColumn,minRow,minColumn;
-        maxRow = inpGlobal.getMaxRow();
+        TA = tileArray;
+        maxRow = TA.getLength();
+        maxColumn = TA.getWidth();
+        minRow = 0;
+        minColumn = 0;
+
+        /*maxRow = inpGlobal.getMaxRow();
         maxColumn = inpGlobal.getMaxColumn();
         minRow = inpGlobal.getMinRow();
-        minColumn = inpGlobal.getMinColumn();
-        //TileArray TA = new TileArray(maxRow, maxColumn);
-        TileArray TA = new TileArray(inpGlobal);
+        minColumn = inpGlobal.getMinColumn();*/
+
+        // TileArray TA = new TileArray(maxRow, maxColumn);
+        // TileArray TA = new TileArray(inpGlobal);
         // set up borders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
@@ -230,6 +238,7 @@ public class MainHouseLayoutGUI {
                 Location l = new Location(tileRow, tileColumn);
                 tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn), houseTileArr);
                 houseTileArr[tileRow][tileColumn] = tileButton;
+                tileButton.setImageIcon();
 
                // mh not sure why we need this; ide added in order to run
                 Startup.houseTile finalTileButton = tileButton;
@@ -432,7 +441,7 @@ public class MainHouseLayoutGUI {
             public void actionPerformed(ActionEvent e) {
                 simSpeed5.setSelected(false);
                 simSpeed50.setSelected(false);
-                rs = 1;
+                rs = 5;
  //               System.out.println("The simulation speed is 1");
             }
         });
@@ -461,11 +470,11 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String layoutName = "new";
-                HouseLayout myHouse = new HouseLayout(layoutName, arrayBounds);
+                HouseLayout myHouse = new HouseLayout(layoutName, arrayBounds); // TEMPORARILY COMMENTED OUT
             }
         });
 
-        loadHouseLayoutButton.addActionListener(new ActionListener() {
+        saveHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Save button on House Layout was clicked");
@@ -489,6 +498,12 @@ public class MainHouseLayoutGUI {
             }
         });
 
+        loadHouseLayoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                out.println("Load button on House Layout was clicked");
+            }
+        });
 
         saveHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
