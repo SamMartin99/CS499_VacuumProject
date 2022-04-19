@@ -131,7 +131,7 @@ public class AlgorithmWallFollow {
             //setStartX(vacX);
             //    setStartY(vacY);
             return currentTile;
-        } else if (tileType == 3) {
+        } else if (tileType == 3  || tileType == 4 || tileType ==5 ) {  // Wall, Chest, or Chair
             // Check for if the wall is a border wall
             if (vacX == 0) {  // wall is on the top
                 if (vacY == 0) {  // top left corner
@@ -749,14 +749,15 @@ public class AlgorithmWallFollow {
             wfVacuum.setX(x);
             //    wfVacuum.setY(y);
             nextTile = wfTileArray.getTile(x, y);
-
-            if (nextTile.getType() != 3) { // nextTile is a wall
+            if (nextTile.getType() != 3  ) { // nextTile is a wall
+        //    if (nextTile.getType() != 3 || nextTile.getType() != 4 || nextTile.getType() != 5 ) { // nextTile is a wall
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 //System.out.println("X is: " + x + " Y is: " + y + " Direction is " + global.getVaccumDirectionName(0));
                 nextTile = wfTileArray.getTile(x--, y);
                 return nextTile;
                 //   } else if (tileNorth == x++ && circuit > 0) {
-            } else if (nextTile.getType() == 3) {
+            } else if (nextTile.getType() == 3 ) {
+    //        } else if (nextTile.getType() == 3 || (nextTile.getType() == 4 || nextTile.getType() == 5 )) {
                 global.setVacuumDirection("West");
                 x++;
                 y--;
@@ -800,7 +801,7 @@ public class AlgorithmWallFollow {
             y--;
             wfVacuum.setY(y);
             nextTile = wfTileArray.getTile(x, y);
-            if (nextTile.getType() != 3) { // nextTile is a wall
+            if (nextTile.getType() != 3 || nextTile.getType() != 4 || nextTile.getType() != 5) { // nextTile is a wall
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 // System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection() + "Wall type is " + nextTile.getType() );
                 //    wfTileArray.printTileArray();
@@ -930,7 +931,8 @@ public class AlgorithmWallFollow {
             x++; // move one tile north
             wfVacuum.setX(x);
             nextTile = wfTileArray.getTile(x, y);
-            if (nextTile.getType() != 3) { // nextTile is a wall
+            if (nextTile.getType() != 3) {
+     //       if (nextTile.getType() != 3 || nextTile.getType() != 4 || nextTile.getType() != 5) { // nextTile is a wall
                 wfTileArray.setTileClean(x++, y, wfCleanValue - 0.1, wfSimulationLayout);
                 //System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
                 //    wfTileArray.printTileArray();

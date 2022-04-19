@@ -548,6 +548,7 @@ public class MainHouseLayoutGUI {
                 // System.out.println("Battery Life " + batteryLife);
                 // System.out.println("The number of inches the vacuum covers in a second is " + vs);
                 // TA.printTileArray();
+                //TA.vacuumStartLoc.printLocation();
                 RunSimulation RS = new RunSimulation (rs, a, ft, batteryLife, vs, TA, TA.vacuumStartLoc,inpGlobal);
                 // RS.printSimValues();
                 RS.run();
