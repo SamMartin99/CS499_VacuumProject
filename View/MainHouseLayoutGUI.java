@@ -57,7 +57,7 @@ public class MainHouseLayoutGUI {
     JButton loadHouseLayoutButton = new JButton("Load");
     JButton runSimulationButton = new JButton("Run");
     JButton stopSimulationButton = new JButton("Stop");
-    JButton simResults = new JButton ("Previous Simulation Results");
+ //   JButton simResults = new JButton ("Previous Simulation Results");
     JPanel houseTile = new JPanel();
     JPanel houseTileHeader = new JPanel();
     JPanel houseTileIndividualTiles = new JPanel();
@@ -313,7 +313,7 @@ public class MainHouseLayoutGUI {
         houseActions.add(simulationActions,BorderLayout.EAST);
         simulationActions.setBorder(houseSimulationBorder);
         simulationActions.add(runSimulationButton);
-        simulationActions.add(simResults);
+    //    simulationActions.add(simResults);
   //      simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
@@ -570,12 +570,19 @@ public class MainHouseLayoutGUI {
             }
         });
 
-        stopSimulationButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                out.println("Stop Simulation button on House Layout was clicked");
-            }
-        });
+   //     stopSimulationButton.addActionListener(new ActionListener() {
+   //         @Override
+   //         public void actionPerformed(ActionEvent e) {
+   //             out.println("Stop Simulation button on House Layout was clicked");
+   //         }
+   //     });
+
+    //    simResults.addActionListener(new ActionListener() {
+     //       @Override
+     //       public void actionPerformed(ActionEvent e) {
+      //          inpHouseLayout.showSimResults();
+      //      }
+      //  });
 
         // Add panels to the Frame
         this.MainHouseLayoutFrame.add(houseTile,BorderLayout.WEST);

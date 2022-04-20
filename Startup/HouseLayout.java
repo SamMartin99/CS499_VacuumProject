@@ -8,6 +8,11 @@ package Startup;
 
 import Model.TileArray;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class HouseLayout {
     // Attributes
 //    private final int dim1 = 10; // maxTileArrayRow; // These define the maximum size of the array of tiles
@@ -154,4 +159,5 @@ public class HouseLayout {
         this.layoutType = "Vacuum";
         return layoutType;
     }
+
 }
