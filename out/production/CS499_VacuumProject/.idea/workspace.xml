@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="have removed the stop simulation button from MainHouseLayoutGUI (just comment out line 312 where the button was being added to the simulationActions frame.  have added a stop simulation button to the SimulationLayoutGUI and implemented logic to cancel the swing worker.  The logic is still buggy as it appears that the cancel signal is not immediate rather waits for current running code to finish. In the case of wall follow flashes screen for task as they are finishing ; for other algorithms just flashes">
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Startup/houseTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/houseTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Startup/HouseLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Startup/HouseLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/MainHouseLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220419_0001" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220420_0002" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -85,20 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643481028424</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Changes: Created the HouseLayout class">
-      <created>1647102424940</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1647102424940</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Changes: new file name, streamline code, read working">
-      <created>1647120377915</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1647120377915</updated>
     </task>
     <task id="LOCAL-00007" summary="Changes: add code to test functionality of house Layout object">
       <created>1647120410936</created>
@@ -429,7 +418,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650370114503</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="in RunSimulation added a call after the simulation is stop to calculate and store run statistics&#10;in SimulationLayoutGUI add a method to calculate the run statistics and store to the appropriate file">
+      <created>1650451254381</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1650451254381</updated>
+    </task>
+    <task id="LOCAL-00055" summary="updated the wall follow AlgorithmWallFollow">
+      <created>1650464952972</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1650464952972</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,8 +447,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: started on graphicly displaying the tile array; uncover problem that tile type is assoicated iwth the entire array rather than an individual tile" />
-    <MESSAGE value="Changes: new class to display the simulation" />
     <MESSAGE value="Changes: new class to display the simulation information" />
     <MESSAGE value="Changes: fixed a bug ; was setting the wrong button" />
     <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
@@ -469,6 +470,8 @@
     <MESSAGE value="Added functionality for default house layoutloading from file, will continue to work to get new houses able to be created/loaded from file" />
     <MESSAGE value="Implemented AI-038 Write a code to remove / clearing house components ;" />
     <MESSAGE value="breakfast push" />
-    <option name="LAST_COMMIT_MESSAGE" value="breakfast push" />
+    <MESSAGE value="in RunSimulation added a call after the simulation is stop to calculate and store run statistics&#10;in SimulationLayoutGUI add a method to calculate the run statistics and store to the appropriate file" />
+    <MESSAGE value="updated the wall follow AlgorithmWallFollow" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated the wall follow AlgorithmWallFollow" />
   </component>
 </project>

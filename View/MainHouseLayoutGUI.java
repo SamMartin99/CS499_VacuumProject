@@ -57,6 +57,7 @@ public class MainHouseLayoutGUI {
     JButton loadHouseLayoutButton = new JButton("Load");
     JButton runSimulationButton = new JButton("Run");
     JButton stopSimulationButton = new JButton("Stop");
+    JButton simResults = new JButton ("Previous Simulation Results");
     JPanel houseTile = new JPanel();
     JPanel houseTileHeader = new JPanel();
     JPanel houseTileIndividualTiles = new JPanel();
@@ -77,6 +78,7 @@ public class MainHouseLayoutGUI {
     JButton Wallbtn = new JButton("Wall");
     JButton Doorwaybtn = new JButton("Doorway");
     JButton Clearbtn = new JButton("Clear");
+    JButton ClearAllbtn = new JButton("Clear All");
     JButton Chairbtn = new JButton("Chair");
     JButton Tablebtn = new JButton("Table");
     JButton Chestbtn = new JButton("Chest");
@@ -167,6 +169,7 @@ public class MainHouseLayoutGUI {
         LayoutFurniture.setBorder(LayoutFurnitureBorder);
         LayoutFurniture.setPreferredSize(new Dimension(300,50));
         LayoutFurniture.add(Clearbtn);
+        LayoutFurniture.add(ClearAllbtn);
         LayoutFurniture.add(Chairbtn) ;
         LayoutFurniture.add(Tablebtn);
         LayoutFurniture.add(Chestbtn);
@@ -301,6 +304,7 @@ public class MainHouseLayoutGUI {
 
         // Add components to Action Panel
         houseActions.setBorder(houseActionsBorder);
+
         houseActions.add(fileHandling,BorderLayout.WEST);
         fileHandling.setBorder(houseFileHandlingBorder);
         fileHandling.add(newHouseLayoutButton);
@@ -309,6 +313,7 @@ public class MainHouseLayoutGUI {
         houseActions.add(simulationActions,BorderLayout.EAST);
         simulationActions.setBorder(houseSimulationBorder);
         simulationActions.add(runSimulationButton);
+        simulationActions.add(simResults);
   //      simulationActions.add(stopSimulationButton);
 
         // set actions for when buttons are clicked
@@ -341,6 +346,15 @@ public class MainHouseLayoutGUI {
         });
 
         Clearbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //          out.println("Chair button in Components Furniture was clicked");
+                inpHouseLayout.clearClick();
+                inpHouseLayout.getlayoutType();
+            }
+        });
+
+        ClearAllbtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //          out.println("Chair button in Components Furniture was clicked");

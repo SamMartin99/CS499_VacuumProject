@@ -110,6 +110,7 @@ public class HouseLayout {
         this.layoutType = "Clear";
         return layoutType;
     }
+
     public String chairClick(){
         this.layoutType = "Chair";
         return layoutType;
