@@ -215,8 +215,10 @@ public class RunSimulation<simulationlayout> {
 
                     // Check to see if the cancel signal was seng
                     if(global.getSimStatus() == 1) {
+                        boolean hasbeenCancel = false;
                         // System.out.println("Stop Simulation");
-                        this.cancel(true);
+                        // a wait to make sure thread has been cancel before closing the simulation gui window 
+                        while (!hasbeenCancel){ hasbeenCancel = this.cancel(true);}  // a wait to make sure thread has been cancel before
                         simulationlayout.closeSimulationLayoutGUI();
                         simulationlayout.storeRunStatistics(algorithm, run_speed, ft,TA , minute );
                     }

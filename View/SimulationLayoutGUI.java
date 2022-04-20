@@ -122,14 +122,21 @@ public class SimulationLayoutGUI  {
      * Author: Marie Held
      */
     public void closeSimulationLayoutGUI(){
-       try {
-           Thread.interrupted();
-           outputMainSimFrame.removeAll();
-           outputMainSimFrame.dispose();
-       }
-       catch (Exception e) {
-           System.out.println(" in catch phase of disposing simulation gui");
-       }
+     //   boolean isDone = true;
+        try {
+           Thread.interrupted(); } // need to avoid Java errors
+        catch (Exception e) {
+               System.out.println(" in catch phase of disposing simulation gui (Thread.interrupted)" + e);
+        }
+    //    try {
+     //      while (isDone) {isDone = Thread.currentThread().isAlive(); } }// loop until all background process have been completed
+    //    catch (Exception e) {
+    //            System.out.println(" in catch phase of disposing simulation gui" + e);
+    //    }
+        outputMainSimFrame.removeAll();
+        outputMainSimFrame.setVisible(false);
+        outputMainSimFrame.dispose();
+
     }
 
     /**
