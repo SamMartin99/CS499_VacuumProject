@@ -15,10 +15,7 @@ import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.io.IOException;
 import Model.RunSimulation;
 import Model.TileArray;
@@ -495,7 +492,7 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String layoutName = "new";
-                HouseLayout myHouse = new HouseLayout(layoutName, arrayBounds); // TEMPORARILY COMMENTED OUT
+                HouseLayout myHouse = new HouseLayout(layoutName, arrayBounds);
             }
         });
 
@@ -527,6 +524,23 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Load button on House Layout was clicked");
+                // Author: Guess Crow
+                // This code block loads house layouts from a given file txt file
+                HouseLayoutFileHandling houseLayoutFile = new HouseLayoutFileHandling(); // Make a new house layout file handling object
+                try {
+                    houseLayoutFile.open(); // Try to open the house file
+                    TileArray temp = houseLayoutFile.readHouseLayoutFile(); // Make a temp tile array to hold data for a new house layout
+                    // Define a static variable to create a new house layout (constructors require it)
+                    staticVariable sv = new staticVariable();
+                    HouseLayout hl = new HouseLayout("test", sv); // Make a new house layout with the data we've read from the file
+                    MainHouseLayoutGUI whatever = new MainHouseLayoutGUI(hl, sv,  temp); // Make a new gui for that house layout
+                    whatever.DisplayHouseLayout(whatever); // Display that new gui
+                    MainHouseLayoutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // for the previously active GUI, set it to close the window but keep the app running
+                    MainHouseLayoutFrame.dispatchEvent(new WindowEvent(MainHouseLayoutFrame, WindowEvent.WINDOW_CLOSING)); // Dispatch a window event to close the previous window
+                    houseLayoutFile.close(); // close the file
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -621,6 +635,9 @@ public class MainHouseLayoutGUI {
         inpFrame.setVisible(true);
     }
 
-
+    public void closeThisJPanel()
+    {
+        MainHouseLayoutFrame.dispatchEvent(new WindowEvent(MainHouseLayoutFrame, WindowEvent.WINDOW_CLOSING));
+    }
 }
 

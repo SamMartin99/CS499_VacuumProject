@@ -13,7 +13,7 @@ import java.io.FileWriter;
 public class HouseLayoutFileHandling {
 //public class HouseLayoutFileHandling extends JFrame { // implements ActionListener{
     // File Attributes
-    private final File fileHouseLayout;
+    private File fileHouseLayout;
     private Scanner fileHouseReader;
     private String houseFileName;
 
@@ -48,6 +48,7 @@ public class HouseLayoutFileHandling {
         }
 
         // Open the file
+        this.fileHouseLayout = new File(houseFileName);
         Scanner fileHouseLayout = new Scanner(new File(houseFileName));
         this.fileHouseReader = fileHouseLayout;
     }
