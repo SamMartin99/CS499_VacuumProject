@@ -117,6 +117,10 @@ public class SimulationLayoutGUI  {
         // inpTileArray.printTileArray();
     }
 
+    /**
+     * Purpose: To close the sumulaiion GUI window after the stop button has been pressed
+     * Author: Marie Held
+     */
     public void closeSimulationLayoutGUI(){
        try {
            Thread.interrupted();
@@ -126,6 +130,22 @@ public class SimulationLayoutGUI  {
        catch (Exception e) {
            System.out.println(" in catch phase of disposing simulation gui");
        }
+    }
+
+    /**
+     * Purpose: To add the results of the latest simulation to the simulation Stats file
+     * Author: Marie Held
+     * @param algorithm which algorithm was used
+     * @param floorType Floor type that was cleaned
+     * @param minute How long the simulation ran
+     * @param run_speed How fast the simulation ran
+     * @param TA The tile array that will be use to calculated the cleaning statistics
+     */
+    public void storeRunStatistics(int algorithm, int run_speed, int floorType,TileArray TA , int [] minute){
+        // calculate the simulation statistics such as size of house and percentage of house cleaned
+        // add code to append data file manipulation
+        System.out.println("In the storeRunStatistics method");
+
     }
 
 

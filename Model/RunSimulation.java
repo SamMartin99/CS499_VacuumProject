@@ -218,6 +218,7 @@ public class RunSimulation<simulationlayout> {
                         // System.out.println("Stop Simulation");
                         this.cancel(true);
                         simulationlayout.closeSimulationLayoutGUI();
+                        simulationlayout.storeRunStatistics(algorithm, run_speed, ft,TA , minute );
                     }
 
                     // Run the algorithms
