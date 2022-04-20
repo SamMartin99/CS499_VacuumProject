@@ -185,6 +185,8 @@ public class houseTile extends JButton {
             {
                 inpTA.clickOneX = this.loc.x;
                 inpTA.clickOneY = this.loc.y;
+                ImageIcon icon = new ImageIcon("halfWallTile.png");
+                this.setIcon(icon);
                 inpTA.firstClick = false;
             }
             return;
