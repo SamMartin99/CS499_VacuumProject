@@ -343,6 +343,7 @@ public class AlgorithmWallFollow {
         wfVacuum.setTileLocation();
         Location nextTileLoc;
 
+        // circuits are the inner loops
         // have reached the initial starting point
         if (x == this.startX) {
             if (y == this.startY) {
@@ -390,7 +391,11 @@ public class AlgorithmWallFollow {
             //    wfVacuum.setY(y);
             nextTile = wfTileArray.getTile(x, y);
 
-            if (nextTile.getType() != 3) { // nextTile is a wall
+            if (nextTile.getType() == 4 || nextTile.getType() == 5 ) { // a chest or chair that be vacuum
+                nextTile = wfTileArray.getTile(x--, y); // skip the tile since it is occupied
+                return nextTile;
+
+            } else if (nextTile.getType() != 3) { // nextTile is a wall
                 //    if (nextTile.getType() != 3 || nextTile.getType() != 4 || nextTile.getType() != 5 ) { // nextTile is a wall
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 //System.out.println("X is: " + x + " Y is: " + y + " Direction is " + global.getVaccumDirectionName(0));
@@ -443,7 +448,10 @@ public class AlgorithmWallFollow {
             //  if (y < wfMinColumns) {y = 1;}
             wfVacuum.setY(y);
             nextTile = wfTileArray.getTile(x, y);
-            if (nextTile.getType() != 3) { // || nextTile.getType() != 4 || nextTile.getType() != 5) { // nextTile is a wall
+            if (nextTile.getType() == 4 || nextTile.getType() == 5 ) { // a chest or chair that be vacuum
+                nextTile = wfTileArray.getTile(x, y--); // skip the tile since it is occupied
+                return nextTile;
+            } else if (nextTile.getType() != 3) { // || nextTile.getType() != 4 || nextTile.getType() != 5) { // nextTile is a wall
                 //    if (nextTile.getType() != 3 || nextTile.getType() != 4 || nextTile.getType() != 5) { // nextTile is a wall
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 //    System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection() + "Wall type is " + nextTile.getType() );
@@ -481,19 +489,8 @@ public class AlgorithmWallFollow {
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 nextTile = wfTileArray.getTile(x, y--);
                 return nextTile;
+            }
 
-            }// else {
-            //   global.setVacuumDirection("South");
-            //   x++;
-            //  if (y == 0 ) {/
-            //  wfVacuum.setX(y);
-            //  nextTile = wfTileArray.getTile(x,y);
-            //System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
-            // change direction to east
-            //wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
-            //nextTile = wfTileArray.getTile(x, y++);
-            //return nextTile;
-            // }
         } else if (global.getVacuumDirection() == 2) {  // Going South
             x++; // move one tile south
             wfVacuum.setX(x);
@@ -505,7 +502,10 @@ public class AlgorithmWallFollow {
                 wfVacuum.setY(y);
             }
             nextTile = wfTileArray.getTile(x, y);
-            if (nextTile.getType() != 3) { // nextTile is a wall
+            if (nextTile.getType() == 4 || nextTile.getType() == 5 ) { // a chest or chair that be vacuum
+                nextTile = wfTileArray.getTile(x++, y); // skip the tile since it is occupied
+                return nextTile;
+            }else if (nextTile.getType() != 3) { // nextTile is a wall
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 //  System.out.println("X is: "+ x + " Y is: " + y +  " Direction is " + global.getVaccumDirectionName(2));
                 nextTile = wfTileArray.getTile(x++, y);
@@ -537,7 +537,10 @@ public class AlgorithmWallFollow {
             wfVacuum.setY(y);
             nextTile = wfTileArray.getTile(x, y);
             //System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
-            if (nextTile.getType() != 3) { // nextTile is a wall
+            if (nextTile.getType() == 4 || nextTile.getType() == 5 ) { // a chest or chair that be vacuum
+                nextTile = wfTileArray.getTile(x, y++); // skip the tile since it is occupied
+                return nextTile;
+            }else if (nextTile.getType() != 3) { // nextTile is a wall
                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
                 //  System.out.println("X is: "+ x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
                 nextTile = wfTileArray.getTile(x, y++);
