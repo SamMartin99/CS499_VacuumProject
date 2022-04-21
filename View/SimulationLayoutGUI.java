@@ -105,7 +105,9 @@ public class SimulationLayoutGUI  {
         outputMainSimFrame.add(simTiles);
         simActions.add(stopSimulation);
         outputMainSimFrame.add(simActions,BorderLayout.SOUTH);
-        outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+     //   outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    //    outputMainSimFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        outputMainSimFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         stopSimulation.addActionListener(new ActionListener() {
             @Override
@@ -125,18 +127,13 @@ public class SimulationLayoutGUI  {
      //   boolean isDone = true;
         try {
            Thread.interrupted(); } // need to avoid Java errors
+
         catch (Exception e) {
                System.out.println(" in catch phase of disposing simulation gui (Thread.interrupted)" + e);
         }
-    //    try {
-     //      while (isDone) {isDone = Thread.currentThread().isAlive(); } }// loop until all background process have been completed
-    //    catch (Exception e) {
-    //            System.out.println(" in catch phase of disposing simulation gui" + e);
-    //    }
         outputMainSimFrame.removeAll();
         outputMainSimFrame.setVisible(false);
         outputMainSimFrame.dispose();
-
     }
 
     /**
