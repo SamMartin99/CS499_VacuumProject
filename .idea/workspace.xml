@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Bug tested AlgorithmSnake. Seems to be working now.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +48,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.google.cloudcode.ide_session_index" value="20220420_0003" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS490Phase2" />
+    <property name="com.google.cloudcode.ide_session_index" value="20220421_0000" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/House Layout Files" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\CS499_VacuumProject_V\House Layout Files" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CS499_VacuumProject_V\House Layout Files" />
       <recent name="D:\CS499_VacuumProject\Startup" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -89,13 +89,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643481028424</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Changes: commented out test code for the file handling routine">
-      <created>1647202977419</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1647202977419</updated>
     </task>
     <task id="LOCAL-00010" summary="Changes:new file for the house layout gui">
       <created>1648238661236</created>
@@ -433,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650510517335</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Changes: add a house layout that has a room to test wall follow and inner walls; comment out code for clear all button">
+      <created>1650540454271</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1650540454271</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -448,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
     <MESSAGE value="Changes: fix a bug with the labels on the house layout GUI" />
     <MESSAGE value="Changes: add the class AAlgorithmWallFollow in the Model Package;" />
     <MESSAGE value="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)" />
@@ -473,6 +472,7 @@
     <MESSAGE value="updated the wall follow AlgorithmWallFollow" />
     <MESSAGE value="added the simulation Results button to the MainHouseLayoutGUI" />
     <MESSAGE value="Changes: Bug tested AlgorithmSnake. Seems to be working now." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: Bug tested AlgorithmSnake. Seems to be working now." />
+    <MESSAGE value="Changes: add a house layout that has a room to test wall follow and inner walls; comment out code for clear all button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: add a house layout that has a room to test wall follow and inner walls; comment out code for clear all button" />
   </component>
 </project>

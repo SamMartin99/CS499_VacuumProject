@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="added the simulation Results button to the MainHouseLayoutGUI">
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmWallFollow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmWallFollow.class" afterDir="false" />
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Bug tested AlgorithmSnake. Seems to be working now.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,13 +89,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643481028424</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Changes: fix the write method so that it compiles and program builds">
-      <created>1647200074680</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1647200074681</updated>
     </task>
     <task id="LOCAL-00009" summary="Changes: commented out test code for the file handling routine">
       <created>1647202977419</created>
@@ -430,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650472942151</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Changes: Bug tested AlgorithmSnake. Seems to be working now.">
+      <created>1650510517335</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1650510517335</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -445,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: fixed a bug ; was setting the wrong button" />
     <MESSAGE value="Changes: add code to programmically get the SimTileGUI buttons both by name and number; then generate a pointer that references the exising button so that methods can be called. see lines 149 to 163 for details." />
     <MESSAGE value="Changes: fix a bug with the labels on the house layout GUI" />
     <MESSAGE value="Changes: add the class AAlgorithmWallFollow in the Model Package;" />
@@ -470,6 +472,7 @@
     <MESSAGE value="in RunSimulation added a call after the simulation is stop to calculate and store run statistics&#10;in SimulationLayoutGUI add a method to calculate the run statistics and store to the appropriate file" />
     <MESSAGE value="updated the wall follow AlgorithmWallFollow" />
     <MESSAGE value="added the simulation Results button to the MainHouseLayoutGUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the simulation Results button to the MainHouseLayoutGUI" />
+    <MESSAGE value="Changes: Bug tested AlgorithmSnake. Seems to be working now." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: Bug tested AlgorithmSnake. Seems to be working now." />
   </component>
 </project>
