@@ -8,6 +8,11 @@ package Startup;
 
 import Model.TileArray;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class HouseLayout {
     // Attributes
 //    private final int dim1 = 10; // maxTileArrayRow; // These define the maximum size of the array of tiles
@@ -38,8 +43,8 @@ public class HouseLayout {
        }
 
        // Create a new Tile Array for the simulation
-      //  simTileArray = new TileArray(dim1,dim2);
-        simTileArray = new TileArray(arrayBounds);
+        simTileArray = new TileArray(dim1,dim2); // makes tile array of set dimensions
+        // simTileArray = new TileArray(arrayBounds);
 
        // Set all tiles to empty -- Empty Type has a value of 1
        for (int i = 0; i < dim1; i++){
@@ -47,9 +52,6 @@ public class HouseLayout {
                simTileArray.setTile(i,j,1);
            }
        }
-    //   simTileArray.printTileArray();
-
-
        // default floor type is 1 (hardwood)
        this.floorType = 1;
     }
@@ -109,6 +111,11 @@ public class HouseLayout {
         return layoutType;
     }
 
+    public String clearClick(){
+        this.layoutType = "Clear";
+        return layoutType;
+    }
+
     public String chairClick(){
         this.layoutType = "Chair";
         return layoutType;
@@ -152,4 +159,5 @@ public class HouseLayout {
         this.layoutType = "Vacuum";
         return layoutType;
     }
+
 }

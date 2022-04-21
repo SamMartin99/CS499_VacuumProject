@@ -1,4 +1,6 @@
 package Startup;
+import Model.TileArray;
+
 import javax.swing.*;
 import java.io.*;
 import java.util.Scanner;
@@ -11,11 +13,17 @@ import java.io.FileWriter;
 public class HouseLayoutFileHandling {
 //public class HouseLayoutFileHandling extends JFrame { // implements ActionListener{
     // File Attributes
-    private final File fileHouseLayout;
+    private File fileHouseLayout;
     private Scanner fileHouseReader;
     private String houseFileName;
 
-    // a default constructor {
+    // a default constructor that takes in a given file
+    public HouseLayoutFileHandling(File f)
+    {
+        fileHouseLayout = f;
+    }
+
+    // overloaded constructor for not having a default house file
     public HouseLayoutFileHandling()
     {
         fileHouseLayout = null;
@@ -40,6 +48,7 @@ public class HouseLayoutFileHandling {
         }
 
         // Open the file
+        this.fileHouseLayout = new File(houseFileName);
         Scanner fileHouseLayout = new Scanner(new File(houseFileName));
         this.fileHouseReader = fileHouseLayout;
     }
@@ -47,6 +56,34 @@ public class HouseLayoutFileHandling {
     public void close() throws IOException {
         // Close the file
         this.fileHouseReader.close();
+    }
+
+    // written by Guess Crow
+    // Read in the data from the open house layout file, and returns it as a tile array object
+    public TileArray readHouseLayoutFile() throws IOException
+    {
+        this.fileHouseReader = new Scanner(fileHouseLayout); // Make a new scanner with this object's file
+        String houseLayoutName = this.fileHouseReader.nextLine(); // The first line contains the name
+        int length = this.fileHouseReader.nextInt(); // the next line will contain the length and height of the house
+        int width = this.fileHouseReader.nextInt();
+
+        TileArray workingTA = new TileArray(length, width); // Create a new TileArray to populate with type data
+
+        // Using for loops, i and j, to set the appropriate tile within our TileArray
+        for(int i = 0; i < length; i++)
+        {
+            for(int j = 0; j < width; j++)
+            {
+                if(this.fileHouseReader.hasNextInt())
+                {
+                    int test = this.fileHouseReader.nextInt();
+                    // System.out.print(test);
+                    workingTA.setTile(i, j, test);
+                }
+            }
+            // System.out.println();
+        }
+        return workingTA;
     }
 
     // public HouseLayout readHouseLayout(Scanner inpfilehouseLayout){  // in final product

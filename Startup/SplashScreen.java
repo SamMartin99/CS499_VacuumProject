@@ -9,6 +9,7 @@ package Startup;// This is a test program for using java and GitHub for CS 499, 
 
 // Imports for using java's swing GUI functionality
 
+import Model.TileArray;
 import View.MainHouseLayoutGUI;
 
 import javax.swing.*;
@@ -57,8 +58,22 @@ public class SplashScreen {
                 splashScreenFrame.setVisible(false);  //mh
                 splashScreenFrame.dispose();          //mh  Close out the splash screen and remove any associated memory
                 staticVariable arrayBounds = new staticVariable();
-                HouseLayout myhouse = new HouseLayout("default", arrayBounds);
-                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse,arrayValues);  // mh create a house layout object
+
+                // Code block for loading default house layout from file
+                HouseLayoutFileHandling fileReader = new HouseLayoutFileHandling(new File("House Layout Files\\defaultHouseLayoutFile.txt")); // Grab the default house file
+                HouseLayout myhouse = null; // Create a new HouseLayout
+                TileArray testArr = null;
+                try {
+                    fileReader.readHouseLayoutFile().printTileArray();
+                    testArr = fileReader.readHouseLayoutFile();
+                    System.out.println("Sucessfully got the default house layout");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                // Gotta put this in a try/catch block due to file handling
+                myhouse = new HouseLayout("default", arrayBounds); // Populate the HouseLayout with data from the default file
+
+                MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse,arrayValues, testArr);  // mh create a house layout object
                 MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
 
             }
@@ -78,8 +93,6 @@ public class SplashScreen {
         splashScreenFrame.setVisible(true);
 
     }
-
-
 
     public static void main(String[] args) throws IOException {
 

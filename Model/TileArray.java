@@ -14,21 +14,24 @@ public class TileArray {
      */
     private int length;
     private int width;
-    private Tile[][] TA = new Tile[length][width];
-    public Location prevVacuumLoc; // This is just used for the GUI, to remove old vacuum icons
+    private Tile[][] TA;
+    public Location prevVacuumLoc = new Location (0, 0); // This is just used for the GUI, to remove old vacuum icons
     public Location vacuumStartLoc = new Location (0, 0); // This holds the vacuum's starting position, defaults to 0,0
-
+    public boolean firstClick = true;
+    public int clickOneX = 0;
+    public int clickOneY = 0;
+    public int clickTwoX = 0;
+    public int clickTwoY = 0;
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
      */
-    // public TileArray(int length, int width) {
-    public TileArray(staticVariable inpArrayBounds) {
-    // this.length = length;
-    // this.width = width;
-    this.length = inpArrayBounds.getMaxRow();
-    this.width = inpArrayBounds.getMaxColumn();
+     public TileArray(int length, int width) {
+    // public TileArray(staticVariable inpArrayBounds) {
+    this.length = length;
+    this.width = width;
+    // this.length = inpArrayBounds.getMaxRow();
+    // this.width = inpArrayBounds.getMaxColumn();
     TA = new Tile[this.length][this.width];
-
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
                 TA[i][j] = new Tile();

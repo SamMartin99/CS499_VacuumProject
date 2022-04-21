@@ -9,20 +9,25 @@ import Startup.staticVariable;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static javax.swing.text.StyleConstants.setIcon;
 
 // public class SimulationLayoutGUI (TileArray inpTileArray) {
 
 /**
- * @Author Marie Held
+ * Author Marie Held
  * Purpose To display the simulation gui
  */
-public class SimulationLayoutGUI {
+public class SimulationLayoutGUI  {
 
     // Attributes
     JFrame outputMainSimFrame = new JFrame("Simulation Output");
     JPanel simTiles = new JPanel(); // Panel that holds the buttons for the array
+    JPanel simActions = new JPanel();
+
+    JButton stopSimulation = new JButton("Stop Simulation");
 
     Border simTilesWallBorder;
     Border simTilesChairBorder;
@@ -31,9 +36,10 @@ public class SimulationLayoutGUI {
     private int simNumComponents;
 
     /**
-     * @Author Marie Held
-     * @param inpTileArray
-     * @param inpGlobal
+     * Author Marie Held
+     * @param inpTileArray the incoming tile array
+     * @param inpGlobal the set of global variables that define direction and array dimensions
+     *
      */
     // Default constructor
     public SimulationLayoutGUI(TileArray inpTileArray, staticVariable inpGlobal) {
@@ -41,6 +47,8 @@ public class SimulationLayoutGUI {
         int simTileColumn = inpTileArray.getWidth();
         SimTileGUI simTileButton;
         Tile tileRef;
+
+        inpGlobal.setSimStatus(0);
 
         this.global = inpGlobal;
         simNumComponents = global.getNumSimTilesComponent();
@@ -95,16 +103,65 @@ public class SimulationLayoutGUI {
 
         // outputMainSimFrame.add(simTiles,gblSimTiles);
         outputMainSimFrame.add(simTiles);
+        simActions.add(stopSimulation);
+        outputMainSimFrame.add(simActions,BorderLayout.SOUTH);
         outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        stopSimulation.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                inpGlobal.setSimStatus(1); // stop indicator
+            }
+        });
 
         // inpTileArray.printTileArray();
     }
 
     /**
+     * Purpose: To close the sumulaiion GUI window after the stop button has been pressed
+     * Author: Marie Held
+     */
+    public void closeSimulationLayoutGUI(){
+     //   boolean isDone = true;
+        try {
+           Thread.interrupted(); } // need to avoid Java errors
+        catch (Exception e) {
+               System.out.println(" in catch phase of disposing simulation gui (Thread.interrupted)" + e);
+        }
+    //    try {
+     //      while (isDone) {isDone = Thread.currentThread().isAlive(); } }// loop until all background process have been completed
+    //    catch (Exception e) {
+    //            System.out.println(" in catch phase of disposing simulation gui" + e);
+    //    }
+        outputMainSimFrame.removeAll();
+        outputMainSimFrame.setVisible(false);
+        outputMainSimFrame.dispose();
+
+    }
+
+    /**
+     * Purpose: To add the results of the latest simulation to the simulation Stats file
+     * Author: Marie Held
+     * @param algorithm which algorithm was used
+     * @param floorType Floor type that was cleaned
+     * @param minute How long the simulation ran
+     * @param run_speed How fast the simulation ran
+     * @param TA The tile array that will be use to calculated the cleaning statistics
+     */
+    public void storeRunStatistics(int algorithm, int run_speed, int floorType,TileArray TA , int [] minute){
+        // calculate the simulation statistics such as size of house and percentage of house cleaned
+        // add code to append data file manipulation
+        System.out.println("In the storeRunStatistics method");
+
+    }
+
+
+
+    /**
      * Display the Simulation Layout Screen
      *
      * @return
-     * @parm
+     *
      */
     public void displaySimulationLayout(SimulationLayoutGUI inpSimulationLayoutGUI) {
 
@@ -131,15 +188,15 @@ public class SimulationLayoutGUI {
     }
 
     /**
-     * @Author Marie Held
-     * @Purpose To retrieve the simulation component name
-     * @param x
-     * @param y
+     * Author Marie Held
+     * Purpose To retrieve the simulation component name
+     * @param x x value of the tile
+     * @param y y value of the tile
      * Simulation Names are in the format of SimTileXXYY where XX is the x value and YY is the Y value
      * @return a String that contains the component name
      */
     public String getSimTileName(int x, int y) {
-        String componentName = "";
+        String componentName;
         String compX;
         String compY;
         int icompX;
@@ -163,10 +220,10 @@ public class SimulationLayoutGUI {
 
     /**
      *
-     * @Author Marie Held
+     * Author Marie Held
      * @param inpComponentName The name of the simulation button component
-     * @return If success returns The component number of the simulation button
-     * @return if failure (simulation button does not exist) - 1
+     * @return If success returns The component number of the simulation button; if failure (simulation button does not exist) - 1
+     *
      */
     public int getComponentNumber (String inpComponentName ){
 
@@ -184,7 +241,7 @@ public class SimulationLayoutGUI {
     }
 
     /**
-     * @Author Marie Held, Bryant Terry
+     * Author Marie Held, Bryant Terry
      * @param inpX
      * @param inpY
      * @param inpComponentNumber

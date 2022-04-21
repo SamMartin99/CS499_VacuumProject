@@ -8,6 +8,7 @@ public class staticVariable {
     private int minColumn;
     private int vacuumDirection;
     private int numSimTilesComponent;
+    private int simulationStatus ; // indicator use to signal that the simulation should be stopped
 
     // default constructor Note initial values have already been set
     public staticVariable(){
@@ -17,6 +18,7 @@ public class staticVariable {
         this.minColumn = 0;
         this.vacuumDirection =0;
         this.numSimTilesComponent = maxRow * maxColumn;
+        this.simulationStatus = 0;
     }
 
     //getters
@@ -43,6 +45,16 @@ public class staticVariable {
         if (inpDirection.compareTo("East")==0) {return 3;}
         return -1; // unknown direction
     }
+    /**
+     * Purpose to get the value of simulationStatus
+     * Author Marie Held
+     * @return the simStatus value
+     */
+    public int getSimStatus(){
+        return this.simulationStatus;
+    }
+
+
 
     public int getNumSimTilesComponent () {return numSimTilesComponent;}
 
@@ -246,6 +258,14 @@ public class staticVariable {
             newX = -1;
             return newX;
         }
+    }
+
+    /**
+     * Purpose to set the value of simulationStatus
+     * Author Marie Held
+     */
+    public void setSimStatus(int inpSimStatus){
+        this.simulationStatus = inpSimStatus;
     }
 
 }
