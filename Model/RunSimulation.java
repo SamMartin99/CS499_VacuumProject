@@ -185,6 +185,7 @@ public class RunSimulation<simulationlayout> {
         final int[] h_or_v = {0};
         final int[] f_or_b = {0};
         final int[] transition = {0};
+        final int[][] return_snake = new int[1][1];
 
         int algorithm = this.algorithm;
         int ft = this.ft;
@@ -220,7 +221,7 @@ public class RunSimulation<simulationlayout> {
                         // a wait to make sure thread has been cancel before closing the simulation gui window 
                         while (!hasbeenCancel){ hasbeenCancel = this.cancel(true);}  // a wait to make sure thread has been cancel before
                         simulationlayout.closeSimulationLayoutGUI();
-                    //    simulationlayout.storeRunStatistics(algorithm, run_speed, ft,TA , minute );
+                        // simulationlayout.storeRunStatistics(algorithm, run_speed, ft,TA , minute );
                     }
 
                     // Run the algorithms
@@ -238,7 +239,13 @@ public class RunSimulation<simulationlayout> {
                     // Snake
                     else if (algorithm == 3)
                     {
-                        transition[0] = newAlgSnake.algorithm_snake(h_or_v[0], f_or_b[0], transition[0], TA, V, ft, simulationlayout);
+                        return_snake[0] = newAlgSnake.algorithm_snake(h_or_v[0], f_or_b[0], transition[0], TA, V, ft, simulationlayout);
+                        h_or_v[0] = return_snake[0][0];
+                        f_or_b[0] = return_snake[0][1];
+                        transition[0] = return_snake[0][2];
+                        // System.out.println("h_or_v: " + return_snake[0][0]);
+                        // System.out.println("f_or_b: " + return_snake[0][1]);
+                        // System.out.println("transition: " + return_snake[0][2]);
                     }
                     // Wall Follow
                     else if (algorithm == 4)

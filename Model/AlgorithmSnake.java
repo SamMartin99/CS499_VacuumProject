@@ -17,15 +17,19 @@ public class AlgorithmSnake {
      * Purpose: Calculates vacuum path using a snaking algorithm. The vacuum will head in a straight direction,
      * until it hits a wall, at which point it will move to the side and begin to move in the opposite direction.
      */
-    public int algorithm_snake(int h_or_v, int f_or_b, int transition, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
+    public int[] algorithm_snake(int h_or_v, int f_or_b, int transition, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
         Random rand = new Random();
         double old_clean;
+        // h_or_v, f_or_b, transition
+        int return_array[] = {h_or_v, f_or_b, transition};
 
         // First perform transition if necessary, and determine if the direction needs to be changed.
         if (transition == 1)
         {
-            System.out.println("Transition hit.");
+            // transition = 0;
+            return_array[2] = 0;
+
             if (h_or_v == 0)
             {
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
@@ -41,8 +45,10 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    h_or_v = 1;
+                    // h_or_v = 1;
+                    return_array[0] = 1;
                 }
+
             }
             else
             {
@@ -59,11 +65,24 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    h_or_v = 0;
+                    // h_or_v = 0;
+                    return_array[0] = 0;
                 }
+
             }
 
-            return 0;
+            if (f_or_b == 0)
+            {
+                // f_or_b = 1;
+                return_array[1] = 1;
+            }
+            else
+            {
+                // f_or_b = 0;
+                return_array[1] = 0;
+            }
+
+            return return_array;
         }
 
         // Horizontal
@@ -72,6 +91,7 @@ public class AlgorithmSnake {
             // Right
             if (f_or_b == 0)
             {
+                // System.out.println("Right hit");
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
@@ -85,12 +105,14 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    return 1;
+                    return_array[2] = 1;
+                    return return_array;
                 }
             }
             // Left
             else
             {
+                // System.out.println("Left hit");
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
@@ -103,7 +125,8 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    return 1;
+                    return_array[2] = 1;
+                    return return_array;
                 }
             }
         }
@@ -113,6 +136,7 @@ public class AlgorithmSnake {
             // Upwards
             if (f_or_b == 0)
             {
+                // System.out.println("Up hit");
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), V.getY());
@@ -126,12 +150,14 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    return 1;
+                    return_array[2] = 1;
+                    return return_array;
                 }
             }
             // Downwards
             else
             {
+                // System.out.println("Down hit");
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), V.getY());
@@ -145,12 +171,13 @@ public class AlgorithmSnake {
                 }
                 else
                 {
-                    return 1;
+                    return_array[2] = 1;
+                    return return_array;
                 }
             }
         }
 
-        return 0;
+        return return_array;
     }
 
     /* Name: calculate_clean
