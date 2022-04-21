@@ -17,16 +17,16 @@ public class AlgorithmSpiral {
      * Purpose: Calculates vacuum path using a spiral algorithm. The vacuum will perform a spiral
      * if there is enough space to begin one, and will continue the spiral until it hits an obstacle.
      */
-    public int algorithm_spiral(int direction, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
+    public int[] algorithm_spiral(int spiral_count, int spiral_length, int spiral_progress, int direction, int spiral_confirm, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
         Random rand = new Random();
         double old_clean;
 
-        // If the current direction has an obstacle ahead, generate a new direction,
-        // and don't count that as a second.
+        int return_array[] = {spiral_count, spiral_length, spiral_progress, direction, spiral_confirm};
+
         switch (direction)
         {
-            // North
+            // East
             case 0:
                 if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
@@ -38,33 +38,21 @@ public class AlgorithmSpiral {
 
                     V.setX(V.getX());
                     V.setY(V.getY() - 1);
+
+                    spiral_confirm = 1;
+                    spiral_progress++;
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    direction = cycle_direction(direction);
+                    spiral_length = 1;
+                    spiral_progress = 0;
+                    spiral_count = 1;
+                    spiral_confirm = 0;
                 }
-                System.out.println("North hit");
+                // System.out.println("East hit");
                 break;
-            // Northeast
-            case 1:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
-                {
-                    Location vacuumLocation = new Location((V.getX() + 1), (V.getY() - 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() + 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY() - 1);
-                }
-                else
-                {
-                    direction = rand.nextInt(8);
-                }
-                System.out.println("Northeast hit");
-                break;
-            // East
+            // South
             case 2:
                 if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
@@ -76,33 +64,21 @@ public class AlgorithmSpiral {
 
                     V.setX(V.getX() + 1);
                     V.setY(V.getY());
+
+                    spiral_confirm = 1;
+                    spiral_progress++;
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    direction = cycle_direction(direction);
+                    spiral_length = 1;
+                    spiral_progress = 0;
+                    spiral_count = 1;
+                    spiral_confirm = 0;
                 }
-                System.out.println("East");
+                // System.out.println("South");
                 break;
-            // Southeast
-            case 3:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
-                {
-                    Location vacuumLocation = new Location((V.getX() + 1), (V.getY() + 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() + 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() + 1), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY() + 1);
-                }
-                else
-                {
-                    direction = rand.nextInt(8);
-                }
-                System.out.println("Southeast hit");
-                break;
-            // South
+            // West
             case 4:
                 if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
@@ -114,32 +90,21 @@ public class AlgorithmSpiral {
 
                     V.setX(V.getX());
                     V.setY(V.getY() + 1);
+
+                    spiral_confirm = 1;
+                    spiral_progress++;
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    direction = cycle_direction(direction);
+                    spiral_length = 1;
+                    spiral_progress = 0;
+                    spiral_count = 1;
+                    spiral_confirm = 0;
                 }
+                // System.out.println("West hit");
                 break;
-            // Southwest
-            case 5:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
-                {
-                    Location vacuumLocation = new Location((V.getX() - 1), (V.getY() + 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() - 1), (V.getY() + 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY() + 1);
-                }
-                else
-                {
-                    direction = rand.nextInt(8);
-                }
-                System.out.println("Southwest hit");
-                break;
-            // West
+            // North
             case 6:
                 if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
@@ -151,35 +116,41 @@ public class AlgorithmSpiral {
 
                     V.setX(V.getX() - 1);
                     V.setY(V.getY());
+
+                    spiral_confirm = 1;
+                    spiral_progress++;
                 }
                 else
                 {
-                    direction = rand.nextInt(8);
+                    direction = cycle_direction(direction);
+                    spiral_length = 1;
+                    spiral_progress = 0;
+                    spiral_count = 0;
+                    spiral_confirm = 0;
                 }
-                System.out.print("West hit");
-                break;
-            // Northwest
-            case 7:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
-                {
-                    Location vacuumLocation = new Location((V.getX() - 1), (V.getY() - 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() - 1), (V.getY() - 1)).getClean();
-                    TA.setTileClean((V.getX() - 1), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY() - 1);
-                }
-                else
-                {
-                    direction = rand.nextInt(8);
-                }
-                System.out.println("Northwest hit");
+                // System.out.println("North hit");
                 break;
         }
 
-        return direction;
+        if (spiral_confirm == 1)
+        {
+            if (spiral_count <= 2)
+            {
+                if (spiral_progress > spiral_length)
+                {
+                    direction = cycle_direction(direction);
+                    spiral_progress = 0;
+                    spiral_count++;
+                }
+            }
+            else
+            {
+                spiral_count = 0;
+                spiral_length++;
+            }
+        }
+
+        return return_array;
     }
 
     /* Name: calculate_clean
@@ -243,5 +214,33 @@ public class AlgorithmSpiral {
         }
 
         return obstacle;
+    }
+
+
+    /* Name: cycle_direction
+     * Parameters: int direction
+     * Return: new direction
+     * Purpose: Cycles the direction for the spiral.
+     */
+    private int cycle_direction (int direction)
+    {
+        if (direction == 0)
+        {
+            return 6;
+        }
+        else if (direction == 6)
+        {
+            return 4;
+        }
+        else if (direction == 4)
+        {
+            return 2;
+        }
+        else if (direction == 2)
+        {
+            return 0;
+        }
+
+        return 0;
     }
 }
