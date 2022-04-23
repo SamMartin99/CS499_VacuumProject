@@ -75,7 +75,7 @@ public class MainHouseLayoutGUI {
     JButton Wallbtn = new JButton("Wall");
     JButton Doorwaybtn = new JButton("Doorway");
     JButton Clearbtn = new JButton("Clear");
-    JButton ClearAllbtn = new JButton("Clear All");
+  //  JButton ClearAllbtn = new JButton("Clear All");
     JButton Chairbtn = new JButton("Chair");
     JButton Tablebtn = new JButton("Table");
     JButton Chestbtn = new JButton("Chest");
@@ -166,7 +166,7 @@ public class MainHouseLayoutGUI {
         LayoutFurniture.setBorder(LayoutFurnitureBorder);
         LayoutFurniture.setPreferredSize(new Dimension(300,50));
         LayoutFurniture.add(Clearbtn);
-        LayoutFurniture.add(ClearAllbtn);
+    //    LayoutFurniture.add(ClearAllbtn);
         LayoutFurniture.add(Chairbtn) ;
         LayoutFurniture.add(Tablebtn);
         LayoutFurniture.add(Chestbtn);
@@ -351,14 +351,14 @@ public class MainHouseLayoutGUI {
             }
         });
 
-        ClearAllbtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //          out.println("Chair button in Components Furniture was clicked");
-                inpHouseLayout.clearClick();
-                inpHouseLayout.getlayoutType();
-            }
-        });
+ //       ClearAllbtn.addActionListener(new ActionListener() {
+ //           @Override
+ //           public void actionPerformed(ActionEvent e) {
+ //               //          out.println("Chair button in Components Furniture was clicked");
+ //               inpHouseLayout.clearClick();
+ //               inpHouseLayout.getlayoutType();
+ //           }
+ //       });
 
         Chairbtn.addActionListener(new ActionListener() {
             @Override
