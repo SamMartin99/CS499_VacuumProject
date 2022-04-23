@@ -216,7 +216,7 @@ public class RunSimulation<simulationlayout> {
                     if (minute[0] >= 60000)
                     {
                         V.setBattery(V.getBattery() - 1);
-                        System.out.println("A minute has passed.");
+                        // System.out.println("A minute has passed.");
                         minute[0] = minute[0] - 60000;
                     }
 

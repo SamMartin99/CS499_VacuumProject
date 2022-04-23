@@ -81,10 +81,29 @@ public class SimTileGUI extends JButton {
      * be set to white. Final version of this should account for
      * different versions of tiles.
      */
-    public void setNonVacuumLocation(Location newVacuumLoc){
+    public void setNonVacuumLocation(Location newVacuumLoc, int oldType){
         ImageIcon icon;
-        icon = new ImageIcon("plainTile.png");
-        this.setIcon(icon);
+
+        if (oldType == 1)
+        {
+            icon = new ImageIcon("plainTile.png");
+            this.setIcon(icon);
+        }
+        else if (oldType == 2)
+        {
+            icon = new ImageIcon("doorTile.png");
+            this.setIcon(icon);
+        }
+        else if (oldType == 5)
+        {
+            icon = new ImageIcon("chairTile.png");
+            this.setIcon(icon);
+        }
+        else if (oldType == 6)
+        {
+            icon = new ImageIcon("tableTile.png");
+            this.setIcon(icon);
+        }
     }
 
     private void setImageIcon()

@@ -66,6 +66,7 @@ public class TileArray {
         String simOldTileName;
         int simTileNumber;
         int simOldTileNumber;
+        int oldType = TA[prevVacuumLoc.getLocX()][prevVacuumLoc.getLocY()].getType();
 
         SimTileGUI simTileButton;
         Tile tileRef;
@@ -76,7 +77,7 @@ public class TileArray {
         simTileNumber = inpsimulationLayout.getComponentNumber(simTileName);
         simOldTileNumber = inpsimulationLayout.getComponentNumber(simOldTileName);
         // System.out.println(simTileNumber);
-        inpsimulationLayout.setVacuumTile(i,j,simTileNumber, simOldTileNumber, prevVacuumLoc);
+        inpsimulationLayout.setVacuumTile(i,j,simTileNumber, simOldTileNumber, prevVacuumLoc, oldType);
     }
 
     public int getLength() {return this.length;}

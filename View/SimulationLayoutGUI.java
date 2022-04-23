@@ -247,7 +247,7 @@ public class SimulationLayoutGUI  {
      * @Purpose: Set the current vacuum tile and send necessary info to the output.
      * Also, send the previously-occupied tile, so that its appearance can be reset.
      */
-    public void setVacuumTile(int inpX, int inpY, int inpComponentNumber, int inpOldComponentNumber, Location prev){
+    public void setVacuumTile(int inpX, int inpY, int inpComponentNumber, int inpOldComponentNumber, Location prev, int oldType){
         // String tileName;
         // int tileNumber;
 
@@ -256,7 +256,7 @@ public class SimulationLayoutGUI  {
         vacuumTile.setVacuumLocation(tilelocation);
 
         SimTileGUI nonvacuumTile = (SimTileGUI) simTiles.getComponent(inpOldComponentNumber);
-        nonvacuumTile.setNonVacuumLocation(prev);
+        nonvacuumTile.setNonVacuumLocation(prev, oldType);
 
         // vacuumTile.setNonVacuumLocation(prev);
         // tileName = this.getSimTileName(inpX,inpY);
