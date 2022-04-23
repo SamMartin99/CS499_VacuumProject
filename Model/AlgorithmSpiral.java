@@ -21,8 +21,6 @@ public class AlgorithmSpiral {
     {
         double old_clean;
 
-        System.out.println(direction);
-
         switch (direction)
         {
             // East
@@ -43,6 +41,9 @@ public class AlgorithmSpiral {
                 else
                 {
                     direction = cycle_direction(direction);
+                    spiral_count = 0;
+                    spiral_length = 1;
+                    spiral_progress = 0;
                 }
                 // System.out.println("East hit");
                 break;
@@ -64,8 +65,11 @@ public class AlgorithmSpiral {
                 else
                 {
                     direction = cycle_direction(direction);
+                    spiral_count = 0;
+                    spiral_length = 1;
+                    spiral_progress = 0;
                 }
-                // System.out.println("South");
+                // System.out.println("South hit");
                 break;
             // West
             case 5:
@@ -85,6 +89,9 @@ public class AlgorithmSpiral {
                 else
                 {
                     direction = cycle_direction(direction);
+                    spiral_count = 0;
+                    spiral_length = 1;
+                    spiral_progress = 0;
                 }
                 // System.out.println("West hit");
                 break;
@@ -106,27 +113,26 @@ public class AlgorithmSpiral {
                 else
                 {
                     direction = cycle_direction(direction);
+                    spiral_count = 0;
+                    spiral_length = 1;
+                    spiral_progress = 0;
                 }
                 // System.out.println("North hit");
                 break;
         }
 
-        /*
         if (spiral_progress >= spiral_length)
         {
             direction = cycle_direction(direction);
-            System.out.println(direction);
             spiral_count++;
+            spiral_progress = 0;
         }
-         */
 
-        /*
         if (spiral_count >= 2)
         {
             spiral_length++;
             spiral_count = 0;
         }
-         */
 
         int return_array[] = {spiral_count, spiral_length, spiral_progress, direction};
 
