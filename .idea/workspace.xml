@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Bug tested AlgorithmSnake. Seems to be working now.">
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Ignore.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSnake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSnake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

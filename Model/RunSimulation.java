@@ -182,14 +182,13 @@ public class RunSimulation<simulationlayout> {
         // f_or_b: For determining if SnakeAlgorithm is travelling forwards or backwards.
         // transition: For determining if SnakeAlgorithm needs to perform a transition.
         final int[] direction = {(int) Math.floor(Math.random() * 8)};
-        final int[] spiral_direction = {0};
+        final int[] spiral_direction = {1};
         final int[] h_or_v = {0};
         final int[] f_or_b = {0};
         final int[] transition = {0};
         final int[] spiral_count = {0};
-        final int[] spiral_length = {0};
+        final int[] spiral_length = {1};
         final int[] spiral_progress = {0};
-        final int[] spiral_confirm = {0};
 
         final int[][] return_snake = new int[1][1];
         final int[][] return_spiral = new int[1][1];
@@ -241,12 +240,11 @@ public class RunSimulation<simulationlayout> {
                     // Spiral
                     else if (algorithm == 2)
                     {
-                        return_spiral[0] = newAlgSpiral.algorithm_spiral(spiral_count[0], spiral_length[0], spiral_progress[0], spiral_direction[0], spiral_confirm[0], TA, V, ft, simulationlayout);
+                        return_spiral[0] = newAlgSpiral.algorithm_spiral(spiral_count[0], spiral_length[0], spiral_progress[0], spiral_direction[0], TA, V, ft, simulationlayout);
                         spiral_count[0] = return_spiral[0][0];
                         spiral_length[0] = return_spiral[0][1];
                         spiral_progress[0] = return_spiral[0][2];
                         spiral_direction[0] = return_spiral[0][3];
-                        spiral_confirm[0] = return_spiral[0][4];
                     }
                     // Snake
                     else if (algorithm == 3)

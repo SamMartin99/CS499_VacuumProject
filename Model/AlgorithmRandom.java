@@ -27,7 +27,7 @@ public class AlgorithmRandom {
         {
             // East
             case 0:
-                if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
+                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);

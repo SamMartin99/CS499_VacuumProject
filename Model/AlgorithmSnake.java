@@ -19,7 +19,6 @@ public class AlgorithmSnake {
      */
     public int[] algorithm_snake(int h_or_v, int f_or_b, int transition, TileArray TA, Vacuum V, int ft, SimulationLayoutGUI inpsimulationLayout)
     {
-        Random rand = new Random();
         double old_clean;
         // h_or_v, f_or_b, transition
         int return_array[] = {h_or_v, f_or_b, transition};
