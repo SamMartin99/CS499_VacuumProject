@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static javax.swing.text.StyleConstants.setIcon;
+// import static javax.swing.text.StyleConstants.setIcon;
 
 // public class SimulationLayoutGUI (TileArray inpTileArray) {
 
@@ -32,8 +32,8 @@ public class SimulationLayoutGUI  {
     Border simTilesWallBorder;
     Border simTilesChairBorder;
 
-    private staticVariable global;
-    private int simNumComponents;
+    private final staticVariable global;
+    private final int simNumComponents;
 
     /**
      * Author Marie Held
@@ -61,7 +61,8 @@ public class SimulationLayoutGUI  {
         simTilePanelLayout.setVgap(1);
         simTiles.setLayout(simTilePanelLayout);
 
-        int simComponents = 0;
+        // Commenting out simComponents for now, since it doesn't seem to be currently used.
+        // int simComponents = 0;
         String tileName;
         String si;
         String sj;
@@ -105,8 +106,8 @@ public class SimulationLayoutGUI  {
         outputMainSimFrame.add(simTiles);
         simActions.add(stopSimulation);
         outputMainSimFrame.add(simActions,BorderLayout.SOUTH);
-     //   outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    //    outputMainSimFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // outputMainSimFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // outputMainSimFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         outputMainSimFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         stopSimulation.addActionListener(new ActionListener() {
@@ -124,7 +125,7 @@ public class SimulationLayoutGUI  {
      * Author: Marie Held
      */
     public void closeSimulationLayoutGUI(){
-     //   boolean isDone = true;
+        // boolean isDone = true;
         try {
            Thread.interrupted(); } // need to avoid Java errors
 
@@ -156,8 +157,6 @@ public class SimulationLayoutGUI  {
 
     /**
      * Display the Simulation Layout Screen
-     *
-     * @return
      *
      */
     public void displaySimulationLayout(SimulationLayoutGUI inpSimulationLayoutGUI) {
@@ -249,8 +248,8 @@ public class SimulationLayoutGUI  {
      * Also, send the previously-occupied tile, so that its appearance can be reset.
      */
     public void setVacuumTile(int inpX, int inpY, int inpComponentNumber, int inpOldComponentNumber, Location prev){
-        String tileName;
-        int tileNumber;
+        // String tileName;
+        // int tileNumber;
 
         SimTileGUI vacuumTile = (SimTileGUI) simTiles.getComponent(inpComponentNumber);
         Location tilelocation = new Location(inpX,inpY);

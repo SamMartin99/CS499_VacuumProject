@@ -7,8 +7,6 @@ package Model;
 import Startup.Location;
 import View.SimulationLayoutGUI;
 
-import java.util.Random;
-
 public class AlgorithmSpiral {
 
     /* Name: algorithm_spiral
@@ -25,7 +23,7 @@ public class AlgorithmSpiral {
         {
             // East
             case 1:
-                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 1))
+                if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 1))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);
@@ -49,7 +47,7 @@ public class AlgorithmSpiral {
                 break;
             // South
             case 3:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 3))
+                if (calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 3))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), V.getY());
                     TA.setVacuum(vacuumLocation);
@@ -73,7 +71,7 @@ public class AlgorithmSpiral {
                 break;
             // West
             case 5:
-                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 5))
+                if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 5))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
                     TA.setVacuum(vacuumLocation);
@@ -97,7 +95,7 @@ public class AlgorithmSpiral {
                 break;
             // North
             case 7:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 7))
+                if (calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 7))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), V.getY());
                     TA.setVacuum(vacuumLocation);
@@ -180,7 +178,7 @@ public class AlgorithmSpiral {
      */
     private boolean calculate_obstacle (Tile T, int direction)
     {
-        boolean obstacle = false;
+        boolean obstacle = true;
 
         // If approaching vertically or horizontally, don't account for table/chair legs.
         // If approaching diagonally, table/chair legs should be considered obstacles.
@@ -188,14 +186,14 @@ public class AlgorithmSpiral {
         {
             if ((T.getType() == 3) || (T.getType() == 4))
             {
-                obstacle = true;
+                obstacle = false;
             }
         }
         else
         {
             if ((T.getType() == 3) || (T.getType() == 4) || (T.getType() == 5) || (T.getType() == 6))
             {
-                obstacle = true;
+                obstacle = false;
             }
         }
 

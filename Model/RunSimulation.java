@@ -274,6 +274,8 @@ public class RunSimulation<simulationlayout> {
 
                 return 0;
             }
+
+            /*
             // May not be necessary. Keep for now in case removing it breaks anything.
             protected void process(List chunks)
             {
@@ -281,6 +283,7 @@ public class RunSimulation<simulationlayout> {
 
                 // System.out.println(val);
             }
+             */
         }; // end of SwingWorker
 
         sw.execute();

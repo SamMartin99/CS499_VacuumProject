@@ -27,7 +27,7 @@ public class AlgorithmRandom {
         {
             // East
             case 0:
-                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
+                if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);
@@ -46,7 +46,7 @@ public class AlgorithmRandom {
                 break;
             // Southeast
             case 1:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
+                if (calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() - 1)), 1))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);
@@ -65,7 +65,7 @@ public class AlgorithmRandom {
                 break;
             // South
             case 2:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
+                if (calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), V.getY());
                     TA.setVacuum(vacuumLocation);
@@ -84,7 +84,7 @@ public class AlgorithmRandom {
                 break;
             // Southwest
             case 3:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
+                if (calculate_obstacle(TA.getTile((V.getX() + 1), (V.getY() + 1)), 3))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), (V.getY() + 1));
                     TA.setVacuum(vacuumLocation);
@@ -103,7 +103,7 @@ public class AlgorithmRandom {
                 break;
             // West
             case 4:
-                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
+                if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
                     TA.setVacuum(vacuumLocation);
@@ -122,7 +122,7 @@ public class AlgorithmRandom {
                 break;
             // Northwest
             case 5:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
+                if (calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() + 1)), 5))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), (V.getY() + 1));
                     TA.setVacuum(vacuumLocation);
@@ -141,7 +141,7 @@ public class AlgorithmRandom {
                 break;
             // North
             case 6:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
+                if (calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), V.getY());
                     TA.setVacuum(vacuumLocation);
@@ -160,7 +160,7 @@ public class AlgorithmRandom {
                 break;
             // Northeast
             case 7:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
+                if (calculate_obstacle(TA.getTile((V.getX() - 1), (V.getY() - 1)), 7))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), (V.getY() - 1));
                     TA.setVacuum(vacuumLocation);
@@ -223,7 +223,7 @@ public class AlgorithmRandom {
      */
     private boolean calculate_obstacle (Tile T, int direction)
     {
-        boolean obstacle = false;
+        boolean obstacle = true;
 
         // If approaching vertically or horizontally, don't account for table/chair legs.
         // If approaching diagonally, table/chair legs should be considered obstacles.
@@ -231,14 +231,14 @@ public class AlgorithmRandom {
         {
             if ((T.getType() == 3) || (T.getType() == 4))
             {
-                obstacle = true;
+                obstacle = false;
             }
         }
         else
         {
             if ((T.getType() == 3) || (T.getType() == 4) || (T.getType() == 5) || (T.getType() == 6))
             {
-                obstacle = true;
+                obstacle = false;
             }
         }
 

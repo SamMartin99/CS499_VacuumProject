@@ -12,11 +12,10 @@ public class SimTileGUI extends JButton {
     // Attributes
     private final Tile tile;
     private float tileCleanValue;  // everything robot crosses the tile increment by 0.1
-    private JButton simTileButton;
+    private final JButton simTileButton;
     private final Location loc;
     private final Location vacuumLocation;
     private int simTileComponentNumber;
-
 
     // ---- Methods ----
 
@@ -97,7 +96,7 @@ public class SimTileGUI extends JButton {
             switch (type) { // Switch statement to detect which type of icon we'll need
                 case 1: icon = new ImageIcon("plainTile.png"); // If type is 1, then set it to a blank tile icon
                     break;
-                case 2: icon = new ImageIcon("doorTile.png");// If type is 2, then set it to a door icon
+                case 2: icon = new ImageIcon("doorTile.png"); // If type is 2, then set it to a door icon
                     break;
                 case 3: icon = new ImageIcon("wallTile.png"); // If type is 3, then set it to a wall icon
                     break;
