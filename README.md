@@ -2,8 +2,7 @@
 This is a simulation of a robot vacuum cleaner
 Team Members are: Guess S. Crow, Marie C. Held, Samuel C. Martin, Bryant S. Terry 
 
-# 
-Icon Key:
+# Icon Key:
 
 Tiles:
 
@@ -34,5 +33,20 @@ Floor Type -  LoopPile: ![image](https://user-images.githubusercontent.com/70613
 Floor Type -  CutPile:  ![image](https://user-images.githubusercontent.com/70613399/164985289-6a98df81-b7ac-4a43-a0c1-a05154f5e729.png)
 
 
+# Program Flow
 
-#
+The program launches with a Splash Screen.  The user then clicks the Start button to start the program.
+
+The house layout screen is then displayed with a default house layout.  The user can customize the house by clicking on the appropriate button in the right panel and then clicking on a tile in left hand panel.  The program will then display the appropriate icon on the house layout.  To reset a tile back to a plain tile, click the clear button in the Furniture panel and then click the appropriate house tile.
+
+The vacuum will start cleaning when the Simulation - Run button is clicked.  This will lauch the output simulation window that will show the vacuum cleaning the house. The user can stop the simulation by clicking the Stop Simulation button.
+
+Note:  Currently the user must click the X to close the Simulation Output screen. 
+
+The user will now be back at the house layout screen where additional customizations can be made or additional simulations can be run.
+
+#Defauts:
+
+Floor Type is Hardwood
+Vacuum Cleaning Algorithms is Random.
+
