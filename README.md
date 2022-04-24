@@ -18,22 +18,20 @@ Doorway:![image](https://user-images.githubusercontent.com/70613399/164985369-07
 Vacuum:![image](https://user-images.githubusercontent.com/70613399/164986920-74dba9b0-8f11-4196-9bc3-3e09de35c4f2.png)
 
 
-Furniture:
+Furniture - Chair:![image](https://user-images.githubusercontent.com/70613399/164985332-242e0555-6d1e-4834-b8c8-51d40be525d9.png)
 
-Chair:![image](https://user-images.githubusercontent.com/70613399/164985332-242e0555-6d1e-4834-b8c8-51d40be525d9.png)
+Furniture - Table: ![image](https://user-images.githubusercontent.com/70613399/164985805-f521c9f0-b88e-44ed-a3bf-13d4df57ee41.png)
 
-Table: ![image](https://user-images.githubusercontent.com/70613399/164985805-f521c9f0-b88e-44ed-a3bf-13d4df57ee41.png)
-
-Chest: ![image](https://user-images.githubusercontent.com/70613399/164985347-335c3097-2779-4fb3-b4c2-11ab34aa26ba.png)
+Furniture - Chest: ![image](https://user-images.githubusercontent.com/70613399/164985347-335c3097-2779-4fb3-b4c2-11ab34aa26ba.png)
 
 
-Floor Type Hardwood: ![image](https://user-images.githubusercontent.com/70613399/164985486-8fb3c9f0-54ac-49bd-949f-bc1c683bd6f8.png)
+Floor Type - Hardwood: ![image](https://user-images.githubusercontent.com/70613399/164985486-8fb3c9f0-54ac-49bd-949f-bc1c683bd6f8.png)
 
-Floor Type LoopPile: ![image](https://user-images.githubusercontent.com/70613399/164986903-80a605d9-d4a8-4a57-83b5-3b737dd5213b.png)
+Floor Type -  LoopPile: ![image](https://user-images.githubusercontent.com/70613399/164986903-80a605d9-d4a8-4a57-83b5-3b737dd5213b.png)
 
-Floor Type CutPile:  ![image](https://user-images.githubusercontent.com/70613399/164985289-6a98df81-b7ac-4a43-a0c1-a05154f5e729.png)
+Floor Type -  CutPile:  ![image](https://user-images.githubusercontent.com/70613399/164985289-6a98df81-b7ac-4a43-a0c1-a05154f5e729.png)
 
-Floor Type Shag: ![image](https://user-images.githubusercontent.com/70613399/164986889-d0ed9f84-df24-4b0d-bcce-1b1968b0c0dc.png)
+Floor Type -  Shag: ![image](https://user-images.githubusercontent.com/70613399/164986889-d0ed9f84-df24-4b0d-bcce-1b1968b0c0dc.png)
 
 
 #
