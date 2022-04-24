@@ -99,35 +99,28 @@ public class HouseLayoutFileHandling {
         // return outHouseLayout;
     }
 
-    public int write(HouseLayout inpHouseLayout){  // in final product
+    // This method takes in a tile array and a file name, and writes a .txt file in the House Layout Files folder
+    public int write(TileArray tileArr, String fileName){
         int writeStatus = 1; // 0 indicates a success ; 1 is failure
-        int dim1, dim2;
-        dim1 = inpHouseLayout.getDim1();
-        dim2 = inpHouseLayout.getDim2();
-        int [][] TileArray = new int[dim1][dim2];
-        char tileValue = ' ';
-        char charFloorType = ' ';
-        int intFloorType = 0;
+        int length = tileArr.getLength();
+        int width = tileArr.getWidth();
+
         try {
-          FileWriter fw; // opens file to append data
-          fw = new FileWriter(this.fileHouseLayout,true);
-          fw.append(inpHouseLayout.getLayoutName());  // write the name of the House Layout
-          // need to convert TileArray to a series of characters
-          TileArray = inpHouseLayout.getTileArray();
-          for (int row =   0 ; row < dim1; row++) {
-              for (int column = 0; column < dim2; column++) {
-                  tileValue = (char) TileArray[row][column];
-                  fw.append(tileValue);
-              }
-              fw.append(" "); // new line to separate the rows of the Tile Array
-          }
+            FileWriter fw = new FileWriter("House Layout Files\\" + fileName + ".txt"); // Make a new file writer and point it to the house layout files directory
+            fw.write(fileName + "\n");  // write the name of the House Layout, and a new line
+            fw.write(length + " "); // Write the length and width of the house
+            fw.write( width + "\n");
 
-           intFloorType = inpHouseLayout.getFloorType();
-           charFloorType = (char)intFloorType;
-
-           fw.append(charFloorType);
-           writeStatus = 0;  // indicate write was successful
-           fw.close(); // close the file for write access
+            // Traverse the house matrix, and write its floorType values with a space between each one
+            for (int row =   0 ; row < length; row++) {
+                for (int column = 0; column < width; column++) {
+                    int tileValue = tileArr.getTile(row, column).getType();
+                    fw.write(tileValue + " ");
+                }
+                fw.write("\n"); // new line to separate the rows of the Tile Array
+            }
+            writeStatus = 0;  // indicate write was successful
+            fw.close(); // close the file for write access
 
         } catch (IOException e) {
             e.printStackTrace();

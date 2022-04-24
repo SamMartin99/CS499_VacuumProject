@@ -71,7 +71,7 @@ public class SplashScreen {
                     ex.printStackTrace();
                 }
                 // Gotta put this in a try/catch block due to file handling
-                myhouse = new HouseLayout("default", arrayBounds); // Populate the HouseLayout with data from the default file
+                myhouse = new HouseLayout("Default House", arrayBounds); // Populate the HouseLayout with data from the default file
 
                 MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse,arrayValues, testArr);  // mh create a house layout object
                 MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
