@@ -7,6 +7,7 @@ package Startup;
 
 
 import Model.TileArray;
+import Model.Tile;
 
 import javax.swing.*;
 import java.io.File;
@@ -69,10 +70,10 @@ public class HouseLayout {
         String floorTypeName = "Unknown";
 
         if (this.floorType == 1) {
-            floorTypeName = "Shag";
+            floorTypeName = "Hardwood";
             return floorTypeName;}
         if (this.floorType == 2) {
-            floorTypeName = "Hardwood";
+            floorTypeName = "Shag";
             return floorTypeName;}
         if (this.floorType == 3) {
             floorTypeName = "LoopPile";
@@ -95,8 +96,6 @@ public class HouseLayout {
     }
 
     public int setFloorType(int inpFloorType){
-        // 1 is
-        // 2 is
         this.floorType = inpFloorType;
         return this.floorType;
     }
@@ -133,21 +132,25 @@ public class HouseLayout {
 
     public String shagClick(){
         this.layoutType = "Shag";
+        setFloorType(2);
         return layoutType;
     }
 
     public String hardwoodClick(){
         this.layoutType = "Hardwood";
+        setFloorType(1);
         return layoutType;
     }
 
     public String loopPileClick(){
         this.layoutType = "LoopPile";
+        setFloorType(3);
         return layoutType;
     }
 
     public String cutPileClick(){
         this.layoutType = "CutPile";
+        setFloorType(4);
         return layoutType;
     }
 

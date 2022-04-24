@@ -42,7 +42,6 @@ public class MainHouseLayoutGUI {
     private int a = 1;
     private int rs = 25;  // Run speed
 
-
     // Attributes
 
     staticVariable arrayBounds = new staticVariable();
@@ -239,7 +238,7 @@ public class MainHouseLayoutGUI {
                 gblHouseTileConstraints.gridy = tileRow;
 
                 Location l = new Location(tileRow, tileColumn);
-                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn), houseTileArr);
+                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn), houseTileArr, inpHouseLayout);
                 houseTileArr[tileRow][tileColumn] = tileButton;
                 tileButton.setImageIcon();
 
