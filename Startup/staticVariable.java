@@ -7,6 +7,7 @@ public class staticVariable {
     private int minRow;
     private int minColumn;
     private int vacuumDirection;
+    private int direction; // general purpose -- currently being used in the wall following algorithm
     private int numSimTilesComponent;
     private int simulationStatus ; // indicator use to signal that the simulation should be stopped
 
@@ -17,6 +18,7 @@ public class staticVariable {
         this.minRow = 0;
         this.minColumn = 0;
         this.vacuumDirection =0;
+        this.direction = 0;
         this.numSimTilesComponent = maxRow * maxColumn;
         this.simulationStatus = 0;
     }
@@ -38,6 +40,8 @@ public class staticVariable {
 
     public int getVacuumDirection() {return this.vacuumDirection;}
 
+    public int getDirection() { return this.direction;}
+
     public int getVaccumDirectionNumber(String inpDirection){
         if (inpDirection.compareTo("North")==0) {return 0;}
         if (inpDirection.compareTo("West")==0)  {return 1;}
@@ -58,23 +62,23 @@ public class staticVariable {
 
     public int getNumSimTilesComponent () {return numSimTilesComponent;}
 
-/* *   Tile Array Layout
- *      MinRow, MinColumn, MaxRow, MaxColumn are set in the staticVariable class
- *      North (direction = 0)
- *      West  (direction = 1)
- *      South (direction = 2)
- *      East  (direction = 3)
- *
- *                                      North
- *           | -------------------------------------------------------------------------------- |
- *           |  [MinRow][MinColumn]         [MinRow][n Column]          [MinRow][MaxColumn      |
- *    West   |  [MinRow +1 ][MinColumn]     [MinRow +1 ][n Column]      [MinRow +1 ][MaxColumn] |                                                |     East
- *           |     ...                                   ...                    ...             |
- *           |  [MaxRow -1 ][MinColumn]       [MinRow -1 ][n Column]    [MaxRow -1 ][Maxolumn]  |
- *           |  [MinRow][MinColumn]          [MacRow][n Column]           [MaxRow][MaxColumn]   |
- *           |----------------------------------------------------------------------------------|
- *                                South
- */
+    /* *   Tile Array Layout
+     *      MinRow, MinColumn, MaxRow, MaxColumn are set in the staticVariable class
+     *      North (direction = 0)
+     *      West  (direction = 1)
+     *      South (direction = 2)
+     *      East  (direction = 3)
+     *
+     *                                      North
+     *           | -------------------------------------------------------------------------------- |
+     *           |  [MinRow][MinColumn]         [MinRow][n Column]          [MinRow][MaxColumn      |
+     *    West   |  [MinRow +1 ][MinColumn]     [MinRow +1 ][n Column]      [MinRow +1 ][MaxColumn] |                                                |     East
+     *           |     ...                                   ...                    ...             |
+     *           |  [MaxRow -1 ][MinColumn]       [MinRow -1 ][n Column]    [MaxRow -1 ][Maxolumn]  |
+     *           |  [MinRow][MinColumn]          [MacRow][n Column]           [MaxRow][MaxColumn]   |
+     *           |----------------------------------------------------------------------------------|
+     *                                South
+     */
 
  /*
     Developer's please read
@@ -126,146 +130,37 @@ public class staticVariable {
         if (inpDirection.compareTo("East")==0) {this.vacuumDirection = 3;}
     }
 
-    /**
-     * Purpose: Get the next North value
-     * @param x Current x value
-     * @return x New x value -1 indicates that new x would either less than minRows
-     */
-    public int moveNorth(int x) {
-        int newX;
-        newX = x--;
-        if (newX <= minRow) {
-            return newX;
-        } else {
-          newX = -1;
-          return newX;
-        }
-    }
-
-    /**
-     * Purpose: Get the next North for moving n tiles value
-     * @param x Current x value
-     * @param n The number of tiles to move North
-     * @return x New x value; -1 indicates that new x would either less than minRows
-     */
-    public int multipleMovesNorth(int x, int n){
-        int newX = x;
-        for (int i = x; i == n; i++)
-            newX = x--;
-        if (newX <= minRow) {
-            return newX;
-        } else {
-            newX = -1;
-            return newX;
-        }
-    }
-    /**
-     * Purpose: Get the next South value
-     * @param x Current x value
-     * @return x New x value -1 indicates that new x would either less than maxRows
-     */
-    public int moveSouth(int x) {
-        int newX;
-        newX = x++;
-        if (newX < maxRow) {
-            return newX;
-        } else {
-            newX = -1;
-            return newX;
-        }
-    }
-
-    /**
-     * Purpose: Get the next South for moving n tiles value
-     * @param x Current x value
-     * @param n The number of tiles to move North
-     * @return x New x value; -1 indicates that new x would either less than minRows
-     */
-    public int multipleMovesSouth(int x, int n){
-        int newX = x;
-        for (int i = x; i == n; i++)
-            newX = x++;
-        if (newX < maxRow) {
-            return newX;
-        } else {
-            newX = -1;
-            return newX;
-        }
-    }
-
-    /**
-     * Purpose: Get the next East value
-     * @param y Current y value
-     * @return y New y value -1 indicates that new x would either greater than or equal to maxColumns
-     */
-    public int moveEast(int y) {
-        int newY;
-        newY = y++;
-        if (newY >= maxColumn) {
-            return newY;
-        } else {
-            newY = -1;
-            return newY;
-        }
-    }
-
-    /**
-     * Purpose: Get the next East for moving n tiles
-     * @param y Current y value
-     * @param n The number of tiles to move East
-     * @return y New y value; -1 indicates that new y would equal to or greater than maxColumns
-     */
-    public int multipleMovesEast0(int y, int n){
-        int newY = y;
-        for (int i = y; i == n; i++)
-            newY = y++;
-        if (newY  >= maxColumn) {
-            return newY;
-        } else {
-            newY = -1;
-            return newY;
-        }
-    }
-    /**
-     * Purpose: Get the next West value
-     * @param y Current y value
-     * @return y New y value -1 indicates that new y would be less than minColumns
-     */
-    public int moveWest(int y) {
-        int newY;
-        newY = y--;
-        if (newY >= minColumn) {
-            return newY;
-        } else {
-            newY = -1;
-            return newY;
-        }
-    }
-
-    /**
-     * Purpose: Get the next South for moving n tiles value
-     * @param x Current x value
-     * @param n The number of tiles to move North
-     * @return x New x value; -1 indicates that new x would either less than minRows
-     */
-    public int multipleMovesWest(int x, int n){
-        int newX = x;
-        for (int i = x; i == n; i++)
-            newX = x++;
-        if (newX < maxRow) {
-            return newX;
-        } else {
-            newX = -1;
-            return newX;
-        }
-    }
 
     /**
      * Purpose to set the value of simulationStatus
      * Author Marie Held
+     * @param inpSimStatus (0 is running; 1 is user force stop; 2 is finished)
      */
     public void setSimStatus(int inpSimStatus){
         this.simulationStatus = inpSimStatus;
     }
+
+    public void setSimStatus (String inpStatus){
+        if ( inpStatus.compareTo("Finish")==0) {this.simulationStatus = 2;}
+    }
+
+    /**
+     * Purpose to set the value of direction -- used in wall folloing algorithm
+     * Author Marie Held
+     */
+    public int setDirection(int inpDirection){
+        return this.direction = inpDirection;
+
+    }
+
+    public int setDirection(String inpDirection){
+
+        if (inpDirection.compareTo("North")==0) {return this.direction = 0;}
+        if (inpDirection.compareTo("West")==0)  {return this.direction = 1;}
+        if (inpDirection.compareTo("South")==0) {return this.direction = 2;}
+        if (inpDirection.compareTo("East")==0) {return this.direction = 3;}
+        return -1; // Unknown direction which is an error condition
+    }
+
 
 }
