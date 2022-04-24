@@ -228,6 +228,9 @@ public class RunSimulation<simulationlayout> {
                         while (!hasbeenCancel){ hasbeenCancel = this.cancel(true);}  // a wait to make sure thread has been cancel before
                         simulationlayout.closeSimulationLayoutGUI();
                         // simulationlayout.storeRunStatistics(algorithm, run_speed, ft,TA , minute );
+                    } else if (global.getSimStatus() == 2){ // simulation has finished
+                         boolean hasbeenCancel = false;
+                         while (!hasbeenCancel){ hasbeenCancel = this.cancel(true);}
                     }
 
                     // Run the algorithms

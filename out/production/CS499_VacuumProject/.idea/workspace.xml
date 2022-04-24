@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Ignore.">
+    <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Absolved a couple of warnings.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSnake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSnake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/AlgorithmSpiral.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/RunSimulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/SimTileGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/SimTileGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/View/SimulationLayoutGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/Model/SimTileGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/View/SimulationLayoutGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,27 +96,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1643481028424</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Changes:new file for the house layout gui">
-      <created>1648238661236</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1648238661237</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Changes: bug fixes discovered when linking code to buttons">
-      <created>1648397088155</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1648397088155</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Changes: bug fixes discovered when linking code to buttons">
-      <created>1648397111944</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1648397111944</updated>
     </task>
     <task id="LOCAL-00013" summary="Changes: add components for the east side of screen (components / options)">
       <created>1648572584931</created>
@@ -440,7 +419,28 @@
       <option name="project" value="LOCAL" />
       <updated>1650540454271</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Changes: Got extraordinarily basic version of AlgorithmSpiral running.">
+      <created>1650690802312</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1650690802314</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Changes: Got a better version of AlgorithmSpiral working.">
+      <created>1650691204539</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1650691204543</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Changes: Absolved a couple of warnings.">
+      <created>1650692418304</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1650692418304</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -455,9 +455,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Changes: fix a bug with the labels on the house layout GUI" />
-    <MESSAGE value="Changes: add the class AAlgorithmWallFollow in the Model Package;" />
-    <MESSAGE value="Changes: add a new class staticVariable that will set the max Rows and Columns for all three arrays (House GUI layout, Simulation GUI layout, Tile Array)" />
     <MESSAGE value="Changes: intermediate commint; wall follow algorithm now detects the border wall and moves the vacuum to the diagonal square" />
     <MESSAGE value="Changes: added direction variables in staticVariable class so that we can standardize how vacuum direction is used; update code to ensure that all current modules run as before" />
     <MESSAGE value="Changes: added method topLeftCorner in AlgorithmWallFollow" />
@@ -480,6 +477,9 @@
     <MESSAGE value="added the simulation Results button to the MainHouseLayoutGUI" />
     <MESSAGE value="Changes: Bug tested AlgorithmSnake. Seems to be working now." />
     <MESSAGE value="Changes: add a house layout that has a room to test wall follow and inner walls; comment out code for clear all button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes: add a house layout that has a room to test wall follow and inner walls; comment out code for clear all button" />
+    <MESSAGE value="Changes: Got extraordinarily basic version of AlgorithmSpiral running." />
+    <MESSAGE value="Changes: Got a better version of AlgorithmSpiral working." />
+    <MESSAGE value="Changes: Absolved a couple of warnings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes: Absolved a couple of warnings." />
   </component>
 </project>
