@@ -15,7 +15,7 @@ Wall -- half:  ![image](https://user-images.githubusercontent.com/70613399/16498
  
 Doorway:![image](https://user-images.githubusercontent.com/70613399/164985369-07e24608-5c87-4782-a090-dea8b48c545c.png)
 
-Vacuum:![image](https://user-images.githubusercontent.com/70613399/164985596-774b7507-814c-404f-a29a-3fcc17be151c.png)
+Vacuum:![image](https://user-images.githubusercontent.com/70613399/164986920-74dba9b0-8f11-4196-9bc3-3e09de35c4f2.png)
 
 
 Furniture:
@@ -29,8 +29,11 @@ Chest: ![image](https://user-images.githubusercontent.com/70613399/164985347-335
 
 Floor Type Hardwood: ![image](https://user-images.githubusercontent.com/70613399/164985486-8fb3c9f0-54ac-49bd-949f-bc1c683bd6f8.png)
 
-Floor Type frieze LoopPile: ![image](https://user-images.githubusercontent.com/70613399/164985401-0ea36670-c234-4821-b402-4fd41acfcb43.png)
+Floor Type LoopPile: ![image](https://user-images.githubusercontent.com/70613399/164986903-80a605d9-d4a8-4a57-83b5-3b737dd5213b.png)
 
 Floor Type CutPile:  ![image](https://user-images.githubusercontent.com/70613399/164985289-6a98df81-b7ac-4a43-a0c1-a05154f5e729.png)
 
-Floor Type Shag: 
+Floor Type Shag: ![image](https://user-images.githubusercontent.com/70613399/164986889-d0ed9f84-df24-4b0d-bcce-1b1968b0c0dc.png)
+
+
+#
