@@ -99,6 +99,22 @@ public class SplashScreen {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
 
+        // Added by Guess Crow
+        // Sets look and feel to match Windows' default UI
+        try {
+            // Set System L&F
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (UnsupportedLookAndFeelException e) {
+            // handle exception
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {

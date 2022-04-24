@@ -563,6 +563,14 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                // Added by Guess Crow to alert user they haven't placed a vacuum
+                if(TA.vacuumStartLoc == null)
+                {
+                    JFrame jFrame = new JFrame();
+                    JOptionPane.showMessageDialog(jFrame, "You haven't placed a vacuum!");
+                    return;
+                }
+
                 int batteryLife = 150;
                 int vs = 3;
                 int ft = inpHouseLayout.getFloorType();
