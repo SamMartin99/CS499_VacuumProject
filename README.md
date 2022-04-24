@@ -45,8 +45,9 @@ Note:  Currently the user must click the X to close the Simulation Output screen
 
 The user will now be back at the house layout screen where additional customizations can be made or additional simulations can be run.
 
-#Defauts:
+# Defauts:
 
 Floor Type is Hardwood
+
 Vacuum Cleaning Algorithms is Random.
 
