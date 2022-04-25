@@ -42,7 +42,6 @@ public class MainHouseLayoutGUI {
     private int a = 1;
     private int rs = 25;  // Run speed
 
-
     // Attributes
 
     staticVariable arrayBounds = new staticVariable();
@@ -116,6 +115,7 @@ public class MainHouseLayoutGUI {
      */
     public MainHouseLayoutGUI(HouseLayout inpHouseLayout, staticVariable inpGlobal, TileArray tileArray){
         int maxRow,maxColumn,minRow,minColumn;
+        String houseName = inpHouseLayout.getLayoutName();
         TA = tileArray;
         maxRow = TA.getLength();
         maxColumn = TA.getWidth();
@@ -133,7 +133,7 @@ public class MainHouseLayoutGUI {
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
         houseTileBorder = BorderFactory.createTitledBorder("House Tiles");
-        String houseLayoutName = "Testing";
+        String houseLayoutName = inpHouseLayout.getLayoutName();
         houseLayoutBorder = BorderFactory.createTitledBorder("Layout Name: "+ houseLayoutName);
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
@@ -238,7 +238,7 @@ public class MainHouseLayoutGUI {
                 gblHouseTileConstraints.gridy = tileRow;
 
                 Location l = new Location(tileRow, tileColumn);
-                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn), houseTileArr);
+                tileButton = new houseTile(l, TA.getTile(tileRow, tileColumn), houseTileArr, inpHouseLayout);
                 houseTileArr[tileRow][tileColumn] = tileButton;
                 tileButton.setImageIcon();
 
@@ -488,35 +488,26 @@ public class MainHouseLayoutGUI {
             }
         });
 
+        // Makes a new 44x44 house
         newHouseLayoutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String layoutName = "new";
-                HouseLayout myHouse = new HouseLayout(layoutName, arrayBounds);
-            }
-        });
+                // We want the name, length, and width from the user
+                String s1 = JOptionPane.showInputDialog("Please give your new house a name");
+                String s2 = JOptionPane.showInputDialog("Please give the length");
+                int length = Integer.parseInt(s2);
+                String s3 = JOptionPane.showInputDialog("Please give the width");
+                int width = Integer.parseInt(s3);
+                s2 = null; // Set these to null so Java will clean them up
+                s3 = null;
 
-        saveHouseLayoutButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                out.println("Save button on House Layout was clicked");
-                HouseLayoutFileHandling houseLayoutFile = new HouseLayoutFileHandling();
-                String houseLayoutDetails;
-                try {
-                    houseLayoutFile.open();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-                // Read the file and print the contents
-                houseLayoutDetails = houseLayoutFile.read();
-                out.println(houseLayoutDetails);
-
-                try {
-                    houseLayoutFile.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-
+                staticVariable sv = new staticVariable(); // Create a new static variable to use with this new house layout
+                HouseLayout hl = new HouseLayout(s1, sv); // Make a new house layout with the name gotten from the user and the sv we just made
+                TileArray temp = new TileArray(length, width); // Make a new tile array with the appropriate length and width
+                MainHouseLayoutGUI mainWindowGUI = new MainHouseLayoutGUI(hl, sv,  temp); // Make a new gui for that house layout
+                mainWindowGUI.DisplayHouseLayout(mainWindowGUI); // Display that new gui
+                MainHouseLayoutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // for the previously active GUI, set it to close the window but keep the app running
+                MainHouseLayoutFrame.dispatchEvent(new WindowEvent(MainHouseLayoutFrame, WindowEvent.WINDOW_CLOSING)); // Dispatch a window event to close the previous window
             }
         });
 
@@ -533,8 +524,8 @@ public class MainHouseLayoutGUI {
                     // Define a static variable to create a new house layout (constructors require it)
                     staticVariable sv = new staticVariable();
                     HouseLayout hl = new HouseLayout("test", sv); // Make a new house layout with the data we've read from the file
-                    MainHouseLayoutGUI whatever = new MainHouseLayoutGUI(hl, sv,  temp); // Make a new gui for that house layout
-                    whatever.DisplayHouseLayout(whatever); // Display that new gui
+                    MainHouseLayoutGUI mainWindowGUI = new MainHouseLayoutGUI(hl, sv,  temp); // Make a new gui for that house layout
+                    mainWindowGUI.DisplayHouseLayout(mainWindowGUI); // Display that new gui
                     MainHouseLayoutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // for the previously active GUI, set it to close the window but keep the app running
                     MainHouseLayoutFrame.dispatchEvent(new WindowEvent(MainHouseLayoutFrame, WindowEvent.WINDOW_CLOSING)); // Dispatch a window event to close the previous window
                     houseLayoutFile.close(); // close the file
@@ -548,6 +539,10 @@ public class MainHouseLayoutGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
                 out.println("Save button on House Layout was clicked");
+                HouseLayoutFileHandling houseLayoutFile = new HouseLayoutFileHandling(); // Make a new house layout file handling object
+                houseLayoutFile.write(TA, houseName);
+                JFrame saveNotif = new JFrame();
+                JOptionPane.showMessageDialog(saveNotif, "File saved!");
             }
         });
 
@@ -562,6 +557,14 @@ public class MainHouseLayoutGUI {
         runSimulationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                // Added by Guess Crow to alert user they haven't placed a vacuum
+                if(TA.vacuumStartLoc == null)
+                {
+                    JFrame warning = new JFrame();
+                    JOptionPane.showMessageDialog(warning, "You haven't placed a vacuum!");
+                    return;
+                }
 
                 int batteryLife = 150;
                 int vs = 3;
@@ -600,7 +603,7 @@ public class MainHouseLayoutGUI {
 
         // Add panels to the Frame
         this.MainHouseLayoutFrame.add(houseTile,BorderLayout.WEST);
-        this.houseTile.setPreferredSize(new Dimension(460, 460));
+        this.houseTile.setPreferredSize(new Dimension(600, 460));
         this.MainHouseLayoutFrame.add(houseCenter,BorderLayout.CENTER);
         // this.houseCenter.setPreferredSize(new Dimension(10, 500));
         this.MainHouseLayoutFrame.setPreferredSize(new Dimension(330, 500));
@@ -629,7 +632,7 @@ public class MainHouseLayoutGUI {
 
 
     static void displayHouseLayout(JFrame inpFrame){
-        inpFrame.setPreferredSize(new Dimension(900,600));
+        inpFrame.setPreferredSize(new Dimension(1050,700));
         inpFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         inpFrame.pack();
         inpFrame.setVisible(true);

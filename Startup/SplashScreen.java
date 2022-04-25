@@ -71,7 +71,7 @@ public class SplashScreen {
                     ex.printStackTrace();
                 }
                 // Gotta put this in a try/catch block due to file handling
-                myhouse = new HouseLayout("default", arrayBounds); // Populate the HouseLayout with data from the default file
+                myhouse = new HouseLayout("Default House", arrayBounds); // Populate the HouseLayout with data from the default file
 
                 MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse,arrayValues, testArr);  // mh create a house layout object
                 MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
@@ -99,6 +99,22 @@ public class SplashScreen {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
 
+        // Added by Guess Crow
+        // Sets look and feel to match Windows' default UI
+        try {
+            // Set System L&F
+            UIManager.setLookAndFeel(
+                    UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (UnsupportedLookAndFeelException e) {
+            // handle exception
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
 
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {

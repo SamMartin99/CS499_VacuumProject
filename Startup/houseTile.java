@@ -31,10 +31,11 @@ public class houseTile extends JButton {
     private Location loc;
     public houseTile[][] parentHouseTileArray; // This is the array of houseTiles to which this houseTile belongs, kinda inefficient and weird, but it was the only way I saw to get Tables working
     public Table containingTable = null; // This is the table that contains this houseTile. Set to null to begin.
+    public HouseLayout hl;
     // ---- Methods ----
 
     // Constructor, takes in a location (a data type encapsulating x and y coords)
-    public houseTile(Location locRef, Tile tileRef, houseTile[][] houseTileArrRef) {
+    public houseTile(Location locRef, Tile tileRef, houseTile[][] houseTileArrRef, HouseLayout whatever) {
         this.loc = locRef;
         this.tile = tileRef;
         this.tileCleanValue = 0; // Set the cleanliness to 0 upon initialization
@@ -42,6 +43,7 @@ public class houseTile extends JButton {
         this.tileButton = new JButton(""); // Create the new JButton
         this.tileButton.setName("tile" + loc.x + loc.y); // This creates the tile's name, which is its location values
         parentHouseTileArray = houseTileArrRef;
+        hl = whatever;
 
         // This block will apply a default tile icon to the JButton
         try {
@@ -248,6 +250,15 @@ public class houseTile extends JButton {
         {
             Table t = new Table(parentHouseTileArray, this.loc); // Make a new Table, passing it this tile's parent array and its location
         }
+
+       else if (inpHouseLayout.getlayoutType().compareTo("Shag") == 0 || inpHouseLayout.getlayoutType().compareTo("Hardwood") == 0 || inpHouseLayout.getlayoutType().compareTo("LoopPile") == 0 || inpHouseLayout.getlayoutType().compareTo("CutPile") == 0)
+        {
+            for (int i = 0; i < inpTA.getLength(); i++) {
+                for (int j = 0; j < inpTA.getWidth(); j++) {
+                    parentHouseTileArray[i][j].setImageIcon();
+                }
+            }
+        }
         /***********************************************************************************************
          *      This block of code was intented to not allow user to change the tile type
          *      Group decision was that the user should be able to change any tile on the
@@ -260,6 +271,7 @@ public class houseTile extends JButton {
          *    }
          *************************************************************************************************/
     }
+
 
     // This method is a bunch of JSwing code that creates a popup window that alerts the user the tile they clicked is unavailable
     private void tileUnavailablePopup(houseTile inptileButton)  {
@@ -298,7 +310,17 @@ public class houseTile extends JButton {
         try {
             switch (type) { // Switch statment to detect which type of icon we'll need
                 case 1: icon = new ImageIcon("plainTile.png"); // If type is 1, then set it to a blank tile icon
-                    break;
+                {
+                    if(hl.getFloorType() == 1)
+                        icon = new ImageIcon("hardTile.png");
+                    else if(hl.getFloorType() == 2)
+                        icon = new ImageIcon("loopTile.png");
+                    else if(hl.getFloorType() == 3)
+                        icon = new ImageIcon("cutTile.png");
+                    else
+                        icon = new ImageIcon("friezeTile.png");
+                }
+                break;
                 case 2: icon = new ImageIcon("doorTile.png");// If type is 2, then set it to a door icon
                     break;
                 case 3: icon = new ImageIcon("wallTile.png"); // If type is 3, then set it to a wall icon
@@ -315,3 +337,4 @@ public class houseTile extends JButton {
         this.setMargin(new Insets(0, 0, 0, 0));
     }
 }
+
