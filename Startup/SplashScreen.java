@@ -17,9 +17,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
-import View.MainHouseLayoutGUI;
-
-
 
 /* FrameDemo.java requires no other files. */
 
@@ -27,7 +24,6 @@ public class SplashScreen {
 
     // Global variable to indicate the type of tile (wall, door, etc)
     static String tileType = "";
-
 
     /**
      * Create the GUI and show it.  For thread safety,

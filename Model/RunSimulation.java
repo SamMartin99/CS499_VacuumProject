@@ -4,7 +4,6 @@ import Startup.Location;
 import Startup.staticVariable;
 import View.SimulationLayoutGUI;
 import javax.swing.SwingWorker;
-import java.util.List;
 
 /* Authors: Bryant Terry, Marie Held
  * Purpose: Runs simulation, using the appropriate algorithm and updating the visuals
@@ -123,8 +122,6 @@ public class RunSimulation<simulationlayout> {
         return floorTypemName;
     }
 
-
-
     // /**
     //  * Purpose: To get the current values of Tiles
     //  */
@@ -216,7 +213,6 @@ public class RunSimulation<simulationlayout> {
                     if (minute[0] >= 60000)
                     {
                         V.setBattery(V.getBattery() - 1);
-                        // System.out.println("A minute has passed.");
                         minute[0] = minute[0] - 60000;
                     }
 
@@ -256,9 +252,6 @@ public class RunSimulation<simulationlayout> {
                         h_or_v[0] = return_snake[0][0];
                         f_or_b[0] = return_snake[0][1];
                         transition[0] = return_snake[0][2];
-                        // System.out.println("h_or_v: " + return_snake[0][0]);
-                        // System.out.println("f_or_b: " + return_snake[0][1]);
-                        // System.out.println("transition: " + return_snake[0][2]);
                     }
                     // Wall Follow
                     else if (algorithm == 4)
@@ -266,7 +259,9 @@ public class RunSimulation<simulationlayout> {
                         wfCurrentTile = wallFollow.nextTileToBeClean(wfCurrentTile);
 
                     // System.out.println("Follow Path Algorithm Code in Run Simulation");
-                    } else {
+                    }
+                    else
+                    {
                         System.out.println("Unknown Algorithm");
                     }
 
@@ -291,60 +286,5 @@ public class RunSimulation<simulationlayout> {
 
         sw.execute();
     } // end of run ()
-
-    /* Name: run
-     * Parameters: none
-     * Return: none
-     * Purpose: Output algorithm activity to new window.
-     */
-    /*
-    public void old_run() {
-        SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA,this.global);  // mh create a window to view the simulation
-        simulationlayout.displaySimulationLayout(simulationlayout);          // mh display the window
-
-        int direction = (int)Math.floor(Math.random()*8);
-        process_output();
-
-        System.out.println(V.getBattery());
-        // while (V.getBattery() > 0) {
-
-            // SimulationLayoutGUI simulationlayout = new SimulationLayoutGUI(TA);  // mh create a window to view the simulation
-            simulationlayout.displaySimulationLayout(simulationlayout);           // mh display the window
-            // simulationlayout.printSimTilesName();
-
-            int outDirection;
-
-            // Run the algorithms
-            if (this.algorithm == 1) {
-                AlgorithmRandom newAlgRandom;
-                newAlgRandom = new AlgorithmRandom();
-                System.out.println(direction);
-                // Hardcode vacuum location until we can incorporate it into GUI.
-                // V.setX(3);
-                // V.setY(3);
-                direction = newAlgRandom.algorithm_random(this.direction, TA, V, this.ft, simulationlayout);
-            } else if (this.algorithm == 2) {
-                System.out.println("Second Path Algorithm Code");
-            } else if (this.algorithm == 3) {
-                System.out.println("Third Path Algorithm Code");
-            } else if (this.algorithm == 4) {
-                Tile currentTile = new Tile();
-                // TA.printTileArray();
-                // V.setX(0);
-                // V.setY(global.getMaxColumn() - 1);
-                // V.setX(global.getMaxRow() -1 );
-                // V.setY(global.getMaxColumn() - 1);
-                // V.setY(0);
-                // V.setX(23);
-                // V.setY(33);
-                AlgorithmWallFollow wallFollow = new AlgorithmWallFollow(simulationlayout, TA, V, global);
-                currentTile = wallFollow.findNearestWall();
-                // wallFollow.vacuum();
-            } else {
-                System.out.println("Unknown Algorithm");
-            }
-       // } // end of while loop
-    } // end of run()
-    */
 
 }  // end of class RunSimulation

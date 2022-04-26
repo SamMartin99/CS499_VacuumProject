@@ -1,6 +1,6 @@
 package Model;
 
-/* Authors: Bryant Terry
+/* Authors: Bryant Terry, Marie Held
  * Purpose: Represents a single tile on the house layout.
  */
 
@@ -59,6 +59,9 @@ public class Tile {
     {
         type = value;
 
+        pass = (value != 1) && (value != 2) && (value != 5);
+
+        /*
         if ((value == 1) || (value == 2) || (value == 5))
         {
             pass = false;
@@ -67,13 +70,18 @@ public class Tile {
         {
             pass = true;
         }
+         */
     }
 
     public boolean isCleanable(){
 
+        // tile is either empty or a door
+        return this.type == 1 || this.type == 2;
+
+        /*
         if (this.type == 1 || this.type == 2){ // tile is either empty or a door
              return true;}
         else {return false;}
-
+         */
     }
 }

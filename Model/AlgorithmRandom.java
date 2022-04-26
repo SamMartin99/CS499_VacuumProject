@@ -42,7 +42,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("East hit");
                 break;
             // Southeast
             case 1:
@@ -61,7 +60,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("Southeast hit");
                 break;
             // South
             case 2:
@@ -80,7 +78,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("South");
                 break;
             // Southwest
             case 3:
@@ -99,7 +96,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("Southwest hit");
                 break;
             // West
             case 4:
@@ -118,7 +114,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("West hit");
                 break;
             // Northwest
             case 5:
@@ -137,7 +132,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("Northwest hit");
                 break;
             // North
             case 6:
@@ -156,7 +150,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("North hit");
                 break;
             // Northeast
             case 7:
@@ -175,7 +168,6 @@ public class AlgorithmRandom {
                 {
                     direction = rand.nextInt(8);
                 }
-                // System.out.println("Northeast hit");
                 break;
         }
 

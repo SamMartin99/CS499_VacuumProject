@@ -88,7 +88,6 @@ public class AlgorithmSnake {
             // Right
             if (f_or_b == 0)
             {
-                // System.out.println("Right hit");
                 if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
@@ -109,7 +108,6 @@ public class AlgorithmSnake {
             // Left
             else
             {
-                // System.out.println("Left hit");
                 if (calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
                 {
                     Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
@@ -133,7 +131,6 @@ public class AlgorithmSnake {
             // Upwards
             if (f_or_b == 0)
             {
-                // System.out.println("Up hit");
                 if (calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
                 {
                     Location vacuumLocation = new Location((V.getX() - 1), V.getY());
@@ -154,7 +151,6 @@ public class AlgorithmSnake {
             // Downwards
             else
             {
-                // System.out.println("Down hit");
                 if (calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
                 {
                     Location vacuumLocation = new Location((V.getX() + 1), V.getY());

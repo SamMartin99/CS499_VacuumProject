@@ -43,7 +43,6 @@ public class AlgorithmSpiral {
                     spiral_length = 1;
                     spiral_progress = 0;
                 }
-                // System.out.println("East hit");
                 break;
             // South
             case 3:
@@ -67,7 +66,6 @@ public class AlgorithmSpiral {
                     spiral_length = 1;
                     spiral_progress = 0;
                 }
-                // System.out.println("South hit");
                 break;
             // West
             case 5:
@@ -91,7 +89,6 @@ public class AlgorithmSpiral {
                     spiral_length = 1;
                     spiral_progress = 0;
                 }
-                // System.out.println("West hit");
                 break;
             // North
             case 7:
@@ -115,10 +112,10 @@ public class AlgorithmSpiral {
                     spiral_length = 1;
                     spiral_progress = 0;
                 }
-                // System.out.println("North hit");
                 break;
         }
 
+        // Cycle the direction in order to perform a spiral.
         if (spiral_progress >= spiral_length)
         {
             direction = cycle_direction(direction);
@@ -126,6 +123,7 @@ public class AlgorithmSpiral {
             spiral_progress = 0;
         }
 
+        // Increase length by 1 for every 2 turns.
         if (spiral_count >= 2)
         {
             spiral_length++;
@@ -227,132 +225,4 @@ public class AlgorithmSpiral {
 
         return 1;
     }
-
-    /*
-    switch (direction)
-        {
-            // East
-            case 0:
-                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() - 1)), 0))
-                {
-                    Location vacuumLocation = new Location(V.getX(), (V.getY() - 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile(V.getX(), (V.getY() - 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() - 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX());
-                    V.setY(V.getY() - 1);
-
-                    spiral_confirm = 1;
-                    spiral_progress++;
-                }
-                else
-                {
-                    direction = cycle_direction(direction);
-                    spiral_length = 1;
-                    spiral_progress = 0;
-                    spiral_count = 1;
-                    spiral_confirm = 0;
-                }
-                // System.out.println("East hit");
-                break;
-            // South
-            case 2:
-                if (!calculate_obstacle(TA.getTile((V.getX() + 1), V.getY()), 2))
-                {
-                    Location vacuumLocation = new Location((V.getX() + 1), V.getY());
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() + 1), V.getY()).getClean();
-                    TA.setTileClean((V.getX() + 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() + 1);
-                    V.setY(V.getY());
-
-                    spiral_confirm = 1;
-                    spiral_progress++;
-                }
-                else
-                {
-                    direction = cycle_direction(direction);
-                    spiral_length = 1;
-                    spiral_progress = 0;
-                    spiral_count = 1;
-                    spiral_confirm = 0;
-                }
-                // System.out.println("South");
-                break;
-            // West
-            case 4:
-                if (!calculate_obstacle(TA.getTile(V.getX(), (V.getY() + 1)), 4))
-                {
-                    Location vacuumLocation = new Location(V.getX(), (V.getY() + 1));
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile(V.getX(), (V.getY() + 1)).getClean();
-                    TA.setTileClean(V.getX(), (V.getY() + 1), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX());
-                    V.setY(V.getY() + 1);
-
-                    spiral_confirm = 1;
-                    spiral_progress++;
-                }
-                else
-                {
-                    direction = cycle_direction(direction);
-                    spiral_length = 1;
-                    spiral_progress = 0;
-                    spiral_count = 1;
-                    spiral_confirm = 0;
-                }
-                // System.out.println("West hit");
-                break;
-            // North
-            case 6:
-                if (!calculate_obstacle(TA.getTile((V.getX() - 1), V.getY()), 6))
-                {
-                    Location vacuumLocation = new Location((V.getX() - 1), V.getY());
-                    TA.setVacuum(vacuumLocation);
-
-                    old_clean = TA.getTile((V.getX() - 1), V.getY()).getClean();
-                    TA.setTileClean((V.getX() - 1), V.getY(), calculate_clean(old_clean, ft), inpsimulationLayout);
-
-                    V.setX(V.getX() - 1);
-                    V.setY(V.getY());
-
-                    spiral_confirm = 1;
-                    spiral_progress++;
-                }
-                else
-                {
-                    direction = cycle_direction(direction);
-                    spiral_length = 1;
-                    spiral_progress = 0;
-                    spiral_count = 0;
-                    spiral_confirm = 0;
-                }
-                // System.out.println("North hit");
-                break;
-        }
-
-        if (spiral_confirm == 1)
-        {
-            if (spiral_count <= 2)
-            {
-                if (spiral_progress > spiral_length)
-                {
-                    direction = cycle_direction(direction);
-                    spiral_progress = 0;
-                    spiral_count++;
-                }
-            }
-            else
-            {
-                spiral_count = 0;
-                spiral_length++;
-            }
-        }
-     */
 }

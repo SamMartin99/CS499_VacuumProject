@@ -31,7 +31,6 @@ public class SimTileGUI extends JButton {
         this.simTileButton.setName("tile" +  loc.x + loc.y);
         this.vacuumLocation = new Location(0,0);
 
-
         // This block will apply a default tile icon to the JButton
         this.setImageIcon();
 
@@ -75,12 +74,6 @@ public class SimTileGUI extends JButton {
         this.setIcon(icon);
     }
 
-    /* NOTE FROM BRYANT:
-     * Right now this just automatically assumes that the previous tile
-     * was a normal, empty tile. As such, doors, chairs, and tables will
-     * be set to white. Final version of this should account for
-     * different versions of tiles.
-     */
     public void setNonVacuumLocation(Location newVacuumLoc, int oldType){
         ImageIcon icon;
 

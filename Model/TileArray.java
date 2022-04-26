@@ -1,6 +1,6 @@
 package Model;
 
-/* Authors: Bryant Terry
+/* Authors: Bryant Terry, Marie Held
  * Purpose: Represents entire house layout via collection of tiles.
  */
 
@@ -22,26 +22,26 @@ public class TileArray {
     public int clickOneY = 0;
     public int clickTwoX = 0;
     public int clickTwoY = 0;
+
     /* Constructs TileArray.
      * Uses length and width to create a tile for every respective part of the array.
      */
-     public TileArray(int length, int width) {
-    // public TileArray(staticVariable inpArrayBounds) {
-    this.length = length;
-    this.width = width;
-    // this.length = inpArrayBounds.getMaxRow();
-    // this.width = inpArrayBounds.getMaxColumn();
-    TA = new Tile[this.length][this.width];
+    public TileArray(int length, int width) {
+
+        this.length = length;
+        this.width = width;
+        TA = new Tile[this.length][this.width];
+
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < width; j++) {
                 TA[i][j] = new Tile();
             }
         }
+
         setTile(0, 0, 3);  // set to a wall
     }
 
     public Tile getTile(int i, int j) {
-        // System.out.println(i + " " + j);
         // if (j == -1) return TA[0][0]; // mh need to determine what is setting the -1 in y
         return TA[i][j];
     }
@@ -74,10 +74,10 @@ public class TileArray {
 
         simTileName = inpsimulationLayout.getSimTileName(i,j);
         simOldTileName = inpsimulationLayout.getSimTileName(prevVacuumLoc.getLocX(), prevVacuumLoc.getLocY());
-        // System.out.println(simTileName);
+
         simTileNumber = inpsimulationLayout.getComponentNumber(simTileName);
         simOldTileNumber = inpsimulationLayout.getComponentNumber(simOldTileName);
-        // System.out.println(simTileNumber);
+
         inpsimulationLayout.setVacuumTile(i,j,simTileNumber, simOldTileNumber, prevVacuumLoc, oldType);
     }
 

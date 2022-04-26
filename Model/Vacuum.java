@@ -1,6 +1,6 @@
 package Model;
 
-/* Authors: Bryant Terry
+/* Authors: Bryant Terry, Marie Held
  * Purpose: Represents the vacuum object.
  */
 
