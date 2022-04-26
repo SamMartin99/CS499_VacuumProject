@@ -224,9 +224,9 @@ public class AlgorithmWallFollow {
                 currentTile = wfTileArray.getTile(vacX, i);
                 if (currentTile.getType() == 3) {
                     eastTileLoc.setLocation(vacX, i);
-                    //           System.out.print("East tile location is: ");
-                    //           eastTileLoc.printLocation();
-                    //           System.out.println();
+                    //System.out.print("East tile location is: ");
+                    //eastTileLoc.printLocation();
+                   // System.out.println();
                     setStartX(vacX);
                     setStartY(vacY);
                     // this.startDirection = global.setDirection("West"); // closed to the east wall will be going west (counterclockwise)
@@ -237,8 +237,8 @@ public class AlgorithmWallFollow {
             //   System.out.println("East Tile Count is: " +eastTilesCount);
         }
         // find the west wall vacY = wfMinColumns
-        //vacX = tempTileX;
-        //vacY = tempTileY;
+        vacX = tempTileX;
+        vacY = tempTileY;
         // System.out.println(vacX +" "+vacY);
         //if (vacY == 1) { // next to west border wall
          //   westTilesCount = 0;
@@ -255,9 +255,9 @@ public class AlgorithmWallFollow {
                 if (currentTile.getType() == 3) {
                     j = 1;
                     westTileLoc.setLocation(vacX, j);
-                    //         System.out.print("West tile location is: ");
-                    //       westTileLoc.printLocation();
-                    //      System.out.println();
+                   // System.out.print("West tile location is: ");
+                   // westTileLoc.printLocation();
+                  //  System.out.println();
                     setStartX(vacX);
                     setStartY(vacY);
                     //    this.startDirection = global.setDirection("South"); // closed to the West wall will be going South (counterclockwise)
@@ -268,10 +268,10 @@ public class AlgorithmWallFollow {
             //  } while (i == wfMinColumns+ 1 );
         }
 
-        //System.out.println("North Tiles Count = " + northTilesCount);
-        // System.out.println("South Tiles Count = " + southTilesCount);
-        // System.out.println("East Tiles Count = " + eastTilesCount);
-        //  System.out.println("West Tiles Count = " + westTilesCount);
+       // System.out.println("North Tiles Count = " + northTilesCount);
+       // System.out.println("South Tiles Count = " + southTilesCount);
+       // System.out.println("East Tiles Count = " + eastTilesCount);
+       // System.out.println("West Tiles Count = " + westTilesCount);
 
         // find which wall (North, South, East, West is closest
         if (northTilesCount <= southTilesCount && northTilesCount <= eastTilesCount && northTilesCount <= westTilesCount) {
