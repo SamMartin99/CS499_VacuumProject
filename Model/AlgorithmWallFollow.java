@@ -402,16 +402,19 @@ public class AlgorithmWallFollow {
             //System.out.println(" Direction is " + global.getVacuumDirection()+" X is: "+ x + " Y is: " + y + "Circuit is " + circuit);
             x--; // move one tile north
             if (circuit > 1 && circuitCheck == circuit && nearestWallDirction ==0 ) {
-                x++; // reset x because of circuit logic only need to do once per circuit
+                 x++; // reset x because of circuit logic only need to do once per circuit
                 circuitCheck = 0;
             }
            //System.out.println("Circuit is : "+ circuit);
-           if (circuit > 0 && numWall == 0 && x == wfMinRows)  {
+           //if (circuit > 0 && numWall == 0 && x == wfMinRows)  {
+            if (circuit > 0 && numWall == 0 && x == wfMinRows + circuit)  {
              //System.out.println("X is: " + x + ". Circuit is : " + circuit + ".  Wall number is : " + numWall);
              global.setVacuumDirection("West");
              x = circuit; // move x to the current circuit loop
              wfVacuum.setX(x);
-             wfTileArray.setTileClean(x, y--, wfCleanValue - 0.1, wfSimulationLayout);
+             if (nextTile.getType() != 4 && nextTile.getType() != 5 ) {
+                 wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
+             }
              nextTile = wfTileArray.getTile(x, y--);
              //System.out.println("Moving from North to West. " + "x is " + x + " y is " + y + " Walls " + numWall);
              numWall++;
@@ -456,17 +459,20 @@ public class AlgorithmWallFollow {
                 circuitCheck = 0;
             }
 
-            if (circuit > 0 && y == wfMinColumns)  {
-            //          if (circuit > 0 )  {
+            //if (circuit > 0 && y == wfMinColumns)  {
+            if (circuit > 0 && numWall == 0 && y == wfMinColumns + circuit)  {
+                    //          if (circuit > 0 )  {
                 //System.out.println("X is: " + x + ". Y is " + y + ". Circuit is : " + circuit + ".  Wall number is : " + numWall);
                 if (nearestWallDirction == 0 && numWall == 1) {  // first wall if count starts at the east wall
                     global.setVacuumDirection("South");
-                    x++;
-                    wfVacuum.setX(x);
+                    //x++;
+                    //wfVacuum.setX(x);
                     y = circuit; // move x to the current circuit loop
                     wfVacuum.setX(y);
                 //    System.out.println("X is: " + x + ". Y is " + y + ". Circuit is : " + circuit + ".  Wall number is : " + numWall + ". Vacuum Direction is " + global.getVacuumDirection());
-                    wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
+                    if (nextTile.getType() != 4 && nextTile.getType() != 5 ) {
+                        wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
+                    }
                     nextTile = wfTileArray.getTile(x, y);
                     //System.out.println("Moving from North to West. " + "x is " + x + " y is " + y + " Walls " + numWall);
                     numWall++;
@@ -521,7 +527,7 @@ public class AlgorithmWallFollow {
             wfVacuum.setX(x);
 
             if (circuit > 1 && circuitCheck == circuit && nearestWallDirction == 2) {
-                x--; // reset x
+               x--; // reset x
                circuitCheck = 0;
             }
 
@@ -532,9 +538,17 @@ public class AlgorithmWallFollow {
 
             if (circuit > 1 && x == wfMaxColumns -1 - circuit){ // a corner of circuit
                 global.setVacuumDirection("East"); // change direction to east
+                //x = circuit;
+                y = circuit;
+               // wfVacuum.setX(x);
+                wfVacuum.setY(y);
+
                 nextTile = wfTileArray.getTile(x, y);
                 //System.out.println("South to East circuit change. X is: "+ x + " Y is: " + y+ " Direction is " + global.getVacuumDirection());
-                wfTileArray.setTileClean(x, y++, wfCleanValue - 0.1, wfSimulationLayout);
+                if (nextTile.getType() != 4 && nextTile.getType() != 5 ) {
+                    wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
+                }
+               // wfTileArray.setTileClean(x, y++, wfCleanValue - 0.1, wfSimulationLayout);
                 nextTile = wfTileArray.getTile(x, y++);
                 //System.out.println("Moving from South to East. " + "x is " + x + " y is " + y + " Walls "+ numWall);
                 numWall++;
@@ -575,14 +589,16 @@ public class AlgorithmWallFollow {
                 //System.out.println("East to Nort circuit change. X is: " + x + " Y is: " + y + " Direction is " + global.getVacuumDirection());
                 global.setVacuumDirection("North");
                 //System.out.println(" Direction is " + global.getVacuumDirection()+" X is: "+ x + " Y is: " + y + " Next tile type is " + nextTile.getType());
-                //x = wfMaxRows - circuit;
+                x = wfMaxRows - circuit;
                // y = wfMaxColumns - circuit;
-                x--;
+                //x--;
                 wfVacuum.setX(x);
-                y--;
-                wfVacuum.setY(y);
-                wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
-                nextTile = wfTileArray.getTile(x--, y);
+               y--;
+               wfVacuum.setY(y);
+                if (nextTile.getType() != 4 && nextTile.getType() != 5 ) {
+                    wfTileArray.setTileClean(x, y, wfCleanValue - 0.1, wfSimulationLayout);
+                }
+               nextTile = wfTileArray.getTile(x--, y);
                 //System.out.println("Moving from East to North. " + "x is " + x + " y is " + y + " Walls "+ numWall);
                 numWall++;
                 return nextTile;
