@@ -79,7 +79,7 @@ public class SimTileGUI extends JButton {
 
         if (oldType == 1)
         {
-            icon = new ImageIcon("plainTile.png");
+            icon = new ImageIcon("cleanTile.png");
             this.setIcon(icon);
         }
         else if (oldType == 2)
