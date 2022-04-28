@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e4fa35f-5df2-4380-be9f-67b8e212837a" name="Changes" comment="Changes: Ignore.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmRandom.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmRandom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSnake.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSnake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/AlgorithmSpiral.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/RunSimulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/RunSimulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/SimTileGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/SimTileGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/TileArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/TileArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/Vacuum.java" beforeDir="false" afterPath="$PROJECT_DIR$/Model/Vacuum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS499_VacuumProject/plainTile.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS499_VacuumProject/plainTile.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

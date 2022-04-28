@@ -12,8 +12,7 @@ package View;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -43,8 +42,6 @@ public class MainHouseLayoutGUI {
     private int rs = 25;  // Run speed
 
     // Attributes
-
-    staticVariable arrayBounds = new staticVariable();
     // TileArray TA = new TileArray(maxRow, maxColumn);
     TileArray TA;
     // TileArray TA = new TileArray(arrayBounds);
@@ -52,10 +49,7 @@ public class MainHouseLayoutGUI {
     JButton saveHouseLayoutButton = new JButton("Save");
     JButton loadHouseLayoutButton = new JButton("Load");
     JButton runSimulationButton = new JButton("Run");
-    JButton stopSimulationButton = new JButton("Stop");
- //   JButton simResults = new JButton ("Previous Simulation Results");
     JPanel houseTile = new JPanel();
-    JPanel houseTileHeader = new JPanel();
     JPanel houseTileIndividualTiles = new JPanel();
     JPanel houseLayout = new JPanel();
     JPanel houseCenter = new JPanel();
@@ -68,8 +62,6 @@ public class MainHouseLayoutGUI {
     JPanel LayoutPaths = new JPanel();
     JPanel LayoutSimualtion = new JPanel();
     JFrame MainHouseLayoutFrame = new JFrame("Clean Buddy -- General View");
-    JTextArea tileText = new JTextArea("Layout Name");
-    JButton layoutbtn = new JButton();
 
     JButton Wallbtn = new JButton("Wall");
     JButton Doorwaybtn = new JButton("Doorway");
@@ -104,10 +96,6 @@ public class MainHouseLayoutGUI {
     GridBagLayout gblHouseTilesLayout = new GridBagLayout();
     GridBagConstraints gblHouseTilesLayoutConstraints = new GridBagConstraints();
 
-    // In House Tile {anel use the grid layout
-    GridBagLayout gblHouseTile = new GridBagLayout();
-    GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
-
     /**
      * Default constructor
      *
@@ -132,9 +120,8 @@ public class MainHouseLayoutGUI {
         // set up borders definition
         Border houseTileBorder , houseLayoutBorder, houseActionsBorder, houseFileHandlingBorder, houseSimulationBorder,
                LayoutWallDoorwayBorder, LayoutFurnitureBorder, LayoutFloorsBorder, LayoutPathBorder, LayoutSimulationBorder, menuBorder ;
-        houseTileBorder = BorderFactory.createTitledBorder("House Tiles");
         String houseLayoutName = inpHouseLayout.getLayoutName();
-        houseLayoutBorder = BorderFactory.createTitledBorder("Layout Name: "+ houseLayoutName);
+        houseLayoutBorder = BorderFactory.createTitledBorder("Layout Name: "+ houseLayoutName + " (disclaimer: each tile is 2x2ft)");
         houseActionsBorder = BorderFactory.createTitledBorder("Actions");
         houseFileHandlingBorder = BorderFactory.createTitledBorder("File Handling");
         houseSimulationBorder = BorderFactory.createTitledBorder("Simulation");
@@ -221,7 +208,6 @@ public class MainHouseLayoutGUI {
         // House Tiles - West side
         int tileRow = 0;
         int tileColumn = 0;
-        String tileName = "";
         // houseTileIndividualTiles.setLayout(gblHouseTile);
         houseTileIndividualTiles.setLayout(gblHouseTilesLayout);
         GridBagConstraints gblHouseTileConstraints = new GridBagConstraints();
@@ -233,7 +219,6 @@ public class MainHouseLayoutGUI {
         // for (tileRow = 0; tileRow < maxTitleRow; tileRow ++){
         for (tileRow = minRow; tileRow < maxRow; tileRow ++){
             for (tileColumn = minColumn; tileColumn < maxColumn; tileColumn ++){
-                tileName = "Tile" + tileRow + tileColumn;
                 gblHouseTileConstraints.gridx = tileColumn;
                 gblHouseTileConstraints.gridy = tileRow;
 
@@ -505,7 +490,7 @@ public class MainHouseLayoutGUI {
                 HouseLayout hl = new HouseLayout(s1, sv); // Make a new house layout with the name gotten from the user and the sv we just made
                 TileArray temp = new TileArray(length, width); // Make a new tile array with the appropriate length and width
                 MainHouseLayoutGUI mainWindowGUI = new MainHouseLayoutGUI(hl, sv,  temp); // Make a new gui for that house layout
-                mainWindowGUI.DisplayHouseLayout(mainWindowGUI); // Display that new gui
+                mainWindowGUI.DisplayHouseLayout(); // Display that new gui
                 MainHouseLayoutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // for the previously active GUI, set it to close the window but keep the app running
                 MainHouseLayoutFrame.dispatchEvent(new WindowEvent(MainHouseLayoutFrame, WindowEvent.WINDOW_CLOSING)); // Dispatch a window event to close the previous window
             }
@@ -525,7 +510,7 @@ public class MainHouseLayoutGUI {
                     staticVariable sv = new staticVariable();
                     HouseLayout hl = new HouseLayout("test", sv); // Make a new house layout with the data we've read from the file
                     MainHouseLayoutGUI mainWindowGUI = new MainHouseLayoutGUI(hl, sv,  temp); // Make a new gui for that house layout
-                    mainWindowGUI.DisplayHouseLayout(mainWindowGUI); // Display that new gui
+                    mainWindowGUI.DisplayHouseLayout(); // Display that new gui
                     MainHouseLayoutFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // for the previously active GUI, set it to close the window but keep the app running
                     MainHouseLayoutFrame.dispatchEvent(new WindowEvent(MainHouseLayoutFrame, WindowEvent.WINDOW_CLOSING)); // Dispatch a window event to close the previous window
                     houseLayoutFile.close(); // close the file
@@ -618,7 +603,7 @@ public class MainHouseLayoutGUI {
      * @parm
      *
      */
-    public void DisplayHouseLayout(MainHouseLayoutGUI inpHouseLayoutGUI) {
+    public void DisplayHouseLayout() {
 
         SwingUtilities.invokeLater(new Runnable() {
             @Override

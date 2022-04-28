@@ -21,10 +21,6 @@ import java.io.*;
 /* FrameDemo.java requires no other files. */
 
 public class SplashScreen {
-
-    // Global variable to indicate the type of tile (wall, door, etc)
-    static String tileType = "";
-
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -70,7 +66,7 @@ public class SplashScreen {
                 myhouse = new HouseLayout("Default House", arrayBounds); // Populate the HouseLayout with data from the default file
 
                 MainHouseLayoutGUI MainHouselayout = new MainHouseLayoutGUI(myhouse,arrayValues, testArr);  // mh create a house layout object
-                MainHouselayout.DisplayHouseLayout(MainHouselayout);       // mh Display the MainHouseLayout
+                MainHouselayout.DisplayHouseLayout();       // mh Display the MainHouseLayout
 
             }
         });  //mh react to the Start button click
@@ -90,7 +86,7 @@ public class SplashScreen {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
